@@ -111,22 +111,25 @@
 <!-- Hero Section -->
 <section class="relative min-h-[90vh] flex items-center gradient-bg text-white overflow-hidden">
 	<div class="absolute inset-0 bg-[url('/grid-pattern.svg')] opacity-5"></div>
+	<div class="absolute top-20 right-20 w-72 h-72 bg-pink-500 rounded-full mix-blend-multiply filter blur-3xl opacity-30 animate-pulse-slow"></div>
+	<div class="absolute bottom-20 left-20 w-96 h-96 bg-purple-500 rounded-full mix-blend-multiply filter blur-3xl opacity-30 animate-pulse-slow" style="animation-delay: 1s;"></div>
+	<div class="absolute top-1/2 left-1/2 w-80 h-80 bg-orange-500 rounded-full mix-blend-multiply filter blur-3xl opacity-30 animate-pulse-slow" style="animation-delay: 2s;"></div>
 	<div class="section relative z-10">
 		<div class="max-w-5xl">
 			<div class="mb-8 observe">
-				<p class="text-amber-400 font-medium tracking-[0.3em] uppercase text-sm mb-6">Portfolio & Studio</p>
-				<h1 class="text-5xl md:text-7xl lg:text-8xl font-bold mb-8 leading-[1.1]" style="font-family: 'Playfair Display', serif;">
+				<p class="text-pink-300 font-bold tracking-[0.3em] uppercase text-sm mb-6 animate-pulse-slow">🎨 Portfolio & Studio</p>
+				<h1 class="text-5xl md:text-7xl lg:text-8xl font-black mb-8 leading-[1.1]" style="font-family: 'Playfair Display', serif;">
 					Projektowanie<br>
 					Przestrzeni<br>
-					<span class="text-amber-400">& Identyfikacji</span>
+					<span class="bg-gradient-to-r from-pink-300 via-purple-300 to-orange-300 bg-clip-text text-transparent">& Identyfikacji</span>
 				</h1>
 			</div>
-			<p class="text-xl md:text-2xl mb-12 max-w-3xl leading-relaxed text-gray-200 observe" style="font-family: 'Inter', sans-serif; font-weight: 300;">
-				Tworzę harmonijne przestrzenie i spójne identyfikacje wizualne.
-				Łączę architektoniczne wykształcenie z pasją do designu graficznego.
+			<p class="text-xl md:text-2xl mb-12 max-w-3xl leading-relaxed text-gray-100 observe" style="font-family: 'Inter', sans-serif; font-weight: 400;">
+				Tworzę <span class="text-pink-300 font-bold">odważne</span> przestrzenie i <span class="text-purple-300 font-bold">kreatywne</span> identyfikacje wizualne.
+				Łączę architektoniczne wykształcenie z pasją do nowoczesnego designu.
 			</p>
 			<div class="flex flex-col sm:flex-row gap-6 observe">
-				<a href="#portfolio" class="btn">
+				<a href="#portfolio" class="btn animate-float">
 					Zobacz Portfolio
 				</a>
 				<a href="#kontakt" class="btn-secondary">
@@ -136,42 +139,44 @@
 		</div>
 	</div>
 	<div class="absolute bottom-12 left-1/2 -translate-x-1/2 animate-bounce">
-		<svg class="w-6 h-6 text-white/60" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+		<svg class="w-6 h-6 text-pink-300" fill="none" stroke="currentColor" viewBox="0 0 24 24">
 			<path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 14l-7 7m0 0l-7-7m7 7V3"></path>
 		</svg>
 	</div>
 </section>
 
 <!-- Stats Section -->
-<section class="section bg-gray-50 border-y border-gray-200">
+<section class="section bg-gradient-to-r from-purple-50 via-pink-50 to-orange-50 border-y border-purple-100">
 	<div class="grid grid-cols-2 md:grid-cols-4 gap-12">
-		<div class="text-center observe">
-			<div class="text-5xl font-bold mb-3 text-gray-900" style="font-family: 'Playfair Display', serif;">50+</div>
-			<div class="text-sm text-gray-600 uppercase tracking-wider">Zrealizowanych projektów</div>
+		<div class="text-center observe transform hover:scale-110 transition-transform duration-300">
+			<div class="text-5xl font-black mb-3 gradient-text" style="font-family: 'Playfair Display', serif;">50+</div>
+			<div class="text-sm text-gray-700 uppercase tracking-wider font-bold">Zrealizowanych projektów</div>
 		</div>
-		<div class="text-center observe">
-			<div class="text-5xl font-bold mb-3 text-gray-900" style="font-family: 'Playfair Display', serif;">5+</div>
-			<div class="text-sm text-gray-600 uppercase tracking-wider">Lat doświadczenia</div>
+		<div class="text-center observe transform hover:scale-110 transition-transform duration-300">
+			<div class="text-5xl font-black mb-3 gradient-text" style="font-family: 'Playfair Display', serif;">5+</div>
+			<div class="text-sm text-gray-700 uppercase tracking-wider font-bold">Lat doświadczenia</div>
 		</div>
-		<div class="text-center observe">
-			<div class="text-5xl font-bold mb-3 text-gray-900" style="font-family: 'Playfair Display', serif;">100%</div>
-			<div class="text-sm text-gray-600 uppercase tracking-wider">Zadowolonych klientów</div>
+		<div class="text-center observe transform hover:scale-110 transition-transform duration-300">
+			<div class="text-5xl font-black mb-3 gradient-text" style="font-family: 'Playfair Display', serif;">100%</div>
+			<div class="text-sm text-gray-700 uppercase tracking-wider font-bold">Zadowolonych klientów</div>
 		</div>
-		<div class="text-center observe">
-			<div class="text-5xl font-bold mb-3 text-gray-900" style="font-family: 'Playfair Display', serif;">15+</div>
-			<div class="text-sm text-gray-600 uppercase tracking-wider">Nagród branżowych</div>
+		<div class="text-center observe transform hover:scale-110 transition-transform duration-300">
+			<div class="text-5xl font-black mb-3 gradient-text" style="font-family: 'Playfair Display', serif;">15+</div>
+			<div class="text-sm text-gray-700 uppercase tracking-wider font-bold">Nagród branżowych</div>
 		</div>
 	</div>
 </section>
 
 <!-- About Section -->
-<section id="omnie" class="section bg-white">
-	<div class="grid md:grid-cols-2 gap-16 lg:gap-24 items-center">
+<section id="omnie" class="section bg-white relative overflow-hidden">
+	<div class="absolute top-0 right-0 w-96 h-96 bg-purple-100 rounded-full filter blur-3xl opacity-30"></div>
+	<div class="absolute bottom-0 left-0 w-96 h-96 bg-pink-100 rounded-full filter blur-3xl opacity-30"></div>
+	<div class="grid md:grid-cols-2 gap-16 lg:gap-24 items-center relative z-10">
 		<div class="observe">
-			<p class="text-amber-600 font-medium tracking-[0.3em] uppercase text-sm mb-4">O mnie</p>
-			<h2 class="text-4xl md:text-5xl lg:text-6xl font-bold mb-8 leading-tight" style="font-family: 'Playfair Display', serif;">
+			<p class="text-purple-600 font-black tracking-[0.3em] uppercase text-sm mb-4">⭐ O mnie</p>
+			<h2 class="text-4xl md:text-5xl lg:text-6xl font-black mb-8 leading-tight" style="font-family: 'Playfair Display', serif;">
 				Design który<br>
-				<span class="italic">zmienia</span><br>
+				<span class="italic gradient-text">zmienia</span><br>
 				przestrzenie
 			</h2>
 			<div class="space-y-6 text-gray-600 leading-relaxed text-lg">
@@ -223,26 +228,27 @@
 </section>
 
 <!-- Services Section -->
-<section id="oferta" class="section bg-gray-50">
-	<div class="text-center mb-20 observe">
-		<p class="text-amber-600 font-medium tracking-[0.3em] uppercase text-sm mb-4">Usługi</p>
-		<h2 class="text-4xl md:text-5xl lg:text-6xl font-bold mb-6 leading-tight" style="font-family: 'Playfair Display', serif;">
-			Kompleksowa<br>obsługa projektowa
+<section id="oferta" class="section bg-gradient-to-br from-purple-50 via-white to-pink-50 relative overflow-hidden">
+	<div class="absolute top-20 left-20 w-64 h-64 bg-orange-200 rounded-full filter blur-3xl opacity-20 animate-pulse-slow"></div>
+	<div class="text-center mb-20 observe relative z-10">
+		<p class="text-purple-600 font-black tracking-[0.3em] uppercase text-sm mb-4">💼 Usługi</p>
+		<h2 class="text-4xl md:text-5xl lg:text-6xl font-black mb-6 leading-tight" style="font-family: 'Playfair Display', serif;">
+			Kompleksowa<br><span class="gradient-text">obsługa projektowa</span>
 		</h2>
 		<p class="text-xl text-gray-600 max-w-3xl mx-auto leading-relaxed">
 			Od koncepcji po realizację - pełne wsparcie w procesie projektowania wnętrz i tworzenia identyfikacji wizualnej.
 		</p>
 	</div>
 
-	<div class="grid md:grid-cols-3 gap-8 lg:gap-12">
+	<div class="grid md:grid-cols-3 gap-8 lg:gap-12 relative z-10">
 		{#each services as service, i}
-			<div class="bg-white p-10 lg:p-12 hover-lift observe group border border-gray-100" style="animation-delay: {i * 100}ms">
+			<div class="bg-white p-10 lg:p-12 hover-lift observe group border-2 border-purple-100 hover:border-purple-300 rounded-2xl hover:shadow-2xl hover:shadow-purple-200" style="animation-delay: {i * 100}ms">
 				<div class="mb-8">
-					<div class="text-6xl font-light text-gray-300 group-hover:text-amber-600 transition-colors duration-500" style="font-family: 'Playfair Display', serif;">
+					<div class="text-6xl font-light gradient-text transition-all duration-500 transform group-hover:scale-110 group-hover:rotate-12" style="font-family: 'Playfair Display', serif;">
 						{service.icon}
 					</div>
 				</div>
-				<h3 class="text-2xl lg:text-3xl font-bold mb-4 text-gray-900" style="font-family: 'Playfair Display', serif;">
+				<h3 class="text-2xl lg:text-3xl font-black mb-4 text-gray-900 group-hover:text-purple-600 transition-colors" style="font-family: 'Playfair Display', serif;">
 					{service.title}
 				</h3>
 				<p class="text-gray-600 mb-8 leading-relaxed">
@@ -262,11 +268,12 @@
 </section>
 
 <!-- Portfolio Section -->
-<section id="portfolio" class="section bg-white">
-	<div class="text-center mb-20 observe">
-		<p class="text-amber-600 font-medium tracking-[0.3em] uppercase text-sm mb-4">Portfolio</p>
-		<h2 class="text-4xl md:text-5xl lg:text-6xl font-bold mb-6 leading-tight" style="font-family: 'Playfair Display', serif;">
-			Wybrane<br>realizacje
+<section id="portfolio" class="section bg-white relative overflow-hidden">
+	<div class="absolute top-0 left-1/2 w-96 h-96 bg-pink-100 rounded-full filter blur-3xl opacity-30"></div>
+	<div class="text-center mb-20 observe relative z-10">
+		<p class="text-purple-600 font-black tracking-[0.3em] uppercase text-sm mb-4">🎨 Portfolio</p>
+		<h2 class="text-4xl md:text-5xl lg:text-6xl font-black mb-6 leading-tight" style="font-family: 'Playfair Display', serif;">
+			<span class="gradient-text">Wybrane</span><br>realizacje
 		</h2>
 		<p class="text-xl text-gray-600 max-w-3xl mx-auto mb-12 leading-relaxed">
 			Każdy projekt to indywidualna historia połączenia formy, funkcji i charakteru klienta.
@@ -276,31 +283,31 @@
 		<div class="flex justify-center gap-4 flex-wrap">
 			<button
 				onclick={() => activeFilter = 'wszystkie'}
-				class="px-6 py-2 text-sm uppercase tracking-wider transition-all duration-300 {activeFilter === 'wszystkie' ? 'bg-gray-900 text-white' : 'bg-transparent text-gray-600 hover:text-gray-900 border border-gray-200'}"
+				class="px-8 py-3 text-sm uppercase tracking-wider font-bold transition-all duration-300 rounded-lg {activeFilter === 'wszystkie' ? 'bg-gradient-to-r from-purple-600 to-pink-600 text-white shadow-lg' : 'bg-transparent text-gray-600 hover:text-purple-600 border-2 border-gray-200 hover:border-purple-300'}"
 			>
 				Wszystkie
 			</button>
 			<button
 				onclick={() => activeFilter = 'wnętrza'}
-				class="px-6 py-2 text-sm uppercase tracking-wider transition-all duration-300 {activeFilter === 'wnętrza' ? 'bg-gray-900 text-white' : 'bg-transparent text-gray-600 hover:text-gray-900 border border-gray-200'}"
+				class="px-8 py-3 text-sm uppercase tracking-wider font-bold transition-all duration-300 rounded-lg {activeFilter === 'wnętrza' ? 'bg-gradient-to-r from-purple-600 to-pink-600 text-white shadow-lg' : 'bg-transparent text-gray-600 hover:text-purple-600 border-2 border-gray-200 hover:border-purple-300'}"
 			>
 				Wnętrza
 			</button>
 			<button
 				onclick={() => activeFilter = 'grafika'}
-				class="px-6 py-2 text-sm uppercase tracking-wider transition-all duration-300 {activeFilter === 'grafika' ? 'bg-gray-900 text-white' : 'bg-transparent text-gray-600 hover:text-gray-900 border border-gray-200'}"
+				class="px-8 py-3 text-sm uppercase tracking-wider font-bold transition-all duration-300 rounded-lg {activeFilter === 'grafika' ? 'bg-gradient-to-r from-purple-600 to-pink-600 text-white shadow-lg' : 'bg-transparent text-gray-600 hover:text-purple-600 border-2 border-gray-200 hover:border-purple-300'}"
 			>
 				Grafika
 			</button>
 		</div>
 	</div>
 
-	<div class="grid md:grid-cols-2 lg:grid-cols-3 gap-8 lg:gap-12">
+	<div class="grid md:grid-cols-2 lg:grid-cols-3 gap-8 lg:gap-12 relative z-10">
 		{#each projects.filter(p => activeFilter === 'wszystkie' || p.category === activeFilter) as project, i}
 			<div class="group observe hover-lift" style="animation-delay: {i * 100}ms">
-				<div class="aspect-[4/5] bg-gray-100 relative overflow-hidden mb-6">
-					<div class="absolute inset-0 bg-gradient-to-br from-gray-900/10 to-amber-600/10 group-hover:from-gray-900/30 group-hover:to-amber-600/30 transition-all duration-500"></div>
-					<div class="absolute top-6 right-6 bg-white px-4 py-2 text-xs font-medium tracking-wider uppercase">
+				<div class="aspect-[4/5] bg-gradient-to-br from-purple-100 via-pink-100 to-orange-100 relative overflow-hidden mb-6 rounded-2xl border-2 border-purple-100 group-hover:border-purple-300 transition-all duration-300">
+					<div class="absolute inset-0 bg-gradient-to-br from-purple-600/10 to-pink-600/10 group-hover:from-purple-600/20 group-hover:to-pink-600/20 transition-all duration-500"></div>
+					<div class="absolute top-6 right-6 bg-gradient-to-r from-purple-600 to-pink-600 text-white px-4 py-2 text-xs font-bold tracking-wider uppercase rounded-lg shadow-lg">
 						{project.year}
 					</div>
 					<div class="absolute inset-0 flex items-center justify-center opacity-0 group-hover:opacity-100 transition-opacity duration-500">
@@ -315,11 +322,11 @@
 				</div>
 				<div class="space-y-3">
 					<div class="flex items-center justify-between">
-						<span class="text-xs uppercase tracking-wider text-amber-600 font-medium">
+						<span class="text-xs uppercase tracking-wider text-purple-600 font-black px-3 py-1 bg-purple-50 rounded-full">
 							{project.category === 'wnętrza' ? 'Wnętrza' : 'Grafika'}
 						</span>
 					</div>
-					<h3 class="text-2xl font-bold text-gray-900 group-hover:text-amber-600 transition-colors" style="font-family: 'Playfair Display', serif;">
+					<h3 class="text-2xl font-black text-gray-900 group-hover:text-purple-600 transition-colors" style="font-family: 'Playfair Display', serif;">
 						{project.title}
 					</h3>
 					<p class="text-gray-600 leading-relaxed">
@@ -339,32 +346,35 @@
 </section>
 
 <!-- Testimonial Section -->
-<section class="section bg-gray-900 text-white">
-	<div class="max-w-4xl mx-auto text-center observe">
+<section class="section gradient-bg text-white relative overflow-hidden">
+	<div class="absolute top-10 right-10 w-72 h-72 bg-pink-500 rounded-full mix-blend-multiply filter blur-3xl opacity-20 animate-pulse-slow"></div>
+	<div class="absolute bottom-10 left-10 w-72 h-72 bg-purple-500 rounded-full mix-blend-multiply filter blur-3xl opacity-20 animate-pulse-slow" style="animation-delay: 1.5s;"></div>
+	<div class="max-w-4xl mx-auto text-center observe relative z-10">
 		<div class="mb-12">
-			<svg class="w-16 h-16 mx-auto text-amber-600 opacity-50" fill="currentColor" viewBox="0 0 24 24">
+			<svg class="w-16 h-16 mx-auto text-pink-300 opacity-70" fill="currentColor" viewBox="0 0 24 24">
 				<path d="M14.017 21v-7.391c0-5.704 3.731-9.57 8.983-10.609l.995 2.151c-2.432.917-3.995 3.638-3.995 5.849h4v10h-9.983zm-14.017 0v-7.391c0-5.704 3.748-9.57 9-10.609l.996 2.151c-2.433.917-3.996 3.638-3.996 5.849h3.983v10h-9.983z"/>
 			</svg>
 		</div>
 		<blockquote class="text-2xl md:text-3xl lg:text-4xl font-light mb-8 leading-relaxed" style="font-family: 'Playfair Display', serif;">
-			Współpraca z Pikastro to była czysta przyjemność. Profesjonalizm, kreatywność i perfekcyjne
-			wyczucie naszych potrzeb zaowocowały przestrzenią, która przekroczyła nasze oczekiwania.
+			Współpraca z Pikastro to była <span class="text-pink-300 font-bold">czysta przyjemność</span>. Profesjonalizm, kreatywność i perfekcyjne
+			wyczucie naszych potrzeb zaowocowały przestrzenią, która <span class="text-purple-300 font-bold">przekroczyła nasze oczekiwania</span>.
 		</blockquote>
-		<div class="text-amber-400 font-medium">
-			<p class="mb-1">Anna Kowalska</p>
-			<p class="text-sm text-gray-400">CEO, TechStart Solutions</p>
+		<div class="text-pink-300 font-bold">
+			<p class="mb-1 text-lg">Anna Kowalska</p>
+			<p class="text-sm text-gray-300">CEO, TechStart Solutions</p>
 		</div>
 	</div>
 </section>
 
 <!-- Contact Section -->
-<section id="kontakt" class="section bg-white">
-	<div class="grid lg:grid-cols-2 gap-16 lg:gap-24">
+<section id="kontakt" class="section bg-gradient-to-br from-purple-50 via-pink-50 to-orange-50 relative overflow-hidden">
+	<div class="absolute top-0 right-0 w-96 h-96 bg-purple-200 rounded-full filter blur-3xl opacity-30"></div>
+	<div class="grid lg:grid-cols-2 gap-16 lg:gap-24 relative z-10">
 		<div class="observe">
-			<p class="text-amber-600 font-medium tracking-[0.3em] uppercase text-sm mb-4">Kontakt</p>
-			<h2 class="text-4xl md:text-5xl lg:text-6xl font-bold mb-8 leading-tight text-gray-900" style="font-family: 'Playfair Display', serif;">
+			<p class="text-purple-600 font-black tracking-[0.3em] uppercase text-sm mb-4">💬 Kontakt</p>
+			<h2 class="text-4xl md:text-5xl lg:text-6xl font-black mb-8 leading-tight text-gray-900" style="font-family: 'Playfair Display', serif;">
 				Rozpocznijmy<br>
-				<span class="italic">współpracę</span>
+				<span class="italic gradient-text">współpracę</span>
 			</h2>
 			<p class="text-xl text-gray-600 mb-12 leading-relaxed">
 				Masz pomysł na projekt? Chcesz stworzyć wyjątkową przestrzeń lub odświeżyć identyfikację wizualną?
@@ -414,45 +424,45 @@
 			</div>
 
 			<div class="flex space-x-4 mt-12">
-				<a href="#" class="w-12 h-12 border border-gray-200 flex items-center justify-center hover:bg-gray-900 hover:text-white hover:border-gray-900 transition-all duration-300">
-					<span class="text-sm font-medium">in</span>
+				<a href="#" class="w-14 h-14 border-2 border-purple-300 rounded-lg flex items-center justify-center hover:bg-gradient-to-r hover:from-purple-600 hover:to-pink-600 hover:text-white hover:border-transparent transition-all duration-300 hover:scale-110 hover:shadow-lg">
+					<span class="text-sm font-bold">in</span>
 				</a>
-				<a href="#" class="w-12 h-12 border border-gray-200 flex items-center justify-center hover:bg-gray-900 hover:text-white hover:border-gray-900 transition-all duration-300">
-					<span class="text-sm font-medium">be</span>
+				<a href="#" class="w-14 h-14 border-2 border-purple-300 rounded-lg flex items-center justify-center hover:bg-gradient-to-r hover:from-purple-600 hover:to-pink-600 hover:text-white hover:border-transparent transition-all duration-300 hover:scale-110 hover:shadow-lg">
+					<span class="text-sm font-bold">be</span>
 				</a>
-				<a href="#" class="w-12 h-12 border border-gray-200 flex items-center justify-center hover:bg-gray-900 hover:text-white hover:border-gray-900 transition-all duration-300">
-					<span class="text-sm font-medium">ig</span>
+				<a href="#" class="w-14 h-14 border-2 border-purple-300 rounded-lg flex items-center justify-center hover:bg-gradient-to-r hover:from-purple-600 hover:to-pink-600 hover:text-white hover:border-transparent transition-all duration-300 hover:scale-110 hover:shadow-lg">
+					<span class="text-sm font-bold">ig</span>
 				</a>
 			</div>
 		</div>
 
-		<div class="bg-gray-50 p-10 lg:p-12 observe">
+		<div class="bg-white p-10 lg:p-12 observe rounded-2xl border-2 border-purple-200 shadow-xl">
 			<form class="space-y-6">
 				<div>
-					<label for="name" class="block text-sm uppercase tracking-wider text-gray-700 mb-2">Imię i nazwisko</label>
+					<label for="name" class="block text-sm uppercase tracking-wider font-bold text-gray-700 mb-2">Imię i nazwisko</label>
 					<input
 						type="text"
 						id="name"
-						class="w-full px-4 py-3 border border-gray-200 focus:border-gray-900 focus:outline-none transition-colors bg-white"
+						class="w-full px-4 py-3 border-2 border-purple-200 rounded-lg focus:border-purple-600 focus:outline-none transition-all bg-white"
 						placeholder="Jan Kowalski"
 					/>
 				</div>
 
 				<div>
-					<label for="email" class="block text-sm uppercase tracking-wider text-gray-700 mb-2">Email</label>
+					<label for="email" class="block text-sm uppercase tracking-wider font-bold text-gray-700 mb-2">Email</label>
 					<input
 						type="email"
 						id="email"
-						class="w-full px-4 py-3 border border-gray-200 focus:border-gray-900 focus:outline-none transition-colors bg-white"
+						class="w-full px-4 py-3 border-2 border-purple-200 rounded-lg focus:border-purple-600 focus:outline-none transition-all bg-white"
 						placeholder="jan@example.com"
 					/>
 				</div>
 
 				<div>
-					<label for="project" class="block text-sm uppercase tracking-wider text-gray-700 mb-2">Typ projektu</label>
+					<label for="project" class="block text-sm uppercase tracking-wider font-bold text-gray-700 mb-2">Typ projektu</label>
 					<select
 						id="project"
-						class="w-full px-4 py-3 border border-gray-200 focus:border-gray-900 focus:outline-none transition-colors bg-white"
+						class="w-full px-4 py-3 border-2 border-purple-200 rounded-lg focus:border-purple-600 focus:outline-none transition-all bg-white"
 					>
 						<option>Projektowanie wnętrz</option>
 						<option>Identyfikacja wizualna</option>
@@ -462,11 +472,11 @@
 				</div>
 
 				<div>
-					<label for="message" class="block text-sm uppercase tracking-wider text-gray-700 mb-2">Wiadomość</label>
+					<label for="message" class="block text-sm uppercase tracking-wider font-bold text-gray-700 mb-2">Wiadomość</label>
 					<textarea
 						id="message"
 						rows="5"
-						class="w-full px-4 py-3 border border-gray-200 focus:border-gray-900 focus:outline-none transition-colors bg-white resize-none"
+						class="w-full px-4 py-3 border-2 border-purple-200 rounded-lg focus:border-purple-600 focus:outline-none transition-all bg-white resize-none"
 						placeholder="Opowiedz o swoim projekcie..."
 					></textarea>
 				</div>
@@ -480,34 +490,36 @@
 </section>
 
 <!-- Footer -->
-<footer class="bg-gray-900 text-white py-16 px-6 md:px-12">
-	<div class="max-w-7xl mx-auto">
+<footer class="gradient-bg text-white py-16 px-6 md:px-12 relative overflow-hidden">
+	<div class="absolute top-0 right-0 w-96 h-96 bg-pink-500 rounded-full mix-blend-multiply filter blur-3xl opacity-10"></div>
+	<div class="absolute bottom-0 left-0 w-96 h-96 bg-purple-500 rounded-full mix-blend-multiply filter blur-3xl opacity-10"></div>
+	<div class="max-w-7xl mx-auto relative z-10">
 		<div class="grid md:grid-cols-3 gap-12 mb-12">
 			<div>
-				<h3 class="text-2xl font-bold mb-4" style="font-family: 'Playfair Display', serif;">Pikastro</h3>
-				<p class="text-gray-400 leading-relaxed">
-					Studio projektowe specjalizujące się w projektowaniu wnętrz i identyfikacji wizualnej.
+				<h3 class="text-3xl font-black mb-4" style="font-family: 'Playfair Display', serif;">Pikastro</h3>
+				<p class="text-gray-200 leading-relaxed">
+					Studio projektowe specjalizujące się w projektowaniu wnętrz i identyfikacji wizualnej dla młodych, odważnych ludzi.
 				</p>
 			</div>
 			<div>
-				<h4 class="text-sm uppercase tracking-wider mb-4 text-gray-400">Nawigacja</h4>
+				<h4 class="text-sm uppercase tracking-wider mb-4 font-bold text-pink-300">Nawigacja</h4>
 				<ul class="space-y-2">
-					<li><a href="#omnie" class="text-gray-400 hover:text-white transition-colors">O mnie</a></li>
-					<li><a href="#oferta" class="text-gray-400 hover:text-white transition-colors">Oferta</a></li>
-					<li><a href="#portfolio" class="text-gray-400 hover:text-white transition-colors">Portfolio</a></li>
-					<li><a href="#kontakt" class="text-gray-400 hover:text-white transition-colors">Kontakt</a></li>
+					<li><a href="#omnie" class="text-gray-200 hover:text-pink-300 transition-colors font-medium">O mnie</a></li>
+					<li><a href="#oferta" class="text-gray-200 hover:text-pink-300 transition-colors font-medium">Oferta</a></li>
+					<li><a href="#portfolio" class="text-gray-200 hover:text-pink-300 transition-colors font-medium">Portfolio</a></li>
+					<li><a href="#kontakt" class="text-gray-200 hover:text-pink-300 transition-colors font-medium">Kontakt</a></li>
 				</ul>
 			</div>
 			<div>
-				<h4 class="text-sm uppercase tracking-wider mb-4 text-gray-400">Kontakt</h4>
-				<ul class="space-y-2 text-gray-400">
+				<h4 class="text-sm uppercase tracking-wider mb-4 font-bold text-pink-300">Kontakt</h4>
+				<ul class="space-y-2 text-gray-200 font-medium">
 					<li>kontakt@pikastro.pl</li>
 					<li>Kraków, Polska</li>
 				</ul>
 			</div>
 		</div>
-		<div class="pt-8 border-t border-gray-800 text-center text-sm text-gray-500">
-			<p>&copy; 2025 Pikastro. Wszystkie prawa zastrzeżone.</p>
+		<div class="pt-8 border-t border-white/20 text-center text-sm text-gray-300">
+			<p class="font-medium">&copy; 2025 Pikastro. Wszystkie prawa zastrzeżone.</p>
 		</div>
 	</div>
 </footer>
