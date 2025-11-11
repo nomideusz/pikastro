@@ -112,43 +112,43 @@
 <!-- Hero Section -->
 <section class="relative min-h-[90vh] flex items-center gradient-bg text-white overflow-hidden">
 	<div class="absolute inset-0 bg-[url('/grid-pattern.svg')] opacity-5"></div>
-	<div class="absolute top-20 right-20 w-72 h-72 bg-pink-500 rounded-full mix-blend-multiply filter blur-3xl opacity-30 animate-pulse-slow"></div>
-	<div class="absolute bottom-20 left-20 w-96 h-96 bg-purple-500 rounded-full mix-blend-multiply filter blur-3xl opacity-30 animate-pulse-slow" style="animation-delay: 1s;"></div>
-	<div class="absolute top-1/2 left-1/2 w-80 h-80 bg-orange-500 rounded-full mix-blend-multiply filter blur-3xl opacity-30 animate-pulse-slow" style="animation-delay: 2s;"></div>
+	<div class="absolute top-20 right-20 w-72 h-72 bg-[#FB7185] rounded-full mix-blend-multiply filter blur-3xl opacity-30 animate-pulse-slow"></div>
+	<div class="absolute bottom-20 left-20 w-96 h-96 bg-[#27275b] rounded-full mix-blend-multiply filter blur-3xl opacity-30 animate-pulse-slow" style="animation-delay: 1s;"></div>
+	<div class="absolute top-1/2 left-1/2 w-80 h-80 bg-[#10B981] rounded-full mix-blend-multiply filter blur-3xl opacity-30 animate-pulse-slow" style="animation-delay: 2s;"></div>
 	<div class="section relative z-10">
 		<div class="max-w-5xl">
 			<div class="mb-8 observe">
-				<p class="text-pink-300 font-bold tracking-[0.3em] uppercase text-sm mb-6 animate-pulse-slow">🎨 Portfolio & Studio</p>
+				<p class="text-[#FB7185] font-bold tracking-[0.3em] uppercase text-sm mb-6 animate-pulse-slow neon-text">🤖 AI Design Studio</p>
 				<h1 class="text-5xl md:text-7xl lg:text-8xl font-black mb-8 leading-[1.1]" style="font-family: 'Playfair Display', serif;">
 					Projektowanie<br>
 					Przestrzeni<br>
-					<span class="bg-gradient-to-r from-pink-300 via-purple-300 to-orange-300 bg-clip-text text-transparent">& Identyfikacji</span>
+					<span class="bg-gradient-to-r from-[#FB7185] via-[#10B981] to-[#27275b] bg-clip-text text-transparent">& Identyfikacji</span>
 				</h1>
 			</div>
 			<p class="text-xl md:text-2xl mb-12 max-w-3xl leading-relaxed text-gray-100 observe" style="font-family: 'Inter', sans-serif; font-weight: 400;">
-				Tworzę <span class="text-pink-300 font-bold">odważne, kolorowe</span> przestrzenie dla młodych ludzi.
-				Łączę wiedzę architektoniczną, umiejętności graficzne i <span class="text-orange-300 font-bold">technologię AI</span>
+				Tworzę <span class="text-[#FB7185] font-bold neon-text">odważne, kolorowe</span> przestrzenie dla młodych ludzi.
+				Łączę wiedzę architektoniczną, umiejętności graficzne i <span class="text-[#10B981] font-bold">technologię AI</span>
 				dla innowacyjnych rozwiązań w atrakcyjnych cenach.
 			</p>
 			<div class="flex flex-col sm:flex-row gap-6 observe">
 				<a href="#portfolio" class="btn animate-float">
 					Zobacz Portfolio
 				</a>
-				<a href="#kontakt" class="px-8 py-4 bg-white/10 backdrop-blur-sm text-white border-2 border-white rounded-lg hover:bg-white hover:text-purple-600 transition-all duration-300 shadow-lg hover:shadow-2xl font-bold tracking-wide uppercase text-sm">
+				<a href="#kontakt" class="px-8 py-4 bg-white/10 backdrop-blur-sm text-white border-2 border-white rounded-lg hover:bg-white hover:text-[#27275b] transition-all duration-300 shadow-lg hover:shadow-2xl font-bold tracking-wide uppercase text-sm">
 					Skontaktuj się
 				</a>
 			</div>
 		</div>
 	</div>
 	<div class="absolute bottom-12 left-1/2 -translate-x-1/2 animate-bounce">
-		<svg class="w-6 h-6 text-pink-300" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+		<svg class="w-6 h-6 text-[#FB7185]" fill="none" stroke="currentColor" viewBox="0 0 24 24">
 			<path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 14l-7 7m0 0l-7-7m7 7V3"></path>
 		</svg>
 	</div>
 </section>
 
 <!-- Stats Section -->
-<section class="section bg-gradient-to-r from-purple-50 via-pink-50 to-orange-50 border-y border-purple-100">
+<section class="section bg-gradient-to-r from-blue-50 via-rose-50 to-emerald-50 border-y border-blue-100">
 	<div class="grid grid-cols-2 md:grid-cols-4 gap-12">
 		<div class="text-center observe transform hover:scale-110 transition-transform duration-300">
 			<div class="text-5xl font-black mb-3 gradient-text" style="font-family: 'Playfair Display', serif;">50+</div>
@@ -171,11 +171,11 @@
 
 <!-- About Section -->
 <section id="omnie" class="section bg-white relative overflow-hidden">
-	<div class="absolute top-0 right-0 w-96 h-96 bg-purple-100 rounded-full filter blur-3xl opacity-30"></div>
-	<div class="absolute bottom-0 left-0 w-96 h-96 bg-pink-100 rounded-full filter blur-3xl opacity-30"></div>
+	<div class="absolute top-0 right-0 w-96 h-96 bg-blue-100 rounded-full filter blur-3xl opacity-30"></div>
+	<div class="absolute bottom-0 left-0 w-96 h-96 bg-rose-100 rounded-full filter blur-3xl opacity-30"></div>
 	<div class="grid md:grid-cols-2 gap-16 lg:gap-24 items-center relative z-10">
 		<div class="observe">
-			<p class="text-purple-600 font-black tracking-[0.3em] uppercase text-sm mb-4">⭐ O mnie</p>
+			<p class="text-[#27275b] font-black tracking-[0.3em] uppercase text-sm mb-4">⭐ O mnie</p>
 			<h2 class="text-4xl md:text-5xl lg:text-6xl font-black mb-8 leading-tight" style="font-family: 'Playfair Display', serif;">
 				Design który<br>
 				<span class="italic gradient-text">zmienia</span><br>
@@ -188,12 +188,12 @@
 					wykorzystując zaawansowane narzędzia oparte na sztucznej inteligencji.
 				</p>
 				<p>
-					<strong class="text-purple-600">Moja przewaga konkurencyjna:</strong> Unikalne połączenie trzech kompetencji -
+					<strong class="text-[#27275b]">Moja przewaga konkurencyjna:</strong> Unikalne połączenie trzech kompetencji -
 					podejścia inżynierskiego, talentu plastycznego i technologii AI. To pozwala mi tworzyć
 					funkcjonalne, estetyczne rozwiązania szybciej i w atrakcyjnych cenach.
 				</p>
 				<p>
-					Specjalizuję się w projektach dla <strong class="text-pink-600">młodych ludzi (20-30 lat)</strong> -
+					Specjalizuję się w projektach dla <strong class="text-[#FB7185]">młodych ludzi (20-30 lat)</strong> -
 					odważnych nabywców pierwszych mieszkań, którzy cenią kolorowe aranżacje, przestrzenie do pracy zdalnej
 					i rozwiązania smart home, zamiast stonowanych beżowo-szarych wnętrz.
 				</p>
@@ -204,8 +204,8 @@
 		</div>
 
 		<div class="space-y-8 observe">
-			<div class="aspect-[4/5] bg-gradient-to-br from-purple-100 via-pink-100 to-orange-100 relative overflow-hidden group">
-				<div class="absolute inset-0 bg-gradient-to-br from-purple-600/20 to-pink-600/20"></div>
+			<div class="aspect-[4/5] bg-gradient-to-br from-blue-100 via-rose-100 to-emerald-100 relative overflow-hidden group">
+				<div class="absolute inset-0 bg-gradient-to-br from-[#27275b]/20 to-[#FB7185]/20"></div>
 				<div class="absolute inset-0 flex items-center justify-center">
 					<div class="text-center p-8">
 						<div class="text-6xl mb-4">🏠✨</div>
@@ -216,7 +216,7 @@
 			</div>
 
 			<div class="grid grid-cols-2 gap-6">
-				<div class="p-6 border-2 border-purple-200 hover:border-purple-400 transition-colors duration-300 rounded-xl">
+				<div class="p-6 border-2 border-blue-200 hover:border-[#27275b] transition-colors duration-300 rounded-xl neon-glow">
 					<div class="text-3xl font-black mb-2 gradient-text" style="font-family: 'Playfair Display', serif;">
 						AI
 					</div>
@@ -224,7 +224,7 @@
 						Technologia przyszłości
 					</div>
 				</div>
-				<div class="p-6 border-2 border-purple-200 hover:border-purple-400 transition-colors duration-300 rounded-xl">
+				<div class="p-6 border-2 border-blue-200 hover:border-[#FB7185] transition-colors duration-300 rounded-xl">
 					<div class="text-3xl font-black mb-2 gradient-text" style="font-family: 'Playfair Display', serif;">
 						20-30
 					</div>
@@ -238,10 +238,10 @@
 </section>
 
 <!-- Services Section -->
-<section id="oferta" class="section bg-gradient-to-br from-purple-50 via-white to-pink-50 relative overflow-hidden">
-	<div class="absolute top-20 left-20 w-64 h-64 bg-orange-200 rounded-full filter blur-3xl opacity-20 animate-pulse-slow"></div>
+<section id="oferta" class="section bg-gradient-to-br from-blue-50 via-white to-rose-50 relative overflow-hidden">
+	<div class="absolute top-20 left-20 w-64 h-64 bg-emerald-200 rounded-full filter blur-3xl opacity-20 animate-pulse-slow"></div>
 	<div class="text-center mb-20 observe relative z-10">
-		<p class="text-purple-600 font-black tracking-[0.3em] uppercase text-sm mb-4">💼 Usługi</p>
+		<p class="text-[#27275b] font-black tracking-[0.3em] uppercase text-sm mb-4">💼 Usługi</p>
 		<h2 class="text-4xl md:text-5xl lg:text-6xl font-black mb-6 leading-tight" style="font-family: 'Playfair Display', serif;">
 			Kompleksowa<br><span class="gradient-text">obsługa projektowa</span>
 		</h2>
@@ -252,13 +252,13 @@
 
 	<div class="grid md:grid-cols-3 gap-8 lg:gap-12 relative z-10">
 		{#each services as service, i}
-			<div class="bg-white p-10 lg:p-12 hover-lift observe group border-2 border-purple-100 hover:border-purple-300 rounded-2xl hover:shadow-2xl hover:shadow-purple-200" style="animation-delay: {i * 100}ms">
+			<div class="bg-white p-10 lg:p-12 hover-lift observe group border-2 border-blue-100 hover:border-[#FB7185] rounded-2xl hover:shadow-2xl hover:shadow-[#FB7185]/20" style="animation-delay: {i * 100}ms">
 				<div class="mb-8">
 					<div class="text-6xl font-light gradient-text transition-all duration-500 transform group-hover:scale-110 group-hover:rotate-12" style="font-family: 'Playfair Display', serif;">
 						{service.icon}
 					</div>
 				</div>
-				<h3 class="text-2xl lg:text-3xl font-black mb-4 text-gray-900 group-hover:text-purple-600 transition-colors" style="font-family: 'Playfair Display', serif;">
+				<h3 class="text-2xl lg:text-3xl font-black mb-4 text-gray-900 group-hover:text-[#27275b] transition-colors" style="font-family: 'Playfair Display', serif;">
 					{service.title}
 				</h3>
 				<p class="text-gray-600 mb-8 leading-relaxed">
@@ -267,7 +267,7 @@
 				<ul class="space-y-3">
 					{#each service.features as feature}
 						<li class="flex items-start text-gray-700">
-							<span class="w-1.5 h-1.5 bg-amber-600 mt-2.5 mr-3 flex-shrink-0"></span>
+							<span class="w-1.5 h-1.5 bg-[#10B981] mt-2.5 mr-3 flex-shrink-0"></span>
 							<span class="text-sm">{feature}</span>
 						</li>
 					{/each}
@@ -279,9 +279,9 @@
 
 <!-- Portfolio Section -->
 <section id="portfolio" class="section bg-white relative overflow-hidden">
-	<div class="absolute top-0 left-1/2 w-96 h-96 bg-pink-100 rounded-full filter blur-3xl opacity-30"></div>
+	<div class="absolute top-0 left-1/2 w-96 h-96 bg-rose-100 rounded-full filter blur-3xl opacity-30"></div>
 	<div class="text-center mb-20 observe relative z-10">
-		<p class="text-purple-600 font-black tracking-[0.3em] uppercase text-sm mb-4">🎨 Portfolio</p>
+		<p class="text-[#27275b] font-black tracking-[0.3em] uppercase text-sm mb-4">🎨 Portfolio</p>
 		<h2 class="text-4xl md:text-5xl lg:text-6xl font-black mb-6 leading-tight" style="font-family: 'Playfair Display', serif;">
 			<span class="gradient-text">Wybrane</span><br>realizacje
 		</h2>
@@ -293,19 +293,19 @@
 		<div class="flex justify-center gap-4 flex-wrap">
 			<button
 				onclick={() => activeFilter = 'wszystkie'}
-				class="px-8 py-3 text-sm uppercase tracking-wider font-bold transition-all duration-300 rounded-lg {activeFilter === 'wszystkie' ? 'bg-gradient-to-r from-purple-600 to-pink-600 text-white shadow-lg' : 'bg-transparent text-gray-600 hover:text-purple-600 border-2 border-gray-200 hover:border-purple-300'}"
+				class="px-8 py-3 text-sm uppercase tracking-wider font-bold transition-all duration-300 rounded-lg {activeFilter === 'wszystkie' ? 'bg-gradient-to-r from-[#27275b] to-[#FB7185] text-white shadow-lg' : 'bg-transparent text-gray-600 hover:text-[#27275b] border-2 border-gray-200 hover:border-[#27275b]'}"
 			>
 				Wszystkie
 			</button>
 			<button
 				onclick={() => activeFilter = 'wnętrza'}
-				class="px-8 py-3 text-sm uppercase tracking-wider font-bold transition-all duration-300 rounded-lg {activeFilter === 'wnętrza' ? 'bg-gradient-to-r from-purple-600 to-pink-600 text-white shadow-lg' : 'bg-transparent text-gray-600 hover:text-purple-600 border-2 border-gray-200 hover:border-purple-300'}"
+				class="px-8 py-3 text-sm uppercase tracking-wider font-bold transition-all duration-300 rounded-lg {activeFilter === 'wnętrza' ? 'bg-gradient-to-r from-[#27275b] to-[#FB7185] text-white shadow-lg' : 'bg-transparent text-gray-600 hover:text-[#27275b] border-2 border-gray-200 hover:border-[#27275b]'}"
 			>
 				Wnętrza
 			</button>
 			<button
 				onclick={() => activeFilter = 'grafika'}
-				class="px-8 py-3 text-sm uppercase tracking-wider font-bold transition-all duration-300 rounded-lg {activeFilter === 'grafika' ? 'bg-gradient-to-r from-purple-600 to-pink-600 text-white shadow-lg' : 'bg-transparent text-gray-600 hover:text-purple-600 border-2 border-gray-200 hover:border-purple-300'}"
+				class="px-8 py-3 text-sm uppercase tracking-wider font-bold transition-all duration-300 rounded-lg {activeFilter === 'grafika' ? 'bg-gradient-to-r from-[#27275b] to-[#FB7185] text-white shadow-lg' : 'bg-transparent text-gray-600 hover:text-[#27275b] border-2 border-gray-200 hover:border-[#27275b]'}"
 			>
 				Grafika
 			</button>
@@ -315,9 +315,9 @@
 	<div class="grid md:grid-cols-2 lg:grid-cols-3 gap-8 lg:gap-12 relative z-10">
 		{#each projects.filter(p => activeFilter === 'wszystkie' || p.category === activeFilter) as project, i}
 			<div class="group observe hover-lift" style="animation-delay: {i * 100}ms">
-				<div class="aspect-[4/5] bg-gradient-to-br from-purple-100 via-pink-100 to-orange-100 relative overflow-hidden mb-6 rounded-2xl border-2 border-purple-100 group-hover:border-purple-300 transition-all duration-300">
-					<div class="absolute inset-0 bg-gradient-to-br from-purple-600/10 to-pink-600/10 group-hover:from-purple-600/20 group-hover:to-pink-600/20 transition-all duration-500"></div>
-					<div class="absolute top-6 right-6 bg-gradient-to-r from-purple-600 to-pink-600 text-white px-4 py-2 text-xs font-bold tracking-wider uppercase rounded-lg shadow-lg">
+				<div class="aspect-[4/5] bg-gradient-to-br from-blue-100 via-rose-100 to-emerald-100 relative overflow-hidden mb-6 rounded-2xl border-2 border-blue-100 group-hover:border-[#FB7185] transition-all duration-300">
+					<div class="absolute inset-0 bg-gradient-to-br from-[#27275b]/10 to-[#FB7185]/10 group-hover:from-[#27275b]/20 group-hover:to-[#FB7185]/20 transition-all duration-500"></div>
+					<div class="absolute top-6 right-6 bg-gradient-to-r from-[#27275b] to-[#FB7185] text-white px-4 py-2 text-xs font-bold tracking-wider uppercase rounded-lg shadow-lg">
 						{project.year}
 					</div>
 					<div class="absolute inset-0 flex items-center justify-center opacity-0 group-hover:opacity-100 transition-opacity duration-500">
@@ -332,11 +332,11 @@
 				</div>
 				<div class="space-y-3">
 					<div class="flex items-center justify-between">
-						<span class="text-xs uppercase tracking-wider text-purple-600 font-black px-3 py-1 bg-purple-50 rounded-full">
+						<span class="text-xs uppercase tracking-wider text-[#27275b] font-black px-3 py-1 bg-blue-50 rounded-full">
 							{project.category === 'wnętrza' ? 'Wnętrza' : 'Grafika'}
 						</span>
 					</div>
-					<h3 class="text-2xl font-black text-gray-900 group-hover:text-purple-600 transition-colors" style="font-family: 'Playfair Display', serif;">
+					<h3 class="text-2xl font-black text-gray-900 group-hover:text-[#27275b] transition-colors" style="font-family: 'Playfair Display', serif;">
 						{project.title}
 					</h3>
 					<p class="text-gray-600 leading-relaxed">
@@ -357,19 +357,19 @@
 
 <!-- Testimonial Section -->
 <section class="section gradient-bg text-white relative overflow-hidden">
-	<div class="absolute top-10 right-10 w-72 h-72 bg-pink-500 rounded-full mix-blend-multiply filter blur-3xl opacity-20 animate-pulse-slow"></div>
-	<div class="absolute bottom-10 left-10 w-72 h-72 bg-purple-500 rounded-full mix-blend-multiply filter blur-3xl opacity-20 animate-pulse-slow" style="animation-delay: 1.5s;"></div>
+	<div class="absolute top-10 right-10 w-72 h-72 bg-[#FB7185] rounded-full mix-blend-multiply filter blur-3xl opacity-20 animate-pulse-slow"></div>
+	<div class="absolute bottom-10 left-10 w-72 h-72 bg-[#10B981] rounded-full mix-blend-multiply filter blur-3xl opacity-20 animate-pulse-slow" style="animation-delay: 1.5s;"></div>
 	<div class="max-w-4xl mx-auto text-center observe relative z-10">
 		<div class="mb-12">
-			<svg class="w-16 h-16 mx-auto text-pink-300 opacity-70" fill="currentColor" viewBox="0 0 24 24">
+			<svg class="w-16 h-16 mx-auto text-[#FB7185] opacity-70" fill="currentColor" viewBox="0 0 24 24">
 				<path d="M14.017 21v-7.391c0-5.704 3.731-9.57 8.983-10.609l.995 2.151c-2.432.917-3.995 3.638-3.995 5.849h4v10h-9.983zm-14.017 0v-7.391c0-5.704 3.748-9.57 9-10.609l.996 2.151c-2.433.917-3.996 3.638-3.996 5.849h3.983v10h-9.983z"/>
 			</svg>
 		</div>
 		<blockquote class="text-2xl md:text-3xl lg:text-4xl font-light mb-8 leading-relaxed" style="font-family: 'Playfair Display', serif;">
-			Współpraca z Pikastro to była <span class="text-pink-300 font-bold">czysta przyjemność</span>. Profesjonalizm, kreatywność i perfekcyjne
-			wyczucie naszych potrzeb zaowocowały przestrzenią, która <span class="text-purple-300 font-bold">przekroczyła nasze oczekiwania</span>.
+			Współpraca z Pikastro to była <span class="text-[#FB7185] font-bold neon-text">czysta przyjemność</span>. Profesjonalizm, kreatywność i perfekcyjne
+			wyczucie naszych potrzeb zaowocowały przestrzenią, która <span class="text-[#10B981] font-bold">przekroczyła nasze oczekiwania</span>.
 		</blockquote>
-		<div class="text-pink-300 font-bold">
+		<div class="text-[#FB7185] font-bold">
 			<p class="mb-1 text-lg">Anna Kowalska</p>
 			<p class="text-sm text-gray-300">CEO, TechStart Solutions</p>
 		</div>
@@ -377,11 +377,11 @@
 </section>
 
 <!-- Contact Section -->
-<section id="kontakt" class="section bg-gradient-to-br from-purple-50 via-pink-50 to-orange-50 relative overflow-hidden">
-	<div class="absolute top-0 right-0 w-96 h-96 bg-purple-200 rounded-full filter blur-3xl opacity-30"></div>
+<section id="kontakt" class="section bg-gradient-to-br from-blue-50 via-rose-50 to-emerald-50 relative overflow-hidden">
+	<div class="absolute top-0 right-0 w-96 h-96 bg-blue-200 rounded-full filter blur-3xl opacity-30"></div>
 	<div class="grid lg:grid-cols-2 gap-16 lg:gap-24 relative z-10">
 		<div class="observe">
-			<p class="text-purple-600 font-black tracking-[0.3em] uppercase text-sm mb-4">💬 Kontakt</p>
+			<p class="text-[#27275b] font-black tracking-[0.3em] uppercase text-sm mb-4">💬 Kontakt</p>
 			<h2 class="text-4xl md:text-5xl lg:text-6xl font-black mb-8 leading-tight text-gray-900" style="font-family: 'Playfair Display', serif;">
 				Rozpocznijmy<br>
 				<span class="italic gradient-text">współpracę</span>
@@ -400,7 +400,7 @@
 					</div>
 					<div>
 						<p class="text-sm uppercase tracking-wider text-gray-500 mb-1">Email</p>
-						<a href="mailto:kontakt@pikastro.pl" class="text-lg text-gray-900 hover:text-amber-600 transition-colors">
+						<a href="mailto:kontakt@pikastro.pl" class="text-lg text-gray-900 hover:text-[#FB7185] transition-colors">
 							kontakt@pikastro.pl
 						</a>
 					</div>
@@ -434,26 +434,26 @@
 			</div>
 
 			<div class="flex space-x-4 mt-12">
-				<a href="#" class="w-14 h-14 border-2 border-purple-300 rounded-lg flex items-center justify-center hover:bg-gradient-to-r hover:from-purple-600 hover:to-pink-600 hover:text-white hover:border-transparent transition-all duration-300 hover:scale-110 hover:shadow-lg">
+				<a href="#" class="w-14 h-14 border-2 border-blue-200 rounded-lg flex items-center justify-center hover:bg-gradient-to-r hover:from-[#27275b] hover:to-[#FB7185] hover:text-white hover:border-transparent transition-all duration-300 hover:scale-110 hover:shadow-lg neon-glow">
 					<span class="text-sm font-bold">in</span>
 				</a>
-				<a href="#" class="w-14 h-14 border-2 border-purple-300 rounded-lg flex items-center justify-center hover:bg-gradient-to-r hover:from-purple-600 hover:to-pink-600 hover:text-white hover:border-transparent transition-all duration-300 hover:scale-110 hover:shadow-lg">
+				<a href="#" class="w-14 h-14 border-2 border-blue-200 rounded-lg flex items-center justify-center hover:bg-gradient-to-r hover:from-[#27275b] hover:to-[#FB7185] hover:text-white hover:border-transparent transition-all duration-300 hover:scale-110 hover:shadow-lg neon-glow">
 					<span class="text-sm font-bold">be</span>
 				</a>
-				<a href="#" class="w-14 h-14 border-2 border-purple-300 rounded-lg flex items-center justify-center hover:bg-gradient-to-r hover:from-purple-600 hover:to-pink-600 hover:text-white hover:border-transparent transition-all duration-300 hover:scale-110 hover:shadow-lg">
+				<a href="#" class="w-14 h-14 border-2 border-blue-200 rounded-lg flex items-center justify-center hover:bg-gradient-to-r hover:from-[#27275b] hover:to-[#FB7185] hover:text-white hover:border-transparent transition-all duration-300 hover:scale-110 hover:shadow-lg neon-glow">
 					<span class="text-sm font-bold">ig</span>
 				</a>
 			</div>
 		</div>
 
-		<div class="bg-white p-10 lg:p-12 observe rounded-2xl border-2 border-purple-200 shadow-xl">
+		<div class="bg-white p-10 lg:p-12 observe rounded-2xl border-2 border-blue-200 shadow-xl">
 			<form class="space-y-6">
 				<div>
 					<label for="name" class="block text-sm uppercase tracking-wider font-bold text-gray-700 mb-2">Imię i nazwisko</label>
 					<input
 						type="text"
 						id="name"
-						class="w-full px-4 py-3 border-2 border-purple-200 rounded-lg focus:border-purple-600 focus:outline-none transition-all bg-white"
+						class="w-full px-4 py-3 border-2 border-blue-200 rounded-lg focus:border-[#27275b] focus:outline-none transition-all bg-white"
 						placeholder="Jan Kowalski"
 					/>
 				</div>
@@ -463,7 +463,7 @@
 					<input
 						type="email"
 						id="email"
-						class="w-full px-4 py-3 border-2 border-purple-200 rounded-lg focus:border-purple-600 focus:outline-none transition-all bg-white"
+						class="w-full px-4 py-3 border-2 border-blue-200 rounded-lg focus:border-[#27275b] focus:outline-none transition-all bg-white"
 						placeholder="jan@example.com"
 					/>
 				</div>
@@ -472,7 +472,7 @@
 					<label for="project" class="block text-sm uppercase tracking-wider font-bold text-gray-700 mb-2">Typ projektu</label>
 					<select
 						id="project"
-						class="w-full px-4 py-3 border-2 border-purple-200 rounded-lg focus:border-purple-600 focus:outline-none transition-all bg-white"
+						class="w-full px-4 py-3 border-2 border-blue-200 rounded-lg focus:border-[#27275b] focus:outline-none transition-all bg-white"
 					>
 						<option>Projektowanie wnętrz</option>
 						<option>Identyfikacja wizualna</option>
@@ -486,7 +486,7 @@
 					<textarea
 						id="message"
 						rows="5"
-						class="w-full px-4 py-3 border-2 border-purple-200 rounded-lg focus:border-purple-600 focus:outline-none transition-all bg-white resize-none"
+						class="w-full px-4 py-3 border-2 border-blue-200 rounded-lg focus:border-[#27275b] focus:outline-none transition-all bg-white resize-none"
 						placeholder="Opowiedz o swoim projekcie..."
 					></textarea>
 				</div>
@@ -501,8 +501,8 @@
 
 <!-- Footer -->
 <footer class="gradient-bg text-white py-16 px-6 md:px-12 relative overflow-hidden">
-	<div class="absolute top-0 right-0 w-96 h-96 bg-pink-500 rounded-full mix-blend-multiply filter blur-3xl opacity-10"></div>
-	<div class="absolute bottom-0 left-0 w-96 h-96 bg-purple-500 rounded-full mix-blend-multiply filter blur-3xl opacity-10"></div>
+	<div class="absolute top-0 right-0 w-96 h-96 bg-[#FB7185] rounded-full mix-blend-multiply filter blur-3xl opacity-10"></div>
+	<div class="absolute bottom-0 left-0 w-96 h-96 bg-[#10B981] rounded-full mix-blend-multiply filter blur-3xl opacity-10"></div>
 	<div class="max-w-7xl mx-auto relative z-10">
 		<div class="grid md:grid-cols-4 gap-12 mb-12">
 			<div>
@@ -512,7 +512,7 @@
 				</p>
 			</div>
 			<div>
-				<h4 class="text-sm uppercase tracking-wider mb-4 font-bold text-pink-300">Usługi</h4>
+				<h4 class="text-sm uppercase tracking-wider mb-4 font-bold text-[#FB7185]">Usługi</h4>
 				<ul class="space-y-2 text-gray-200 text-sm">
 					<li>• Projektowanie wnętrz</li>
 					<li>• Aranżacja przestrzeni</li>
@@ -522,7 +522,7 @@
 				</ul>
 			</div>
 			<div>
-				<h4 class="text-sm uppercase tracking-wider mb-4 font-bold text-pink-300">Klienci</h4>
+				<h4 class="text-sm uppercase tracking-wider mb-4 font-bold text-[#FB7185]">Klienci</h4>
 				<ul class="space-y-2 text-gray-200 text-sm">
 					<li>• Nabywcy mieszkań</li>
 					<li>• Deweloperzy</li>
@@ -532,13 +532,13 @@
 				</ul>
 			</div>
 			<div>
-				<h4 class="text-sm uppercase tracking-wider mb-4 font-bold text-pink-300">Kontakt</h4>
+				<h4 class="text-sm uppercase tracking-wider mb-4 font-bold text-[#FB7185]">Kontakt</h4>
 				<ul class="space-y-2 text-gray-200 font-medium">
 					<li>kontakt@pikastro.pl</li>
 					<li>Kraków, Polska</li>
 					<li class="pt-2">
-						<a href="#omnie" class="text-pink-300 hover:text-white transition-colors">O mnie</a> •
-						<a href="#oferta" class="text-pink-300 hover:text-white transition-colors">Oferta</a>
+						<a href="#omnie" class="text-[#FB7185] hover:text-white transition-colors">O mnie</a> •
+						<a href="#oferta" class="text-[#FB7185] hover:text-white transition-colors">Oferta</a>
 					</li>
 				</ul>
 			</div>

@@ -24,19 +24,19 @@
 
 			<!-- Desktop Navigation -->
 			<div class="hidden md:flex items-center space-x-12">
-				<a href="#omnie" class="text-gray-700 hover:text-purple-600 transition-colors font-bold text-sm tracking-wide uppercase relative group">
+				<a href="#omnie" class="text-gray-700 hover:text-[#27275b] transition-colors font-bold text-sm tracking-wide uppercase relative group">
 					O mnie
-					<span class="absolute bottom-0 left-0 w-0 h-0.5 bg-gradient-to-r from-purple-600 to-pink-600 transition-all duration-300 group-hover:w-full"></span>
+					<span class="absolute bottom-0 left-0 w-0 h-0.5 bg-gradient-to-r from-[#27275b] to-[#FB7185] transition-all duration-300 group-hover:w-full"></span>
 				</a>
-				<a href="#oferta" class="text-gray-700 hover:text-purple-600 transition-colors font-bold text-sm tracking-wide uppercase relative group">
+				<a href="#oferta" class="text-gray-700 hover:text-[#27275b] transition-colors font-bold text-sm tracking-wide uppercase relative group">
 					Oferta
-					<span class="absolute bottom-0 left-0 w-0 h-0.5 bg-gradient-to-r from-purple-600 to-pink-600 transition-all duration-300 group-hover:w-full"></span>
+					<span class="absolute bottom-0 left-0 w-0 h-0.5 bg-gradient-to-r from-[#27275b] to-[#FB7185] transition-all duration-300 group-hover:w-full"></span>
 				</a>
-				<a href="#portfolio" class="text-gray-700 hover:text-purple-600 transition-colors font-bold text-sm tracking-wide uppercase relative group">
+				<a href="#portfolio" class="text-gray-700 hover:text-[#27275b] transition-colors font-bold text-sm tracking-wide uppercase relative group">
 					Portfolio
-					<span class="absolute bottom-0 left-0 w-0 h-0.5 bg-gradient-to-r from-purple-600 to-pink-600 transition-all duration-300 group-hover:w-full"></span>
+					<span class="absolute bottom-0 left-0 w-0 h-0.5 bg-gradient-to-r from-[#27275b] to-[#FB7185] transition-all duration-300 group-hover:w-full"></span>
 				</a>
-				<a href="#kontakt" class="px-6 py-2.5 bg-gradient-to-r from-purple-600 to-pink-600 text-white hover:from-purple-700 hover:to-pink-700 transition-all duration-300 text-sm tracking-wide uppercase font-bold rounded-lg shadow-md hover:shadow-lg">
+				<a href="#kontakt" class="px-6 py-2.5 bg-gradient-to-r from-[#27275b] to-[#FB7185] text-white hover:from-[#1e1e4a] hover:to-[#e55b6f] transition-all duration-300 text-sm tracking-wide uppercase font-bold rounded-lg shadow-md hover:shadow-lg">
 					Kontakt
 				</a>
 			</div>
@@ -63,10 +63,10 @@
 		{#if isMenuOpen}
 			<div class="md:hidden pb-6 border-t border-gray-100 mt-2 animate-fade-in-up">
 				<div class="flex flex-col space-y-4 pt-6">
-					<a href="#omnie" onclick={() => isMenuOpen = false} class="text-gray-700 hover:text-purple-600 transition-colors font-bold text-sm tracking-wide uppercase">O mnie</a>
-					<a href="#oferta" onclick={() => isMenuOpen = false} class="text-gray-700 hover:text-purple-600 transition-colors font-bold text-sm tracking-wide uppercase">Oferta</a>
-					<a href="#portfolio" onclick={() => isMenuOpen = false} class="text-gray-700 hover:text-purple-600 transition-colors font-bold text-sm tracking-wide uppercase">Portfolio</a>
-					<a href="#kontakt" onclick={() => isMenuOpen = false} class="px-6 py-3 bg-gradient-to-r from-purple-600 to-pink-600 text-white text-center hover:from-purple-700 hover:to-pink-700 transition-all duration-300 text-sm tracking-wide uppercase font-bold rounded-lg">Kontakt</a>
+					<a href="#omnie" onclick={() => isMenuOpen = false} class="text-gray-700 hover:text-[#27275b] transition-colors font-bold text-sm tracking-wide uppercase">O mnie</a>
+					<a href="#oferta" onclick={() => isMenuOpen = false} class="text-gray-700 hover:text-[#27275b] transition-colors font-bold text-sm tracking-wide uppercase">Oferta</a>
+					<a href="#portfolio" onclick={() => isMenuOpen = false} class="text-gray-700 hover:text-[#27275b] transition-colors font-bold text-sm tracking-wide uppercase">Portfolio</a>
+					<a href="#kontakt" onclick={() => isMenuOpen = false} class="px-6 py-3 bg-gradient-to-r from-[#27275b] to-[#FB7185] text-white text-center hover:from-[#1e1e4a] hover:to-[#e55b6f] transition-all duration-300 text-sm tracking-wide uppercase font-bold rounded-lg">Kontakt</a>
 				</div>
 			</div>
 		{/if}
