@@ -26,7 +26,7 @@
 
 @layer components {
   .btn {
-    @apply px-8 py-4 bg-gradient-to-r from-[#27275b] via-[#FB7185] to-[#10B981] text-white rounded-lg hover:shadow-2xl hover:shadow-[#FB7185]/50 transition-all duration-300 shadow-lg transform hover:scale-105 hover:-translate-y-1 font-bold tracking-wide uppercase text-sm;
+    @apply px-8 py-4 bg-[#27275b] text-white rounded-lg hover:shadow-2xl hover:shadow-[#FB7185]/50 transition-all duration-300 shadow-lg transform hover:scale-105 hover:-translate-y-1 font-bold tracking-wide uppercase text-sm;
   }
 
   .btn-secondary {
@@ -42,7 +42,7 @@
   }
 
   .gradient-bg {
-    @apply bg-gradient-to-br from-[#27275b] via-[#1e3a5f] to-[#27275b];
+    @apply bg-[#27275b];
     position: relative;
   }
 
@@ -54,13 +54,12 @@
     right: 0;
     bottom: 0;
     background:
-      linear-gradient(135deg, rgba(251, 113, 133, 0.1) 0%, rgba(16, 185, 129, 0.1) 100%),
       repeating-linear-gradient(0deg, transparent, transparent 2px, rgba(251, 113, 133, 0.03) 2px, rgba(251, 113, 133, 0.03) 4px);
     pointer-events: none;
   }
 
   .gradient-text {
-    @apply bg-gradient-to-r from-[#27275b] via-[#FB7185] to-[#10B981] bg-clip-text text-transparent;
+    @apply text-[#27275b];
   }
 
   .accent-text {
@@ -95,7 +94,7 @@
     left: 0;
     width: 60px;
     height: 3px;
-    background: linear-gradient(to right, #27275b, #FB7185, #10B981);
+    background: #27275b;
   }
 
   /* Reveal animation on scroll */
@@ -128,23 +127,9 @@
     @apply border-l-4 border-[#27275b] pl-6 italic text-gray-600 bg-blue-50 py-4;
   }
 
-  /* Animated gradient background */
-  @keyframes gradientShift {
-    0% {
-      background-position: 0% 50%;
-    }
-    50% {
-      background-position: 100% 50%;
-    }
-    100% {
-      background-position: 0% 50%;
-    }
-  }
-
+  /* Animated background */
   .animated-gradient {
-    background: linear-gradient(270deg, #27275b, #FB7185, #10B981, #27275b);
-    background-size: 400% 400%;
-    animation: gradientShift 8s ease infinite;
+    background: #27275b;
   }
 
   /* Pulse animation for accents */

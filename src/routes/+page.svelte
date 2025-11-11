@@ -224,20 +224,13 @@
 		<div class="absolute inset-0 bg-[url('/grid-pattern.svg')] opacity-5"></div>
 		<!-- AI Neural Network Lines -->
 		<svg class="absolute inset-0 w-full h-full opacity-20" xmlns="http://www.w3.org/2000/svg">
-			<defs>
-				<linearGradient id="lineGradient" x1="0%" y1="0%" x2="100%" y2="100%">
-					<stop offset="0%" style="stop-color:#FB7185;stop-opacity:0.6" />
-					<stop offset="50%" style="stop-color:#10B981;stop-opacity:0.6" />
-					<stop offset="100%" style="stop-color:#27275b;stop-opacity:0.6" />
-				</linearGradient>
-			</defs>
 			<!-- Animated connecting lines -->
-			<line x1="10%" y1="20%" x2="30%" y2="40%" stroke="url(#lineGradient)" stroke-width="2" class="animate-pulse-slow" />
-			<line x1="30%" y1="40%" x2="50%" y2="30%" stroke="url(#lineGradient)" stroke-width="2" class="animate-pulse-slow" style="animation-delay: 0.5s" />
-			<line x1="50%" y1="30%" x2="70%" y2="50%" stroke="url(#lineGradient)" stroke-width="2" class="animate-pulse-slow" style="animation-delay: 1s" />
-			<line x1="70%" y1="50%" x2="90%" y2="35%" stroke="url(#lineGradient)" stroke-width="2" class="animate-pulse-slow" style="animation-delay: 1.5s" />
-			<line x1="20%" y1="70%" x2="40%" y2="85%" stroke="url(#lineGradient)" stroke-width="2" class="animate-pulse-slow" style="animation-delay: 2s" />
-			<line x1="60%" y1="75%" x2="80%" y2="80%" stroke="url(#lineGradient)" stroke-width="2" class="animate-pulse-slow" style="animation-delay: 2.5s" />
+			<line x1="10%" y1="20%" x2="30%" y2="40%" stroke="#FB7185" stroke-width="2" class="animate-pulse-slow" />
+			<line x1="30%" y1="40%" x2="50%" y2="30%" stroke="#10B981" stroke-width="2" class="animate-pulse-slow" style="animation-delay: 0.5s" />
+			<line x1="50%" y1="30%" x2="70%" y2="50%" stroke="#27275b" stroke-width="2" class="animate-pulse-slow" style="animation-delay: 1s" />
+			<line x1="70%" y1="50%" x2="90%" y2="35%" stroke="#FB7185" stroke-width="2" class="animate-pulse-slow" style="animation-delay: 1.5s" />
+			<line x1="20%" y1="70%" x2="40%" y2="85%" stroke="#10B981" stroke-width="2" class="animate-pulse-slow" style="animation-delay: 2s" />
+			<line x1="60%" y1="75%" x2="80%" y2="80%" stroke="#27275b" stroke-width="2" class="animate-pulse-slow" style="animation-delay: 2.5s" />
 			<!-- AI Nodes -->
 			<circle cx="10%" cy="20%" r="8" fill="#FB7185" class="animate-pulse-slow" />
 			<circle cx="30%" cy="40%" r="6" fill="#10B981" class="animate-pulse-slow" style="animation-delay: 0.3s" />
@@ -260,7 +253,7 @@
 				<p class="text-[#FB7185] font-bold tracking-[0.3em] uppercase text-sm mb-6 animate-pulse-slow neon-text">🤖 AI × Architektura × Grafika</p>
 				<h1 class="text-5xl md:text-7xl lg:text-8xl font-black mb-6 leading-[1.05]" style="font-family: 'Playfair Display', serif;">
 					<span class="block">Dość beżu.</span>
-					<span class="block">Czas na <span class="bg-gradient-to-r from-[#FB7185] via-[#10B981] to-[#27275b] bg-clip-text text-transparent">kolor!</span></span>
+					<span class="block">Czas na <span class="text-[#FB7185]">kolor!</span></span>
 				</h1>
 				<p class="text-2xl md:text-3xl font-bold mb-4 text-white/90 leading-tight">
 					AI × Design = Twoje wymarzone wnętrze
@@ -310,7 +303,7 @@
 	<div class="text-center mb-20 observe">
 		<p class="text-[#27275b] font-black tracking-[0.3em] uppercase text-sm mb-4">✨ Metamorfozy AI</p>
 		<h2 class="text-4xl md:text-5xl lg:text-6xl font-black mb-6 leading-tight" style="font-family: 'Playfair Display', serif;">
-			Przed i Po<br><span class="gradient-text">Transformacji z AI</span>
+			Przed i Po<br><span class="text-[#27275b]">Transformacji z AI</span>
 		</h2>
 		<p class="text-xl text-gray-600 max-w-3xl mx-auto leading-relaxed">
 			Zobacz jak AI pomaga tworzyć kolorowe, funkcjonalne przestrzenie zamiast beżowo-szarych wnętrz
@@ -323,7 +316,7 @@
 			<div class="relative aspect-[16/9] bg-gray-900 rounded-2xl overflow-hidden shadow-2xl">
 				<!-- Before Image -->
 				<div class="absolute inset-0">
-					<div class="w-full h-full bg-gradient-to-br from-gray-200 to-gray-300 flex items-center justify-center">
+					<div class="w-full h-full bg-gray-200 flex items-center justify-center">
 						<div class="text-center p-8">
 							<p class="text-6xl mb-4">📷</p>
 							<p class="text-gray-600 font-bold">BEFORE</p>
@@ -334,7 +327,7 @@
 
 				<!-- After Image with slider -->
 				<div class="absolute inset-0" style="clip-path: inset(0 {100 - sliderPosition}% 0 0)">
-					<div class="w-full h-full bg-gradient-to-br from-blue-400 via-rose-400 to-emerald-400 flex items-center justify-center">
+					<div class="w-full h-full bg-blue-400 flex items-center justify-center">
 						<div class="text-center p-8">
 							<p class="text-6xl mb-4">🎨</p>
 							<p class="text-white font-bold">AFTER - AI Design</p>
@@ -344,9 +337,9 @@
 				</div>
 
 				<!-- Slider Handle -->
-				<div class="absolute inset-y-0 z-20" style="left: {sliderPosition}%">
+				<div class="absolute inset-y-0 z-10 pointer-events-none" style="left: {sliderPosition}%">
 					<div class="absolute inset-y-0 w-1 bg-white shadow-lg"></div>
-					<div class="absolute top-1/2 -translate-y-1/2 -translate-x-1/2 w-12 h-12 bg-white rounded-full shadow-lg flex items-center justify-center cursor-move hover:scale-110 transition-transform">
+					<div class="absolute top-1/2 -translate-y-1/2 -translate-x-1/2 w-12 h-12 bg-white rounded-full shadow-lg flex items-center justify-center">
 						<svg class="w-6 h-6 text-[#27275b]" fill="none" stroke="currentColor" viewBox="0 0 24 24">
 							<path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8 9l4-4 4 4m0 6l-4 4-4-4"></path>
 						</svg>
@@ -359,7 +352,7 @@
 					min="0"
 					max="100"
 					bind:value={sliderPosition}
-					class="absolute inset-0 w-full h-full opacity-0 cursor-move z-10"
+					class="absolute inset-0 w-full h-full opacity-0 cursor-move z-20"
 				/>
 			</div>
 
@@ -371,7 +364,7 @@
 				<p class="text-gray-600 mb-6">{beforeAfterProjects[activeBeforeAfter].description}</p>
 				<div class="flex justify-center gap-3 flex-wrap">
 					{#each beforeAfterProjects[activeBeforeAfter].aiFeatures as feature}
-						<span class="px-4 py-2 bg-gradient-to-r from-[#27275b] to-[#FB7185] text-white text-sm font-bold rounded-lg">
+						<span class="px-4 py-2 bg-[#27275b] text-white text-sm font-bold rounded-lg">
 							🤖 {feature}
 						</span>
 					{/each}
@@ -386,7 +379,7 @@
 					onclick={() => activeBeforeAfter = i}
 					class="relative aspect-[4/3] rounded-xl overflow-hidden border-4 transition-all duration-300 {activeBeforeAfter === i ? 'border-[#FB7185] shadow-2xl shadow-[#FB7185]/30 scale-105' : 'border-gray-200 hover:border-[#27275b]'}"
 				>
-					<div class="absolute inset-0 bg-gradient-to-r from-gray-300 to-blue-300 flex items-center justify-center">
+					<div class="absolute inset-0 bg-gray-300 flex items-center justify-center">
 						<p class="text-sm font-bold text-gray-700">{project.title}</p>
 					</div>
 				</button>
@@ -396,22 +389,22 @@
 </section>
 
 <!-- Stats Section -->
-<section class="section bg-gradient-to-r from-blue-50 via-rose-50 to-emerald-50 border-y border-blue-100">
+<section class="section bg-blue-50 border-y border-blue-100">
 	<div class="grid grid-cols-2 md:grid-cols-4 gap-12">
 		<div class="text-center observe transform hover:scale-110 transition-transform duration-300">
-			<div class="text-5xl font-black mb-3 gradient-text" style="font-family: 'Playfair Display', serif;">50+</div>
+			<div class="text-5xl font-black mb-3 text-[#27275b]" style="font-family: 'Playfair Display', serif;">50+</div>
 			<div class="text-sm text-gray-700 uppercase tracking-wider font-bold">Zrealizowanych projektów</div>
 		</div>
 		<div class="text-center observe transform hover:scale-110 transition-transform duration-300">
-			<div class="text-5xl font-black mb-3 gradient-text" style="font-family: 'Playfair Display', serif;">5+</div>
+			<div class="text-5xl font-black mb-3 text-[#FB7185]" style="font-family: 'Playfair Display', serif;">5+</div>
 			<div class="text-sm text-gray-700 uppercase tracking-wider font-bold">Lat doświadczenia</div>
 		</div>
 		<div class="text-center observe transform hover:scale-110 transition-transform duration-300">
-			<div class="text-5xl font-black mb-3 gradient-text" style="font-family: 'Playfair Display', serif;">100%</div>
+			<div class="text-5xl font-black mb-3 text-[#10B981]" style="font-family: 'Playfair Display', serif;">100%</div>
 			<div class="text-sm text-gray-700 uppercase tracking-wider font-bold">Zadowolonych klientów</div>
 		</div>
 		<div class="text-center observe transform hover:scale-110 transition-transform duration-300">
-			<div class="text-5xl font-black mb-3 gradient-text" style="font-family: 'Playfair Display', serif;">15+</div>
+			<div class="text-5xl font-black mb-3 text-[#27275b]" style="font-family: 'Playfair Display', serif;">15+</div>
 			<div class="text-sm text-gray-700 uppercase tracking-wider font-bold">Nagród branżowych</div>
 		</div>
 	</div>
@@ -426,7 +419,7 @@
 			<p class="text-[#27275b] font-black tracking-[0.3em] uppercase text-sm mb-4">⭐ O mnie</p>
 			<h2 class="text-4xl md:text-5xl lg:text-6xl font-black mb-8 leading-tight" style="font-family: 'Playfair Display', serif;">
 				Design który<br>
-				<span class="italic gradient-text">zmienia</span><br>
+				<span class="italic text-[#FB7185]">zmienia</span><br>
 				przestrzenie
 			</h2>
 			<div class="space-y-6 text-gray-600 leading-relaxed text-lg">
@@ -452,8 +445,8 @@
 		</div>
 
 		<div class="space-y-8 observe">
-			<div class="aspect-[4/5] bg-gradient-to-br from-blue-100 via-rose-100 to-emerald-100 relative overflow-hidden group">
-				<div class="absolute inset-0 bg-gradient-to-br from-[#27275b]/20 to-[#FB7185]/20"></div>
+			<div class="aspect-[4/5] bg-blue-100 relative overflow-hidden group">
+				<div class="absolute inset-0 bg-[#27275b]/20"></div>
 				<div class="absolute inset-0 flex items-center justify-center">
 					<div class="text-center p-8">
 						<div class="text-6xl mb-4">🏠✨</div>
@@ -465,7 +458,7 @@
 
 			<div class="grid grid-cols-2 gap-6">
 				<div class="p-6 border-2 border-blue-200 hover:border-[#27275b] transition-colors duration-300 rounded-xl neon-glow">
-					<div class="text-3xl font-black mb-2 gradient-text" style="font-family: 'Playfair Display', serif;">
+					<div class="text-3xl font-black mb-2 text-[#27275b]" style="font-family: 'Playfair Display', serif;">
 						AI
 					</div>
 					<div class="text-sm text-gray-700 uppercase tracking-wider font-bold">
@@ -473,7 +466,7 @@
 					</div>
 				</div>
 				<div class="p-6 border-2 border-blue-200 hover:border-[#FB7185] transition-colors duration-300 rounded-xl">
-					<div class="text-3xl font-black mb-2 gradient-text" style="font-family: 'Playfair Display', serif;">
+					<div class="text-3xl font-black mb-2 text-[#FB7185]" style="font-family: 'Playfair Display', serif;">
 						20-30
 					</div>
 					<div class="text-sm text-gray-700 uppercase tracking-wider font-bold">
@@ -486,12 +479,12 @@
 </section>
 
 <!-- Services Section -->
-<section id="oferta" class="section bg-gradient-to-br from-blue-50 via-white to-rose-50 relative overflow-hidden">
+<section id="oferta" class="section bg-white relative overflow-hidden">
 	<div class="absolute top-20 left-20 w-64 h-64 bg-emerald-200 rounded-full filter blur-3xl opacity-20 animate-pulse-slow"></div>
 	<div class="text-center mb-20 observe relative z-10">
 		<p class="text-[#27275b] font-black tracking-[0.3em] uppercase text-sm mb-4">💼 Usługi</p>
 		<h2 class="text-4xl md:text-5xl lg:text-6xl font-black mb-6 leading-tight" style="font-family: 'Playfair Display', serif;">
-			Kompleksowa<br><span class="gradient-text">obsługa projektowa</span>
+			Kompleksowa<br><span class="text-[#27275b]">obsługa projektowa</span>
 		</h2>
 		<p class="text-xl text-gray-600 max-w-3xl mx-auto leading-relaxed">
 			Od koncepcji po realizację - pełne wsparcie w procesie projektowania wnętrz i tworzenia identyfikacji wizualnej.
@@ -502,7 +495,7 @@
 		{#each services as service, i}
 			<div class="bg-white p-10 lg:p-12 hover-lift observe group border-2 border-blue-100 hover:border-[#FB7185] rounded-2xl hover:shadow-2xl hover:shadow-[#FB7185]/20" style="animation-delay: {i * 100}ms">
 				<div class="mb-8">
-					<div class="text-6xl font-light gradient-text transition-all duration-500 transform group-hover:scale-110 group-hover:rotate-12" style="font-family: 'Playfair Display', serif;">
+					<div class="text-6xl font-light text-[#27275b] transition-all duration-500 transform group-hover:scale-110 group-hover:rotate-12" style="font-family: 'Playfair Display', serif;">
 						{service.icon}
 					</div>
 				</div>
@@ -546,7 +539,7 @@
 				<div class="bg-white/10 backdrop-blur-sm p-8 rounded-2xl border-2 border-white/20 hover:border-[#FB7185] transition-all duration-300 hover:shadow-2xl hover:shadow-[#FB7185]/30 hover:scale-105">
 					<!-- Step Number -->
 					<div class="mb-6">
-						<div class="text-8xl font-black opacity-20 leading-none gradient-text" style="font-family: 'Playfair Display', serif;">
+						<div class="text-8xl font-black opacity-20 leading-none text-white" style="font-family: 'Playfair Display', serif;">
 							{step.number}
 						</div>
 						<div class="text-5xl -mt-8 mb-4">{step.icon}</div>
@@ -583,27 +576,27 @@
 	<div class="mt-16 text-center observe">
 		<div class="inline-block bg-white/10 backdrop-blur-sm px-12 py-6 rounded-2xl border-2 border-white/20">
 			<p class="text-sm uppercase tracking-wider text-gray-300 mb-2">Całkowity czas realizacji</p>
-			<p class="text-4xl font-black gradient-text" style="font-family: 'Playfair Display', serif;">8-13 dni roboczych</p>
+			<p class="text-4xl font-black text-[#10B981]" style="font-family: 'Playfair Display', serif;">8-13 dni roboczych</p>
 			<p class="text-sm text-gray-300 mt-2">vs. tradycyjne 4-6 tygodni</p>
 		</div>
 	</div>
 </section>
 
 <!-- Manifesto / Why Section -->
-<section class="section bg-gradient-to-br from-blue-50 via-white to-rose-50 relative overflow-hidden">
+<section class="section bg-blue-50 relative overflow-hidden">
 	<div class="absolute top-0 right-0 w-96 h-96 bg-emerald-100 rounded-full filter blur-3xl opacity-30"></div>
 	<div class="max-w-4xl mx-auto relative z-10">
 		<div class="text-center mb-16 observe">
 			<p class="text-[#27275b] font-black tracking-[0.3em] uppercase text-sm mb-4">💡 Nasza Filozofia</p>
 			<h2 class="text-4xl md:text-5xl lg:text-6xl font-black mb-6 leading-tight" style="font-family: 'Playfair Display', serif;">
-				<span class="gradient-text">Wierzymy</span>, że design może być...
+				<span class="text-[#27275b]">Wierzymy</span>, że design może być...
 			</h2>
 		</div>
 
 		<div class="grid md:grid-cols-2 gap-8 mb-16 observe">
 			<div class="bg-white p-8 rounded-2xl border-2 border-blue-100 hover:border-[#FB7185] transition-all duration-300 hover:shadow-xl">
 				<div class="text-4xl mb-4">⚡</div>
-				<h3 class="text-2xl font-black mb-3 gradient-text" style="font-family: 'Playfair Display', serif;">Szybki I Dopracowany</h3>
+				<h3 class="text-2xl font-black mb-3 text-[#27275b]" style="font-family: 'Playfair Display', serif;">Szybki I Dopracowany</h3>
 				<p class="text-gray-600 leading-relaxed">
 					AI nie zastępuje designera - wzmacnia go. Generujemy warianty w godziny, a potem dopracowujemy każdy detal ręcznie.
 				</p>
@@ -611,7 +604,7 @@
 
 			<div class="bg-white p-8 rounded-2xl border-2 border-blue-100 hover:border-[#FB7185] transition-all duration-300 hover:shadow-xl">
 				<div class="text-4xl mb-4">🎨</div>
-				<h3 class="text-2xl font-black mb-3 gradient-text" style="font-family: 'Playfair Display', serif;">Kolorowy I Profesjonalny</h3>
+				<h3 class="text-2xl font-black mb-3 text-[#FB7185]" style="font-family: 'Playfair Display', serif;">Kolorowy I Profesjonalny</h3>
 				<p class="text-gray-600 leading-relaxed">
 					Zero beżowo-szarych nudnych wnętrz. Ale też zero chaosu - każdy kolor ma swoje miejsce i funkcję.
 				</p>
@@ -619,7 +612,7 @@
 
 			<div class="bg-white p-8 rounded-2xl border-2 border-blue-100 hover:border-[#FB7185] transition-all duration-300 hover:shadow-xl">
 				<div class="text-4xl mb-4">🚀</div>
-				<h3 class="text-2xl font-black mb-3 gradient-text" style="font-family: 'Playfair Display', serif;">Odważny I Funkcjonalny</h3>
+				<h3 class="text-2xl font-black mb-3 text-[#10B981]" style="font-family: 'Playfair Display', serif;">Odważny I Funkcjonalny</h3>
 				<p class="text-gray-600 leading-relaxed">
 					Projektujemy przestrzenie, które wyróżniają się wizualnie, ale przede wszystkim - działają dla Ciebie każdego dnia.
 				</p>
@@ -627,7 +620,7 @@
 
 			<div class="bg-white p-8 rounded-2xl border-2 border-blue-100 hover:border-[#FB7185] transition-all duration-300 hover:shadow-xl">
 				<div class="text-4xl mb-4">💰</div>
-				<h3 class="text-2xl font-black mb-3 gradient-text" style="font-family: 'Playfair Display', serif;">Dostępny I Wysokiej Jakości</h3>
+				<h3 class="text-2xl font-black mb-3 text-[#27275b]" style="font-family: 'Playfair Display', serif;">Dostępny I Wysokiej Jakości</h3>
 				<p class="text-gray-600 leading-relaxed">
 					AI oszczędza nam czas, więc możemy oferować Ci atrakcyjne ceny bez kompromisów w jakości wykonania.
 				</p>
@@ -635,7 +628,7 @@
 		</div>
 
 		<!-- FAQ Quick Hits -->
-		<div class="bg-gradient-to-r from-[#27275b] to-[#1e3a5f] p-10 lg:p-12 rounded-2xl text-white observe">
+		<div class="bg-[#27275b] p-10 lg:p-12 rounded-2xl text-white observe">
 			<h3 class="text-3xl font-black mb-8 text-center" style="font-family: 'Playfair Display', serif;">
 				Najczęstsze pytania
 			</h3>
@@ -685,7 +678,7 @@
 	<div class="text-center mb-20 observe relative z-10">
 		<p class="text-[#27275b] font-black tracking-[0.3em] uppercase text-sm mb-4">💰 Przejrzyste Ceny</p>
 		<h2 class="text-4xl md:text-5xl lg:text-6xl font-black mb-6 leading-tight" style="font-family: 'Playfair Display', serif;">
-			Wybierz<br><span class="gradient-text">Idealny Pakiet</span>
+			Wybierz<br><span class="text-[#27275b]">Idealny Pakiet</span>
 		</h2>
 		<p class="text-xl text-gray-600 max-w-3xl mx-auto leading-relaxed">
 			Transparentne ceny bez ukrytych kosztów. AI pozwala nam oferować atrakcyjne stawki przy zachowaniu najwyższej jakości
@@ -698,7 +691,7 @@
 				<!-- Popular Badge -->
 				{#if pkg.popular}
 					<div class="absolute -top-5 left-1/2 -translate-x-1/2 z-20">
-						<div class="bg-gradient-to-r from-[#FB7185] to-[#27275b] text-white px-6 py-2 rounded-full text-sm font-bold shadow-lg neon-glow">
+						<div class="bg-[#FB7185] text-white px-6 py-2 rounded-full text-sm font-bold shadow-lg neon-glow">
 							⭐ Najpopularniejszy
 						</div>
 					</div>
@@ -707,7 +700,7 @@
 				<div class="bg-white p-8 lg:p-10 rounded-2xl border-2 transition-all duration-300 h-full flex flex-col {pkg.popular ? 'border-[#FB7185] shadow-2xl shadow-[#FB7185]/20 scale-105' : 'border-blue-100 hover:border-[#27275b] hover:shadow-xl'}">
 					<!-- Package Header -->
 					<div class="mb-8">
-						<h3 class="text-3xl font-black mb-2 {pkg.popular ? 'gradient-text' : 'text-gray-900'}" style="font-family: 'Playfair Display', serif;">
+						<h3 class="text-3xl font-black mb-2 {pkg.popular ? 'text-[#FB7185]' : 'text-gray-900'}" style="font-family: 'Playfair Display', serif;">
 							{pkg.name}
 						</h3>
 						<p class="text-gray-600 mb-4">{pkg.description}</p>
@@ -729,7 +722,7 @@
 					</ul>
 
 					<!-- Ideal For -->
-					<div class="mb-6 p-4 bg-gradient-to-r from-blue-50 to-emerald-50 rounded-lg">
+					<div class="mb-6 p-4 bg-blue-50 rounded-lg">
 						<p class="text-xs uppercase tracking-wider text-gray-500 mb-1 font-bold">Idealny dla</p>
 						<p class="text-sm text-gray-700 font-semibold">{pkg.ideal}</p>
 					</div>
@@ -745,14 +738,14 @@
 
 	<!-- Custom Projects Note -->
 	<div class="mt-16 text-center observe max-w-3xl mx-auto">
-		<div class="bg-gradient-to-r from-blue-50 via-rose-50 to-emerald-50 p-8 rounded-2xl border-2 border-blue-100">
-			<h4 class="text-2xl font-black mb-3 gradient-text" style="font-family: 'Playfair Display', serif;">
+		<div class="bg-blue-50 p-8 rounded-2xl border-2 border-blue-100">
+			<h4 class="text-2xl font-black mb-3 text-[#27275b]" style="font-family: 'Playfair Display', serif;">
 				Niestandardowy Projekt?
 			</h4>
 			<p class="text-gray-700 mb-6">
 				Potrzebujesz czegoś innego? Skontaktuj się ze mną, a wspólnie ustalimy szczegóły i wycenę dopasowaną do Twoich potrzeb.
 			</p>
-			<a href="#kontakt" class="inline-block px-8 py-3 bg-gradient-to-r from-[#27275b] to-[#FB7185] text-white rounded-lg hover:shadow-xl transition-all duration-300 font-bold uppercase text-sm">
+			<a href="#kontakt" class="inline-block px-8 py-3 bg-[#27275b] text-white rounded-lg hover:shadow-xl transition-all duration-300 font-bold uppercase text-sm">
 				Zapytaj o Wycenę
 			</a>
 		</div>
@@ -765,7 +758,7 @@
 	<div class="text-center mb-20 observe relative z-10">
 		<p class="text-[#27275b] font-black tracking-[0.3em] uppercase text-sm mb-4">🎨 Portfolio</p>
 		<h2 class="text-4xl md:text-5xl lg:text-6xl font-black mb-6 leading-tight" style="font-family: 'Playfair Display', serif;">
-			<span class="gradient-text">Wybrane</span><br>realizacje
+			<span class="text-[#27275b]">Wybrane</span><br>realizacje
 		</h2>
 		<p class="text-xl text-gray-600 max-w-3xl mx-auto mb-12 leading-relaxed">
 			Każdy projekt to indywidualna historia połączenia formy, funkcji i charakteru klienta.
@@ -775,19 +768,19 @@
 		<div class="flex justify-center gap-4 flex-wrap">
 			<button
 				onclick={() => activeFilter = 'wszystkie'}
-				class="px-8 py-3 text-sm uppercase tracking-wider font-bold transition-all duration-300 rounded-lg {activeFilter === 'wszystkie' ? 'bg-gradient-to-r from-[#27275b] to-[#FB7185] text-white shadow-lg' : 'bg-transparent text-gray-600 hover:text-[#27275b] border-2 border-gray-200 hover:border-[#27275b]'}"
+				class="px-8 py-3 text-sm uppercase tracking-wider font-bold transition-all duration-300 rounded-lg {activeFilter === 'wszystkie' ? 'bg-[#27275b] text-white shadow-lg' : 'bg-transparent text-gray-600 hover:text-[#27275b] border-2 border-gray-200 hover:border-[#27275b]'}"
 			>
 				Wszystkie
 			</button>
 			<button
 				onclick={() => activeFilter = 'wnętrza'}
-				class="px-8 py-3 text-sm uppercase tracking-wider font-bold transition-all duration-300 rounded-lg {activeFilter === 'wnętrza' ? 'bg-gradient-to-r from-[#27275b] to-[#FB7185] text-white shadow-lg' : 'bg-transparent text-gray-600 hover:text-[#27275b] border-2 border-gray-200 hover:border-[#27275b]'}"
+				class="px-8 py-3 text-sm uppercase tracking-wider font-bold transition-all duration-300 rounded-lg {activeFilter === 'wnętrza' ? 'bg-[#FB7185] text-white shadow-lg' : 'bg-transparent text-gray-600 hover:text-[#27275b] border-2 border-gray-200 hover:border-[#27275b]'}"
 			>
 				Wnętrza
 			</button>
 			<button
 				onclick={() => activeFilter = 'grafika'}
-				class="px-8 py-3 text-sm uppercase tracking-wider font-bold transition-all duration-300 rounded-lg {activeFilter === 'grafika' ? 'bg-gradient-to-r from-[#27275b] to-[#FB7185] text-white shadow-lg' : 'bg-transparent text-gray-600 hover:text-[#27275b] border-2 border-gray-200 hover:border-[#27275b]'}"
+				class="px-8 py-3 text-sm uppercase tracking-wider font-bold transition-all duration-300 rounded-lg {activeFilter === 'grafika' ? 'bg-[#10B981] text-white shadow-lg' : 'bg-transparent text-gray-600 hover:text-[#27275b] border-2 border-gray-200 hover:border-[#27275b]'}"
 			>
 				Grafika
 			</button>
@@ -797,9 +790,9 @@
 	<div class="grid md:grid-cols-2 lg:grid-cols-3 gap-8 lg:gap-12 relative z-10">
 		{#each projects.filter(p => activeFilter === 'wszystkie' || p.category === activeFilter) as project, i}
 			<div class="group observe hover-lift" style="animation-delay: {i * 100}ms">
-				<div class="aspect-[4/5] bg-gradient-to-br from-blue-100 via-rose-100 to-emerald-100 relative overflow-hidden mb-6 rounded-2xl border-2 border-blue-100 group-hover:border-[#FB7185] transition-all duration-300">
-					<div class="absolute inset-0 bg-gradient-to-br from-[#27275b]/10 to-[#FB7185]/10 group-hover:from-[#27275b]/20 group-hover:to-[#FB7185]/20 transition-all duration-500"></div>
-					<div class="absolute top-6 right-6 bg-gradient-to-r from-[#27275b] to-[#FB7185] text-white px-4 py-2 text-xs font-bold tracking-wider uppercase rounded-lg shadow-lg">
+				<div class="aspect-[4/5] bg-blue-100 relative overflow-hidden mb-6 rounded-2xl border-2 border-blue-100 group-hover:border-[#FB7185] transition-all duration-300">
+					<div class="absolute inset-0 bg-[#27275b]/10 group-hover:bg-[#27275b]/20 transition-all duration-500"></div>
+					<div class="absolute top-6 right-6 bg-[#27275b] text-white px-4 py-2 text-xs font-bold tracking-wider uppercase rounded-lg shadow-lg">
 						{project.year}
 					</div>
 					<div class="absolute inset-0 flex items-center justify-center opacity-0 group-hover:opacity-100 transition-opacity duration-500">
@@ -859,14 +852,14 @@
 </section>
 
 <!-- Contact Section -->
-<section id="kontakt" class="section bg-gradient-to-br from-blue-50 via-rose-50 to-emerald-50 relative overflow-hidden">
+<section id="kontakt" class="section bg-blue-50 relative overflow-hidden">
 	<div class="absolute top-0 right-0 w-96 h-96 bg-blue-200 rounded-full filter blur-3xl opacity-30"></div>
 	<div class="grid lg:grid-cols-2 gap-16 lg:gap-24 relative z-10">
 		<div class="observe">
 			<p class="text-[#27275b] font-black tracking-[0.3em] uppercase text-sm mb-4">💬 Kontakt</p>
 			<h2 class="text-4xl md:text-5xl lg:text-6xl font-black mb-8 leading-tight text-gray-900" style="font-family: 'Playfair Display', serif;">
 				Rozpocznijmy<br>
-				<span class="italic gradient-text">współpracę</span>
+				<span class="italic text-[#FB7185]">współpracę</span>
 			</h2>
 			<p class="text-xl text-gray-600 mb-12 leading-relaxed">
 				Masz pomysł na projekt? Chcesz stworzyć wyjątkową przestrzeń lub odświeżyć identyfikację wizualną?
@@ -916,13 +909,13 @@
 			</div>
 
 			<div class="flex space-x-4 mt-12">
-				<a href="#" class="w-14 h-14 border-2 border-blue-200 rounded-lg flex items-center justify-center hover:bg-gradient-to-r hover:from-[#27275b] hover:to-[#FB7185] hover:text-white hover:border-transparent transition-all duration-300 hover:scale-110 hover:shadow-lg neon-glow">
+				<a href="#" class="w-14 h-14 border-2 border-blue-200 rounded-lg flex items-center justify-center hover:bg-[#27275b] hover:text-white hover:border-transparent transition-all duration-300 hover:scale-110 hover:shadow-lg neon-glow">
 					<span class="text-sm font-bold">in</span>
 				</a>
-				<a href="#" class="w-14 h-14 border-2 border-blue-200 rounded-lg flex items-center justify-center hover:bg-gradient-to-r hover:from-[#27275b] hover:to-[#FB7185] hover:text-white hover:border-transparent transition-all duration-300 hover:scale-110 hover:shadow-lg neon-glow">
+				<a href="#" class="w-14 h-14 border-2 border-blue-200 rounded-lg flex items-center justify-center hover:bg-[#FB7185] hover:text-white hover:border-transparent transition-all duration-300 hover:scale-110 hover:shadow-lg neon-glow">
 					<span class="text-sm font-bold">be</span>
 				</a>
-				<a href="#" class="w-14 h-14 border-2 border-blue-200 rounded-lg flex items-center justify-center hover:bg-gradient-to-r hover:from-[#27275b] hover:to-[#FB7185] hover:text-white hover:border-transparent transition-all duration-300 hover:scale-110 hover:shadow-lg neon-glow">
+				<a href="#" class="w-14 h-14 border-2 border-blue-200 rounded-lg flex items-center justify-center hover:bg-[#10B981] hover:text-white hover:border-transparent transition-all duration-300 hover:scale-110 hover:shadow-lg neon-glow">
 					<span class="text-sm font-bold">ig</span>
 				</a>
 			</div>
