@@ -132,7 +132,7 @@
 				<a href="#portfolio" class="btn animate-float">
 					Zobacz Portfolio
 				</a>
-				<a href="#kontakt" class="btn-secondary">
+				<a href="#kontakt" class="px-8 py-4 bg-white/10 backdrop-blur-sm text-white border-2 border-white rounded-lg hover:bg-white hover:text-purple-600 transition-all duration-300 shadow-lg hover:shadow-2xl font-bold tracking-wide uppercase text-sm">
 					Skontaktuj się
 				</a>
 			</div>
