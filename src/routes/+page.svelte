@@ -257,18 +257,36 @@
 	<div class="section relative z-10">
 		<div class="max-w-5xl">
 			<div class="mb-8 observe">
-				<p class="text-[#FB7185] font-bold tracking-[0.3em] uppercase text-sm mb-6 animate-pulse-slow neon-text">🤖 AI Design Studio - Przyszłość Już Dziś</p>
-				<h1 class="text-5xl md:text-7xl lg:text-8xl font-black mb-8 leading-[1.1]" style="font-family: 'Playfair Display', serif;">
-					Projektowanie<br>
-					Przestrzeni<br>
-					<span class="bg-gradient-to-r from-[#FB7185] via-[#10B981] to-[#27275b] bg-clip-text text-transparent">& Identyfikacji</span>
+				<p class="text-[#FB7185] font-bold tracking-[0.3em] uppercase text-sm mb-6 animate-pulse-slow neon-text">🤖 AI × Architektura × Grafika</p>
+				<h1 class="text-5xl md:text-7xl lg:text-8xl font-black mb-6 leading-[1.05]" style="font-family: 'Playfair Display', serif;">
+					<span class="block">Dość beżu.</span>
+					<span class="block">Czas na <span class="bg-gradient-to-r from-[#FB7185] via-[#10B981] to-[#27275b] bg-clip-text text-transparent">kolor!</span></span>
 				</h1>
+				<p class="text-2xl md:text-3xl font-bold mb-4 text-white/90 leading-tight">
+					AI × Design = Twoje wymarzone wnętrze
+				</p>
 			</div>
-			<p class="text-xl md:text-2xl mb-12 max-w-3xl leading-relaxed text-gray-100 observe" style="font-family: 'Inter', sans-serif; font-weight: 400;">
-				Tworzę <span class="text-[#FB7185] font-bold neon-text">odważne, kolorowe</span> przestrzenie dla młodych ludzi.
-				Łączę wiedzę architektoniczną, umiejętności graficzne i <span class="text-[#10B981] font-bold">technologię AI</span>
-				dla innowacyjnych rozwiązań w atrakcyjnych cenach.
+			<p class="text-xl md:text-2xl mb-8 max-w-3xl leading-relaxed text-gray-100 observe" style="font-family: 'Inter', sans-serif; font-weight: 400;">
+				Zobacz <span class="text-[#10B981] font-bold">10 wersji swojego wnętrza</span> zanim zdecydujesz.
+				Prototypowanie w godziny, nie tygodnie. <span class="text-[#FB7185] font-bold neon-text">Szybciej. Odważniej. Taniej.</span>
 			</p>
+
+			<!-- Value Props -->
+			<div class="grid grid-cols-1 sm:grid-cols-3 gap-4 mb-12 observe max-w-3xl">
+				<div class="bg-white/10 backdrop-blur-sm px-4 py-3 rounded-lg border border-white/20">
+					<div class="text-[#10B981] font-black text-lg">8-13 dni</div>
+					<div class="text-white/80 text-sm">vs. 4-6 tygodni</div>
+				</div>
+				<div class="bg-white/10 backdrop-blur-sm px-4 py-3 rounded-lg border border-white/20">
+					<div class="text-[#FB7185] font-black text-lg neon-text">5-10 wariantów</div>
+					<div class="text-white/80 text-sm">do wyboru z AI</div>
+				</div>
+				<div class="bg-white/10 backdrop-blur-sm px-4 py-3 rounded-lg border border-white/20">
+					<div class="text-[#10B981] font-black text-lg">Od 1,500 zł</div>
+					<div class="text-white/80 text-sm">jeden pokój</div>
+				</div>
+			</div>
+
 			<div class="flex flex-col sm:flex-row gap-6 observe">
 				<a href="#beforeafter" class="btn animate-float">
 					Zobacz Metamorfozy
@@ -567,6 +585,94 @@
 			<p class="text-sm uppercase tracking-wider text-gray-300 mb-2">Całkowity czas realizacji</p>
 			<p class="text-4xl font-black gradient-text" style="font-family: 'Playfair Display', serif;">8-13 dni roboczych</p>
 			<p class="text-sm text-gray-300 mt-2">vs. tradycyjne 4-6 tygodni</p>
+		</div>
+	</div>
+</section>
+
+<!-- Manifesto / Why Section -->
+<section class="section bg-gradient-to-br from-blue-50 via-white to-rose-50 relative overflow-hidden">
+	<div class="absolute top-0 right-0 w-96 h-96 bg-emerald-100 rounded-full filter blur-3xl opacity-30"></div>
+	<div class="max-w-4xl mx-auto relative z-10">
+		<div class="text-center mb-16 observe">
+			<p class="text-[#27275b] font-black tracking-[0.3em] uppercase text-sm mb-4">💡 Nasza Filozofia</p>
+			<h2 class="text-4xl md:text-5xl lg:text-6xl font-black mb-6 leading-tight" style="font-family: 'Playfair Display', serif;">
+				<span class="gradient-text">Wierzymy</span>, że design może być...
+			</h2>
+		</div>
+
+		<div class="grid md:grid-cols-2 gap-8 mb-16 observe">
+			<div class="bg-white p-8 rounded-2xl border-2 border-blue-100 hover:border-[#FB7185] transition-all duration-300 hover:shadow-xl">
+				<div class="text-4xl mb-4">⚡</div>
+				<h3 class="text-2xl font-black mb-3 gradient-text" style="font-family: 'Playfair Display', serif;">Szybki I Dopracowany</h3>
+				<p class="text-gray-600 leading-relaxed">
+					AI nie zastępuje designera - wzmacnia go. Generujemy warianty w godziny, a potem dopracowujemy każdy detal ręcznie.
+				</p>
+			</div>
+
+			<div class="bg-white p-8 rounded-2xl border-2 border-blue-100 hover:border-[#FB7185] transition-all duration-300 hover:shadow-xl">
+				<div class="text-4xl mb-4">🎨</div>
+				<h3 class="text-2xl font-black mb-3 gradient-text" style="font-family: 'Playfair Display', serif;">Kolorowy I Profesjonalny</h3>
+				<p class="text-gray-600 leading-relaxed">
+					Zero beżowo-szarych nudnych wnętrz. Ale też zero chaosu - każdy kolor ma swoje miejsce i funkcję.
+				</p>
+			</div>
+
+			<div class="bg-white p-8 rounded-2xl border-2 border-blue-100 hover:border-[#FB7185] transition-all duration-300 hover:shadow-xl">
+				<div class="text-4xl mb-4">🚀</div>
+				<h3 class="text-2xl font-black mb-3 gradient-text" style="font-family: 'Playfair Display', serif;">Odważny I Funkcjonalny</h3>
+				<p class="text-gray-600 leading-relaxed">
+					Projektujemy przestrzenie, które wyróżniają się wizualnie, ale przede wszystkim - działają dla Ciebie każdego dnia.
+				</p>
+			</div>
+
+			<div class="bg-white p-8 rounded-2xl border-2 border-blue-100 hover:border-[#FB7185] transition-all duration-300 hover:shadow-xl">
+				<div class="text-4xl mb-4">💰</div>
+				<h3 class="text-2xl font-black mb-3 gradient-text" style="font-family: 'Playfair Display', serif;">Dostępny I Wysokiej Jakości</h3>
+				<p class="text-gray-600 leading-relaxed">
+					AI oszczędza nam czas, więc możemy oferować Ci atrakcyjne ceny bez kompromisów w jakości wykonania.
+				</p>
+			</div>
+		</div>
+
+		<!-- FAQ Quick Hits -->
+		<div class="bg-gradient-to-r from-[#27275b] to-[#1e3a5f] p-10 lg:p-12 rounded-2xl text-white observe">
+			<h3 class="text-3xl font-black mb-8 text-center" style="font-family: 'Playfair Display', serif;">
+				Najczęstsze pytania
+			</h3>
+
+			<div class="space-y-6">
+				<div class="border-l-4 border-[#FB7185] pl-6">
+					<p class="font-bold text-xl mb-2 text-[#FB7185] neon-text">"Czy AI to nie tandetnie?"</p>
+					<p class="text-gray-200 leading-relaxed">
+						Nie, jeśli ma <strong>inżyniera i designera przy sterach</strong>. AI to narzędzie - jak pędzel dla malarza.
+						W moich rękach generuje propozycje, ale każdy projekt przechodzi przez ludzką kurację i dopracowanie.
+					</p>
+				</div>
+
+				<div class="border-l-4 border-[#10B981] pl-6">
+					<p class="font-bold text-xl mb-2 text-[#10B981]">"Ile to kosztuje?"</p>
+					<p class="text-gray-200 leading-relaxed">
+						<strong>Mniej niż myślisz.</strong> Bo AI oszczędza nam czas, a Tobie pieniądze.
+						Jeden pokój od 1,500 zł, mieszkanie 2-3 pokoje od 3,500 zł. Zero ukrytych kosztów.
+					</p>
+				</div>
+
+				<div class="border-l-4 border-[#FB7185] pl-6">
+					<p class="font-bold text-xl mb-2 text-[#FB7185] neon-text">"Czy to naprawdę działa?"</p>
+					<p class="text-gray-200 leading-relaxed">
+						<strong>50+ zrealizowanych projektów mówi samo za siebie.</strong> Pierwsze studio w Krakowie,
+						które połączyło architekturę × grafikę × AI. Sprawdź metamorfozy poniżej.
+					</p>
+				</div>
+
+				<div class="border-l-4 border-[#10B981] pl-6">
+					<p class="font-bold text-xl mb-2 text-[#10B981]">"Dla kogo to jest?"</p>
+					<p class="text-gray-200 leading-relaxed">
+						Dla <strong>młodych ludzi (20-30 lat)</strong>, którzy kupują pierwsze mieszkanie i chcą przestrzeń
+						do pracy zdalnej, smart home, kolorowe aranżacje - zamiast beżowo-szarych wnętrz rodem z showroomu.
+					</p>
+				</div>
+			</div>
 		</div>
 	</div>
 </section>
