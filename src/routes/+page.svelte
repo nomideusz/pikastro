@@ -1,4 +1,110 @@
 <script lang="ts">
+	// Before/After showcase data
+	const beforeAfterProjects = [
+		{
+			title: 'Salon z Kuchnią - Metamorfoza AI',
+			before: '/placeholder-before-1.jpg',
+			after: '/placeholder-after-1.jpg',
+			description: 'Transformacja beżowego salonu w kolorową, funkcjonalną przestrzeń z AI',
+			aiFeatures: ['Optymalizacja układu', 'Dobór kolorystyki', 'Smart storage']
+		},
+		{
+			title: 'Sypialnia Młodych Profesjonalistów',
+			before: '/placeholder-before-2.jpg',
+			after: '/placeholder-after-2.jpg',
+			description: 'Z pustego pokoju w nowoczesną sypialnię z home office',
+			aiFeatures: ['Zarządzanie przestrzenią', 'Wielofunkcyjność', 'Oświetlenie mood']
+		},
+		{
+			title: 'Biuro Home Office',
+			before: '/placeholder-before-3.jpg',
+			after: '/placeholder-after-3.jpg',
+			description: 'Kreacja przestrzeni do pracy zdalnej',
+			aiFeatures: ['Ergonomia', 'Akustyka', 'Smart tech integration']
+		}
+	];
+
+	// Process steps
+	const processSteps = [
+		{
+			number: '01',
+			title: 'Konsultacja & Brief',
+			description: 'Zbieramy informacje o Twoich potrzebach, stylu życia i budżecie. AI analizuje podobne projekty.',
+			duration: '1-2 dni',
+			icon: '💬'
+		},
+		{
+			number: '02',
+			title: 'AI Prototyping',
+			description: 'Generujemy 5-10 wariantów aranżacji z wykorzystaniem AI. Szybka iteracja koncepcji.',
+			duration: '2-3 dni',
+			icon: '🤖'
+		},
+		{
+			number: '03',
+			title: 'Refinement',
+			description: 'Wybierasz ulubiony wariant. Dopracowujemy detale, materiały, kolory według Twoich preferencji.',
+			duration: '3-5 dni',
+			icon: '✨'
+		},
+		{
+			number: '04',
+			title: 'Dokumentacja',
+			description: 'Otrzymujesz pełną dokumentację projektową, wizualizacje 3D, listę zakupów i kontakty do wykonawców.',
+			duration: '2-3 dni',
+			icon: '📐'
+		}
+	];
+
+	// Pricing packages
+	const pricingPackages = [
+		{
+			name: 'AI Express',
+			price: '1,500 - 2,500 zł',
+			description: 'Szybka koncepcja dla jednego pomieszczenia',
+			features: [
+				'Konsultacja online',
+				'3-5 wariantów AI',
+				'Wizualizacje 3D (3 ujęcia)',
+				'Lista zakupów',
+				'Wsparcie email przez 2 tyg'
+			],
+			ideal: 'Idealne dla: Pokój, sypialnia, home office',
+			popular: false
+		},
+		{
+			name: 'AI Complete',
+			price: '3,500 - 6,000 zł',
+			description: 'Kompleksowy projekt mieszkania',
+			features: [
+				'Konsultacja stacjonarna',
+				'8-10 wariantów AI',
+				'Wizualizacje 3D (10 ujęć)',
+				'Pełna dokumentacja',
+				'Lista zakupów + shopping assistance',
+				'Wsparcie przez 1 miesiąc',
+				'1 rewizja gratis'
+			],
+			ideal: 'Idealne dla: Mieszkanie 2-3 pokoje, apartament',
+			popular: true
+		},
+		{
+			name: 'AI Premium',
+			price: 'od 8,000 zł',
+			description: 'Pełen zakres + identyfikacja wizualna',
+			features: [
+				'Wszystko z AI Complete',
+				'Brand identity dla przestrzeni',
+				'Custom grafiki i dekoracje',
+				'Nadzór nad realizacją',
+				'Unlimited rewizje',
+				'Wsparcie przez 3 miesiące'
+			],
+			ideal: 'Idealne dla: Domy, biura, lokale komercyjne',
+			popular: false
+		}
+	];
+
 	// Portfolio data - professionally curated projects
 	const projects = [
 		{
@@ -89,6 +195,8 @@
 	];
 
 	let activeFilter = $state('wszystkie');
+	let activeBeforeAfter = $state(0);
+	let sliderPosition = $state(50); // percentage for before/after slider
 
 	$effect(() => {
 		// Add scroll animations
@@ -109,16 +217,47 @@
 	});
 </script>
 
-<!-- Hero Section -->
+<!-- Hero Section with AI Visualization -->
 <section class="relative min-h-[90vh] flex items-center gradient-bg text-white overflow-hidden">
-	<div class="absolute inset-0 bg-[url('/grid-pattern.svg')] opacity-5"></div>
+	<!-- Animated AI Network Background -->
+	<div class="absolute inset-0">
+		<div class="absolute inset-0 bg-[url('/grid-pattern.svg')] opacity-5"></div>
+		<!-- AI Neural Network Lines -->
+		<svg class="absolute inset-0 w-full h-full opacity-20" xmlns="http://www.w3.org/2000/svg">
+			<defs>
+				<linearGradient id="lineGradient" x1="0%" y1="0%" x2="100%" y2="100%">
+					<stop offset="0%" style="stop-color:#FB7185;stop-opacity:0.6" />
+					<stop offset="50%" style="stop-color:#10B981;stop-opacity:0.6" />
+					<stop offset="100%" style="stop-color:#27275b;stop-opacity:0.6" />
+				</linearGradient>
+			</defs>
+			<!-- Animated connecting lines -->
+			<line x1="10%" y1="20%" x2="30%" y2="40%" stroke="url(#lineGradient)" stroke-width="2" class="animate-pulse-slow" />
+			<line x1="30%" y1="40%" x2="50%" y2="30%" stroke="url(#lineGradient)" stroke-width="2" class="animate-pulse-slow" style="animation-delay: 0.5s" />
+			<line x1="50%" y1="30%" x2="70%" y2="50%" stroke="url(#lineGradient)" stroke-width="2" class="animate-pulse-slow" style="animation-delay: 1s" />
+			<line x1="70%" y1="50%" x2="90%" y2="35%" stroke="url(#lineGradient)" stroke-width="2" class="animate-pulse-slow" style="animation-delay: 1.5s" />
+			<line x1="20%" y1="70%" x2="40%" y2="85%" stroke="url(#lineGradient)" stroke-width="2" class="animate-pulse-slow" style="animation-delay: 2s" />
+			<line x1="60%" y1="75%" x2="80%" y2="80%" stroke="url(#lineGradient)" stroke-width="2" class="animate-pulse-slow" style="animation-delay: 2.5s" />
+			<!-- AI Nodes -->
+			<circle cx="10%" cy="20%" r="8" fill="#FB7185" class="animate-pulse-slow" />
+			<circle cx="30%" cy="40%" r="6" fill="#10B981" class="animate-pulse-slow" style="animation-delay: 0.3s" />
+			<circle cx="50%" cy="30%" r="10" fill="#27275b" class="animate-pulse-slow neon-glow" style="animation-delay: 0.6s" />
+			<circle cx="70%" cy="50%" r="7" fill="#FB7185" class="animate-pulse-slow" style="animation-delay: 0.9s" />
+			<circle cx="90%" cy="35%" r="5" fill="#10B981" class="animate-pulse-slow" style="animation-delay: 1.2s" />
+			<circle cx="20%" cy="70%" r="6" fill="#27275b" class="animate-pulse-slow" style="animation-delay: 1.5s" />
+			<circle cx="80%" cy="80%" r="8" fill="#FB7185" class="animate-pulse-slow" style="animation-delay: 1.8s" />
+		</svg>
+	</div>
+
+	<!-- Floating gradient blobs -->
 	<div class="absolute top-20 right-20 w-72 h-72 bg-[#FB7185] rounded-full mix-blend-multiply filter blur-3xl opacity-30 animate-pulse-slow"></div>
 	<div class="absolute bottom-20 left-20 w-96 h-96 bg-[#27275b] rounded-full mix-blend-multiply filter blur-3xl opacity-30 animate-pulse-slow" style="animation-delay: 1s;"></div>
 	<div class="absolute top-1/2 left-1/2 w-80 h-80 bg-[#10B981] rounded-full mix-blend-multiply filter blur-3xl opacity-30 animate-pulse-slow" style="animation-delay: 2s;"></div>
+
 	<div class="section relative z-10">
 		<div class="max-w-5xl">
 			<div class="mb-8 observe">
-				<p class="text-[#FB7185] font-bold tracking-[0.3em] uppercase text-sm mb-6 animate-pulse-slow neon-text">🤖 AI Design Studio</p>
+				<p class="text-[#FB7185] font-bold tracking-[0.3em] uppercase text-sm mb-6 animate-pulse-slow neon-text">🤖 AI Design Studio - Przyszłość Już Dziś</p>
 				<h1 class="text-5xl md:text-7xl lg:text-8xl font-black mb-8 leading-[1.1]" style="font-family: 'Playfair Display', serif;">
 					Projektowanie<br>
 					Przestrzeni<br>
@@ -131,11 +270,11 @@
 				dla innowacyjnych rozwiązań w atrakcyjnych cenach.
 			</p>
 			<div class="flex flex-col sm:flex-row gap-6 observe">
-				<a href="#portfolio" class="btn animate-float">
-					Zobacz Portfolio
+				<a href="#beforeafter" class="btn animate-float">
+					Zobacz Metamorfozy
 				</a>
-				<a href="#kontakt" class="px-8 py-4 bg-white/10 backdrop-blur-sm text-white border-2 border-white rounded-lg hover:bg-white hover:text-[#27275b] transition-all duration-300 shadow-lg hover:shadow-2xl font-bold tracking-wide uppercase text-sm">
-					Skontaktuj się
+				<a href="#cennik" class="px-8 py-4 bg-white/10 backdrop-blur-sm text-white border-2 border-white rounded-lg hover:bg-white hover:text-[#27275b] transition-all duration-300 shadow-lg hover:shadow-2xl font-bold tracking-wide uppercase text-sm">
+					Sprawdź Ceny
 				</a>
 			</div>
 		</div>
@@ -144,6 +283,97 @@
 		<svg class="w-6 h-6 text-[#FB7185]" fill="none" stroke="currentColor" viewBox="0 0 24 24">
 			<path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 14l-7 7m0 0l-7-7m7 7V3"></path>
 		</svg>
+	</div>
+</section>
+
+<!-- Before/After Showcase Section -->
+<section id="beforeafter" class="section bg-white relative overflow-hidden">
+	<div class="absolute top-0 right-0 w-96 h-96 bg-rose-100 rounded-full filter blur-3xl opacity-30"></div>
+	<div class="text-center mb-20 observe">
+		<p class="text-[#27275b] font-black tracking-[0.3em] uppercase text-sm mb-4">✨ Metamorfozy AI</p>
+		<h2 class="text-4xl md:text-5xl lg:text-6xl font-black mb-6 leading-tight" style="font-family: 'Playfair Display', serif;">
+			Przed i Po<br><span class="gradient-text">Transformacji z AI</span>
+		</h2>
+		<p class="text-xl text-gray-600 max-w-3xl mx-auto leading-relaxed">
+			Zobacz jak AI pomaga tworzyć kolorowe, funkcjonalne przestrzenie zamiast beżowo-szarych wnętrz
+		</p>
+	</div>
+
+	<div class="relative z-10">
+		<!-- Main Before/After Slider -->
+		<div class="max-w-5xl mx-auto mb-16 observe">
+			<div class="relative aspect-[16/9] bg-gray-900 rounded-2xl overflow-hidden shadow-2xl">
+				<!-- Before Image -->
+				<div class="absolute inset-0">
+					<div class="w-full h-full bg-gradient-to-br from-gray-200 to-gray-300 flex items-center justify-center">
+						<div class="text-center p-8">
+							<p class="text-6xl mb-4">📷</p>
+							<p class="text-gray-600 font-bold">BEFORE</p>
+							<p class="text-sm text-gray-500 mt-2">Placeholder - Zdjęcie przed</p>
+						</div>
+					</div>
+				</div>
+
+				<!-- After Image with slider -->
+				<div class="absolute inset-0" style="clip-path: inset(0 {100 - sliderPosition}% 0 0)">
+					<div class="w-full h-full bg-gradient-to-br from-blue-400 via-rose-400 to-emerald-400 flex items-center justify-center">
+						<div class="text-center p-8">
+							<p class="text-6xl mb-4">🎨</p>
+							<p class="text-white font-bold">AFTER - AI Design</p>
+							<p class="text-sm text-white/80 mt-2">Placeholder - Projekt po AI</p>
+						</div>
+					</div>
+				</div>
+
+				<!-- Slider Handle -->
+				<div class="absolute inset-y-0 z-20" style="left: {sliderPosition}%">
+					<div class="absolute inset-y-0 w-1 bg-white shadow-lg"></div>
+					<div class="absolute top-1/2 -translate-y-1/2 -translate-x-1/2 w-12 h-12 bg-white rounded-full shadow-lg flex items-center justify-center cursor-move hover:scale-110 transition-transform">
+						<svg class="w-6 h-6 text-[#27275b]" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+							<path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8 9l4-4 4 4m0 6l-4 4-4-4"></path>
+						</svg>
+					</div>
+				</div>
+
+				<!-- Slider Input -->
+				<input
+					type="range"
+					min="0"
+					max="100"
+					bind:value={sliderPosition}
+					class="absolute inset-0 w-full h-full opacity-0 cursor-move z-10"
+				/>
+			</div>
+
+			<!-- Project Info -->
+			<div class="mt-8 text-center">
+				<h3 class="text-2xl font-black mb-3" style="font-family: 'Playfair Display', serif;">
+					{beforeAfterProjects[activeBeforeAfter].title}
+				</h3>
+				<p class="text-gray-600 mb-6">{beforeAfterProjects[activeBeforeAfter].description}</p>
+				<div class="flex justify-center gap-3 flex-wrap">
+					{#each beforeAfterProjects[activeBeforeAfter].aiFeatures as feature}
+						<span class="px-4 py-2 bg-gradient-to-r from-[#27275b] to-[#FB7185] text-white text-sm font-bold rounded-lg">
+							🤖 {feature}
+						</span>
+					{/each}
+				</div>
+			</div>
+		</div>
+
+		<!-- Project Thumbnails -->
+		<div class="grid md:grid-cols-3 gap-6 observe">
+			{#each beforeAfterProjects as project, i}
+				<button
+					onclick={() => activeBeforeAfter = i}
+					class="relative aspect-[4/3] rounded-xl overflow-hidden border-4 transition-all duration-300 {activeBeforeAfter === i ? 'border-[#FB7185] shadow-2xl shadow-[#FB7185]/30 scale-105' : 'border-gray-200 hover:border-[#27275b]'}"
+				>
+					<div class="absolute inset-0 bg-gradient-to-r from-gray-300 to-blue-300 flex items-center justify-center">
+						<p class="text-sm font-bold text-gray-700">{project.title}</p>
+					</div>
+				</button>
+			{/each}
+		</div>
 	</div>
 </section>
 
@@ -274,6 +504,152 @@
 				</ul>
 			</div>
 		{/each}
+	</div>
+</section>
+
+<!-- Process Section -->
+<section id="proces" class="section gradient-bg text-white relative overflow-hidden">
+	<div class="absolute top-10 right-10 w-96 h-96 bg-[#FB7185] rounded-full mix-blend-multiply filter blur-3xl opacity-20 animate-pulse-slow"></div>
+	<div class="absolute bottom-10 left-10 w-96 h-96 bg-[#10B981] rounded-full mix-blend-multiply filter blur-3xl opacity-20 animate-pulse-slow" style="animation-delay: 1.5s;"></div>
+
+	<div class="text-center mb-20 observe relative z-10">
+		<p class="text-[#FB7185] font-black tracking-[0.3em] uppercase text-sm mb-4 neon-text">⚙️ Jak to działa</p>
+		<h2 class="text-4xl md:text-5xl lg:text-6xl font-black mb-6 leading-tight" style="font-family: 'Playfair Display', serif;">
+			Proces Projektowania<br><span class="text-[#10B981]">z Wykorzystaniem AI</span>
+		</h2>
+		<p class="text-xl text-gray-200 max-w-3xl mx-auto leading-relaxed">
+			Połączenie ludzkiej kreatywności i mocy AI dla najlepszych rezultatów w najkrótszym czasie
+		</p>
+	</div>
+
+	<div class="grid md:grid-cols-2 lg:grid-cols-4 gap-8 relative z-10">
+		{#each processSteps as step, i}
+			<div class="observe group" style="animation-delay: {i * 150}ms">
+				<div class="bg-white/10 backdrop-blur-sm p-8 rounded-2xl border-2 border-white/20 hover:border-[#FB7185] transition-all duration-300 hover:shadow-2xl hover:shadow-[#FB7185]/30 hover:scale-105">
+					<!-- Step Number -->
+					<div class="mb-6">
+						<div class="text-8xl font-black opacity-20 leading-none gradient-text" style="font-family: 'Playfair Display', serif;">
+							{step.number}
+						</div>
+						<div class="text-5xl -mt-8 mb-4">{step.icon}</div>
+					</div>
+
+					<!-- Step Content -->
+					<h3 class="text-2xl font-black mb-3 text-white group-hover:text-[#FB7185] transition-colors" style="font-family: 'Playfair Display', serif;">
+						{step.title}
+					</h3>
+					<p class="text-gray-200 mb-4 leading-relaxed">
+						{step.description}
+					</p>
+					<div class="flex items-center gap-2 text-[#10B981] font-bold text-sm">
+						<svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+							<path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z"></path>
+						</svg>
+						{step.duration}
+					</div>
+				</div>
+
+				<!-- Connecting Arrow (except for last item) -->
+				{#if i < processSteps.length - 1}
+					<div class="hidden lg:block absolute top-1/2 -right-4 z-20">
+						<svg class="w-8 h-8 text-[#FB7185] animate-pulse-slow" fill="currentColor" viewBox="0 0 24 24">
+							<path d="M8.59 16.59L13.17 12 8.59 7.41 10 6l6 6-6 6-1.41-1.41z"/>
+						</svg>
+					</div>
+				{/if}
+			</div>
+		{/each}
+	</div>
+
+	<!-- Total Time Banner -->
+	<div class="mt-16 text-center observe">
+		<div class="inline-block bg-white/10 backdrop-blur-sm px-12 py-6 rounded-2xl border-2 border-white/20">
+			<p class="text-sm uppercase tracking-wider text-gray-300 mb-2">Całkowity czas realizacji</p>
+			<p class="text-4xl font-black gradient-text" style="font-family: 'Playfair Display', serif;">8-13 dni roboczych</p>
+			<p class="text-sm text-gray-300 mt-2">vs. tradycyjne 4-6 tygodni</p>
+		</div>
+	</div>
+</section>
+
+<!-- Pricing Section -->
+<section id="cennik" class="section bg-white relative overflow-hidden">
+	<div class="absolute top-0 left-0 w-96 h-96 bg-blue-100 rounded-full filter blur-3xl opacity-30"></div>
+	<div class="absolute bottom-0 right-0 w-96 h-96 bg-emerald-100 rounded-full filter blur-3xl opacity-30"></div>
+
+	<div class="text-center mb-20 observe relative z-10">
+		<p class="text-[#27275b] font-black tracking-[0.3em] uppercase text-sm mb-4">💰 Przejrzyste Ceny</p>
+		<h2 class="text-4xl md:text-5xl lg:text-6xl font-black mb-6 leading-tight" style="font-family: 'Playfair Display', serif;">
+			Wybierz<br><span class="gradient-text">Idealny Pakiet</span>
+		</h2>
+		<p class="text-xl text-gray-600 max-w-3xl mx-auto leading-relaxed">
+			Transparentne ceny bez ukrytych kosztów. AI pozwala nam oferować atrakcyjne stawki przy zachowaniu najwyższej jakości
+		</p>
+	</div>
+
+	<div class="grid md:grid-cols-3 gap-8 lg:gap-12 relative z-10 max-w-6xl mx-auto">
+		{#each pricingPackages as pkg, i}
+			<div class="observe relative" style="animation-delay: {i * 150}ms">
+				<!-- Popular Badge -->
+				{#if pkg.popular}
+					<div class="absolute -top-5 left-1/2 -translate-x-1/2 z-20">
+						<div class="bg-gradient-to-r from-[#FB7185] to-[#27275b] text-white px-6 py-2 rounded-full text-sm font-bold shadow-lg neon-glow">
+							⭐ Najpopularniejszy
+						</div>
+					</div>
+				{/if}
+
+				<div class="bg-white p-8 lg:p-10 rounded-2xl border-2 transition-all duration-300 h-full flex flex-col {pkg.popular ? 'border-[#FB7185] shadow-2xl shadow-[#FB7185]/20 scale-105' : 'border-blue-100 hover:border-[#27275b] hover:shadow-xl'}">
+					<!-- Package Header -->
+					<div class="mb-8">
+						<h3 class="text-3xl font-black mb-2 {pkg.popular ? 'gradient-text' : 'text-gray-900'}" style="font-family: 'Playfair Display', serif;">
+							{pkg.name}
+						</h3>
+						<p class="text-gray-600 mb-4">{pkg.description}</p>
+						<div class="text-4xl font-black mb-2 {pkg.popular ? 'text-[#FB7185]' : 'text-[#27275b]'}" style="font-family: 'Playfair Display', serif;">
+							{pkg.price}
+						</div>
+					</div>
+
+					<!-- Features List -->
+					<ul class="space-y-4 mb-8 flex-grow">
+						{#each pkg.features as feature}
+							<li class="flex items-start text-gray-700">
+								<svg class="w-5 h-5 text-[#10B981] mr-3 flex-shrink-0 mt-0.5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+									<path stroke-linecap="round" stroke-linejoin="round" stroke-width="3" d="M5 13l4 4L19 7"></path>
+								</svg>
+								<span class="text-sm">{feature}</span>
+							</li>
+						{/each}
+					</ul>
+
+					<!-- Ideal For -->
+					<div class="mb-6 p-4 bg-gradient-to-r from-blue-50 to-emerald-50 rounded-lg">
+						<p class="text-xs uppercase tracking-wider text-gray-500 mb-1 font-bold">Idealny dla</p>
+						<p class="text-sm text-gray-700 font-semibold">{pkg.ideal}</p>
+					</div>
+
+					<!-- CTA Button -->
+					<a href="#kontakt" class="{pkg.popular ? 'btn' : 'btn-secondary'} w-full text-center">
+						Wybierz {pkg.name}
+					</a>
+				</div>
+			</div>
+		{/each}
+	</div>
+
+	<!-- Custom Projects Note -->
+	<div class="mt-16 text-center observe max-w-3xl mx-auto">
+		<div class="bg-gradient-to-r from-blue-50 via-rose-50 to-emerald-50 p-8 rounded-2xl border-2 border-blue-100">
+			<h4 class="text-2xl font-black mb-3 gradient-text" style="font-family: 'Playfair Display', serif;">
+				Niestandardowy Projekt?
+			</h4>
+			<p class="text-gray-700 mb-6">
+				Potrzebujesz czegoś innego? Skontaktuj się ze mną, a wspólnie ustalimy szczegóły i wycenę dopasowaną do Twoich potrzeb.
+			</p>
+			<a href="#kontakt" class="inline-block px-8 py-3 bg-gradient-to-r from-[#27275b] to-[#FB7185] text-white rounded-lg hover:shadow-xl transition-all duration-300 font-bold uppercase text-sm">
+				Zapytaj o Wycenę
+			</a>
+		</div>
 	</div>
 </section>
 

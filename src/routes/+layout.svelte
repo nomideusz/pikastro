@@ -23,13 +23,17 @@
 			</div>
 
 			<!-- Desktop Navigation -->
-			<div class="hidden md:flex items-center space-x-12">
-				<a href="#omnie" class="text-gray-700 hover:text-[#27275b] transition-colors font-bold text-sm tracking-wide uppercase relative group">
-					O mnie
+			<div class="hidden md:flex items-center space-x-8">
+				<a href="#beforeafter" class="text-gray-700 hover:text-[#27275b] transition-colors font-bold text-sm tracking-wide uppercase relative group">
+					Metamorfozy
 					<span class="absolute bottom-0 left-0 w-0 h-0.5 bg-gradient-to-r from-[#27275b] to-[#FB7185] transition-all duration-300 group-hover:w-full"></span>
 				</a>
-				<a href="#oferta" class="text-gray-700 hover:text-[#27275b] transition-colors font-bold text-sm tracking-wide uppercase relative group">
-					Oferta
+				<a href="#proces" class="text-gray-700 hover:text-[#27275b] transition-colors font-bold text-sm tracking-wide uppercase relative group">
+					Proces
+					<span class="absolute bottom-0 left-0 w-0 h-0.5 bg-gradient-to-r from-[#27275b] to-[#FB7185] transition-all duration-300 group-hover:w-full"></span>
+				</a>
+				<a href="#cennik" class="text-gray-700 hover:text-[#27275b] transition-colors font-bold text-sm tracking-wide uppercase relative group">
+					Ceny
 					<span class="absolute bottom-0 left-0 w-0 h-0.5 bg-gradient-to-r from-[#27275b] to-[#FB7185] transition-all duration-300 group-hover:w-full"></span>
 				</a>
 				<a href="#portfolio" class="text-gray-700 hover:text-[#27275b] transition-colors font-bold text-sm tracking-wide uppercase relative group">
@@ -63,8 +67,9 @@
 		{#if isMenuOpen}
 			<div class="md:hidden pb-6 border-t border-gray-100 mt-2 animate-fade-in-up">
 				<div class="flex flex-col space-y-4 pt-6">
-					<a href="#omnie" onclick={() => isMenuOpen = false} class="text-gray-700 hover:text-[#27275b] transition-colors font-bold text-sm tracking-wide uppercase">O mnie</a>
-					<a href="#oferta" onclick={() => isMenuOpen = false} class="text-gray-700 hover:text-[#27275b] transition-colors font-bold text-sm tracking-wide uppercase">Oferta</a>
+					<a href="#beforeafter" onclick={() => isMenuOpen = false} class="text-gray-700 hover:text-[#27275b] transition-colors font-bold text-sm tracking-wide uppercase">Metamorfozy</a>
+					<a href="#proces" onclick={() => isMenuOpen = false} class="text-gray-700 hover:text-[#27275b] transition-colors font-bold text-sm tracking-wide uppercase">Proces</a>
+					<a href="#cennik" onclick={() => isMenuOpen = false} class="text-gray-700 hover:text-[#27275b] transition-colors font-bold text-sm tracking-wide uppercase">Ceny</a>
 					<a href="#portfolio" onclick={() => isMenuOpen = false} class="text-gray-700 hover:text-[#27275b] transition-colors font-bold text-sm tracking-wide uppercase">Portfolio</a>
 					<a href="#kontakt" onclick={() => isMenuOpen = false} class="px-6 py-3 bg-gradient-to-r from-[#27275b] to-[#FB7185] text-white text-center hover:from-[#1e1e4a] hover:to-[#e55b6f] transition-all duration-300 text-sm tracking-wide uppercase font-bold rounded-lg">Kontakt</a>
 				</div>
