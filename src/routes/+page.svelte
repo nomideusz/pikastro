@@ -54,35 +54,36 @@
 	const services = [
 		{
 			title: 'Projektowanie Wnętrz',
-			description: 'Kompleksowe projekty mieszkalne i komercyjne - od koncepcji po nadzór wykonawczy.',
+			description: 'Kompleksowe projektowanie i aranżacja przestrzeni mieszkalnych i komercyjnych z wykorzystaniem AI.',
 			icon: '◻',
 			features: [
-				'Analiza przestrzeni i potrzeb',
-				'Wizualizacje 3D fotorealistyczne',
-				'Dobór materiałów i kolorystyki',
-				'Nadzór autorski'
+				'Projektowanie układu pomieszczeń',
+				'Optymalizacja ergonomii i funkcjonalności',
+				'Aranżacja mieszkań, domów i apartamentów',
+				'Przestrzenie komercyjne (biura, hotele)',
+				'Graficzne dekoracje wnętrz'
 			]
 		},
 		{
-			title: 'Identyfikacja Wizualna',
-			description: 'Spójny branding i materiały graficzne dla firm i przestrzeni komercyjnych.',
+			title: 'Grafika Komputerowa',
+			description: 'Pełen zakres usług graficznych - od identyfikacji wizualnej po materiały marketingowe.',
 			icon: '○',
 			features: [
-				'Projektowanie logo i identyfikacji',
-				'Brand guidelines',
-				'Materiały marketingowe',
-				'Grafika środowiskowa'
+				'Identyfikacja wizualna dla firm',
+				'Grafiki na produkty tekstylne',
+				'Materiały reklamowe i digital marketing',
+				'Plakaty i dekoracje spersonalizowane'
 			]
 		},
 		{
-			title: 'Doradztwo Projektowe',
-			description: 'Profesjonalne konsultacje i optymalizacja projektów architektonicznych.',
+			title: 'Technologia AI',
+			description: 'Innowacyjne wykorzystanie sztucznej inteligencji w procesie projektowym dla szybszych rezultatów.',
 			icon: '△',
 			features: [
-				'Audyt przestrzeni',
-				'Optymalizacja układu',
-				'Dobór rozwiązań technicznych',
-				'Strategia realizacji'
+				'Szybkie prototypowanie koncepcji',
+				'Optymalizacja kosztów projektu',
+				'Automatyczne generowanie wariantów',
+				'Efektywność czasowa i budżetowa'
 			]
 		}
 	];
@@ -125,8 +126,9 @@
 				</h1>
 			</div>
 			<p class="text-xl md:text-2xl mb-12 max-w-3xl leading-relaxed text-gray-100 observe" style="font-family: 'Inter', sans-serif; font-weight: 400;">
-				Tworzę <span class="text-pink-300 font-bold">odważne</span> przestrzenie i <span class="text-purple-300 font-bold">kreatywne</span> identyfikacje wizualne.
-				Łączę architektoniczne wykształcenie z pasją do nowoczesnego designu.
+				Tworzę <span class="text-pink-300 font-bold">odważne, kolorowe</span> przestrzenie dla młodych ludzi.
+				Łączę wiedzę architektoniczną, umiejętności graficzne i <span class="text-orange-300 font-bold">technologię AI</span>
+				dla innowacyjnych rozwiązań w atrakcyjnych cenach.
 			</p>
 			<div class="flex flex-col sm:flex-row gap-6 observe">
 				<a href="#portfolio" class="btn animate-float">
@@ -182,44 +184,52 @@
 			<div class="space-y-6 text-gray-600 leading-relaxed text-lg">
 				<p>
 					Jestem projektantką wnętrz i graficzką z wykształceniem architektonicznym.
-					Specjalizuję się w tworzeniu przestrzeni mieszkalnych i komercyjnych oraz
-					kompleksowych identyfikacji wizualnych.
+					Łączę inżynierską wiedzę techniczną z umiejętnościami graficznymi i plastycznymi,
+					wykorzystując zaawansowane narzędzia oparte na sztucznej inteligencji.
 				</p>
 				<p>
-					Moje projekty charakteryzuje minimalizm, funkcjonalność i dbałość o detal.
-					Wierzę, że dobre projektowanie to połączenie estetyki z ergonomią i
-					zrównoważonym podejściem do materiałów.
+					<strong class="text-purple-600">Moja przewaga konkurencyjna:</strong> Unikalne połączenie trzech kompetencji -
+					podejścia inżynierskiego, talentu plastycznego i technologii AI. To pozwala mi tworzyć
+					funkcjonalne, estetyczne rozwiązania szybciej i w atrakcyjnych cenach.
+				</p>
+				<p>
+					Specjalizuję się w projektach dla <strong class="text-pink-600">młodych ludzi (20-30 lat)</strong> -
+					odważnych nabywców pierwszych mieszkań, którzy cenią kolorowe aranżacje, przestrzenie do pracy zdalnej
+					i rozwiązania smart home, zamiast stonowanych beżowo-szarych wnętrz.
 				</p>
 				<p class="quote-block">
-					„Architektura to harmonia pomiędzy przestrzenią, światłem i człowiekiem."
+					„Połączenie wiedzy technicznej, kreatywności i AI tworzy nową jakość projektowania."
 				</p>
 			</div>
 		</div>
 
 		<div class="space-y-8 observe">
-			<div class="aspect-[4/5] bg-gray-100 relative overflow-hidden group">
-				<div class="absolute inset-0 bg-gradient-to-br from-gray-900/20 to-amber-600/20"></div>
-				<div class="absolute bottom-0 left-0 right-0 p-8 text-white">
-					<p class="text-sm tracking-wider uppercase mb-2">Studio</p>
-					<p class="text-2xl font-bold" style="font-family: 'Playfair Display', serif;">Pikastro Design</p>
+			<div class="aspect-[4/5] bg-gradient-to-br from-purple-100 via-pink-100 to-orange-100 relative overflow-hidden group">
+				<div class="absolute inset-0 bg-gradient-to-br from-purple-600/20 to-pink-600/20"></div>
+				<div class="absolute inset-0 flex items-center justify-center">
+					<div class="text-center p-8">
+						<div class="text-6xl mb-4">🏠✨</div>
+						<p class="text-lg font-bold text-gray-900 mb-2">Dla Klientów</p>
+						<p class="text-sm text-gray-700">Indywidualnych • Deweloperów • Startupów</p>
+					</div>
 				</div>
 			</div>
 
 			<div class="grid grid-cols-2 gap-6">
-				<div class="p-6 border border-gray-200 hover:border-amber-600 transition-colors duration-300">
-					<div class="text-3xl font-bold mb-2 text-gray-900" style="font-family: 'Playfair Display', serif;">
-						15+
+				<div class="p-6 border-2 border-purple-200 hover:border-purple-400 transition-colors duration-300 rounded-xl">
+					<div class="text-3xl font-black mb-2 gradient-text" style="font-family: 'Playfair Display', serif;">
+						AI
 					</div>
-					<div class="text-sm text-gray-600 uppercase tracking-wider">
-						Nagród projektowych
+					<div class="text-sm text-gray-700 uppercase tracking-wider font-bold">
+						Technologia przyszłości
 					</div>
 				</div>
-				<div class="p-6 border border-gray-200 hover:border-amber-600 transition-colors duration-300">
-					<div class="text-3xl font-bold mb-2 text-gray-900" style="font-family: 'Playfair Display', serif;">
-						5k m²
+				<div class="p-6 border-2 border-purple-200 hover:border-purple-400 transition-colors duration-300 rounded-xl">
+					<div class="text-3xl font-black mb-2 gradient-text" style="font-family: 'Playfair Display', serif;">
+						20-30
 					</div>
-					<div class="text-sm text-gray-600 uppercase tracking-wider">
-						Zaprojektowanej przestrzeni
+					<div class="text-sm text-gray-700 uppercase tracking-wider font-bold">
+						Lat - grupa docelowa
 					</div>
 				</div>
 			</div>
@@ -494,20 +504,31 @@
 	<div class="absolute top-0 right-0 w-96 h-96 bg-pink-500 rounded-full mix-blend-multiply filter blur-3xl opacity-10"></div>
 	<div class="absolute bottom-0 left-0 w-96 h-96 bg-purple-500 rounded-full mix-blend-multiply filter blur-3xl opacity-10"></div>
 	<div class="max-w-7xl mx-auto relative z-10">
-		<div class="grid md:grid-cols-3 gap-12 mb-12">
+		<div class="grid md:grid-cols-4 gap-12 mb-12">
 			<div>
 				<h3 class="text-3xl font-black mb-4" style="font-family: 'Playfair Display', serif;">Pikastro</h3>
 				<p class="text-gray-200 leading-relaxed">
-					Studio projektowe specjalizujące się w projektowaniu wnętrz i identyfikacji wizualnej dla młodych, odważnych ludzi.
+					Projektowanie wnętrz i grafika z AI dla młodych ludzi. Odważne, kolorowe aranżacje zamiast beżowo-szarych.
 				</p>
 			</div>
 			<div>
-				<h4 class="text-sm uppercase tracking-wider mb-4 font-bold text-pink-300">Nawigacja</h4>
-				<ul class="space-y-2">
-					<li><a href="#omnie" class="text-gray-200 hover:text-pink-300 transition-colors font-medium">O mnie</a></li>
-					<li><a href="#oferta" class="text-gray-200 hover:text-pink-300 transition-colors font-medium">Oferta</a></li>
-					<li><a href="#portfolio" class="text-gray-200 hover:text-pink-300 transition-colors font-medium">Portfolio</a></li>
-					<li><a href="#kontakt" class="text-gray-200 hover:text-pink-300 transition-colors font-medium">Kontakt</a></li>
+				<h4 class="text-sm uppercase tracking-wider mb-4 font-bold text-pink-300">Usługi</h4>
+				<ul class="space-y-2 text-gray-200 text-sm">
+					<li>• Projektowanie wnętrz</li>
+					<li>• Aranżacja przestrzeni</li>
+					<li>• Identyfikacja wizualna</li>
+					<li>• Grafika komputerowa</li>
+					<li>• Technologia AI</li>
+				</ul>
+			</div>
+			<div>
+				<h4 class="text-sm uppercase tracking-wider mb-4 font-bold text-pink-300">Klienci</h4>
+				<ul class="space-y-2 text-gray-200 text-sm">
+					<li>• Nabywcy mieszkań</li>
+					<li>• Deweloperzy</li>
+					<li>• Biura nieruchomości</li>
+					<li>• Startupy i firmy</li>
+					<li>• Lokale komercyjne</li>
 				</ul>
 			</div>
 			<div>
@@ -515,6 +536,10 @@
 				<ul class="space-y-2 text-gray-200 font-medium">
 					<li>kontakt@pikastro.pl</li>
 					<li>Kraków, Polska</li>
+					<li class="pt-2">
+						<a href="#omnie" class="text-pink-300 hover:text-white transition-colors">O mnie</a> •
+						<a href="#oferta" class="text-pink-300 hover:text-white transition-colors">Oferta</a>
+					</li>
 				</ul>
 			</div>
 		</div>

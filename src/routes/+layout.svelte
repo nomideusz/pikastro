@@ -8,8 +8,8 @@
 <svelte:head>
 	<link rel="icon" href="/favicon.png" />
 	<meta name="viewport" content="width=device-width, initial-scale=1" />
-	<title>Pikastro - Projektowanie Wnętrz i Grafiki</title>
-	<meta name="description" content="Kompleksowe projektowanie wnętrz i usług graficznych z wykorzystaniem sztucznej inteligencji. Odważne, kolorowe aranżacje dla młodych ludzi." />
+	<title>Pikastro - Projektowanie Wnętrz AI | Grafika | Kraków</title>
+	<meta name="description" content="Projektowanie wnętrz i grafika z AI dla młodych (20-30 lat). Odważne, kolorowe aranżacje mieszkań zamiast beżowo-szarych. Kompleksowa obsługa w Krakowie - szybko i w atrakcyjnych cenach." />
 </svelte:head>
 
 <!-- Navigation -->
