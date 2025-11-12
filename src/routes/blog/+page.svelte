@@ -104,9 +104,9 @@
 
 	const categories = ['wszystkie', 'AI & Design', 'Poradniki', 'Trendy', 'Technologia', 'Biznes'];
 
-	$derived const filteredPosts = activeCategory === 'wszystkie'
+	let filteredPosts = $derived(activeCategory === 'wszystkie'
 		? blogPosts
-		: blogPosts.filter(post => post.category === activeCategory);
+		: blogPosts.filter(post => post.category === activeCategory));
 
 	$effect(() => {
 		// Add scroll animations

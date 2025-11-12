@@ -281,7 +281,7 @@
 	let budgetFilter = $state('wszystkie'); // wszystkie, do 10k, 10k-25k, 25k-50k, powyżej 50k
 
 	// Filtered projects based on all filters
-	$derived const filteredProjects = projects.filter(p => {
+	let filteredProjects = $derived(projects.filter(p => {
 		// Category filter
 		const categoryMatch = activeFilter === 'wszystkie' || p.category === activeFilter;
 
@@ -305,7 +305,7 @@
 		}
 
 		return categoryMatch && sizeMatch && budgetMatch;
-	});
+	}));
 
 	$effect(() => {
 		// Add scroll animations
