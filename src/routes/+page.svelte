@@ -181,7 +181,9 @@
 			technologies: ['AutoCAD', 'SketchUp', 'V-Ray', '3ds Max'],
 			image: img07,
 			category: 'wnętrza',
-			year: '2024'
+			year: '2024',
+			size: 85,
+			budget: 15000
 		},
 		{
 			title: 'Identyfikacja Wizualna Studia',
@@ -189,7 +191,9 @@
 			technologies: ['Adobe Creative Suite', 'Brand Strategy', 'Print Design'],
 			image: colorsImg,
 			category: 'grafika',
-			year: '2024'
+			year: '2024',
+			size: null,
+			budget: 8000
 		},
 		{
 			title: 'Przestrzeń Coworkingowa',
@@ -197,7 +201,9 @@
 			technologies: ['3D Modeling', 'Space Planning', 'Smart Solutions'],
 			image: img08,
 			category: 'wnętrza',
-			year: '2023'
+			year: '2023',
+			size: 300,
+			budget: 45000
 		},
 		{
 			title: 'Dom Jednorodzinny Modern',
@@ -205,7 +211,9 @@
 			technologies: ['ArchiCAD', 'Lumion', 'Sustainable Design'],
 			image: img09,
 			category: 'wnętrza',
-			year: '2023'
+			year: '2023',
+			size: 180,
+			budget: 35000
 		},
 		{
 			title: 'Kawiarnia Concept Store',
@@ -213,7 +221,9 @@
 			technologies: ['Interior Design', 'Branding', 'Visual Identity'],
 			image: img10,
 			category: 'grafika',
-			year: '2024'
+			year: '2024',
+			size: 120,
+			budget: 25000
 		},
 		{
 			title: 'Loft Industrialny',
@@ -221,7 +231,9 @@
 			technologies: ['Adaptive Reuse', 'Industrial Design', 'BIM'],
 			image: img11,
 			category: 'wnętrza',
-			year: '2023'
+			year: '2023',
+			size: 95,
+			budget: 18000
 		}
 	];
 
@@ -265,6 +277,35 @@
 	let activeFilter = $state('wszystkie');
 	let activeBeforeAfter = $state(0);
 	let sliderPosition = $state(50); // percentage for before/after slider
+	let sizeFilter = $state('wszystkie'); // wszystkie, do 100m², 100-200m², powyżej 200m²
+	let budgetFilter = $state('wszystkie'); // wszystkie, do 10k, 10k-25k, 25k-50k, powyżej 50k
+
+	// Filtered projects based on all filters
+	$derived const filteredProjects = projects.filter(p => {
+		// Category filter
+		const categoryMatch = activeFilter === 'wszystkie' || p.category === activeFilter;
+
+		// Size filter
+		let sizeMatch = true;
+		if (sizeFilter !== 'wszystkie' && p.size !== null) {
+			if (sizeFilter === 'do-100') sizeMatch = p.size <= 100;
+			else if (sizeFilter === '100-200') sizeMatch = p.size > 100 && p.size <= 200;
+			else if (sizeFilter === 'powyzej-200') sizeMatch = p.size > 200;
+		} else if (sizeFilter !== 'wszystkie' && p.size === null) {
+			sizeMatch = false;
+		}
+
+		// Budget filter
+		let budgetMatch = true;
+		if (budgetFilter !== 'wszystkie') {
+			if (budgetFilter === 'do-10k') budgetMatch = p.budget <= 10000;
+			else if (budgetFilter === '10k-25k') budgetMatch = p.budget > 10000 && p.budget <= 25000;
+			else if (budgetFilter === '25k-50k') budgetMatch = p.budget > 25000 && p.budget <= 50000;
+			else if (budgetFilter === 'powyzej-50k') budgetMatch = p.budget > 50000;
+		}
+
+		return categoryMatch && sizeMatch && budgetMatch;
+	});
 
 	$effect(() => {
 		// Add scroll animations
@@ -894,39 +935,117 @@
 		</p>
 
 		<!-- Filter -->
-		<div class="flex justify-center gap-4 flex-wrap">
-			<button
-				onclick={() => activeFilter = 'wszystkie'}
-				class="px-8 py-3 text-sm uppercase tracking-wider font-bold transition-all duration-300 rounded-lg {activeFilter === 'wszystkie' ? 'text-white shadow-lg' : 'bg-transparent text-gray-600 border-2 border-gray-200'}"
-				style={activeFilter === 'wszystkie' ? `background-color: ${colorPalette.primary}; border-color: ${colorPalette.primary};` : `border-color: rgb(229, 231, 235);`}
-				onmouseenter={(e) => { if (activeFilter !== 'wszystkie') { e.currentTarget.style.color = colorPalette.primary; e.currentTarget.style.borderColor = colorPalette.primary; } }}
-				onmouseleave={(e) => { if (activeFilter !== 'wszystkie') { e.currentTarget.style.color = 'rgb(75, 85, 99)'; e.currentTarget.style.borderColor = 'rgb(229, 231, 235)'; } }}
-			>
-				Wszystkie
-			</button>
-			<button
-				onclick={() => activeFilter = 'wnętrza'}
-				class="px-8 py-3 text-sm uppercase tracking-wider font-bold transition-all duration-300 rounded-lg {activeFilter === 'wnętrza' ? 'text-white shadow-lg' : 'bg-transparent text-gray-600 border-2 border-gray-200'}"
-				style={activeFilter === 'wnętrza' ? `background-color: ${colorPalette.accent}; border-color: ${colorPalette.accent};` : `border-color: rgb(229, 231, 235);`}
-				onmouseenter={(e) => { if (activeFilter !== 'wnętrza') { e.currentTarget.style.color = colorPalette.primary; e.currentTarget.style.borderColor = colorPalette.primary; } }}
-				onmouseleave={(e) => { if (activeFilter !== 'wnętrza') { e.currentTarget.style.color = 'rgb(75, 85, 99)'; e.currentTarget.style.borderColor = 'rgb(229, 231, 235)'; } }}
-			>
-				Wnętrza
-			</button>
-			<button
-				onclick={() => activeFilter = 'grafika'}
-				class="px-8 py-3 text-sm uppercase tracking-wider font-bold transition-all duration-300 rounded-lg {activeFilter === 'grafika' ? 'text-white shadow-lg' : 'bg-transparent text-gray-600 border-2 border-gray-200'}"
-				style={activeFilter === 'grafika' ? `background-color: ${colorPalette.secondary}; border-color: ${colorPalette.secondary};` : `border-color: rgb(229, 231, 235);`}
-				onmouseenter={(e) => { if (activeFilter !== 'grafika') { e.currentTarget.style.color = colorPalette.primary; e.currentTarget.style.borderColor = colorPalette.primary; } }}
-				onmouseleave={(e) => { if (activeFilter !== 'grafika') { e.currentTarget.style.color = 'rgb(75, 85, 99)'; e.currentTarget.style.borderColor = 'rgb(229, 231, 235)'; } }}
-			>
-				Grafika
-			</button>
+		<div class="space-y-6">
+			<!-- Category Filter -->
+			<div class="flex justify-center gap-4 flex-wrap">
+				<button
+					onclick={() => activeFilter = 'wszystkie'}
+					class="px-8 py-3 text-sm uppercase tracking-wider font-bold transition-all duration-300 rounded-lg {activeFilter === 'wszystkie' ? 'text-white shadow-lg' : 'bg-transparent text-gray-600 border-2 border-gray-200'}"
+					style={activeFilter === 'wszystkie' ? `background-color: ${colorPalette.primary}; border-color: ${colorPalette.primary};` : `border-color: rgb(229, 231, 235);`}
+					onmouseenter={(e) => { if (activeFilter !== 'wszystkie') { e.currentTarget.style.color = colorPalette.primary; e.currentTarget.style.borderColor = colorPalette.primary; } }}
+					onmouseleave={(e) => { if (activeFilter !== 'wszystkie') { e.currentTarget.style.color = 'rgb(75, 85, 99)'; e.currentTarget.style.borderColor = 'rgb(229, 231, 235)'; } }}
+				>
+					Wszystkie
+				</button>
+				<button
+					onclick={() => activeFilter = 'wnętrza'}
+					class="px-8 py-3 text-sm uppercase tracking-wider font-bold transition-all duration-300 rounded-lg {activeFilter === 'wnętrza' ? 'text-white shadow-lg' : 'bg-transparent text-gray-600 border-2 border-gray-200'}"
+					style={activeFilter === 'wnętrza' ? `background-color: ${colorPalette.accent}; border-color: ${colorPalette.accent};` : `border-color: rgb(229, 231, 235);`}
+					onmouseenter={(e) => { if (activeFilter !== 'wnętrza') { e.currentTarget.style.color = colorPalette.primary; e.currentTarget.style.borderColor = colorPalette.primary; } }}
+					onmouseleave={(e) => { if (activeFilter !== 'wnętrza') { e.currentTarget.style.color = 'rgb(75, 85, 99)'; e.currentTarget.style.borderColor = 'rgb(229, 231, 235)'; } }}
+				>
+					Wnętrza
+				</button>
+				<button
+					onclick={() => activeFilter = 'grafika'}
+					class="px-8 py-3 text-sm uppercase tracking-wider font-bold transition-all duration-300 rounded-lg {activeFilter === 'grafika' ? 'text-white shadow-lg' : 'bg-transparent text-gray-600 border-2 border-gray-200'}"
+					style={activeFilter === 'grafika' ? `background-color: ${colorPalette.secondary}; border-color: ${colorPalette.secondary};` : `border-color: rgb(229, 231, 235);`}
+					onmouseenter={(e) => { if (activeFilter !== 'grafika') { e.currentTarget.style.color = colorPalette.primary; e.currentTarget.style.borderColor = colorPalette.primary; } }}
+					onmouseleave={(e) => { if (activeFilter !== 'grafika') { e.currentTarget.style.color = 'rgb(75, 85, 99)'; e.currentTarget.style.borderColor = 'rgb(229, 231, 235)'; } }}
+				>
+					Grafika
+				</button>
+			</div>
+
+			<!-- Size and Budget Filters -->
+			<div class="grid md:grid-cols-2 gap-6 max-w-4xl mx-auto">
+				<!-- Size Filter -->
+				<div class="bg-white p-6 rounded-xl border-2 shadow-sm" style="border-color: {colorPalette.primary}20;">
+					<label class="block text-sm uppercase tracking-wider font-bold mb-3" style="color: {colorPalette.primary}">
+						📐 Wielkość (m²)
+					</label>
+					<select
+						bind:value={sizeFilter}
+						class="w-full px-4 py-3 border-2 border-blue-200 rounded-lg focus:outline-none transition-all bg-white text-gray-900 font-medium"
+						style="border-color: {colorPalette.primary}40;"
+						onfocus={(e) => e.currentTarget.style.borderColor = colorPalette.primary}
+						onblur={(e) => e.currentTarget.style.borderColor = colorPalette.primary + '40'}
+					>
+						<option value="wszystkie">Wszystkie</option>
+						<option value="do-100">Do 100m²</option>
+						<option value="100-200">100-200m²</option>
+						<option value="powyzej-200">Powyżej 200m²</option>
+					</select>
+				</div>
+
+				<!-- Budget Filter -->
+				<div class="bg-white p-6 rounded-xl border-2 shadow-sm" style="border-color: {colorPalette.accent}20;">
+					<label class="block text-sm uppercase tracking-wider font-bold mb-3" style="color: {colorPalette.accent}">
+						💰 Budżet
+					</label>
+					<select
+						bind:value={budgetFilter}
+						class="w-full px-4 py-3 border-2 border-blue-200 rounded-lg focus:outline-none transition-all bg-white text-gray-900 font-medium"
+						style="border-color: {colorPalette.accent}40;"
+						onfocus={(e) => e.currentTarget.style.borderColor = colorPalette.accent}
+						onblur={(e) => e.currentTarget.style.borderColor = colorPalette.accent + '40'}
+					>
+						<option value="wszystkie">Wszystkie</option>
+						<option value="do-10k">Do 10,000 zł</option>
+						<option value="10k-25k">10,000 - 25,000 zł</option>
+						<option value="25k-50k">25,000 - 50,000 zł</option>
+						<option value="powyzej-50k">Powyżej 50,000 zł</option>
+					</select>
+				</div>
+			</div>
+
+			<!-- Active Filters Display -->
+			{#if sizeFilter !== 'wszystkie' || budgetFilter !== 'wszystkie'}
+				<div class="flex justify-center gap-3 flex-wrap items-center">
+					<span class="text-sm text-gray-600 font-medium">Aktywne filtry:</span>
+					{#if sizeFilter !== 'wszystkie'}
+						<button
+							onclick={() => sizeFilter = 'wszystkie'}
+							class="px-4 py-2 text-xs font-bold rounded-lg flex items-center gap-2 transition-all hover:scale-105"
+							style="background-color: {colorPalette.primary}; color: white;"
+						>
+							<span>📐 {sizeFilter === 'do-100' ? 'Do 100m²' : sizeFilter === '100-200' ? '100-200m²' : 'Powyżej 200m²'}</span>
+							<span>×</span>
+						</button>
+					{/if}
+					{#if budgetFilter !== 'wszystkie'}
+						<button
+							onclick={() => budgetFilter = 'wszystkie'}
+							class="px-4 py-2 text-xs font-bold rounded-lg flex items-center gap-2 transition-all hover:scale-105"
+							style="background-color: {colorPalette.accent}; color: white;"
+						>
+							<span>💰 {budgetFilter === 'do-10k' ? 'Do 10k' : budgetFilter === '10k-25k' ? '10k-25k' : budgetFilter === '25k-50k' ? '25k-50k' : 'Powyżej 50k'}</span>
+							<span>×</span>
+						</button>
+					{/if}
+					<button
+						onclick={() => { sizeFilter = 'wszystkie'; budgetFilter = 'wszystkie'; }}
+						class="px-4 py-2 text-xs font-bold text-gray-600 hover:text-gray-900 transition-colors underline"
+					>
+						Wyczyść wszystkie
+					</button>
+				</div>
+			{/if}
 		</div>
 	</div>
 
 			<div class="grid md:grid-cols-2 lg:grid-cols-3 gap-8 lg:gap-12 relative z-10">
-		{#each projects.filter(p => activeFilter === 'wszystkie' || p.category === activeFilter) as project, i}
+		{#each filteredProjects as project, i}
 			<div class="group observe hover-lift pb-3" style="animation-delay: {i * 100}ms">
 				<div class="aspect-[4/5] bg-blue-100 relative overflow-hidden mb-8 rounded-2xl border-2 border-blue-100 transition-all duration-300" onmouseenter={(e) => e.currentTarget.style.borderColor = colorPalette.accent} onmouseleave={(e) => e.currentTarget.style.borderColor = 'rgb(243, 244, 246)'}>
 					<img
@@ -949,10 +1068,20 @@
 					</div>
 				</div>
 					<div class="space-y-3 px-2 pt-2">
-					<div class="flex items-center justify-between">
+					<div class="flex items-center justify-between flex-wrap gap-2">
 						<span class="text-xs uppercase tracking-wider font-black px-3 py-1 bg-blue-50 rounded-full" style="color: {colorPalette.primary}">
 							{project.category === 'wnętrza' ? 'Wnętrza' : 'Grafika'}
 						</span>
+						<div class="flex gap-2">
+							{#if project.size}
+								<span class="text-xs font-bold px-3 py-1 rounded-full" style="background-color: {colorPalette.primary}20; color: {colorPalette.primary}">
+									📐 {project.size}m²
+								</span>
+							{/if}
+							<span class="text-xs font-bold px-3 py-1 rounded-full" style="background-color: {colorPalette.accent}20; color: {colorPalette.accent}">
+								💰 {project.budget.toLocaleString('pl-PL')} zł
+							</span>
+						</div>
 					</div>
 					<h3 class="text-2xl font-black text-gray-900 transition-colors" style="font-family: 'Playfair Display', serif;" onmouseenter={(e) => e.currentTarget.style.color = colorPalette.primary} onmouseleave={(e) => e.currentTarget.style.color = 'rgb(31, 41, 55)'}>
 						{project.title}
@@ -970,6 +1099,255 @@
 				</div>
 			</div>
 		{/each}
+	</div>
+</section>
+
+<!-- AI Process Video Section -->
+<section class="section text-white relative overflow-hidden" style="background: linear-gradient(135deg, #1a1a2e 0%, #16213e 50%, #0f3460 100%);">
+	<div class="absolute inset-0 z-[1]">
+		<div class="absolute inset-0 opacity-60 transition-all duration-1000" style="background-color: {colorPalette.primary}"></div>
+	</div>
+
+	<div class="relative z-10">
+		<div class="text-center mb-16 observe">
+			<p class="font-black tracking-[0.3em] uppercase text-sm mb-4 neon-text" style="color: {colorPalette.accent}">🎬 Zobacz Jak To Działa</p>
+			<h2 class="text-4xl md:text-5xl lg:text-6xl font-black mb-6 leading-tight" style="font-family: 'Playfair Display', serif;">
+				30 Sekund<br><span class="neon-text" style="color: {colorPalette.accent}">Magii AI</span>
+			</h2>
+			<p class="text-xl text-gray-100 max-w-3xl mx-auto leading-relaxed">
+				Od pustego pokoju do wymarzonego wnętrza - zobacz proces projektowania z AI w akcji
+			</p>
+		</div>
+
+		<div class="max-w-5xl mx-auto observe">
+			<div class="relative aspect-video bg-gray-900 rounded-2xl overflow-hidden shadow-2xl border-4 transition-all duration-300 hover:shadow-3xl group" style="border-color: {colorPalette.accent};">
+				<!-- Video Placeholder -->
+				<div class="absolute inset-0 flex items-center justify-center" style="background: linear-gradient(135deg, {colorPalette.primary}, {colorPalette.accent});">
+					<div class="text-center p-8">
+						<div class="w-24 h-24 mx-auto mb-6 rounded-full flex items-center justify-center transition-all duration-300 group-hover:scale-110" style="background-color: rgba(255, 255, 255, 0.2); backdrop-filter: blur(10px);">
+							<svg class="w-12 h-12 text-white" fill="currentColor" viewBox="0 0 24 24">
+								<path d="M8 5v14l11-7z"/>
+							</svg>
+						</div>
+						<p class="text-2xl font-black mb-2" style="font-family: 'Playfair Display', serif;">Obejrzyj Proces AI</p>
+						<p class="text-sm text-gray-100">Zobacz transformację w czasie rzeczywistym</p>
+					</div>
+				</div>
+				<!-- Actual video would go here -->
+				<video
+					class="w-full h-full object-cover"
+					poster=""
+					controls
+					style="display: none;"
+				>
+					<source src="/videos/ai-process-demo.mp4" type="video/mp4" />
+				</video>
+			</div>
+
+			<!-- Video Features -->
+			<div class="grid md:grid-cols-3 gap-6 mt-12">
+				<div class="text-center observe" style="animation-delay: 0.1s;">
+					<div class="text-4xl mb-3">⚡</div>
+					<h3 class="text-xl font-black mb-2 neon-text" style="color: {colorPalette.accent}">Szybki Proces</h3>
+					<p class="text-gray-200 text-sm">Wizualizacje w godziny, nie dni</p>
+				</div>
+				<div class="text-center observe" style="animation-delay: 0.2s;">
+					<div class="text-4xl mb-3">🎨</div>
+					<h3 class="text-xl font-black mb-2">Wielość Opcji</h3>
+					<p class="text-gray-200 text-sm">5-10 wariantów do wyboru</p>
+				</div>
+				<div class="text-center observe" style="animation-delay: 0.3s;">
+					<div class="text-4xl mb-3">💰</div>
+					<h3 class="text-xl font-black mb-2 neon-text" style="color: {colorPalette.secondary}">Niższe Koszty</h3>
+					<p class="text-gray-200 text-sm">AI = optymalizacja budżetu</p>
+				</div>
+			</div>
+		</div>
+	</div>
+</section>
+
+<!-- Free PDF Resource Section -->
+<section class="section bg-gradient-to-br from-white to-blue-50 relative overflow-hidden">
+	<div class="absolute top-0 left-0 w-96 h-96 rounded-full filter blur-3xl opacity-20" style="background-color: {colorPalette.accent}"></div>
+
+	<div class="relative z-10">
+		<div class="grid lg:grid-cols-2 gap-16 items-center">
+			<!-- Left Side - Content -->
+			<div class="observe">
+				<p class="font-black tracking-[0.3em] uppercase text-sm mb-4" style="color: {colorPalette.primary}">🎁 Darmowy Przewodnik</p>
+				<h2 class="text-4xl md:text-5xl lg:text-6xl font-black mb-6 leading-tight" style="font-family: 'Playfair Display', serif;">
+					10 Błędów<br>
+					<span style="color: {colorPalette.accent}">Pierwszych Właścicieli</span><br>
+					Mieszkań
+				</h2>
+				<p class="text-xl text-gray-600 mb-8 leading-relaxed">
+					Kupujesz pierwsze mieszkanie? Pobierz darmowy PDF i uniknij najczęstszych błędów w projektowaniu i aranżacji wnętrz.
+				</p>
+
+				<!-- Benefits List -->
+				<div class="space-y-4 mb-8">
+					<div class="flex items-start gap-4">
+						<div class="w-10 h-10 rounded-full flex items-center justify-center flex-shrink-0" style="background-color: {colorPalette.primary};">
+							<span class="text-white font-bold">✓</span>
+						</div>
+						<div>
+							<h3 class="font-bold text-gray-900 mb-1">Oszczędź Pieniądze</h3>
+							<p class="text-gray-600 text-sm">Uniknij kosztownych błędów na starcie</p>
+						</div>
+					</div>
+					<div class="flex items-start gap-4">
+						<div class="w-10 h-10 rounded-full flex items-center justify-center flex-shrink-0" style="background-color: {colorPalette.accent};">
+							<span class="text-white font-bold">✓</span>
+						</div>
+						<div>
+							<h3 class="font-bold text-gray-900 mb-1">Praktyczne Porady</h3>
+							<p class="text-gray-600 text-sm">Sprawdzone rozwiązania od ekspertki</p>
+						</div>
+					</div>
+					<div class="flex items-start gap-4">
+						<div class="w-10 h-10 rounded-full flex items-center justify-center flex-shrink-0" style="background-color: {colorPalette.secondary};">
+							<span class="text-white font-bold">✓</span>
+						</div>
+						<div>
+							<h3 class="font-bold text-gray-900 mb-1">Checklisty i Szablony</h3>
+							<p class="text-gray-600 text-sm">Gotowe narzędzia do użycia od zaraz</p>
+						</div>
+					</div>
+				</div>
+
+				<!-- Download Form -->
+				<div class="bg-white p-8 rounded-2xl border-2 shadow-lg" style="border-color: {colorPalette.primary}20;">
+					<form class="space-y-4">
+						<div>
+							<input
+								type="text"
+								placeholder="Twoje imię"
+								class="w-full px-4 py-3 border-2 border-blue-200 rounded-lg focus:outline-none transition-all bg-white"
+								style="border-color: {colorPalette.primary}40;"
+								onfocus={(e) => e.currentTarget.style.borderColor = colorPalette.primary}
+								onblur={(e) => e.currentTarget.style.borderColor = colorPalette.primary + '40'}
+							/>
+						</div>
+						<div>
+							<input
+								type="email"
+								placeholder="Twój email"
+								class="w-full px-4 py-3 border-2 border-blue-200 rounded-lg focus:outline-none transition-all bg-white"
+								style="border-color: {colorPalette.primary}40;"
+								onfocus={(e) => e.currentTarget.style.borderColor = colorPalette.primary}
+								onblur={(e) => e.currentTarget.style.borderColor = colorPalette.primary + '40'}
+							/>
+						</div>
+						<button
+							type="submit"
+							class="w-full px-8 py-4 text-white font-bold rounded-lg transition-all duration-300 hover:shadow-xl hover:scale-105"
+							style="background: linear-gradient(135deg, {colorPalette.primary}, {colorPalette.accent});"
+						>
+							📥 Pobierz Darmowy PDF
+						</button>
+						<p class="text-xs text-gray-500 text-center">Bez spamu. Twoje dane są bezpieczne.</p>
+					</form>
+				</div>
+			</div>
+
+			<!-- Right Side - Visual -->
+			<div class="observe relative">
+				<div class="relative aspect-[3/4] bg-gradient-to-br rounded-2xl shadow-2xl overflow-hidden group transform hover:scale-105 transition-all duration-500" style="background: linear-gradient(135deg, {colorPalette.primary}, {colorPalette.accent});">
+					<!-- PDF Preview Mockup -->
+					<div class="absolute inset-8 bg-white rounded-lg shadow-xl p-8 flex flex-col">
+						<div class="text-center mb-6">
+							<h3 class="text-3xl font-black mb-2" style="font-family: 'Playfair Display', serif; color: {colorPalette.primary};">
+								10 Błędów
+							</h3>
+							<p class="text-sm text-gray-600 uppercase tracking-wider font-bold">Pierwszych Właścicieli</p>
+						</div>
+
+						<div class="space-y-3 flex-1">
+							{#each [1, 2, 3, 4, 5] as item}
+								<div class="flex items-center gap-3 p-3 bg-blue-50 rounded-lg">
+									<div class="w-8 h-8 rounded-full flex items-center justify-center flex-shrink-0 text-white font-bold text-sm" style="background-color: {colorPalette.accent};">
+										{item}
+									</div>
+									<div class="flex-1 h-2 bg-gray-200 rounded"></div>
+								</div>
+							{/each}
+						</div>
+
+						<div class="mt-6 pt-6 border-t border-gray-200 text-center">
+							<p class="text-xs text-gray-500 uppercase tracking-wider font-bold">Pikastro Design Studio</p>
+						</div>
+					</div>
+
+					<!-- Badge -->
+					<div class="absolute -top-4 -right-4 w-24 h-24 rounded-full flex items-center justify-center text-white font-black text-sm shadow-lg animate-pulse-slow" style="background-color: {colorPalette.accent};">
+						FREE
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+</section>
+
+<!-- Instagram Feed Section -->
+<section class="section bg-white relative overflow-hidden">
+	<div class="absolute bottom-0 right-0 w-96 h-96 bg-rose-100 rounded-full filter blur-3xl opacity-30"></div>
+
+	<div class="text-center mb-16 observe relative z-10">
+		<p class="font-black tracking-[0.3em] uppercase text-sm mb-4" style="color: {colorPalette.primary}">📸 Instagram</p>
+		<h2 class="text-4xl md:text-5xl lg:text-6xl font-black mb-6 leading-tight" style="font-family: 'Playfair Display', serif;">
+			<span style="color: {colorPalette.primary}">Śledź</span><br>Nasze Realizacje
+		</h2>
+		<p class="text-xl text-gray-600 max-w-3xl mx-auto mb-8 leading-relaxed">
+			Codzienne porcje inspiracji, kulisy projektów i trendy designu prosto z naszego studia
+		</p>
+		<a
+			href="https://instagram.com/pikastro.design"
+			target="_blank"
+			rel="noopener noreferrer"
+			class="inline-flex items-center gap-3 px-8 py-4 text-white font-bold rounded-lg transition-all duration-300 hover:shadow-xl hover:scale-105"
+			style="background: linear-gradient(135deg, #E1306C, #C13584, #833AB4);"
+		>
+			<svg class="w-6 h-6" fill="currentColor" viewBox="0 0 24 24">
+				<path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zm0-2.163c-3.259 0-3.667.014-4.947.072-4.358.2-6.78 2.618-6.98 6.98-.059 1.281-.073 1.689-.073 4.948 0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98 1.281.058 1.689.072 4.948.072 3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98-1.281-.059-1.69-.073-4.949-.073zm0 5.838c-3.403 0-6.162 2.759-6.162 6.162s2.759 6.163 6.162 6.163 6.162-2.759 6.162-6.163c0-3.403-2.759-6.162-6.162-6.162zm0 10.162c-2.209 0-4-1.79-4-4 0-2.209 1.791-4 4-4s4 1.791 4 4c0 2.21-1.791 4-4 4zm6.406-11.845c-.796 0-1.441.645-1.441 1.44s.645 1.44 1.441 1.44c.795 0 1.439-.645 1.439-1.44s-.644-1.44-1.439-1.44z"/>
+			</svg>
+			<span>Śledź @pikastro.design</span>
+		</a>
+	</div>
+
+	<!-- Instagram Grid -->
+	<div class="grid grid-cols-2 md:grid-cols-4 gap-4 lg:gap-6 relative z-10 observe">
+		{#each [img07, img08, img09, img10, img11, img01, img02, img03] as instagramImage, i}
+			<a
+				href="https://instagram.com/pikastro.design"
+				target="_blank"
+				rel="noopener noreferrer"
+				class="group relative aspect-square overflow-hidden rounded-2xl border-2 border-blue-100 transition-all duration-300 hover:scale-105 hover:shadow-2xl"
+				style="animation-delay: {i * 50}ms"
+				onmouseenter={(e) => e.currentTarget.style.borderColor = colorPalette.accent}
+				onmouseleave={(e) => e.currentTarget.style.borderColor = 'rgb(243, 244, 246)'}
+			>
+				<img
+					src={instagramImage}
+					alt="Instagram post {i + 1}"
+					class="w-full h-full object-cover transition-transform duration-500 group-hover:scale-110"
+				/>
+				<div class="absolute inset-0 bg-gradient-to-t from-black/60 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-end justify-center p-4">
+					<div class="text-white text-center transform translate-y-4 group-hover:translate-y-0 transition-transform duration-300">
+						<svg class="w-8 h-8 mx-auto mb-2" fill="currentColor" viewBox="0 0 24 24">
+							<path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zm0-2.163c-3.259 0-3.667.014-4.947.072-4.358.2-6.78 2.618-6.98 6.98-.059 1.281-.073 1.689-.073 4.948 0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98 1.281.058 1.689.072 4.948.072 3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98-1.281-.059-1.69-.073-4.949-.073zm0 5.838c-3.403 0-6.162 2.759-6.162 6.162s2.759 6.163 6.162 6.163 6.162-2.759 6.162-6.163c0-3.403-2.759-6.162-6.162-6.162zm0 10.162c-2.209 0-4-1.79-4-4 0-2.209 1.791-4 4-4s4 1.791 4 4c0 2.21-1.791 4-4 4zm6.406-11.845c-.796 0-1.441.645-1.441 1.44s.645 1.44 1.441 1.44c.795 0 1.439-.645 1.439-1.44s-.644-1.44-1.439-1.44z"/>
+						</svg>
+						<span class="text-sm font-bold">Zobacz na Instagram</span>
+					</div>
+				</div>
+			</a>
+		{/each}
+	</div>
+
+	<!-- CTA -->
+	<div class="text-center mt-12 observe">
+		<p class="text-gray-600 mb-4">
+			Dołącz do <strong style="color: {colorPalette.primary}">2,500+</strong> obserwujących i bądź na bieżąco z najnowszymi trendami
+		</p>
 	</div>
 </section>
 

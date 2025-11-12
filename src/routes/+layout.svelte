@@ -68,16 +68,16 @@
 					Metamorfozy
 					<span class="absolute bottom-0 left-0 w-0 h-0.5 transition-all duration-300 group-hover:w-full" style="background: linear-gradient(to right, var(--color-primary), var(--color-accent));"></span>
 				</a>
-				<a href={getNavLink('#proces')} class="text-gray-700 transition-colors font-bold text-sm tracking-wide uppercase relative group hover:text-[var(--color-primary)]">
-					Proces
+				<a href={getNavLink('#portfolio')} class="text-gray-700 transition-colors font-bold text-sm tracking-wide uppercase relative group hover:text-[var(--color-primary)]">
+					Portfolio
+					<span class="absolute bottom-0 left-0 w-0 h-0.5 transition-all duration-300 group-hover:w-full" style="background: linear-gradient(to right, var(--color-primary), var(--color-accent));"></span>
+				</a>
+				<a href="/blog" class="text-gray-700 transition-colors font-bold text-sm tracking-wide uppercase relative group hover:text-[var(--color-primary)]">
+					Blog
 					<span class="absolute bottom-0 left-0 w-0 h-0.5 transition-all duration-300 group-hover:w-full" style="background: linear-gradient(to right, var(--color-primary), var(--color-accent));"></span>
 				</a>
 				<a href={getNavLink('#cennik')} class="text-gray-700 transition-colors font-bold text-sm tracking-wide uppercase relative group hover:text-[var(--color-primary)]">
 					Ceny
-					<span class="absolute bottom-0 left-0 w-0 h-0.5 transition-all duration-300 group-hover:w-full" style="background: linear-gradient(to right, var(--color-primary), var(--color-accent));"></span>
-				</a>
-				<a href={getNavLink('#portfolio')} class="text-gray-700 transition-colors font-bold text-sm tracking-wide uppercase relative group hover:text-[var(--color-primary)]">
-					Portfolio
 					<span class="absolute bottom-0 left-0 w-0 h-0.5 transition-all duration-300 group-hover:w-full" style="background: linear-gradient(to right, var(--color-primary), var(--color-accent));"></span>
 				</a>
 				<a href={getNavLink('#kontakt')} class="px-6 py-2.5 text-white transition-all duration-300 text-sm tracking-wide uppercase font-bold rounded-lg shadow-md hover:shadow-lg transform hover:scale-105" style="background: linear-gradient(to right, var(--color-primary), var(--color-accent));">
@@ -109,9 +109,9 @@
 				<div class="flex flex-col space-y-4 pt-6">
 					<a href="/o-mnie" onclick={() => isMenuOpen = false} class="text-gray-700 transition-colors font-bold text-sm tracking-wide uppercase hover:text-[var(--color-primary)]">O mnie</a>
 					<a href={getNavLink('#beforeafter')} onclick={() => isMenuOpen = false} class="text-gray-700 transition-colors font-bold text-sm tracking-wide uppercase hover:text-[var(--color-primary)]">Metamorfozy</a>
-					<a href={getNavLink('#proces')} onclick={() => isMenuOpen = false} class="text-gray-700 transition-colors font-bold text-sm tracking-wide uppercase hover:text-[var(--color-primary)]">Proces</a>
-					<a href={getNavLink('#cennik')} onclick={() => isMenuOpen = false} class="text-gray-700 transition-colors font-bold text-sm tracking-wide uppercase hover:text-[var(--color-primary)]">Ceny</a>
 					<a href={getNavLink('#portfolio')} onclick={() => isMenuOpen = false} class="text-gray-700 transition-colors font-bold text-sm tracking-wide uppercase hover:text-[var(--color-primary)]">Portfolio</a>
+					<a href="/blog" onclick={() => isMenuOpen = false} class="text-gray-700 transition-colors font-bold text-sm tracking-wide uppercase hover:text-[var(--color-primary)]">Blog</a>
+					<a href={getNavLink('#cennik')} onclick={() => isMenuOpen = false} class="text-gray-700 transition-colors font-bold text-sm tracking-wide uppercase hover:text-[var(--color-primary)]">Ceny</a>
 					<a href={getNavLink('#kontakt')} onclick={() => isMenuOpen = false} class="px-6 py-3 text-white text-center transition-all duration-300 text-sm tracking-wide uppercase font-bold rounded-lg transform hover:scale-105" style="background: linear-gradient(to right, var(--color-primary), var(--color-accent));">Kontakt</a>
 				</div>
 			</div>
