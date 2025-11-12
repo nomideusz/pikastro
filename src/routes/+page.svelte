@@ -133,7 +133,20 @@
 				'Wsparcie podczas realizacji'
 			],
 			duration: '2-3 tygodnie',
-			investment: 'Od 3.500 zł',
+			investment: 'Od 1,500 zł',
+			priceDetails: [
+				{ label: 'Sypialnia / Gabinet', price: '1,500 - 2,500 zł' },
+				{ label: 'Salon z aneksem', price: '2,500 - 3,500 zł' },
+				{ label: 'Kuchnia pełna', price: '3,000 - 4,500 zł' }
+			],
+			whatsIncluded: [
+				'5-10 wariantów AI do wyboru',
+				'2-3 wizualizacje 3D wybranego projektu',
+				'Rzuty techniczne z wymiarami',
+				'Lista materiałów i mebli (z linkami)',
+				'1 poprawka projektu',
+				'Wsparcie mailowe przez 30 dni'
+			],
 			image: '🎨',
 			highlight: false
 		},
@@ -150,9 +163,26 @@
 				'Finalne dopracowanie detali'
 			],
 			duration: '6-8 tygodni',
-			investment: 'Od 12.000 zł',
+			investment: 'Od 3,500 zł',
+			priceDetails: [
+				{ label: 'Kawalerka (25-35m²)', price: '3,500 - 5,500 zł' },
+				{ label: 'Mieszkanie 2-pokojowe (40-55m²)', price: '5,500 - 8,500 zł' },
+				{ label: 'Mieszkanie 3-pokojowe (60-80m²)', price: '8,500 - 12,000 zł' },
+				{ label: 'Duże mieszkanie (80m²+)', price: 'od 12,000 zł' }
+			],
+			whatsIncluded: [
+				'10-15 wariantów AI wszystkich pomieszczeń',
+				'5-8 wizualizacji 3D pełnych przestrzeni',
+				'Kompletna dokumentacja techniczna',
+				'Kosztorys materiałów i mebli',
+				'2 poprawki projektu',
+				'Lista sprawdzonych wykonawców',
+				'Wsparcie podczas realizacji (3 miesiące)',
+				'Nadzór autorski (opcjonalnie za dopłatą)'
+			],
 			image: '🏡',
-			highlight: true
+			highlight: true,
+			bestValue: true
 		},
 		{
 			title: 'Przestrzenie Biznesowe',
@@ -167,7 +197,23 @@
 				'Współpraca z wykonawcami'
 			],
 			duration: '8-12 tygodni',
-			investment: 'Od 18.000 zł',
+			investment: 'Od 8,000 zł',
+			priceDetails: [
+				{ label: 'Home office / Małe biuro', price: '8,000 - 12,000 zł' },
+				{ label: 'Kawiarnia / Mały lokal', price: '12,000 - 18,000 zł' },
+				{ label: 'Restauracja / Większy lokal', price: '18,000 - 30,000 zł' },
+				{ label: 'Tylko branding (bez wnętrz)', price: '5,000 - 10,000 zł' }
+			],
+			whatsIncluded: [
+				'Analiza konkurencji i target group',
+				'Branding + projekt wnętrz',
+				'Wielowariantowe propozycje AI',
+				'Wizualizacje 3D i ewentualnie render wideo',
+				'Dokumentacja techniczna dla wykonawców',
+				'Materiały marketingowe przestrzeni',
+				'Nadzór autorski (do uzgodnienia)',
+				'Lista dostawców i wykonawców'
+			],
 			image: '🏢',
 			highlight: false
 		}
@@ -265,6 +311,19 @@
 	let activeFilter = $state('wszystkie');
 	let activeBeforeAfter = $state(0);
 	let sliderPosition = $state(50); // percentage for before/after slider
+	let formStatus = $state<'idle' | 'submitting' | 'success' | 'error'>('idle');
+	let formMessage = $state('');
+	let showStickyButton = $state(false);
+
+	$effect(() => {
+		// Show sticky button after scrolling past hero
+		const handleScroll = () => {
+			showStickyButton = window.scrollY > 600;
+		};
+
+		window.addEventListener('scroll', handleScroll);
+		return () => window.removeEventListener('scroll', handleScroll);
+	});
 
 	$effect(() => {
 		// Add scroll animations
@@ -338,6 +397,18 @@
 
 	<div class="section relative z-20">
 		<div class="max-w-5xl">
+			<!-- Market Position Badge -->
+			<div class="mb-6 observe animate-fade-in-up">
+				<div class="inline-block">
+					<div class="px-6 py-3 bg-white/20 backdrop-blur-md rounded-full border-2 border-white/30 shadow-lg">
+						<p class="font-black tracking-wider uppercase text-xs text-white flex items-center gap-2">
+							<span class="animate-pulse">⭐</span>
+							<span>Pierwsze studio AI w Krakowie</span>
+							<span class="animate-pulse">⭐</span>
+						</p>
+					</div>
+				</div>
+			</div>
 			<div class="mb-8 observe animate-fade-in-up">
 				<p class="font-bold tracking-[0.3em] uppercase text-sm mb-6 animate-pulse-slow neon-text" style="color: {colorPalette.accent}">🤖 AI × Architektura × Grafika</p>
 				<h1 class="text-5xl md:text-7xl lg:text-8xl font-black mb-6 leading-[1.05]" style="font-family: 'Playfair Display', serif;">
@@ -499,6 +570,124 @@
 		<div class="text-center observe transform hover:scale-110 transition-transform duration-300">
 			<div class="text-5xl font-black mb-3 text-[#27275b]" style="font-family: 'Playfair Display', serif;">15+</div>
 			<div class="text-sm text-gray-700 uppercase tracking-wider font-bold">Nagród branżowych</div>
+		</div>
+	</div>
+</section>
+
+<!-- Target Audience Section - First-time Homeowners -->
+<section class="section bg-white relative overflow-hidden">
+	<div class="absolute top-0 left-0 w-96 h-96 bg-emerald-100 rounded-full filter blur-3xl opacity-20"></div>
+	<div class="max-w-6xl mx-auto relative z-10">
+		<div class="text-center mb-16 observe">
+			<p class="font-black tracking-[0.3em] uppercase text-sm mb-4" style="color: {colorPalette.primary}">🏠 Dla Kogo?</p>
+			<h2 class="text-4xl md:text-5xl lg:text-6xl font-black mb-6 leading-tight" style="font-family: 'Playfair Display', serif;">
+				Specjalizacja:<br>
+				<span style="color: {colorPalette.accent}">Pierwsi Właściciele Mieszkań</span>
+			</h2>
+			<p class="text-xl text-gray-600 max-w-3xl mx-auto leading-relaxed">
+				Tworzymy dla młodych ludzi (20-30 lat), którzy kupują pierwszą nieruchomość i chcą przestrzeń odzwierciedlającą ich styl życia
+			</p>
+		</div>
+
+		<div class="grid md:grid-cols-2 lg:grid-cols-3 gap-8 observe">
+			<!-- Home Office / Remote Work -->
+			<div class="bg-gradient-to-br from-blue-50 to-white p-8 rounded-2xl border-2 border-blue-100 hover:border-blue-300 transition-all duration-300 group">
+				<div class="text-5xl mb-4 transform group-hover:scale-110 transition-transform">💻</div>
+				<h3 class="text-2xl font-black mb-3" style="font-family: 'Playfair Display', serif; color: {colorPalette.primary}">Home Office</h3>
+				<p class="text-gray-600 leading-relaxed mb-4">
+					Ergonomiczne stanowisko do pracy zdalnej w małym mieszkaniu. Wielofunkcyjne rozwiązania, dobre oświetlenie i akustyka.
+				</p>
+				<ul class="space-y-2 text-sm text-gray-600">
+					<li class="flex items-start">
+						<span class="w-1.5 h-1.5 bg-green-500 mt-2 mr-2 flex-shrink-0"></span>
+						<span>Optymalizacja przestrzeni</span>
+					</li>
+					<li class="flex items-start">
+						<span class="w-1.5 h-1.5 bg-green-500 mt-2 mr-2 flex-shrink-0"></span>
+						<span>Smart storage solutions</span>
+					</li>
+					<li class="flex items-start">
+						<span class="w-1.5 h-1.5 bg-green-500 mt-2 mr-2 flex-shrink-0"></span>
+						<span>Strefy work-life balance</span>
+					</li>
+				</ul>
+			</div>
+
+			<!-- Smart Home Integration -->
+			<div class="bg-gradient-to-br from-purple-50 to-white p-8 rounded-2xl border-2 border-purple-100 hover:border-purple-300 transition-all duration-300 group">
+				<div class="text-5xl mb-4 transform group-hover:scale-110 transition-transform">🏡</div>
+				<h3 class="text-2xl font-black mb-3" style="font-family: 'Playfair Display', serif; color: {colorPalette.accent}">Smart Home</h3>
+				<p class="text-gray-600 leading-relaxed mb-4">
+					Nowoczesne rozwiązania technologiczne: inteligentne oświetlenie, sterowanie głosowe, automatyka domowa dopasowana do budżetu.
+				</p>
+				<ul class="space-y-2 text-sm text-gray-600">
+					<li class="flex items-start">
+						<span class="w-1.5 h-1.5 bg-purple-500 mt-2 mr-2 flex-shrink-0"></span>
+						<span>AI-powered lighting scenes</span>
+					</li>
+					<li class="flex items-start">
+						<span class="w-1.5 h-1.5 bg-purple-500 mt-2 mr-2 flex-shrink-0"></span>
+						<span>Integracja urządzeń IoT</span>
+					</li>
+					<li class="flex items-start">
+						<span class="w-1.5 h-1.5 bg-purple-500 mt-2 mr-2 flex-shrink-0"></span>
+						<span>Budget-friendly tech</span>
+					</li>
+				</ul>
+			</div>
+
+			<!-- Instagram-Worthy Interiors -->
+			<div class="bg-gradient-to-br from-rose-50 to-white p-8 rounded-2xl border-2 border-rose-100 hover:border-rose-300 transition-all duration-300 group">
+				<div class="text-5xl mb-4 transform group-hover:scale-110 transition-transform">📸</div>
+				<h3 class="text-2xl font-black mb-3" style="font-family: 'Playfair Display', serif; color: {colorPalette.secondary}">Instagram-Worthy</h3>
+				<p class="text-gray-600 leading-relaxed mb-4">
+					Odważne, kolorowe aranżacje zamiast beżowo-szarych. Przestrzenie, które chcesz pokazać znajomym i na social mediach.
+				</p>
+				<ul class="space-y-2 text-sm text-gray-600">
+					<li class="flex items-start">
+						<span class="w-1.5 h-1.5 bg-rose-500 mt-2 mr-2 flex-shrink-0"></span>
+						<span>Zero beżowych nudnych wnętrz</span>
+					</li>
+					<li class="flex items-start">
+						<span class="w-1.5 h-1.5 bg-rose-500 mt-2 mr-2 flex-shrink-0"></span>
+						<span>Kolorystyka z charakterem</span>
+					</li>
+					<li class="flex items-start">
+						<span class="w-1.5 h-1.5 bg-rose-500 mt-2 mr-2 flex-shrink-0"></span>
+						<span>Viral-ready design</span>
+					</li>
+				</ul>
+			</div>
+		</div>
+
+		<!-- Budget-Conscious Banner -->
+		<div class="mt-16 observe">
+			<div class="bg-gradient-to-r from-blue-600 to-purple-600 p-10 lg:p-12 rounded-3xl text-white text-center shadow-2xl">
+				<div class="max-w-3xl mx-auto">
+					<div class="text-5xl mb-4">💰</div>
+					<h3 class="text-3xl font-black mb-4" style="font-family: 'Playfair Display', serif;">
+						Świadomi Budżetu, Bez Kompromisów w Stylu
+					</h3>
+					<p class="text-lg text-white/90 mb-6 leading-relaxed">
+						AI oszczędza czas projektowania = niższe koszty dla Ciebie. Więcej opcji do wyboru, szybsze prototypowanie, atrakcyjne ceny.
+						Idealne dla pierwszych właścicieli, którzy inwestują w dom marzeń, nie mając nieograniczonego budżetu.
+					</p>
+					<div class="grid md:grid-cols-3 gap-6 mt-8">
+						<div class="bg-white/10 backdrop-blur-sm px-6 py-4 rounded-lg">
+							<div class="text-2xl font-black">40% taniej</div>
+							<div class="text-sm text-white/80">niż tradycyjne studia</div>
+						</div>
+						<div class="bg-white/10 backdrop-blur-sm px-6 py-4 rounded-lg">
+							<div class="text-2xl font-black">3x szybciej</div>
+							<div class="text-sm text-white/80">realizacja projektu</div>
+						</div>
+						<div class="bg-white/10 backdrop-blur-sm px-6 py-4 rounded-lg">
+							<div class="text-2xl font-black">10 wariantów</div>
+							<div class="text-sm text-white/80">do wyboru dzięki AI</div>
+						</div>
+					</div>
+				</div>
+			</div>
 		</div>
 	</div>
 </section>
@@ -682,6 +871,169 @@
 	</div>
 </section>
 
+<!-- Comparison Section - AI Studio vs Traditional -->
+<section class="section bg-white relative overflow-hidden">
+	<div class="absolute top-0 left-0 w-96 h-96 bg-purple-100 rounded-full filter blur-3xl opacity-20"></div>
+	<div class="text-center mb-16 observe relative z-10">
+		<p class="font-black tracking-[0.3em] uppercase text-sm mb-4" style="color: {colorPalette.primary}">⚖️ Porównanie</p>
+		<h2 class="text-4xl md:text-5xl lg:text-6xl font-black mb-6 leading-tight" style="font-family: 'Playfair Display', serif;">
+			Pikastro AI vs<br>
+			<span style="color: {colorPalette.accent}">Tradycyjne Studia</span>
+		</h2>
+		<p class="text-xl text-gray-600 max-w-3xl mx-auto leading-relaxed">
+			Zobacz konkretne różnice i przekonaj się, dlaczego AI to przyszłość projektowania
+		</p>
+	</div>
+
+	<div class="max-w-6xl mx-auto relative z-10">
+		<!-- Comparison Table -->
+		<div class="bg-white rounded-3xl shadow-2xl border border-gray-100 overflow-hidden observe">
+			<div class="grid md:grid-cols-3 gap-px bg-gray-200">
+				<!-- Header Row -->
+				<div class="bg-white p-6">
+					<h3 class="text-lg font-bold text-gray-600 uppercase tracking-wider"></h3>
+				</div>
+				<div class="bg-gradient-to-br from-blue-600 to-purple-600 p-6 text-center">
+					<div class="inline-block px-4 py-1 bg-yellow-400 text-gray-900 rounded-full text-xs font-black uppercase mb-2">
+						⭐ Najlepszy wybór
+					</div>
+					<h3 class="text-2xl font-black text-white mb-1">Pikastro AI</h3>
+					<p class="text-sm text-white/80">Pierwsze studio AI w Krakowie</p>
+				</div>
+				<div class="bg-gray-50 p-6 text-center">
+					<h3 class="text-2xl font-black text-gray-600 mb-1">Tradycyjne Studio</h3>
+					<p class="text-sm text-gray-500">Standardowa obsługa</p>
+				</div>
+
+				<!-- Time to Delivery -->
+				<div class="bg-white p-6">
+					<div class="flex items-center gap-2 mb-2">
+						<span class="text-2xl">⏱️</span>
+						<h4 class="font-bold text-gray-900">Czas realizacji</h4>
+					</div>
+					<p class="text-sm text-gray-600">Od konsultacji do projektu</p>
+				</div>
+				<div class="bg-blue-50 p-6 text-center border-l-4 border-green-500">
+					<p class="text-4xl font-black mb-1" style="color: {colorPalette.secondary}">8-13 dni</p>
+					<p class="text-xs text-gray-600 font-medium">Ekspresowa realizacja</p>
+				</div>
+				<div class="bg-gray-50 p-6 text-center">
+					<p class="text-4xl font-black text-gray-400 mb-1">4-6 tyg</p>
+					<p class="text-xs text-gray-500">Standardowy czas</p>
+				</div>
+
+				<!-- Number of Variants -->
+				<div class="bg-white p-6">
+					<div class="flex items-center gap-2 mb-2">
+						<span class="text-2xl">🎨</span>
+						<h4 class="font-bold text-gray-900">Warianty do wyboru</h4>
+					</div>
+					<p class="text-sm text-gray-600">Opcje aranżacyjne</p>
+				</div>
+				<div class="bg-blue-50 p-6 text-center border-l-4 border-green-500">
+					<p class="text-4xl font-black mb-1" style="color: {colorPalette.secondary}">5-10</p>
+					<p class="text-xs text-gray-600 font-medium">Dzięki AI</p>
+				</div>
+				<div class="bg-gray-50 p-6 text-center">
+					<p class="text-4xl font-black text-gray-400 mb-1">1-2</p>
+					<p class="text-xs text-gray-500">Ręczne rysowanie</p>
+				</div>
+
+				<!-- Price -->
+				<div class="bg-white p-6">
+					<div class="flex items-center gap-2 mb-2">
+						<span class="text-2xl">💰</span>
+						<h4 class="font-bold text-gray-900">Cena za pokój</h4>
+					</div>
+					<p class="text-sm text-gray-600">Projekt + wizualizacje</p>
+				</div>
+				<div class="bg-blue-50 p-6 text-center border-l-4 border-green-500">
+					<p class="text-4xl font-black mb-1" style="color: {colorPalette.secondary}">Od 1,500 zł</p>
+					<p class="text-xs text-gray-600 font-medium">40% taniej</p>
+				</div>
+				<div class="bg-gray-50 p-6 text-center">
+					<p class="text-4xl font-black text-gray-400 mb-1">Od 2,500 zł</p>
+					<p class="text-xs text-gray-500">Wyższa cena</p>
+				</div>
+
+				<!-- Revisions -->
+				<div class="bg-white p-6">
+					<div class="flex items-center gap-2 mb-2">
+						<span class="text-2xl">🔄</span>
+						<h4 class="font-bold text-gray-900">Poprawki</h4>
+					</div>
+					<p class="text-sm text-gray-600">Modyfikacje projektu</p>
+				</div>
+				<div class="bg-blue-50 p-6 text-center border-l-4 border-green-500">
+					<p class="text-4xl font-black mb-1" style="color: {colorPalette.secondary}">Szybkie</p>
+					<p class="text-xs text-gray-600 font-medium">1-2 dni na poprawkę</p>
+				</div>
+				<div class="bg-gray-50 p-6 text-center">
+					<p class="text-4xl font-black text-gray-400 mb-1">Wolne</p>
+					<p class="text-xs text-gray-500">5-7 dni na poprawkę</p>
+				</div>
+
+				<!-- Technology -->
+				<div class="bg-white p-6">
+					<div class="flex items-center gap-2 mb-2">
+						<span class="text-2xl">🤖</span>
+						<h4 class="font-bold text-gray-900">Technologia</h4>
+					</div>
+					<p class="text-sm text-gray-600">Narzędzia projektowe</p>
+				</div>
+				<div class="bg-blue-50 p-6 text-center border-l-4 border-green-500">
+					<p class="text-2xl font-black mb-2" style="color: {colorPalette.primary}">AI + Człowiek</p>
+					<p class="text-xs text-gray-600 font-medium">Najnowsze rozwiązania</p>
+				</div>
+				<div class="bg-gray-50 p-6 text-center">
+					<p class="text-2xl font-black text-gray-400 mb-2">Tylko ręcznie</p>
+					<p class="text-xs text-gray-500">Tradycyjne metody</p>
+				</div>
+
+				<!-- Target Audience -->
+				<div class="bg-white p-6">
+					<div class="flex items-center gap-2 mb-2">
+						<span class="text-2xl">🎯</span>
+						<h4 class="font-bold text-gray-900">Specjalizacja</h4>
+					</div>
+					<p class="text-sm text-gray-600">Grupa docelowa</p>
+				</div>
+				<div class="bg-blue-50 p-6 text-center border-l-4 border-green-500">
+					<p class="text-lg font-black mb-2" style="color: {colorPalette.accent}">20-30 lat</p>
+					<p class="text-xs text-gray-600 font-medium">Kolorowe, odważne</p>
+				</div>
+				<div class="bg-gray-50 p-6 text-center">
+					<p class="text-lg font-black text-gray-400 mb-2">Ogólne</p>
+					<p class="text-xs text-gray-500">Beżowo-szare</p>
+				</div>
+			</div>
+		</div>
+
+		<!-- Bottom CTA -->
+		<div class="mt-12 text-center observe">
+			<div class="inline-block bg-gradient-to-r from-blue-600 to-purple-600 p-8 lg:p-10 rounded-3xl text-white shadow-2xl">
+				<div class="max-w-2xl">
+					<div class="text-5xl mb-4">🚀</div>
+					<h3 class="text-3xl font-black mb-4" style="font-family: 'Playfair Display', serif;">
+						Przekonaj się sam!
+					</h3>
+					<p class="text-lg text-white/90 mb-6 leading-relaxed">
+						Bezpłatna konsultacja online - pokażemy Ci jak AI może zmienić Twoje wnętrze.
+						Zobaczysz pierwsze propozycje jeszcze podczas spotkania!
+					</p>
+					<a href="#kontakt" class="inline-flex items-center gap-3 px-8 py-4 bg-white text-gray-900 rounded-xl hover:shadow-xl transition-all duration-300 font-bold text-sm transform hover:scale-105">
+						<span>Umów bezpłatną konsultację</span>
+						<svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+							<path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 7l5 5m0 0l-5 5m5-5H6"/>
+						</svg>
+					</a>
+					<p class="text-xs text-white/70 mt-4">💡 30 minut • Online lub stacjonarnie • Bez zobowiązań</p>
+				</div>
+			</div>
+		</div>
+	</div>
+</section>
+
 <!-- Manifesto / Why Section -->
 <section class="section bg-blue-50 relative overflow-hidden">
 	<div class="absolute top-0 right-0 w-96 h-96 bg-emerald-100 rounded-full filter blur-3xl opacity-30"></div>
@@ -822,6 +1174,42 @@
 						</div>
 					</div>
 
+					<!-- Price Details -->
+					{#if journey.priceDetails}
+						<div class="px-8 lg:px-12 pb-8">
+							<div class="border-t border-gray-100 pt-8">
+								<h4 class="text-lg font-bold mb-6 text-gray-900">Szczegółowa wycena:</h4>
+								<div class="grid md:grid-cols-2 gap-4">
+									{#each journey.priceDetails as detail}
+										<div class="flex items-center justify-between p-4 bg-gray-50 rounded-lg border border-gray-100">
+											<span class="text-gray-700 font-medium">{detail.label}</span>
+											<span class="font-black" style="color: {colorPalette.primary}">{detail.price}</span>
+										</div>
+									{/each}
+								</div>
+							</div>
+						</div>
+					{/if}
+
+					<!-- What's Included -->
+					{#if journey.whatsIncluded}
+						<div class="px-8 lg:px-12 pb-8">
+							<div class="border-t border-gray-100 pt-8">
+								<h4 class="text-lg font-bold mb-6 text-gray-900">Co jest w cenie:</h4>
+								<div class="grid md:grid-cols-2 gap-4">
+									{#each journey.whatsIncluded as item}
+										<div class="flex items-start gap-3">
+											<svg class="w-5 h-5 flex-shrink-0 mt-0.5" fill="none" stroke="currentColor" viewBox="0 0 24 24" style="color: {colorPalette.secondary}">
+												<path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"/>
+											</svg>
+											<span class="text-gray-700 text-sm leading-relaxed">{item}</span>
+										</div>
+									{/each}
+								</div>
+							</div>
+						</div>
+					{/if}
+
 					<!-- Process Steps -->
 					<div class="px-8 lg:px-12 pb-12">
 						<div class="border-t border-gray-100 pt-8">
@@ -875,6 +1263,155 @@
 				</a>
 				<div class="text-sm text-gray-500">
 					💡 Bez zobowiązań • 30 minut • Online lub stacjonarnie
+				</div>
+			</div>
+		</div>
+	</div>
+</section>
+
+<!-- Developer & B2B Partnership Section -->
+<section class="section bg-gradient-to-br from-gray-900 via-blue-900 to-purple-900 text-white relative overflow-hidden">
+	<div class="absolute top-0 right-0 w-96 h-96 bg-blue-500 rounded-full mix-blend-multiply filter blur-3xl opacity-20 animate-pulse-slow"></div>
+	<div class="absolute bottom-0 left-0 w-96 h-96 bg-purple-500 rounded-full mix-blend-multiply filter blur-3xl opacity-20 animate-pulse-slow" style="animation-delay: 1.5s;"></div>
+
+	<div class="relative z-10">
+		<div class="text-center mb-16 observe">
+			<p class="font-black tracking-[0.3em] uppercase text-sm mb-4 neon-text" style="color: {colorPalette.accent}">🏢 Współpraca B2B</p>
+			<h2 class="text-4xl md:text-5xl lg:text-6xl font-black mb-6 leading-tight" style="font-family: 'Playfair Display', serif;">
+				Dla Deweloperów<br>
+				<span style="color: #00D4FF;">i Biznesu</span>
+			</h2>
+			<p class="text-xl text-gray-200 max-w-3xl mx-auto leading-relaxed">
+				Skalowalne rozwiązania projektowe dla firm - wizualizacje, projekty showroomów i kompleksowa obsługa projektowa
+			</p>
+		</div>
+
+		<div class="grid md:grid-cols-2 gap-12 mb-16">
+			<!-- Developers -->
+			<div class="bg-white/10 backdrop-blur-md p-10 rounded-3xl border border-white/20 observe hover:bg-white/15 transition-all duration-300">
+				<div class="text-6xl mb-6">🏗️</div>
+				<h3 class="text-3xl font-black mb-4" style="font-family: 'Playfair Display', serif;">Deweloperzy Mieszkaniowi</h3>
+				<p class="text-gray-200 mb-6 leading-relaxed">
+					Szybkie wizualizacje i projekty wnętrz dla Twoich inwestycji. AI przyspiesza proces tworzenia
+					wariantów aranżacyjnych dla mieszkań pokazowych.
+				</p>
+
+				<div class="space-y-4 mb-8">
+					<div class="flex items-start gap-3">
+						<div class="flex-shrink-0 w-6 h-6 rounded-full flex items-center justify-center text-xs font-bold" style="background-color: {colorPalette.accent}">✓</div>
+						<div>
+							<h4 class="font-bold mb-1">Pakiety wielomieszkaniowe</h4>
+							<p class="text-sm text-gray-300">Rabaty przy realizacji 5+ mieszkań</p>
+						</div>
+					</div>
+					<div class="flex items-start gap-3">
+						<div class="flex-shrink-0 w-6 h-6 rounded-full flex items-center justify-center text-xs font-bold" style="background-color: {colorPalette.accent}">✓</div>
+						<div>
+							<h4 class="font-bold mb-1">Ekspresowa realizacja</h4>
+							<p class="text-sm text-gray-300">Wizualizacje 3D w 3-5 dni roboczych</p>
+						</div>
+					</div>
+					<div class="flex items-start gap-3">
+						<div class="flex-shrink-0 w-6 h-6 rounded-full flex items-center justify-center text-xs font-bold" style="background-color: {colorPalette.accent}">✓</div>
+						<div>
+							<h4 class="font-bold mb-1">Materiały marketingowe</h4>
+							<p class="text-sm text-gray-300">Gotowe do publikacji na stronę i social media</p>
+						</div>
+					</div>
+					<div class="flex items-start gap-3">
+						<div class="flex-shrink-0 w-6 h-6 rounded-full flex items-center justify-center text-xs font-bold" style="background-color: {colorPalette.accent}">✓</div>
+						<div>
+							<h4 class="font-bold mb-1">Różne warianty aranżacyjne</h4>
+							<p class="text-sm text-gray-300">10+ propozycji dla każdego metrażu</p>
+						</div>
+					</div>
+				</div>
+
+				<div class="bg-white/10 p-4 rounded-lg border border-white/20">
+					<p class="text-sm text-gray-300 mb-2">Przykładowa cena pakietu</p>
+					<p class="text-3xl font-black" style="color: {colorPalette.accent}">Od 8,000 zł</p>
+					<p class="text-xs text-gray-400 mt-1">za 5 mieszkań + wizualizacje 3D</p>
+				</div>
+			</div>
+
+			<!-- Real Estate & Commercial -->
+			<div class="bg-white/10 backdrop-blur-md p-10 rounded-3xl border border-white/20 observe hover:bg-white/15 transition-all duration-300">
+				<div class="text-6xl mb-6">🏪</div>
+				<h3 class="text-3xl font-black mb-4" style="font-family: 'Playfair Display', serif;">Biura & Lokale Komercyjne</h3>
+				<p class="text-gray-200 mb-6 leading-relaxed">
+					Kompleksowe projekty dla biur nieruchomości, restauracji, kawiarni, sklepów.
+					Łączymy design wnętrz z brandingiem.
+				</p>
+
+				<div class="space-y-4 mb-8">
+					<div class="flex items-start gap-3">
+						<div class="flex-shrink-0 w-6 h-6 rounded-full flex items-center justify-center text-xs font-bold" style="background-color: {colorPalette.secondary}">✓</div>
+						<div>
+							<h4 class="font-bold mb-1">Rzuty i modele 3D</h4>
+							<p class="text-sm text-gray-300">Profesjonalna dokumentacja dla biur nieruchomości</p>
+						</div>
+					</div>
+					<div class="flex items-start gap-3">
+						<div class="flex-shrink-0 w-6 h-6 rounded-full flex items-center justify-center text-xs font-bold" style="background-color: {colorPalette.secondary}">✓</div>
+						<div>
+							<h4 class="font-bold mb-1">Branding + Wnętrza</h4>
+							<p class="text-sm text-gray-300">Spójna identyfikacja wizualna i projekt przestrzeni</p>
+						</div>
+					</div>
+					<div class="flex items-start gap-3">
+						<div class="flex-shrink-0 w-6 h-6 rounded-full flex items-center justify-center text-xs font-bold" style="background-color: {colorPalette.secondary}">✓</div>
+						<div>
+							<h4 class="font-bold mb-1">Ergonomia biznesowa</h4>
+							<p class="text-sm text-gray-300">Przestrzenie zoptymalizowane pod klienta końcowego</p>
+						</div>
+					</div>
+					<div class="flex items-start gap-3">
+						<div class="flex-shrink-0 w-6 h-6 rounded-full flex items-center justify-center text-xs font-bold" style="background-color: {colorPalette.secondary}">✓</div>
+						<div>
+							<h4 class="font-bold mb-1">Stała współpraca</h4>
+							<p class="text-sm text-gray-300">Partnerstwo długoterminowe z dedykowanymi cenami</p>
+						</div>
+					</div>
+				</div>
+
+				<div class="bg-white/10 p-4 rounded-lg border border-white/20">
+					<p class="text-sm text-gray-300 mb-2">Wycena indywidualna</p>
+					<p class="text-3xl font-black" style="color: {colorPalette.secondary}">Od 12,000 zł</p>
+					<p class="text-xs text-gray-400 mt-1">projekt + branding + nadzór</p>
+				</div>
+			</div>
+		</div>
+
+		<!-- Partnership CTA -->
+		<div class="bg-white/5 backdrop-blur-md p-10 lg:p-12 rounded-3xl border border-white/20 text-center observe max-w-4xl mx-auto">
+			<div class="text-5xl mb-4">🤝</div>
+			<h3 class="text-3xl font-black mb-4" style="font-family: 'Playfair Display', serif;">
+				Zainteresowany współpracą B2B?
+			</h3>
+			<p class="text-lg text-gray-200 mb-8 leading-relaxed max-w-2xl mx-auto">
+				Przygotujemy dedykowaną ofertę dopasowaną do specyfiki Twojego biznesu.
+				Skontaktuj się z nami, aby omówić szczegóły współpracy.
+			</p>
+			<div class="flex flex-col sm:flex-row gap-4 justify-center">
+				<a href="#kontakt" class="inline-flex items-center gap-3 px-8 py-4 bg-white text-gray-900 rounded-xl hover:shadow-xl transition-all duration-300 font-bold text-sm transform hover:scale-105">
+					<span>Umów spotkanie B2B</span>
+					<svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+						<path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 8l4 4m0 0l-4 4m4-4H3"/>
+					</svg>
+				</a>
+				<a href="mailto:kontakt@pikastro.eu?subject=Współpraca B2B" class="inline-flex items-center gap-3 px-8 py-4 bg-white/10 backdrop-blur-sm text-white border-2 border-white/30 rounded-xl hover:bg-white/20 transition-all duration-300 font-bold text-sm">
+					<span>kontakt@pikastro.eu</span>
+				</a>
+			</div>
+
+			<!-- Trust Indicators -->
+			<div class="mt-10 pt-8 border-t border-white/20">
+				<p class="text-sm text-gray-400 mb-4">Zaufali nam:</p>
+				<div class="flex flex-wrap justify-center gap-4 text-sm text-gray-300">
+					<span class="px-4 py-2 bg-white/5 rounded-lg">Deweloperzy z Krakowa</span>
+					<span class="px-4 py-2 bg-white/5 rounded-lg">Biura nieruchomości</span>
+					<span class="px-4 py-2 bg-white/5 rounded-lg">Lokale gastronomiczne</span>
+					<span class="px-4 py-2 bg-white/5 rounded-lg">Startupy tech</span>
 				</div>
 			</div>
 		</div>
@@ -1052,70 +1589,176 @@
 			</div>
 
 			<div class="flex space-x-4 mt-12">
-				<a href="https://linkedin.com" class="w-14 h-14 border-2 border-blue-200 rounded-lg flex items-center justify-center hover:text-white hover:border-transparent transition-all duration-300 hover:scale-110 hover:shadow-lg neon-glow" onmouseenter={(e) => e.currentTarget.style.backgroundColor = colorPalette.primary} onmouseleave={(e) => e.currentTarget.style.backgroundColor = 'transparent'}>
+				<a href="https://www.instagram.com/pikastro.design/" target="_blank" rel="noopener noreferrer" class="w-14 h-14 border-2 border-blue-200 rounded-lg flex items-center justify-center hover:text-white hover:border-transparent transition-all duration-300 hover:scale-110 hover:shadow-lg neon-glow" onmouseenter={(e) => e.currentTarget.style.backgroundColor = colorPalette.accent} onmouseleave={(e) => e.currentTarget.style.backgroundColor = 'transparent'} title="Instagram @pikastro.design">
+					<span class="text-sm font-bold">ig</span>
+				</a>
+				<a href="https://www.linkedin.com/in/pikastro/" target="_blank" rel="noopener noreferrer" class="w-14 h-14 border-2 border-blue-200 rounded-lg flex items-center justify-center hover:text-white hover:border-transparent transition-all duration-300 hover:scale-110 hover:shadow-lg neon-glow" onmouseenter={(e) => e.currentTarget.style.backgroundColor = colorPalette.primary} onmouseleave={(e) => e.currentTarget.style.backgroundColor = 'transparent'} title="LinkedIn">
 					<span class="text-sm font-bold">in</span>
 				</a>
-				<a href="https://behance.net" class="w-14 h-14 border-2 border-blue-200 rounded-lg flex items-center justify-center hover:text-white hover:border-transparent transition-all duration-300 hover:scale-110 hover:shadow-lg neon-glow" onmouseenter={(e) => e.currentTarget.style.backgroundColor = colorPalette.accent} onmouseleave={(e) => e.currentTarget.style.backgroundColor = 'transparent'}>
+				<a href="https://www.behance.net/pikastro" target="_blank" rel="noopener noreferrer" class="w-14 h-14 border-2 border-blue-200 rounded-lg flex items-center justify-center hover:text-white hover:border-transparent transition-all duration-300 hover:scale-110 hover:shadow-lg neon-glow" onmouseenter={(e) => e.currentTarget.style.backgroundColor = colorPalette.secondary} onmouseleave={(e) => e.currentTarget.style.backgroundColor = 'transparent'} title="Behance Portfolio">
 					<span class="text-sm font-bold">be</span>
 				</a>
-				<a href="https://instagram.com" class="w-14 h-14 border-2 border-blue-200 rounded-lg flex items-center justify-center hover:text-white hover:border-transparent transition-all duration-300 hover:scale-110 hover:shadow-lg neon-glow" onmouseenter={(e) => e.currentTarget.style.backgroundColor = colorPalette.secondary} onmouseleave={(e) => e.currentTarget.style.backgroundColor = 'transparent'}>
-					<span class="text-sm font-bold">ig</span>
+				<a href="https://www.facebook.com/pikastro.design" target="_blank" rel="noopener noreferrer" class="w-14 h-14 border-2 border-blue-200 rounded-lg flex items-center justify-center hover:text-white hover:border-transparent transition-all duration-300 hover:scale-110 hover:shadow-lg neon-glow" onmouseenter={(e) => e.currentTarget.style.backgroundColor = '#1877F2'} onmouseleave={(e) => e.currentTarget.style.backgroundColor = 'transparent'} title="Facebook">
+					<span class="text-sm font-bold">fb</span>
 				</a>
 			</div>
 		</div>
 
 		<div class="bg-white p-10 lg:p-12 observe rounded-2xl border-2 border-blue-200 shadow-xl" style="border-color: rgb(239, 246, 255);">
-			<form class="space-y-6">
+			<form
+				name="contact"
+				method="POST"
+				data-netlify="true"
+				netlify-honeypot="bot-field"
+				class="space-y-6"
+				onsubmit={(e) => {
+					e.preventDefault();
+					formStatus = 'submitting';
+					const formData = new FormData(e.currentTarget);
+
+					fetch('/', {
+						method: 'POST',
+						headers: { "Content-Type": "application/x-www-form-urlencoded" },
+						body: new URLSearchParams(formData).toString()
+					})
+					.then(() => {
+						formStatus = 'success';
+						formMessage = 'Dziękujemy! Wiadomość została wysłana. Odezwiemy się w ciągu 24h.';
+						e.currentTarget.reset();
+						setTimeout(() => { formStatus = 'idle'; formMessage = ''; }, 5000);
+					})
+					.catch(() => {
+						formStatus = 'error';
+						formMessage = 'Wystąpił błąd. Spróbuj ponownie lub napisz na kontakt@pikastro.eu';
+						setTimeout(() => { formStatus = 'idle'; formMessage = ''; }, 5000);
+					});
+				}}
+			>
+				<!-- Netlify form name -->
+				<input type="hidden" name="form-name" value="contact" />
+
+				<!-- Honeypot for spam prevention -->
+				<p class="hidden">
+					<label>
+						Don't fill this out: <input name="bot-field" />
+					</label>
+				</p>
+
+				{#if formStatus === 'success'}
+					<div class="p-4 bg-green-50 border-2 border-green-200 rounded-lg">
+						<p class="text-green-800 font-bold flex items-center gap-2">
+							<span>✓</span>
+							<span>{formMessage}</span>
+						</p>
+					</div>
+				{/if}
+
+				{#if formStatus === 'error'}
+					<div class="p-4 bg-red-50 border-2 border-red-200 rounded-lg">
+						<p class="text-red-800 font-bold flex items-center gap-2">
+							<span>⚠</span>
+							<span>{formMessage}</span>
+						</p>
+					</div>
+				{/if}
+
 				<div>
-					<label for="name" class="block text-sm uppercase tracking-wider font-bold text-gray-700 mb-2">Imię i nazwisko</label>
+					<label for="name" class="block text-sm uppercase tracking-wider font-bold text-gray-700 mb-2">Imię i nazwisko *</label>
 					<input
 						type="text"
 						id="name"
+						name="name"
+						required
 						class="w-full px-4 py-3 border-2 border-blue-200 rounded-lg focus:border-[#27275b] focus:outline-none transition-all bg-white"
 						placeholder="Jan Kowalski"
 					/>
 				</div>
 
 				<div>
-					<label for="email" class="block text-sm uppercase tracking-wider font-bold text-gray-700 mb-2">Email</label>
+					<label for="email" class="block text-sm uppercase tracking-wider font-bold text-gray-700 mb-2">Email *</label>
 					<input
 						type="email"
 						id="email"
+						name="email"
+						required
 						class="w-full px-4 py-3 border-2 border-blue-200 rounded-lg focus:border-[#27275b] focus:outline-none transition-all bg-white"
 						placeholder="jan@example.com"
 					/>
 				</div>
 
 				<div>
-					<label for="project" class="block text-sm uppercase tracking-wider font-bold text-gray-700 mb-2">Typ projektu</label>
+					<label for="phone" class="block text-sm uppercase tracking-wider font-bold text-gray-700 mb-2">Telefon (opcjonalnie)</label>
+					<input
+						type="tel"
+						id="phone"
+						name="phone"
+						class="w-full px-4 py-3 border-2 border-blue-200 rounded-lg focus:border-[#27275b] focus:outline-none transition-all bg-white"
+						placeholder="+48 123 456 789"
+					/>
+				</div>
+
+				<div>
+					<label for="project" class="block text-sm uppercase tracking-wider font-bold text-gray-700 mb-2">Typ projektu *</label>
 					<select
 						id="project"
+						name="project"
+						required
 						class="w-full px-4 py-3 border-2 border-blue-200 rounded-lg focus:border-[#27275b] focus:outline-none transition-all bg-white"
 					>
-						<option>Projektowanie wnętrz</option>
-						<option>Identyfikacja wizualna</option>
-						<option>Konsultacje</option>
+						<option value="">Wybierz...</option>
+						<option>Pojedyncze pomieszczenie (sypialnia, salon, etc.)</option>
+						<option>Pełne mieszkanie (2-3 pokoje)</option>
+						<option>Przestrzeń biznesowa (biuro, kawiarnia, etc.)</option>
+						<option>Identyfikacja wizualna / Grafika</option>
+						<option>Konsultacja projektowa</option>
 						<option>Inne</option>
 					</select>
 				</div>
 
 				<div>
-					<label for="message" class="block text-sm uppercase tracking-wider font-bold text-gray-700 mb-2">Wiadomość</label>
+					<label for="message" class="block text-sm uppercase tracking-wider font-bold text-gray-700 mb-2">Wiadomość *</label>
 					<textarea
 						id="message"
+						name="message"
+						required
 						rows="5"
 						class="w-full px-4 py-3 border-2 border-blue-200 rounded-lg focus:border-[#27275b] focus:outline-none transition-all bg-white resize-none"
-						placeholder="Opowiedz o swoim projekcie..."
+						placeholder="Opowiedz o swoim projekcie... Jaka przestrzeń? Jaki budżet? Kiedy start?"
 					></textarea>
 				</div>
 
-				<button type="submit" class="w-full btn">
-					Wyślij wiadomość
+				<button
+					type="submit"
+					class="w-full btn disabled:opacity-50 disabled:cursor-not-allowed"
+					disabled={formStatus === 'submitting'}
+				>
+					{formStatus === 'submitting' ? 'Wysyłanie...' : 'Wyślij wiadomość'}
 				</button>
+
+				<p class="text-xs text-gray-500 text-center">
+					* Pola wymagane. Odpowiadamy w ciągu 24h w dni robocze.
+				</p>
 			</form>
 		</div>
 	</div>
 </section>
+
+<!-- Sticky Consultation Button -->
+{#if showStickyButton}
+	<div class="fixed bottom-8 right-8 z-40 animate-fade-in-up">
+		<a
+			href="#kontakt"
+			class="flex items-center gap-3 px-6 py-4 text-white rounded-full shadow-2xl hover:shadow-3xl transition-all duration-300 transform hover:scale-105 font-bold text-sm group"
+			style="background: linear-gradient(135deg, {colorPalette.primary}, {colorPalette.accent});"
+		>
+			<span class="hidden sm:inline">Umów Konsultację</span>
+			<span class="sm:hidden">Kontakt</span>
+			<svg class="w-5 h-5 transform group-hover:translate-x-1 transition-transform" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+				<path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8 12h.01M12 12h.01M16 12h.01M21 12c0 4.418-4.03 8-9 8a9.863 9.863 0 01-4.255-.949L3 20l1.395-3.72C3.512 15.042 3 13.574 3 12c0-4.418 4.03-8 9-8s9 3.582 9 8z"/>
+			</svg>
+		</a>
+	</div>
+{/if}
 
 <!-- Footer -->
 <footer class="gradient-bg text-white py-16 px-6 md:px-12 relative overflow-hidden">
