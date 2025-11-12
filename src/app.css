@@ -1,4 +1,4 @@
-@import url('https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;500;600;700;800&family=Inter:wght@300;400;500;600;700&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;500;600;700;800&family=Montserrat:wght@300;400;500;600;700;800&display=swap');
 
 @tailwind base;
 @tailwind components;
@@ -7,7 +7,7 @@
 /* Custom styles for professional interior design & architecture portfolio */
 @layer base {
   html {
-    font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+    font-family: 'Montserrat', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
     scroll-behavior: smooth;
   }
 
@@ -17,20 +17,30 @@
     -moz-osx-font-smoothing: grayscale;
   }
 
-  h1, h2, h3, h4, h5, h6 {
+  /* Main headings - elegant serif */
+  h1, h2 {
     font-family: 'Playfair Display', Georgia, serif;
     font-weight: 700;
     letter-spacing: -0.02em;
+  }
+
+  /* Subheadings and UI - modern sans-serif */
+  h3, h4, h5, h6 {
+    font-family: 'Montserrat', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+    font-weight: 600;
+    letter-spacing: -0.01em;
   }
 }
 
 @layer components {
   .btn {
     @apply px-8 py-4 bg-[#27275b] text-white rounded-lg hover:shadow-2xl hover:shadow-[#FB7185]/50 transition-all duration-300 shadow-lg transform hover:scale-105 hover:-translate-y-1 font-bold tracking-wide uppercase text-sm;
+    font-family: 'Montserrat', sans-serif;
   }
 
   .btn-secondary {
     @apply px-8 py-4 bg-transparent text-[#27275b] border-2 border-[#27275b] rounded-lg hover:bg-[#27275b] hover:text-white transition-all duration-300 shadow-lg hover:shadow-2xl font-bold tracking-wide uppercase text-sm;
+    font-family: 'Montserrat', sans-serif;
   }
 
   .section {
@@ -119,7 +129,7 @@
   }
 
   .hover-lift:hover {
-    @apply transform -translate-y-3 shadow-2xl;
+    @apply transform -translate-y-2 shadow-2xl;
   }
 
   /* Vibrant quote block */

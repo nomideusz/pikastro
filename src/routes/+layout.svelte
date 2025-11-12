@@ -1,5 +1,41 @@
 <script lang="ts">
 	import '../app.css';
+	import { page } from '$app/stores';
+	import { extractColorsFromImage, assignColorRoles, type ColorPalette } from '$lib/utils/colorExtractor';
+	import colorsImg from '$lib/assets/images/colors.jpeg';
+
+	// Color palette extracted from colors image
+	let colorPalette = $state<ColorPalette>({
+		primary: '#27275b',
+		accent: '#FB7185',
+		secondary: '#10B981',
+		success: '#10B981',
+		tertiary: '#27275b'
+	});
+
+	// Extract colors from the colors image on mount
+	$effect(() => {
+		extractColorsFromImage(colorsImg, 5)
+			.then((colors) => {
+				if (colors.length > 0) {
+					const roles = assignColorRoles(colors);
+					colorPalette = roles;
+				}
+			})
+			.catch((error) => {
+				console.warn('Could not extract colors from image:', error);
+			});
+	});
+
+	// Helper function to get the correct link path
+	function getNavLink(href: string): string {
+		// If we're on the main page, use hash anchors
+		if ($page.url.pathname === '/') {
+			return href;
+		}
+		// If we're on a subpage, prefix with / for main page navigation
+		return '/' + href;
+	}
 
 	let { children } = $props();
 	let isMenuOpen = $state(false);
@@ -13,34 +49,38 @@
 </svelte:head>
 
 <!-- Navigation -->
-<nav class="bg-white/95 backdrop-blur-sm border-b border-gray-100 sticky top-0 z-50 transition-all duration-300">
+<nav class="sticky top-0 z-50 transition-all duration-300 shadow-sm" style="background: rgba(255, 255, 255, 0.95); backdrop-filter: blur(12px); border-bottom: 1px solid rgba(0, 0, 0, 0.08); box-shadow: 0 4px 20px rgba(0, 0, 0, 0.08);">
 	<div class="max-w-7xl mx-auto px-6 md:px-12">
 		<div class="flex justify-between items-center py-6">
 			<div class="flex items-center">
-				<a href="/" class="flex items-center group">
+				<a href="/" class="flex items-center group px-3 py-2 rounded-lg transition-all duration-300 hover:bg-gray-50">
 					<img src="/logo.png" alt="Pikastro Logo" class="h-12 w-auto transition-transform duration-300 group-hover:scale-110 group-hover:rotate-3" />
 				</a>
 			</div>
 
 			<!-- Desktop Navigation -->
 			<div class="hidden md:flex items-center space-x-8">
-				<a href="#beforeafter" class="text-gray-700 hover:text-[#27275b] transition-colors font-bold text-sm tracking-wide uppercase relative group">
+				<a href="/o-mnie" class="text-gray-700 transition-colors font-bold text-sm tracking-wide uppercase relative group hover:text-[var(--color-primary)]">
+					O mnie
+					<span class="absolute bottom-0 left-0 w-0 h-0.5 transition-all duration-300 group-hover:w-full" style="background: linear-gradient(to right, var(--color-primary), var(--color-accent));"></span>
+				</a>
+				<a href={getNavLink('#beforeafter')} class="text-gray-700 transition-colors font-bold text-sm tracking-wide uppercase relative group hover:text-[var(--color-primary)]">
 					Metamorfozy
-					<span class="absolute bottom-0 left-0 w-0 h-0.5 bg-gradient-to-r from-[#27275b] to-[#FB7185] transition-all duration-300 group-hover:w-full"></span>
+					<span class="absolute bottom-0 left-0 w-0 h-0.5 transition-all duration-300 group-hover:w-full" style="background: linear-gradient(to right, var(--color-primary), var(--color-accent));"></span>
 				</a>
-				<a href="#proces" class="text-gray-700 hover:text-[#27275b] transition-colors font-bold text-sm tracking-wide uppercase relative group">
+				<a href={getNavLink('#proces')} class="text-gray-700 transition-colors font-bold text-sm tracking-wide uppercase relative group hover:text-[var(--color-primary)]">
 					Proces
-					<span class="absolute bottom-0 left-0 w-0 h-0.5 bg-gradient-to-r from-[#27275b] to-[#FB7185] transition-all duration-300 group-hover:w-full"></span>
+					<span class="absolute bottom-0 left-0 w-0 h-0.5 transition-all duration-300 group-hover:w-full" style="background: linear-gradient(to right, var(--color-primary), var(--color-accent));"></span>
 				</a>
-				<a href="#cennik" class="text-gray-700 hover:text-[#27275b] transition-colors font-bold text-sm tracking-wide uppercase relative group">
+				<a href={getNavLink('#cennik')} class="text-gray-700 transition-colors font-bold text-sm tracking-wide uppercase relative group hover:text-[var(--color-primary)]">
 					Ceny
-					<span class="absolute bottom-0 left-0 w-0 h-0.5 bg-gradient-to-r from-[#27275b] to-[#FB7185] transition-all duration-300 group-hover:w-full"></span>
+					<span class="absolute bottom-0 left-0 w-0 h-0.5 transition-all duration-300 group-hover:w-full" style="background: linear-gradient(to right, var(--color-primary), var(--color-accent));"></span>
 				</a>
-				<a href="#portfolio" class="text-gray-700 hover:text-[#27275b] transition-colors font-bold text-sm tracking-wide uppercase relative group">
+				<a href={getNavLink('#portfolio')} class="text-gray-700 transition-colors font-bold text-sm tracking-wide uppercase relative group hover:text-[var(--color-primary)]">
 					Portfolio
-					<span class="absolute bottom-0 left-0 w-0 h-0.5 bg-gradient-to-r from-[#27275b] to-[#FB7185] transition-all duration-300 group-hover:w-full"></span>
+					<span class="absolute bottom-0 left-0 w-0 h-0.5 transition-all duration-300 group-hover:w-full" style="background: linear-gradient(to right, var(--color-primary), var(--color-accent));"></span>
 				</a>
-				<a href="#kontakt" class="px-6 py-2.5 bg-gradient-to-r from-[#27275b] to-[#FB7185] text-white hover:from-[#1e1e4a] hover:to-[#e55b6f] transition-all duration-300 text-sm tracking-wide uppercase font-bold rounded-lg shadow-md hover:shadow-lg">
+				<a href={getNavLink('#kontakt')} class="px-6 py-2.5 text-white transition-all duration-300 text-sm tracking-wide uppercase font-bold rounded-lg shadow-md hover:shadow-lg transform hover:scale-105" style="background: linear-gradient(to right, var(--color-primary), var(--color-accent));">
 					Kontakt
 				</a>
 			</div>
@@ -49,7 +89,7 @@
 			<div class="md:hidden">
 				<button
 					onclick={() => isMenuOpen = !isMenuOpen}
-					class="text-gray-700 hover:text-gray-900 focus:outline-none transition-colors"
+					class="text-gray-700 focus:outline-none transition-colors hover:text-[var(--color-primary)]"
 					aria-label="Toggle menu"
 				>
 					<svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24" stroke-width="2">
@@ -65,13 +105,14 @@
 
 		<!-- Mobile Navigation -->
 		{#if isMenuOpen}
-			<div class="md:hidden pb-6 border-t border-gray-100 mt-2 animate-fade-in-up">
+			<div class="md:hidden pb-6 mt-2 animate-fade-in-up" style="border-top: 1px solid rgba(0, 0, 0, 0.08);">
 				<div class="flex flex-col space-y-4 pt-6">
-					<a href="#beforeafter" onclick={() => isMenuOpen = false} class="text-gray-700 hover:text-[#27275b] transition-colors font-bold text-sm tracking-wide uppercase">Metamorfozy</a>
-					<a href="#proces" onclick={() => isMenuOpen = false} class="text-gray-700 hover:text-[#27275b] transition-colors font-bold text-sm tracking-wide uppercase">Proces</a>
-					<a href="#cennik" onclick={() => isMenuOpen = false} class="text-gray-700 hover:text-[#27275b] transition-colors font-bold text-sm tracking-wide uppercase">Ceny</a>
-					<a href="#portfolio" onclick={() => isMenuOpen = false} class="text-gray-700 hover:text-[#27275b] transition-colors font-bold text-sm tracking-wide uppercase">Portfolio</a>
-					<a href="#kontakt" onclick={() => isMenuOpen = false} class="px-6 py-3 bg-gradient-to-r from-[#27275b] to-[#FB7185] text-white text-center hover:from-[#1e1e4a] hover:to-[#e55b6f] transition-all duration-300 text-sm tracking-wide uppercase font-bold rounded-lg">Kontakt</a>
+					<a href="/o-mnie" onclick={() => isMenuOpen = false} class="text-gray-700 transition-colors font-bold text-sm tracking-wide uppercase hover:text-[var(--color-primary)]">O mnie</a>
+					<a href={getNavLink('#beforeafter')} onclick={() => isMenuOpen = false} class="text-gray-700 transition-colors font-bold text-sm tracking-wide uppercase hover:text-[var(--color-primary)]">Metamorfozy</a>
+					<a href={getNavLink('#proces')} onclick={() => isMenuOpen = false} class="text-gray-700 transition-colors font-bold text-sm tracking-wide uppercase hover:text-[var(--color-primary)]">Proces</a>
+					<a href={getNavLink('#cennik')} onclick={() => isMenuOpen = false} class="text-gray-700 transition-colors font-bold text-sm tracking-wide uppercase hover:text-[var(--color-primary)]">Ceny</a>
+					<a href={getNavLink('#portfolio')} onclick={() => isMenuOpen = false} class="text-gray-700 transition-colors font-bold text-sm tracking-wide uppercase hover:text-[var(--color-primary)]">Portfolio</a>
+					<a href={getNavLink('#kontakt')} onclick={() => isMenuOpen = false} class="px-6 py-3 text-white text-center transition-all duration-300 text-sm tracking-wide uppercase font-bold rounded-lg transform hover:scale-105" style="background: linear-gradient(to right, var(--color-primary), var(--color-accent));">Kontakt</a>
 				</div>
 			</div>
 		{/if}
