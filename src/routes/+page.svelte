@@ -17,13 +17,13 @@
 	// Import color extraction utilities
 	import { extractColorsFromImage, assignColorRoles, type ColorPalette } from '$lib/utils/colorExtractor';
 
-	// Color palette extracted from colors image
+	// Color palette extracted from colors image - Eclectic Maximalism
 	let colorPalette = $state<ColorPalette>({
-		primary: '#27275b',
-		accent: '#FB7185',
-		secondary: '#10B981',
-		success: '#10B981',
-		tertiary: '#27275b'
+		primary: '#27275B',      // Deep Navy Blue
+		accent: '#F32A61',       // Hot Magenta
+		secondary: '#1DA898',    // Turquoise
+		success: '#F2A23E',      // Golden Orange
+		tertiary: '#F5848E'      // Coral Pink
 	});
 
 	// Helper function to convert hex to RGB
@@ -293,14 +293,14 @@
 	});
 </script>
 
-<!-- Hero Section with AI Visualization -->
-<section class="relative min-h-[90vh] flex items-center text-white overflow-hidden" style="background: linear-gradient(135deg, #1a1a2e 0%, #16213e 50%, #0f3460 100%);">
+<!-- Hero Section with AI Visualization - Eclectic Maximalism -->
+<section class="relative min-h-[90vh] flex items-center text-white overflow-hidden" style="background-color: {colorPalette.primary};">
 	<!-- Background Video -->
 	<div class="absolute inset-0 z-[1]">
-		<video 
-			autoplay 
-			loop 
-			muted 
+		<video
+			autoplay
+			loop
+			muted
 			playsinline
 			class="w-full h-full object-cover opacity-20"
 		>
@@ -331,10 +331,11 @@
 		</svg>
 	</div>
 
-	<!-- Floating gradient blobs -->
-	<div class="absolute top-20 right-20 w-72 h-72 rounded-full mix-blend-multiply filter blur-3xl opacity-30 animate-pulse-slow transition-all duration-1000" style="background-color: {colorPalette.accent}"></div>
-	<div class="absolute bottom-20 left-20 w-96 h-96 rounded-full mix-blend-multiply filter blur-3xl opacity-30 animate-pulse-slow transition-all duration-1000" style="background-color: {colorPalette.primary}; animation-delay: 1s;"></div>
-	<div class="absolute top-1/2 left-1/2 w-80 h-80 rounded-full mix-blend-multiply filter blur-3xl opacity-30 animate-pulse-slow transition-all duration-1000" style="background-color: {colorPalette.secondary}; animation-delay: 2s;"></div>
+	<!-- Floating color blobs - Maximalism -->
+	<div class="absolute top-20 right-20 w-72 h-72 rounded-full mix-blend-multiply filter blur-3xl opacity-40 animate-pulse-slow transition-all duration-1000" style="background-color: {colorPalette.accent}"></div>
+	<div class="absolute bottom-20 left-20 w-96 h-96 rounded-full mix-blend-multiply filter blur-3xl opacity-40 animate-pulse-slow transition-all duration-1000" style="background-color: {colorPalette.success}; animation-delay: 1s;"></div>
+	<div class="absolute top-1/2 left-1/2 w-80 h-80 rounded-full mix-blend-multiply filter blur-3xl opacity-40 animate-pulse-slow transition-all duration-1000" style="background-color: {colorPalette.secondary}; animation-delay: 2s;"></div>
+	<div class="absolute top-40 left-1/4 w-64 h-64 rounded-full mix-blend-multiply filter blur-3xl opacity-35 animate-pulse-slow transition-all duration-1000" style="background-color: {colorPalette.tertiary}; animation-delay: 0.5s;"></div>
 
 	<div class="section relative z-20">
 		<div class="max-w-5xl">
@@ -386,9 +387,10 @@
 	</div>
 </section>
 
-<!-- Before/After Showcase Section -->
-<section id="beforeafter" class="section bg-white relative overflow-hidden">
-	<div class="absolute top-0 right-0 w-96 h-96 bg-rose-100 rounded-full filter blur-3xl opacity-30"></div>
+<!-- Before/After Showcase Section - Maximalism -->
+<section id="beforeafter" class="section bg-white relative overflow-hidden border-y-8" style="border-top-color: {colorPalette.success}; border-bottom-color: {colorPalette.accent};">
+	<div class="absolute top-0 right-0 w-96 h-96 rounded-full filter blur-3xl opacity-25" style="background-color: {colorPalette.tertiary};"></div>
+	<div class="absolute bottom-0 left-0 w-80 h-80 rounded-full filter blur-3xl opacity-25" style="background-color: {colorPalette.accent};"></div>
 	<div class="text-center mb-20 observe">
 		<p class="font-black tracking-[0.3em] uppercase text-sm mb-4" style="color: {colorPalette.primary}">✨ Metamorfozy AI</p>
 		<h2 class="text-4xl md:text-5xl lg:text-6xl font-black mb-6 leading-tight" style="font-family: 'Playfair Display', serif;">
@@ -481,32 +483,35 @@
 	</div>
 </section>
 
-<!-- Stats Section -->
-<section class="section bg-blue-50 border-y border-blue-100">
-	<div class="grid grid-cols-2 md:grid-cols-4 gap-12">
-		<div class="text-center observe transform hover:scale-110 transition-transform duration-300">
-			<div class="text-5xl font-black mb-3 text-[#27275b]" style="font-family: 'Playfair Display', serif;">50+</div>
+<!-- Stats Section - Maximalism -->
+<section class="section bg-white border-y-8 relative overflow-hidden" style="border-top-color: {colorPalette.accent}; border-bottom-color: {colorPalette.secondary};">
+	<div class="absolute top-0 left-0 w-full h-2" style="background-color: {colorPalette.success};"></div>
+	<div class="absolute bottom-0 left-0 w-full h-2" style="background-color: {colorPalette.tertiary};"></div>
+	<div class="grid grid-cols-2 md:grid-cols-4 gap-8">
+		<div class="text-center observe transform hover:scale-110 transition-transform duration-300 p-6 rounded-2xl border-4" style="border-color: {colorPalette.primary}; background-color: rgba(39, 39, 91, 0.03);">
+			<div class="text-5xl font-black mb-3" style="font-family: 'Playfair Display', serif; color: {colorPalette.primary};">50+</div>
 			<div class="text-sm text-gray-700 uppercase tracking-wider font-bold">Zrealizowanych projektów</div>
 		</div>
-		<div class="text-center observe transform hover:scale-110 transition-transform duration-300">
-			<div class="text-5xl font-black mb-3 text-[#FB7185]" style="font-family: 'Playfair Display', serif;">5+</div>
+		<div class="text-center observe transform hover:scale-110 transition-transform duration-300 p-6 rounded-2xl border-4" style="border-color: {colorPalette.accent}; background-color: rgba(243, 42, 97, 0.03);">
+			<div class="text-5xl font-black mb-3" style="font-family: 'Playfair Display', serif; color: {colorPalette.accent};">5+</div>
 			<div class="text-sm text-gray-700 uppercase tracking-wider font-bold">Lat doświadczenia</div>
 		</div>
-		<div class="text-center observe transform hover:scale-110 transition-transform duration-300">
-			<div class="text-5xl font-black mb-3 text-[#10B981]" style="font-family: 'Playfair Display', serif;">100%</div>
+		<div class="text-center observe transform hover:scale-110 transition-transform duration-300 p-6 rounded-2xl border-4" style="border-color: {colorPalette.secondary}; background-color: rgba(29, 168, 152, 0.03);">
+			<div class="text-5xl font-black mb-3" style="font-family: 'Playfair Display', serif; color: {colorPalette.secondary};">100%</div>
 			<div class="text-sm text-gray-700 uppercase tracking-wider font-bold">Zadowolonych klientów</div>
 		</div>
-		<div class="text-center observe transform hover:scale-110 transition-transform duration-300">
-			<div class="text-5xl font-black mb-3 text-[#27275b]" style="font-family: 'Playfair Display', serif;">15+</div>
+		<div class="text-center observe transform hover:scale-110 transition-transform duration-300 p-6 rounded-2xl border-4" style="border-color: {colorPalette.success}; background-color: rgba(242, 162, 62, 0.03);">
+			<div class="text-5xl font-black mb-3" style="font-family: 'Playfair Display', serif; color: {colorPalette.success};">15+</div>
 			<div class="text-sm text-gray-700 uppercase tracking-wider font-bold">Nagród branżowych</div>
 		</div>
 	</div>
 </section>
 
-<!-- About Section -->
-<section id="omnie" class="section bg-white relative overflow-hidden">
-	<div class="absolute top-0 right-0 w-96 h-96 bg-blue-100 rounded-full filter blur-3xl opacity-30"></div>
-	<div class="absolute bottom-0 left-0 w-96 h-96 bg-rose-100 rounded-full filter blur-3xl opacity-30"></div>
+<!-- About Section - Maximalism -->
+<section id="omnie" class="section bg-white relative overflow-hidden border-t-8" style="border-top-color: {colorPalette.tertiary};">
+	<div class="absolute top-0 right-0 w-96 h-96 rounded-full filter blur-3xl opacity-20" style="background-color: {colorPalette.secondary};"></div>
+	<div class="absolute bottom-0 left-0 w-96 h-96 rounded-full filter blur-3xl opacity-20" style="background-color: {colorPalette.tertiary};"></div>
+	<div class="absolute top-1/2 left-1/4 w-64 h-64 rounded-full filter blur-3xl opacity-15" style="background-color: {colorPalette.success};"></div>
 	<div class="grid md:grid-cols-2 gap-16 lg:gap-24 items-center relative z-10">
 		<div class="observe">
 			<p class="font-black tracking-[0.3em] uppercase text-sm mb-4" style="color: {colorPalette.primary}">⭐ O mnie</p>
@@ -576,9 +581,10 @@
 	</div>
 </section>
 
-<!-- Services Section -->
-<section id="oferta" class="section bg-white relative overflow-hidden">
-	<div class="absolute top-20 left-20 w-64 h-64 bg-emerald-200 rounded-full filter blur-3xl opacity-20 animate-pulse-slow"></div>
+<!-- Services Section - Maximalism -->
+<section id="oferta" class="section bg-white relative overflow-hidden border-t-8" style="border-top-color: {colorPalette.secondary};">
+	<div class="absolute top-20 left-20 w-64 h-64 rounded-full filter blur-3xl opacity-25 animate-pulse-slow" style="background-color: {colorPalette.secondary};"></div>
+	<div class="absolute bottom-20 right-20 w-72 h-72 rounded-full filter blur-3xl opacity-20 animate-pulse-slow" style="background-color: {colorPalette.success}; animation-delay: 1s;"></div>
 		<div class="text-center mb-20 observe relative z-10">
 		<p class="font-black tracking-[0.3em] uppercase text-sm mb-4" style="color: {colorPalette.primary}">💼 Usługi</p>
 		<h2 class="text-4xl md:text-5xl lg:text-6xl font-black mb-6 leading-tight" style="font-family: 'Playfair Display', serif;">
@@ -616,10 +622,11 @@
 	</div>
 </section>
 
-<!-- Process Section -->
-<section id="proces" class="section text-white relative overflow-hidden" style="background: linear-gradient(135deg, #1a1a2e 0%, #16213e 50%, #0f3460 100%);">
-	<div class="absolute top-10 right-10 w-96 h-96 rounded-full mix-blend-multiply filter blur-3xl opacity-20 animate-pulse-slow transition-all duration-1000" style="background-color: {colorPalette.accent}"></div>
-	<div class="absolute bottom-10 left-10 w-96 h-96 rounded-full mix-blend-multiply filter blur-3xl opacity-20 animate-pulse-slow transition-all duration-1000" style="background-color: {colorPalette.secondary}; animation-delay: 1.5s;"></div>
+<!-- Process Section - Maximalism -->
+<section id="proces" class="section text-white relative overflow-hidden" style="background-color: {colorPalette.primary};">
+	<div class="absolute top-10 right-10 w-96 h-96 rounded-full mix-blend-multiply filter blur-3xl opacity-30 animate-pulse-slow transition-all duration-1000" style="background-color: {colorPalette.accent}"></div>
+	<div class="absolute bottom-10 left-10 w-96 h-96 rounded-full mix-blend-multiply filter blur-3xl opacity-30 animate-pulse-slow transition-all duration-1000" style="background-color: {colorPalette.secondary}; animation-delay: 1.5s;"></div>
+	<div class="absolute top-1/3 right-1/4 w-80 h-80 rounded-full mix-blend-multiply filter blur-3xl opacity-25 animate-pulse-slow transition-all duration-1000" style="background-color: {colorPalette.success}; animation-delay: 0.7s;"></div>
 
 	<div class="text-center mb-20 observe relative z-10">
 		<p class="font-black tracking-[0.3em] uppercase text-sm mb-4 neon-text" style="color: {colorPalette.accent}">⚙️ Jak to działa</p>
@@ -682,9 +689,10 @@
 	</div>
 </section>
 
-<!-- Manifesto / Why Section -->
-<section class="section bg-blue-50 relative overflow-hidden">
-	<div class="absolute top-0 right-0 w-96 h-96 bg-emerald-100 rounded-full filter blur-3xl opacity-30"></div>
+<!-- Manifesto / Why Section - Maximalism -->
+<section class="section bg-white relative overflow-hidden border-y-8" style="border-top-color: {colorPalette.primary}; border-bottom-color: {colorPalette.success};">
+	<div class="absolute top-0 right-0 w-96 h-96 rounded-full filter blur-3xl opacity-20" style="background-color: {colorPalette.secondary};"></div>
+	<div class="absolute bottom-0 left-0 w-80 h-80 rounded-full filter blur-3xl opacity-20" style="background-color: {colorPalette.accent};"></div>
 	<div class="max-w-4xl mx-auto relative z-10">
 		<div class="text-center mb-16 observe">
 			<p class="font-black tracking-[0.3em] uppercase text-sm mb-4" style="color: {colorPalette.primary}">💡 Nasza Filozofia</p>
@@ -694,7 +702,7 @@
 		</div>
 
 		<div class="grid md:grid-cols-2 gap-8 mb-16 observe">
-			<div class="bg-white p-8 rounded-2xl border-2 border-blue-100 hover:border-[#FB7185] transition-all duration-300 hover:shadow-xl">
+			<div class="bg-white p-8 rounded-2xl border-4 transition-all duration-300 hover:shadow-xl" style="border-color: {colorPalette.primary};">
 				<div class="text-4xl mb-4">⚡</div>
 				<h3 class="text-2xl font-black mb-3" style="font-family: 'Playfair Display', serif; color: {colorPalette.primary}">Szybki I Dopracowany</h3>
 				<p class="text-gray-600 leading-relaxed">
@@ -702,7 +710,7 @@
 				</p>
 			</div>
 
-			<div class="bg-white p-8 rounded-2xl border-2 border-blue-100 hover:border-[#FB7185] transition-all duration-300 hover:shadow-xl">
+			<div class="bg-white p-8 rounded-2xl border-4 transition-all duration-300 hover:shadow-xl" style="border-color: {colorPalette.accent};">
 				<div class="text-4xl mb-4">🎨</div>
 				<h3 class="text-2xl font-black mb-3" style="font-family: 'Playfair Display', serif; color: {colorPalette.accent}">Kolorowy I Profesjonalny</h3>
 				<p class="text-gray-600 leading-relaxed">
@@ -710,17 +718,17 @@
 				</p>
 			</div>
 
-			<div class="bg-white p-8 rounded-2xl border-2 border-blue-100 hover:border-[#FB7185] transition-all duration-300 hover:shadow-xl">
+			<div class="bg-white p-8 rounded-2xl border-4 transition-all duration-300 hover:shadow-xl" style="border-color: {colorPalette.secondary};">
 				<div class="text-4xl mb-4">🚀</div>
-				<h3 class="text-2xl font-black mb-3 text-gray-900" style="font-family: 'Playfair Display', serif;">Odważny I Funkcjonalny</h3>
+				<h3 class="text-2xl font-black mb-3" style="font-family: 'Playfair Display', serif; color: {colorPalette.secondary};">Odważny I Funkcjonalny</h3>
 				<p class="text-gray-600 leading-relaxed">
 					Projektujemy przestrzenie, które wyróżniają się wizualnie, ale przede wszystkim - działają dla Ciebie każdego dnia.
 				</p>
 			</div>
 
-			<div class="bg-white p-8 rounded-2xl border-2 border-blue-100 hover:border-[#FB7185] transition-all duration-300 hover:shadow-xl">
+			<div class="bg-white p-8 rounded-2xl border-4 transition-all duration-300 hover:shadow-xl" style="border-color: {colorPalette.success};">
 				<div class="text-4xl mb-4">💰</div>
-				<h3 class="text-2xl font-black mb-3" style="font-family: 'Playfair Display', serif; color: {colorPalette.primary}">Dostępny I Wysokiej Jakości</h3>
+				<h3 class="text-2xl font-black mb-3" style="font-family: 'Playfair Display', serif; color: {colorPalette.success}">Dostępny I Wysokiej Jakości</h3>
 				<p class="text-gray-600 leading-relaxed">
 					AI oszczędza nam czas, więc możemy oferować Ci atrakcyjne ceny bez kompromisów w jakości wykonania.
 				</p>
@@ -770,11 +778,12 @@
 	</div>
 </section>
 
-<!-- Design Journeys Section -->
-<section id="cennik" class="section bg-gradient-to-br from-gray-50 to-white relative overflow-hidden">
-	<!-- Subtle background elements -->
-	<div class="absolute top-0 right-0 w-96 h-96 bg-gradient-to-br from-blue-50 to-indigo-50 rounded-full filter blur-3xl opacity-40"></div>
-	<div class="absolute bottom-0 left-0 w-96 h-96 bg-gradient-to-tr from-emerald-50 to-teal-50 rounded-full filter blur-3xl opacity-40"></div>
+<!-- Design Journeys Section - Maximalism -->
+<section id="cennik" class="section bg-white relative overflow-hidden">
+	<!-- Colorful background elements - Maximalism -->
+	<div class="absolute top-0 right-0 w-96 h-96 rounded-full filter blur-3xl opacity-20" style="background-color: {colorPalette.tertiary}"></div>
+	<div class="absolute bottom-0 left-0 w-96 h-96 rounded-full filter blur-3xl opacity-20" style="background-color: {colorPalette.secondary}"></div>
+	<div class="absolute top-1/2 right-1/3 w-80 h-80 rounded-full filter blur-3xl opacity-15" style="background-color: {colorPalette.success}"></div>
 
 	<div class="text-center mb-20 observe relative z-10">
 		<p class="font-black tracking-[0.3em] uppercase text-sm mb-4 text-gray-500">🎨 Proces Projektowy</p>
@@ -794,7 +803,7 @@
 					<!-- Journey Header -->
 					<div class="relative">
 						{#if journey.highlight}
-							<div class="absolute top-0 left-0 right-0 h-1 bg-gradient-to-r from-transparent via-current to-transparent" style="background: linear-gradient(90deg, transparent, {colorPalette.primary}, transparent);"></div>
+							<div class="absolute top-0 left-0 right-0 h-2 rounded-full" style="background-color: {colorPalette.accent};"></div>
 						{/if}
 
 						<div class="p-8 lg:p-12">
@@ -841,7 +850,7 @@
 						<!-- CTA -->
 						<div class="mt-8 pt-8 border-t border-gray-100 text-center">
 							<p class="text-sm text-gray-500 mb-4">Gotowy na transformację swojej przestrzeni?</p>
-							<a href="#kontakt" class="inline-flex items-center gap-3 px-8 py-4 text-white rounded-xl hover:shadow-xl transition-all duration-300 font-bold text-sm group" style="background: linear-gradient(135deg, {colorPalette.primary}, {colorPalette.accent});">
+							<a href="#kontakt" class="inline-flex items-center gap-3 px-8 py-4 text-white rounded-xl hover:shadow-xl transition-all duration-300 font-bold text-sm group" style="background-color: {colorPalette.accent};">
 								<span>Rozpocznij {journey.title.toLowerCase()}</span>
 								<svg class="w-4 h-4 transform group-hover:translate-x-1 transition-transform" fill="none" stroke="currentColor" viewBox="0 0 24 24">
 									<path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 7l5 5m0 0l-5 5m5-5H6"/>
@@ -856,7 +865,7 @@
 
 	<!-- Personal Consultation Note -->
 	<div class="mt-20 text-center observe max-w-4xl mx-auto">
-		<div class="bg-gradient-to-r from-gray-50 to-blue-50 p-8 lg:p-12 rounded-3xl border border-gray-200">
+		<div class="p-8 lg:p-12 rounded-3xl border-4" style="background-color: rgba(29, 168, 152, 0.05); border-color: {colorPalette.secondary};">
 			<div class="text-6xl mb-4">🤝</div>
 			<h3 class="text-2xl lg:text-3xl font-black mb-4" style="font-family: 'Playfair Display', serif; color: {colorPalette.primary}">
 				Każdy Projekt Jest Inny
@@ -867,7 +876,7 @@
 				razem stworzymy coś wyjątkowego.
 			</p>
 			<div class="flex flex-col sm:flex-row gap-4 justify-center items-center">
-				<a href="#kontakt" class="inline-flex items-center gap-3 px-8 py-4 text-white rounded-xl hover:shadow-xl transition-all duration-300 font-bold text-sm" style="background: linear-gradient(135deg, {colorPalette.primary}, {colorPalette.accent});">
+				<a href="#kontakt" class="inline-flex items-center gap-3 px-8 py-4 text-white rounded-xl hover:shadow-xl transition-all duration-300 font-bold text-sm" style="background-color: {colorPalette.success};">
 					<span>Umów Bezpłatną Konsultację</span>
 					<svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
 						<path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8 12h.01M12 12h.01M16 12h.01M21 12c0 4.418-4.03 8-9 8a9.863 9.863 0 01-4.255-.949L3 20l1.395-3.72C3.512 15.042 3 13.574 3 12c0-4.418 4.03-8 9-8s9 3.582 9 8z"/>
@@ -881,9 +890,10 @@
 	</div>
 </section>
 
-<!-- Portfolio Section -->
-<section id="portfolio" class="section bg-white relative overflow-hidden">
-	<div class="absolute top-0 left-1/2 w-96 h-96 bg-rose-100 rounded-full filter blur-3xl opacity-30"></div>
+<!-- Portfolio Section - Maximalism -->
+<section id="portfolio" class="section bg-white relative overflow-hidden border-t-8" style="border-top-color: {colorPalette.accent};">
+	<div class="absolute top-0 left-1/2 w-96 h-96 rounded-full filter blur-3xl opacity-25" style="background-color: {colorPalette.tertiary};"></div>
+	<div class="absolute bottom-0 right-1/4 w-80 h-80 rounded-full filter blur-3xl opacity-20" style="background-color: {colorPalette.secondary};"></div>
 		<div class="text-center mb-20 observe relative z-10">
 		<p class="font-black tracking-[0.3em] uppercase text-sm mb-4" style="color: {colorPalette.primary}">🎨 Portfolio</p>
 		<h2 class="text-4xl md:text-5xl lg:text-6xl font-black mb-6 leading-tight" style="font-family: 'Playfair Display', serif;">
@@ -994,9 +1004,10 @@
 	</div>
 </section>
 
-<!-- Contact Section -->
-<section id="kontakt" class="section bg-blue-50 relative overflow-hidden">
-	<div class="absolute top-0 right-0 w-96 h-96 bg-blue-200 rounded-full filter blur-3xl opacity-30"></div>
+<!-- Contact Section - Maximalism -->
+<section id="kontakt" class="section bg-white relative overflow-hidden border-t-8 border-b-8" style="border-top-color: {colorPalette.tertiary}; border-bottom-color: {colorPalette.primary};">
+	<div class="absolute top-0 right-0 w-96 h-96 rounded-full filter blur-3xl opacity-25" style="background-color: {colorPalette.secondary};"></div>
+	<div class="absolute bottom-0 left-0 w-80 h-80 rounded-full filter blur-3xl opacity-25" style="background-color: {colorPalette.success};"></div>
 		<div class="grid lg:grid-cols-2 gap-16 lg:gap-24 relative z-10">
 		<div class="observe">
 			<p class="font-black tracking-[0.3em] uppercase text-sm mb-4" style="color: {colorPalette.primary}">💬 Kontakt</p>
@@ -1064,7 +1075,7 @@
 			</div>
 		</div>
 
-		<div class="bg-white p-10 lg:p-12 observe rounded-2xl border-2 border-blue-200 shadow-xl" style="border-color: rgb(239, 246, 255);">
+		<div class="bg-white p-10 lg:p-12 observe rounded-2xl border-4 shadow-xl" style="border-color: {colorPalette.accent};">
 			<form class="space-y-6">
 				<div>
 					<label for="name" class="block text-sm uppercase tracking-wider font-bold text-gray-700 mb-2">Imię i nazwisko</label>

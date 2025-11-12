@@ -4,13 +4,13 @@
 	import { extractColorsFromImage, assignColorRoles, type ColorPalette } from '$lib/utils/colorExtractor';
 	import colorsImg from '$lib/assets/images/colors.jpeg';
 
-	// Color palette extracted from colors image
+	// Color palette extracted from colors image - Eclectic Maximalism
 	let colorPalette = $state<ColorPalette>({
-		primary: '#27275b',
-		accent: '#FB7185',
-		secondary: '#10B981',
-		success: '#10B981',
-		tertiary: '#27275b'
+		primary: '#27275B',      // Deep Navy Blue
+		accent: '#F32A61',       // Hot Magenta
+		secondary: '#1DA898',    // Turquoise
+		success: '#F2A23E',      // Golden Orange
+		tertiary: '#F5848E'      // Coral Pink
 	});
 
 	// Extract colors from the colors image on mount
@@ -62,25 +62,25 @@
 			<div class="hidden md:flex items-center space-x-8">
 				<a href="/o-mnie" class="text-gray-700 transition-colors font-bold text-sm tracking-wide uppercase relative group hover:text-[var(--color-primary)]">
 					O mnie
-					<span class="absolute bottom-0 left-0 w-0 h-0.5 transition-all duration-300 group-hover:w-full" style="background: linear-gradient(to right, var(--color-primary), var(--color-accent));"></span>
+					<span class="absolute bottom-0 left-0 w-0 h-0.5 transition-all duration-300 group-hover:w-full" style="background-color: var(--color-accent);"></span>
 				</a>
 				<a href={getNavLink('#beforeafter')} class="text-gray-700 transition-colors font-bold text-sm tracking-wide uppercase relative group hover:text-[var(--color-primary)]">
 					Metamorfozy
-					<span class="absolute bottom-0 left-0 w-0 h-0.5 transition-all duration-300 group-hover:w-full" style="background: linear-gradient(to right, var(--color-primary), var(--color-accent));"></span>
+					<span class="absolute bottom-0 left-0 w-0 h-0.5 transition-all duration-300 group-hover:w-full" style="background-color: var(--color-accent);"></span>
 				</a>
 				<a href={getNavLink('#proces')} class="text-gray-700 transition-colors font-bold text-sm tracking-wide uppercase relative group hover:text-[var(--color-primary)]">
 					Proces
-					<span class="absolute bottom-0 left-0 w-0 h-0.5 transition-all duration-300 group-hover:w-full" style="background: linear-gradient(to right, var(--color-primary), var(--color-accent));"></span>
+					<span class="absolute bottom-0 left-0 w-0 h-0.5 transition-all duration-300 group-hover:w-full" style="background-color: var(--color-accent);"></span>
 				</a>
 				<a href={getNavLink('#cennik')} class="text-gray-700 transition-colors font-bold text-sm tracking-wide uppercase relative group hover:text-[var(--color-primary)]">
 					Ceny
-					<span class="absolute bottom-0 left-0 w-0 h-0.5 transition-all duration-300 group-hover:w-full" style="background: linear-gradient(to right, var(--color-primary), var(--color-accent));"></span>
+					<span class="absolute bottom-0 left-0 w-0 h-0.5 transition-all duration-300 group-hover:w-full" style="background-color: var(--color-accent);"></span>
 				</a>
 				<a href={getNavLink('#portfolio')} class="text-gray-700 transition-colors font-bold text-sm tracking-wide uppercase relative group hover:text-[var(--color-primary)]">
 					Portfolio
-					<span class="absolute bottom-0 left-0 w-0 h-0.5 transition-all duration-300 group-hover:w-full" style="background: linear-gradient(to right, var(--color-primary), var(--color-accent));"></span>
+					<span class="absolute bottom-0 left-0 w-0 h-0.5 transition-all duration-300 group-hover:w-full" style="background-color: var(--color-accent);"></span>
 				</a>
-				<a href={getNavLink('#kontakt')} class="px-6 py-2.5 text-white transition-all duration-300 text-sm tracking-wide uppercase font-bold rounded-lg shadow-md hover:shadow-lg transform hover:scale-105" style="background: linear-gradient(to right, var(--color-primary), var(--color-accent));">
+				<a href={getNavLink('#kontakt')} class="px-6 py-2.5 text-white transition-all duration-300 text-sm tracking-wide uppercase font-bold rounded-lg shadow-md hover:shadow-lg transform hover:scale-105" style="background-color: var(--color-accent);">
 					Kontakt
 				</a>
 			</div>
@@ -112,7 +112,7 @@
 					<a href={getNavLink('#proces')} onclick={() => isMenuOpen = false} class="text-gray-700 transition-colors font-bold text-sm tracking-wide uppercase hover:text-[var(--color-primary)]">Proces</a>
 					<a href={getNavLink('#cennik')} onclick={() => isMenuOpen = false} class="text-gray-700 transition-colors font-bold text-sm tracking-wide uppercase hover:text-[var(--color-primary)]">Ceny</a>
 					<a href={getNavLink('#portfolio')} onclick={() => isMenuOpen = false} class="text-gray-700 transition-colors font-bold text-sm tracking-wide uppercase hover:text-[var(--color-primary)]">Portfolio</a>
-					<a href={getNavLink('#kontakt')} onclick={() => isMenuOpen = false} class="px-6 py-3 text-white text-center transition-all duration-300 text-sm tracking-wide uppercase font-bold rounded-lg transform hover:scale-105" style="background: linear-gradient(to right, var(--color-primary), var(--color-accent));">Kontakt</a>
+					<a href={getNavLink('#kontakt')} onclick={() => isMenuOpen = false} class="px-6 py-3 text-white text-center transition-all duration-300 text-sm tracking-wide uppercase font-bold rounded-lg transform hover:scale-105" style="background-color: var(--color-accent);">Kontakt</a>
 				</div>
 			</div>
 		{/if}

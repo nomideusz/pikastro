@@ -6,13 +6,13 @@
 	import colorsImg from '$lib/assets/images/colors.jpeg';
 	import magdaPhoto from '$lib/assets/images/magda.jpg';
 
-	// Color palette extracted from colors image
+	// Color palette extracted from colors image - Eclectic Maximalism
 	let colorPalette = $state<ColorPalette>({
-		primary: '#27275b',
-		accent: '#FB7185',
-		secondary: '#10B981',
-		success: '#10B981',
-		tertiary: '#27275b'
+		primary: '#27275B',      // Deep Navy Blue
+		accent: '#F32A61',       // Hot Magenta
+		secondary: '#1DA898',    // Turquoise
+		success: '#F2A23E',      // Golden Orange
+		tertiary: '#F5848E'      // Coral Pink
 	});
 
 	// Helper function to convert hex to RGB
@@ -123,7 +123,7 @@
 					alt="Magda Makaruk - Projektantka Wnętrz i Grafiki"
 					class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
 				/>
-				<div class="absolute inset-0 bg-gradient-to-t from-black/20 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
+				<div class="absolute inset-0 opacity-0 group-hover:opacity-100 transition-opacity duration-300" style="background-color: rgba(39, 39, 91, 0.15);"></div>
 			</div>
 		</div>
 
