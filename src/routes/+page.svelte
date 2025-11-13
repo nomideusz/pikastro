@@ -700,9 +700,9 @@
 		<div class="observe">
 			<p class="font-black tracking-[0.3em] uppercase text-sm mb-4" style="color: {colorPalette.primary}">⭐ O mnie</p>
 			<h2 class="text-4xl md:text-5xl lg:text-6xl font-black mb-8 leading-tight" style="font-family: 'Playfair Display', serif;">
-				Design który<br>
-				<span class="italic" style="color: {colorPalette.accent}">zmienia</span><br>
-				przestrzenie
+				Projektowanie przyszłości.<br>
+				<span class="italic" style="color: {colorPalette.accent}">Dziś.</span><br>
+				And this is not "O mnie" section
 			</h2>
 			<div class="space-y-6 text-gray-600 leading-relaxed text-lg">
 				<p>
@@ -772,7 +772,7 @@
 		<div class="text-center mb-20 observe relative z-10">
 		<p class="font-black tracking-[0.3em] uppercase text-sm mb-4" style="color: {colorPalette.primary}">💼 Usługi</p>
 		<h2 class="text-4xl md:text-5xl lg:text-6xl font-black mb-6 leading-tight" style="font-family: 'Playfair Display', serif;">
-			Kompleksowa<br><span style="color: {colorPalette.primary}">obsługa projektowa</span>
+			usługi
 		</h2>
 		<p class="text-xl text-gray-600 max-w-3xl mx-auto leading-relaxed">
 			Od koncepcji po realizację - pełne wsparcie w procesie projektowania wnętrz i tworzenia identyfikacji wizualnej.
@@ -1429,7 +1429,7 @@
 					<li>Kraków, Polska</li>
 					<li class="pt-2">
 						<a href="/o-mnie" class="text-[#FB7185] hover:text-white transition-colors">O mnie</a> •
-						<a href="#oferta" class="text-[#FB7185] hover:text-white transition-colors">Oferta</a>
+						<a href="#oferta" class="text-[#FB7185] hover:text-white transition-colors">usługi</a>
 					</li>
 				</ul>
 			</div>
