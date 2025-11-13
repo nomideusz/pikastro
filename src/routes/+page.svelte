@@ -253,21 +253,21 @@
 			title: 'Konsultacja & Brief',
 			description: 'Zbieramy informacje o Twoich potrzebach, stylu życia i budżecie. AI analizuje podobne projekty.',
 			duration: '1-2 dni',
-			icon: '💬'
+			icon: '01'
 		},
 		{
 			number: '02',
 			title: 'AI Prototyping',
 			description: 'Generujemy 5-10 wariantów aranżacji z wykorzystaniem AI. Szybka iteracja koncepcji.',
 			duration: '2-3 dni',
-			icon: '🤖'
+			icon: '02'
 		},
 		{
 			number: '03',
 			title: 'Refinement',
 			description: 'Wybierasz ulubiony wariant. Dopracowujemy detale, materiały, kolory według Twoich preferencji.',
 			duration: '3-5 dni',
-			icon: '✨'
+			icon: '03'
 		},
 		{
 			number: '04',
@@ -294,7 +294,7 @@
 			],
 			duration: '2-3 tygodnie',
 			investment: 'Od 3.500 zł',
-			image: '🎨',
+			image: '',
 			highlight: false
 		},
 		{
@@ -454,7 +454,7 @@
 </script>
 
 <!-- Hero Section with AI Visualization - Eclectic Maximalism -->
-<section class="relative min-h-screen flex items-center text-white overflow-hidden" style="background-color: {colorPalette.primary};">
+<section class="relative flex items-center text-white overflow-hidden" style="height: calc(100vh - 5rem); background-color: {colorPalette.primary};">
 	<!-- Background Video -->
 	<div class="absolute inset-0 z-[1]">
 		<video
@@ -466,7 +466,7 @@
 		>
 			<source src={heroVideo} type="video/mp4" />
 		</video>
-		<div class="absolute inset-0 opacity-60 transition-all duration-1000" style="background-color: {colorPalette.primary}"></div>
+		<div class="absolute inset-0 opacity-40 transition-all duration-1000" style="background-color: {colorPalette.primary}"></div>
 	</div>
 		<!-- Animated AI Network Background -->
 		<div class="absolute inset-0 z-[2]">
@@ -499,7 +499,7 @@
 	<div class="section relative z-20">
 		<div class="max-w-5xl">
 			<div class="mb-8 observe animate-fade-in-up">
-				<p class="font-bold tracking-[0.3em] uppercase text-sm mb-6 animate-pulse-slow neon-text" style="color: {colorPalette.accent}">🤖 AI × Architektura × Grafika</p>
+				<p class="font-bold tracking-[0.3em] uppercase text-sm mb-6 animate-pulse-slow neon-text" style="color: {colorPalette.accent}">AI × Architektura × Grafika</p>
 				<h1 class="text-5xl md:text-7xl lg:text-8xl font-black mb-6 leading-[1.05]" style="font-family: 'Playfair Display', serif;">
 					<span class="block">Dość beżu.</span>
 					<span class="block">Czas na <span style="color: #00D4FF;">kolor!</span></span>
@@ -572,15 +572,15 @@
 </section>
 
 <!-- Before/After Showcase Section - Maximalism -->
-<section id="beforeafter" class="section bg-white relative overflow-hidden border-y-8" style="border-top-color: {colorPalette.success}; border-bottom-color: {colorPalette.accent};">
+<section id="beforeafter" class="section bg-white relative overflow-hidden border-t-8" style="border-top-color: {colorPalette.success};">
 	<div class="absolute top-0 right-0 w-96 h-96 rounded-full filter blur-3xl opacity-25" style="background-color: {colorPalette.tertiary};"></div>
 	<div class="absolute bottom-0 left-0 w-80 h-80 rounded-full filter blur-3xl opacity-25" style="background-color: {colorPalette.accent};"></div>
 	<div class="text-center mb-20 observe">
-		<p class="font-black tracking-[0.3em] uppercase text-sm mb-4" style="color: {colorPalette.primary}">✨ Metamorfozy AI</p>
+		<p class="font-black tracking-[0.3em] uppercase text-sm mb-4" style="color: {colorPalette.primary}">Metamorfozy AI</p>
 		<h2 class="text-4xl md:text-5xl lg:text-6xl font-black mb-6 leading-tight" style="font-family: 'Playfair Display', serif;">
 			Przed i Po<br><span style="color: {colorPalette.primary}">Transformacji z AI</span>
 		</h2>
-		<p class="text-xl text-gray-600 max-w-3xl mx-auto leading-relaxed">
+		<p class="text-lg md:text-xl text-gray-600 max-w-2xl mx-auto leading-relaxed">
 			Zobacz jak AI pomaga tworzyć kolorowe, funkcjonalne przestrzenie zamiast beżowo-szarych wnętrz
 		</p>
 	</div>
@@ -612,7 +612,7 @@
 					<div class="absolute inset-y-0 w-1 bg-white shadow-lg"></div>
 					<div class="absolute top-1/2 -translate-y-1/2 -translate-x-1/2 w-12 h-12 bg-white rounded-full shadow-lg flex items-center justify-center">
 						<svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24" style="color: {colorPalette.primary}">
-							<path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8 9l4-4 4 4m0 6l-4 4-4-4"></path>
+							<path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 8l-4 4 4 4m6 0l4-4-4-4"></path>
 						</svg>
 					</div>
 				</div>
@@ -636,7 +636,7 @@
 				<div class="flex justify-center gap-3 flex-wrap">
 					{#each beforeAfterProjects[activeBeforeAfter].aiFeatures as feature}
 						<span class="px-4 py-2 text-white text-sm font-bold rounded-lg" style="background-color: {colorPalette.primary}">
-							🤖 {feature}
+							{feature}
 						</span>
 					{/each}
 				</div>
@@ -667,8 +667,25 @@
 	</div>
 </section>
 
+<!-- CTA Banner -->
+<section class="relative py-12 md:py-16 overflow-hidden border-t-4" style="background-color: {colorPalette.primary}; border-top-color: {colorPalette.accent};">
+	<div class="absolute top-0 right-0 w-96 h-96 rounded-full filter blur-3xl opacity-20" style="background-color: {colorPalette.accent};"></div>
+	<div class="absolute bottom-0 left-0 w-96 h-96 rounded-full filter blur-3xl opacity-20" style="background-color: {colorPalette.secondary};"></div>
+	<div class="max-w-5xl mx-auto px-6 text-center relative z-10">
+		<h2 class="text-3xl md:text-4xl lg:text-5xl font-black mb-6 text-white leading-tight" style="font-family: 'Playfair Display', serif;">
+			Gotowy na kolorową <span style="color: {colorPalette.accent}">metamorfozę</span>?
+		</h2>
+		<p class="text-lg md:text-xl text-gray-200 mb-8 max-w-2xl mx-auto">
+			Bezpłatna 30-minutowa konsultacja. Porozmawiajmy o Twoim projekcie.
+		</p>
+		<a href="#kontakt" class="inline-block px-8 py-4 text-white text-lg font-bold rounded-xl shadow-xl transition-all duration-300 hover:shadow-2xl hover:scale-105 transform animate-pulse-subtle" style="background-color: {colorPalette.accent};">
+			Umów bezpłatną konsultację
+		</a>
+	</div>
+</section>
+
 <!-- About Section - Maximalism -->
-<section id="omnie" class="section bg-white relative overflow-hidden border-t-8" style="border-top-color: {colorPalette.tertiary};">
+<section id="omnie" class="section bg-white relative overflow-hidden">
 	<div class="absolute top-0 right-0 w-96 h-96 rounded-full filter blur-3xl opacity-20" style="background-color: {colorPalette.secondary};"></div>
 	<div class="absolute bottom-0 left-0 w-96 h-96 rounded-full filter blur-3xl opacity-20" style="background-color: {colorPalette.tertiary};"></div>
 	<div class="absolute top-1/2 left-1/4 w-64 h-64 rounded-full filter blur-3xl opacity-15" style="background-color: {colorPalette.success};"></div>
@@ -710,9 +727,8 @@
 				<div class="absolute inset-0 bg-[#27275b]/30 group-hover:bg-[#27275b]/20 transition-all duration-300"></div>
 				<div class="absolute inset-0 flex items-center justify-center">
 					<div class="text-center p-8">
-						<div class="text-6xl mb-4">🏠✨</div>
-						<p class="text-lg font-bold text-white mb-2">Dla Klientów</p>
-						<p class="text-sm text-white/90">Indywidualnych • Deweloperów • Startupów</p>
+						<p class="text-2xl font-bold text-white mb-3" style="font-family: 'Playfair Display', serif;">Dla Klientów</p>
+						<p class="text-base text-white/90">Indywidualnych • Deweloperów • Startupów</p>
 					</div>
 				</div>
 			</div>
@@ -725,16 +741,16 @@
 	<div class="absolute top-20 left-20 w-64 h-64 rounded-full filter blur-3xl opacity-25 animate-pulse-slow" style="background-color: {colorPalette.secondary};"></div>
 	<div class="absolute bottom-20 right-20 w-72 h-72 rounded-full filter blur-3xl opacity-20 animate-pulse-slow" style="background-color: {colorPalette.success}; animation-delay: 1s;"></div>
 		<div class="text-center mb-20 observe relative z-10">
-		<p class="font-black tracking-[0.3em] uppercase text-sm mb-4" style="color: {colorPalette.primary}">🎨 Oferta</p>
+		<p class="font-black tracking-[0.3em] uppercase text-sm mb-4" style="color: {colorPalette.primary}">Oferta</p>
 		<h2 class="text-4xl md:text-5xl lg:text-6xl font-black mb-6 leading-tight" style="font-family: 'Playfair Display', serif; color: {colorPalette.primary};">
 			Od pomysłu<br><span style="color: {colorPalette.accent}">do realizacji</span>
 		</h2>
-		<p class="text-xl text-gray-600 max-w-3xl mx-auto leading-relaxed">
+		<p class="text-lg md:text-xl text-gray-600 max-w-2xl mx-auto leading-relaxed">
 			Od koncepcji po realizację - pełne wsparcie w procesie projektowania wnętrz i tworzenia identyfikacji wizualnej.
 		</p>
 	</div>
 
-	<div class="grid md:grid-cols-3 gap-8 lg:gap-12 relative z-10">
+	<div class="grid md:grid-cols-3 gap-10 md:gap-8 lg:gap-12 relative z-10">
 		{#each services as service, i}
 			<div role="article" class="bg-white p-10 lg:p-12 hover-lift observe group border-2 border-blue-100 rounded-2xl hover:shadow-2xl transition-all duration-500" style="animation-delay: {i * 100}ms; border-color: rgb(243, 244, 246);" onmouseenter={(e) => { e.currentTarget.style.borderColor = colorPalette.accent; e.currentTarget.style.boxShadow = `0 25px 50px -12px rgba(var(--color-accent-rgb, 251, 113, 133), 0.2)`; }} onmouseleave={(e) => { e.currentTarget.style.borderColor = 'rgb(243, 244, 246)'; e.currentTarget.style.boxShadow = '0 20px 25px -5px rgba(0, 0, 0, 0.1)'; }}>
 				<div class="mb-8">
@@ -768,11 +784,11 @@
 	<div class="absolute top-1/3 right-1/4 w-80 h-80 rounded-full mix-blend-multiply filter blur-3xl opacity-25 animate-pulse-slow transition-all duration-1000" style="background-color: {colorPalette.success}; animation-delay: 0.7s;"></div>
 
 	<div class="text-center mb-20 observe relative z-10">
-		<p class="font-black tracking-[0.3em] uppercase text-sm mb-4 neon-text" style="color: {colorPalette.accent}">⚙️ Jak to działa</p>
+		<p class="font-black tracking-[0.3em] uppercase text-sm mb-4 neon-text" style="color: {colorPalette.accent}">Jak to działa</p>
 		<h2 class="text-4xl md:text-5xl lg:text-6xl font-black mb-6 leading-tight" style="font-family: 'Playfair Display', serif;">
 			Proces Projektowania<br><span class="text-white">z Wykorzystaniem AI</span>
 		</h2>
-		<p class="text-xl text-gray-200 max-w-3xl mx-auto leading-relaxed">
+		<p class="text-lg md:text-xl text-gray-200 max-w-2xl mx-auto leading-relaxed">
 			Połączenie ludzkiej kreatywności i mocy AI dla najlepszych rezultatów w najkrótszym czasie
 		</p>
 	</div>
@@ -834,7 +850,7 @@
 	<div class="absolute bottom-0 left-0 w-80 h-80 rounded-full filter blur-3xl opacity-20" style="background-color: {colorPalette.accent};"></div>
 	<div class="max-w-4xl mx-auto relative z-10">
 		<div class="text-center mb-16 observe">
-			<p class="font-black tracking-[0.3em] uppercase text-sm mb-4" style="color: {colorPalette.primary}">💡 Nasza Filozofia</p>
+			<p class="font-black tracking-[0.3em] uppercase text-sm mb-4" style="color: {colorPalette.primary}">Nasza Filozofia</p>
 			<h2 class="text-4xl md:text-5xl lg:text-6xl font-black mb-6 leading-tight" style="font-family: 'Playfair Display', serif;">
 				<span style="color: {colorPalette.primary}">Wierzymy</span>, że design może być...
 			</h2>
@@ -850,7 +866,6 @@
 			</div>
 
 			<div class="bg-white p-8 rounded-2xl border-4 transition-all duration-300 hover:shadow-xl" style="border-color: {colorPalette.accent};">
-				<div class="text-4xl mb-4">🎨</div>
 				<h3 class="text-2xl font-black mb-3" style="font-family: 'Playfair Display', serif; color: {colorPalette.accent}">Kolorowy I Profesjonalny</h3>
 				<p class="text-gray-600 leading-relaxed">
 					Zero beżowo-szarych nudnych wnętrz. Ale też zero chaosu - każdy kolor ma swoje miejsce i funkcję.
@@ -925,7 +940,7 @@
 	<div class="absolute top-1/2 right-1/3 w-80 h-80 rounded-full filter blur-3xl opacity-15" style="background-color: {colorPalette.success}"></div>
 
 	<div class="text-center mb-20 observe relative z-10">
-		<p class="font-black tracking-[0.3em] uppercase text-sm mb-4 text-gray-500">🎨 Proces Projektowy</p>
+		<p class="font-black tracking-[0.3em] uppercase text-sm mb-4 text-gray-500">Proces Projektowy</p>
 		<h2 class="text-4xl md:text-5xl lg:text-6xl font-black mb-6 leading-tight" style="font-family: 'Playfair Display', serif;">
 			Podróż do<br><span style="color: {colorPalette.primary}">Doskonalej Przestrzeni</span>
 		</h2>
@@ -1034,11 +1049,11 @@
 	<div class="absolute top-0 left-1/2 w-96 h-96 rounded-full filter blur-3xl opacity-25" style="background-color: {colorPalette.tertiary};"></div>
 	<div class="absolute bottom-0 right-1/4 w-80 h-80 rounded-full filter blur-3xl opacity-20" style="background-color: {colorPalette.secondary};"></div>
 		<div class="text-center mb-20 observe relative z-10">
-		<p class="font-black tracking-[0.3em] uppercase text-sm mb-4" style="color: {colorPalette.primary}">🎨 Portfolio</p>
+		<p class="font-black tracking-[0.3em] uppercase text-sm mb-4" style="color: {colorPalette.primary}">Portfolio</p>
 		<h2 class="text-4xl md:text-5xl lg:text-6xl font-black mb-6 leading-tight" style="font-family: 'Playfair Display', serif;">
 			<span style="color: {colorPalette.primary}">Wybrane</span><br>realizacje
 		</h2>
-		<p class="text-xl text-gray-600 max-w-3xl mx-auto mb-12 leading-relaxed">
+		<p class="text-lg md:text-xl text-gray-600 max-w-2xl mx-auto mb-12 leading-relaxed">
 			Każdy projekt to indywidualna historia połączenia formy, funkcji i charakteru klienta.
 		</p>
 
@@ -1345,52 +1360,3 @@
 	</div>
 </section>
 
-<!-- Footer -->
-<footer class="gradient-bg text-white py-16 px-6 md:px-12 relative overflow-hidden">
-	<div class="absolute top-0 right-0 w-96 h-96 bg-[#FB7185] rounded-full mix-blend-multiply filter blur-3xl opacity-10"></div>
-	<div class="absolute bottom-0 left-0 w-96 h-96 bg-[#10B981] rounded-full mix-blend-multiply filter blur-3xl opacity-10"></div>
-	<div class="max-w-7xl mx-auto relative z-10">
-		<div class="grid md:grid-cols-4 gap-12 mb-12">
-			<div>
-				<h3 class="text-3xl font-black mb-4" style="font-family: 'Playfair Display', serif;">Pikastro</h3>
-				<p class="text-gray-200 leading-relaxed">
-					Projektowanie wnętrz i grafika z AI. Odważne, kolorowe aranżacje zamiast beżowo-szarych.
-				</p>
-			</div>
-			<div>
-				<h4 class="text-sm uppercase tracking-wider mb-4 font-bold text-[#FB7185]">Oferta</h4>
-				<ul class="space-y-2 text-gray-200 text-sm">
-					<li>• Projektowanie wnętrz</li>
-					<li>• Aranżacja przestrzeni</li>
-					<li>• Identyfikacja wizualna</li>
-					<li>• Grafika komputerowa</li>
-					<li>• Technologia AI</li>
-				</ul>
-			</div>
-			<div>
-				<h4 class="text-sm uppercase tracking-wider mb-4 font-bold text-[#FB7185]">Klienci</h4>
-				<ul class="space-y-2 text-gray-200 text-sm">
-					<li>• Nabywcy mieszkań</li>
-					<li>• Deweloperzy</li>
-					<li>• Biura nieruchomości</li>
-					<li>• Startupy i firmy</li>
-					<li>• Lokale komercyjne</li>
-				</ul>
-			</div>
-			<div>
-				<h4 class="text-sm uppercase tracking-wider mb-4 font-bold text-[#FB7185]">Kontakt</h4>
-				<ul class="space-y-2 text-gray-200 font-medium">
-					<li>kontakt@pikastro.eu</li>
-					<li>Kraków, Polska</li>
-					<li class="pt-2">
-						<a href="/o-mnie" class="text-[#FB7185] hover:text-white transition-colors">O mnie</a> •
-						<a href="#oferta" class="text-[#FB7185] hover:text-white transition-colors">Oferta</a>
-					</li>
-				</ul>
-			</div>
-		</div>
-		<div class="pt-8 border-t border-white/20 text-center text-sm text-gray-300">
-			<p class="font-medium">&copy; 2025 Pikastro. Wszystkie prawa zastrzeżone.</p>
-		</div>
-	</div>
-</footer>

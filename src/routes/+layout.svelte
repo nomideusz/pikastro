@@ -132,3 +132,55 @@
 </nav>
 
 {@render children()}
+
+<!-- Footer -->
+<footer class="gradient-bg text-white py-16 px-6 md:px-12 relative overflow-hidden">
+	<div class="absolute top-0 right-0 w-96 h-96 bg-[#FB7185] rounded-full mix-blend-multiply filter blur-3xl opacity-10"></div>
+	<div class="absolute bottom-0 left-0 w-96 h-96 bg-[#10B981] rounded-full mix-blend-multiply filter blur-3xl opacity-10"></div>
+	<div class="max-w-7xl mx-auto relative z-10">
+		<div class="grid md:grid-cols-4 gap-12 mb-12">
+			<div>
+				<div class="bg-white/95 backdrop-blur-sm rounded-xl p-3 inline-block mb-4">
+					<img src="/logo.png" alt="Pikastro Logo" class="h-10 w-auto" />
+				</div>
+				<p class="text-gray-200 leading-relaxed">
+					Projektowanie wnętrz i grafika z AI. Odważne, kolorowe aranżacje zamiast beżowo-szarych.
+				</p>
+			</div>
+			<div>
+				<h4 class="text-sm uppercase tracking-wider mb-4 font-bold text-[#FB7185]">Oferta</h4>
+				<ul class="space-y-2 text-gray-200 text-sm">
+					<li>• Projektowanie wnętrz</li>
+					<li>• Aranżacja przestrzeni</li>
+					<li>• Identyfikacja wizualna</li>
+					<li>• Grafika komputerowa</li>
+					<li>• Technologia AI</li>
+				</ul>
+			</div>
+			<div>
+				<h4 class="text-sm uppercase tracking-wider mb-4 font-bold text-[#FB7185]">Klienci</h4>
+				<ul class="space-y-2 text-gray-200 text-sm">
+					<li>• Nabywcy mieszkań</li>
+					<li>• Deweloperzy</li>
+					<li>• Biura nieruchomości</li>
+					<li>• Startupy i firmy</li>
+					<li>• Lokale komercyjne</li>
+				</ul>
+			</div>
+			<div>
+				<h4 class="text-sm uppercase tracking-wider mb-4 font-bold text-[#FB7185]">Kontakt</h4>
+				<ul class="space-y-2 text-gray-200 font-medium">
+					<li>kontakt@pikastro.eu</li>
+					<li>Kraków, Polska</li>
+					<li class="pt-2">
+						<a href="/o-mnie" class="text-[#FB7185] hover:text-white transition-colors">O mnie</a> •
+						<a href="/#oferta" class="text-[#FB7185] hover:text-white transition-colors">Oferta</a>
+					</li>
+				</ul>
+			</div>
+		</div>
+		<div class="pt-8 border-t border-white/20 text-center text-sm text-gray-300">
+			<p class="font-medium">&copy; 2025 Pikastro. Wszystkie prawa zastrzeżone.</p>
+		</div>
+	</div>
+</footer>
