@@ -667,30 +667,6 @@
 	</div>
 </section>
 
-<!-- Stats Section - Maximalism -->
-<section class="section bg-white border-y-8 relative overflow-hidden" style="border-top-color: {colorPalette.accent}; border-bottom-color: {colorPalette.secondary};">
-	<div class="absolute top-0 left-0 w-full h-2" style="background-color: {colorPalette.success};"></div>
-	<div class="absolute bottom-0 left-0 w-full h-2" style="background-color: {colorPalette.tertiary};"></div>
-	<div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4 sm:gap-6 lg:gap-8">
-		<div class="text-center observe transform hover:scale-105 sm:hover:scale-110 transition-transform duration-300 p-4 sm:p-6 rounded-2xl border-4" style="border-color: {colorPalette.primary}; background-color: rgba(39, 39, 91, 0.03);">
-			<div class="text-4xl sm:text-5xl font-black mb-2 sm:mb-3" style="font-family: 'Playfair Display', serif; color: {colorPalette.primary};">50+</div>
-			<div class="text-xs sm:text-sm text-gray-700 uppercase tracking-wider font-bold leading-tight">Zrealizowanych<br>projektów</div>
-		</div>
-		<div class="text-center observe transform hover:scale-105 sm:hover:scale-110 transition-transform duration-300 p-4 sm:p-6 rounded-2xl border-4" style="border-color: {colorPalette.accent}; background-color: rgba(243, 42, 97, 0.03);">
-			<div class="text-4xl sm:text-5xl font-black mb-2 sm:mb-3" style="font-family: 'Playfair Display', serif; color: {colorPalette.accent};">5+</div>
-			<div class="text-xs sm:text-sm text-gray-700 uppercase tracking-wider font-bold leading-tight">Lat<br>doświadczenia</div>
-		</div>
-		<div class="text-center observe transform hover:scale-105 sm:hover:scale-110 transition-transform duration-300 p-4 sm:p-6 rounded-2xl border-4" style="border-color: {colorPalette.secondary}; background-color: rgba(29, 168, 152, 0.03);">
-			<div class="text-4xl sm:text-5xl font-black mb-2 sm:mb-3" style="font-family: 'Playfair Display', serif; color: {colorPalette.secondary};">100%</div>
-			<div class="text-xs sm:text-sm text-gray-700 uppercase tracking-wider font-bold leading-tight">Zadowolonych<br>klientów</div>
-		</div>
-		<div class="text-center observe transform hover:scale-105 sm:hover:scale-110 transition-transform duration-300 p-4 sm:p-6 rounded-2xl border-4" style="border-color: {colorPalette.success}; background-color: rgba(242, 162, 62, 0.03);">
-			<div class="text-4xl sm:text-5xl font-black mb-2 sm:mb-3" style="font-family: 'Playfair Display', serif; color: {colorPalette.success};">15+</div>
-			<div class="text-xs sm:text-sm text-gray-700 uppercase tracking-wider font-bold leading-tight">Nagród<br>branżowych</div>
-		</div>
-	</div>
-</section>
-
 <!-- About Section - Maximalism -->
 <section id="omnie" class="section bg-white relative overflow-hidden border-t-8" style="border-top-color: {colorPalette.tertiary};">
 	<div class="absolute top-0 right-0 w-96 h-96 rounded-full filter blur-3xl opacity-20" style="background-color: {colorPalette.secondary};"></div>
@@ -726,8 +702,8 @@
 
 		<div class="space-y-8 observe">
 			<div class="aspect-[4/5] bg-blue-100 relative overflow-hidden group rounded-2xl">
-				<img 
-					src={img07} 
+				<img
+					src={img07}
 					alt="Projektowanie wnętrz dla klientów"
 					class="w-full h-full object-cover"
 				/>
@@ -737,25 +713,6 @@
 						<div class="text-6xl mb-4">🏠✨</div>
 						<p class="text-lg font-bold text-white mb-2">Dla Klientów</p>
 						<p class="text-sm text-white/90">Indywidualnych • Deweloperów • Startupów</p>
-					</div>
-				</div>
-			</div>
-
-			<div class="grid grid-cols-2 gap-6">
-				<div role="group" class="p-6 border-2 border-blue-200 transition-colors duration-300 rounded-xl neon-glow" style="border-color: rgb(239, 246, 255);" onmouseenter={(e) => e.currentTarget.style.borderColor = colorPalette.primary} onmouseleave={(e) => e.currentTarget.style.borderColor = 'rgb(239, 246, 255)'}>
-					<div class="text-3xl font-black mb-2" style="font-family: 'Playfair Display', serif; color: {colorPalette.primary}">
-						AI
-					</div>
-					<div class="text-sm text-gray-700 uppercase tracking-wider font-bold">
-						Technologia przyszłości
-					</div>
-				</div>
-				<div role="group" class="p-6 border-2 border-blue-200 transition-colors duration-300 rounded-xl" onmouseenter={(e) => e.currentTarget.style.borderColor = colorPalette.accent} onmouseleave={(e) => e.currentTarget.style.borderColor = 'rgb(239, 246, 255)'}>
-					<div class="text-3xl font-black mb-2" style="font-family: 'Playfair Display', serif; color: {colorPalette.accent}">
-						20-30
-					</div>
-					<div class="text-sm text-gray-700 uppercase tracking-wider font-bold">
-						Lat - grupa docelowa
 					</div>
 				</div>
 			</div>
