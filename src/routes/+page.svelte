@@ -63,6 +63,26 @@
 			});
 	});
 
+	// Ensure videos play properly
+	$effect(() => {
+		if (typeof window !== 'undefined' && vid02Element) {
+			// Ensure vid02 keeps playing
+			const checkVideo = () => {
+				if (vid02Element && vid02Element.paused) {
+					vid02Element.play().catch(error => {
+						console.warn('Video autoplay failed:', error);
+					});
+				}
+			};
+
+			// Check immediately and then periodically
+			setTimeout(checkVideo, 100);
+			const interval = setInterval(checkVideo, 2000); // Check every 2 seconds
+
+			return () => clearInterval(interval); // Cleanup on effect destroy
+		}
+	});
+
 	// Contact form state
 	let formData = $state({
 		name: '',
@@ -88,6 +108,9 @@
 		message: false
 	});
 	let isValidating = $state(false);
+
+	// Video references for playback control
+	let vid02Element: HTMLVideoElement;
 
 	// Validation functions
 	function validateFieldRealTime(field: ValidationField, value: string) {
@@ -120,6 +143,15 @@
 		// Only validate if field has been touched
 		if (touchedFields[field]) {
 			validateFieldRealTime(field, value);
+		}
+	}
+
+	// Ensure video continues playing
+	function ensureVideoPlays(videoElement: HTMLVideoElement) {
+		if (videoElement && videoElement.paused) {
+			videoElement.play().catch(error => {
+				console.warn('Video autoplay failed:', error);
+			});
 		}
 	}
 
@@ -176,6 +208,8 @@
 					email: false,
 					message: false
 				};
+				// Ensure video continues playing after form submission
+				setTimeout(() => ensureVideoPlays(vid02Element), 100);
 			} else {
 				formStatus = 'error';
 				formMessage = result.error || 'Wystąpił błąd podczas wysyłania wiadomości';
@@ -508,12 +542,13 @@
 <section class="relative w-full h-screen overflow-hidden">
 	<!-- Full Width Video Background -->
 	<video
+		bind:this={vid02Element}
 		autoplay
 		loop
 		muted
 		playsinline
-		preload="metadata"
 		class="absolute inset-0 w-full h-full object-cover"
+		onended={() => ensureVideoPlays(vid02Element)}
 	>
 		<source src={vid02} type="video/mp4" />
 	</video>
