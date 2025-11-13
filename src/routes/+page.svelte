@@ -13,6 +13,7 @@
 	import img11 from '$lib/assets/images/11.jpeg';
 	import colorsImg from '$lib/assets/images/colors.jpeg';
 	import heroVideo from '$lib/assets/videos/vid01.mp4';
+	import vid02 from '$lib/assets/videos/vid02.mp4';
 
 	// Import color extraction utilities
 	import { extractColorsFromImage, assignColorRoles, type ColorPalette } from '$lib/utils/colorExtractor';
@@ -376,6 +377,37 @@
 		<svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24" style="color: {colorPalette.accent}">
 			<path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 14l-7 7m0 0l-7-7m7 7V3"></path>
 		</svg>
+	</div>
+</section>
+
+<!-- Video Section - Transform Your Space -->
+<section class="relative w-full h-screen overflow-hidden">
+	<!-- Full Width Video Background -->
+	<video
+		autoplay
+		loop
+		muted
+		playsinline
+		class="absolute inset-0 w-full h-full object-cover"
+	>
+		<source src={vid02} type="video/mp4" />
+	</video>
+
+	<!-- Overlay for better text readability -->
+	<div class="absolute inset-0 bg-black/40"></div>
+
+	<!-- Centered Text Content -->
+	<div class="relative z-10 flex items-center justify-center h-full">
+		<div class="text-center text-white px-6 max-w-4xl">
+			<h2 class="text-5xl md:text-7xl lg:text-8xl font-black mb-6 leading-tight" style="font-family: 'Playfair Display', serif;">
+				Odmień swoją<br>
+				<span class="text-transparent bg-clip-text bg-gradient-to-r from-pink-400 to-purple-600">przestrzeń</span><br>
+				z Pikastro
+			</h2>
+			<p class="text-xl md:text-2xl text-gray-200 font-light">
+				Twórz wyjątkowe wnętrza, które odzwierciedlają Twoją osobowość
+			</p>
+		</div>
 	</div>
 </section>
 
