@@ -309,9 +309,8 @@
 		</video>
 		<div class="absolute inset-0 opacity-60 transition-all duration-1000" style="background-color: {colorPalette.primary}"></div>
 	</div>
-	<!-- Animated AI Network Background -->
-	<div class="absolute inset-0 z-[2]">
-		<div class="absolute inset-0 bg-[url('/grid-pattern.svg')] opacity-5"></div>
+		<!-- Animated AI Network Background -->
+		<div class="absolute inset-0 z-[2]">
 		<!-- AI Neural Network Lines -->
 		<svg class="absolute inset-0 w-full h-full opacity-20 transition-all duration-1000" xmlns="http://www.w3.org/2000/svg">
 			<!-- Animated connecting lines -->
@@ -388,6 +387,7 @@
 		loop
 		muted
 		playsinline
+		preload="metadata"
 		class="absolute inset-0 w-full h-full object-cover"
 	>
 		<source src={vid02} type="video/mp4" />
@@ -401,7 +401,7 @@
 		<div class="text-center text-white px-6 max-w-4xl">
 			<h2 class="text-5xl md:text-7xl lg:text-8xl font-black mb-6 leading-tight" style="font-family: 'Playfair Display', serif;">
 				Odmień swoją<br>
-				<span class="text-transparent bg-clip-text bg-gradient-to-r from-pink-400 to-purple-600">przestrzeń</span><br>
+				<span style="color: {colorPalette.accent}">przestrzeń</span><br>
 				z Pikastro
 			</h2>
 			<p class="text-xl md:text-2xl text-gray-200 font-light">
