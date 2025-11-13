@@ -742,7 +742,7 @@
 			</div>
 
 			<div class="grid grid-cols-2 gap-6">
-				<div class="p-6 border-2 border-blue-200 transition-colors duration-300 rounded-xl neon-glow" style="border-color: rgb(239, 246, 255);" onmouseenter={(e) => e.currentTarget.style.borderColor = colorPalette.primary} onmouseleave={(e) => e.currentTarget.style.borderColor = 'rgb(239, 246, 255)'}>
+				<div role="group" class="p-6 border-2 border-blue-200 transition-colors duration-300 rounded-xl neon-glow" style="border-color: rgb(239, 246, 255);" onmouseenter={(e) => e.currentTarget.style.borderColor = colorPalette.primary} onmouseleave={(e) => e.currentTarget.style.borderColor = 'rgb(239, 246, 255)'}>
 					<div class="text-3xl font-black mb-2" style="font-family: 'Playfair Display', serif; color: {colorPalette.primary}">
 						AI
 					</div>
@@ -750,7 +750,7 @@
 						Technologia przyszłości
 					</div>
 				</div>
-				<div class="p-6 border-2 border-blue-200 transition-colors duration-300 rounded-xl" onmouseenter={(e) => e.currentTarget.style.borderColor = colorPalette.accent} onmouseleave={(e) => e.currentTarget.style.borderColor = 'rgb(239, 246, 255)'}>
+				<div role="group" class="p-6 border-2 border-blue-200 transition-colors duration-300 rounded-xl" onmouseenter={(e) => e.currentTarget.style.borderColor = colorPalette.accent} onmouseleave={(e) => e.currentTarget.style.borderColor = 'rgb(239, 246, 255)'}>
 					<div class="text-3xl font-black mb-2" style="font-family: 'Playfair Display', serif; color: {colorPalette.accent}">
 						20-30
 					</div>
@@ -779,7 +779,7 @@
 
 	<div class="grid md:grid-cols-3 gap-8 lg:gap-12 relative z-10">
 		{#each services as service, i}
-			<div class="bg-white p-10 lg:p-12 hover-lift observe group border-2 border-blue-100 rounded-2xl hover:shadow-2xl transition-all duration-500" style="animation-delay: {i * 100}ms; border-color: rgb(243, 244, 246);" onmouseenter={(e) => { e.currentTarget.style.borderColor = colorPalette.accent; e.currentTarget.style.boxShadow = `0 25px 50px -12px rgba(var(--color-accent-rgb, 251, 113, 133), 0.2)`; }} onmouseleave={(e) => { e.currentTarget.style.borderColor = 'rgb(243, 244, 246)'; e.currentTarget.style.boxShadow = '0 20px 25px -5px rgba(0, 0, 0, 0.1)'; }}>
+			<div role="article" class="bg-white p-10 lg:p-12 hover-lift observe group border-2 border-blue-100 rounded-2xl hover:shadow-2xl transition-all duration-500" style="animation-delay: {i * 100}ms; border-color: rgb(243, 244, 246);" onmouseenter={(e) => { e.currentTarget.style.borderColor = colorPalette.accent; e.currentTarget.style.boxShadow = `0 25px 50px -12px rgba(var(--color-accent-rgb, 251, 113, 133), 0.2)`; }} onmouseleave={(e) => { e.currentTarget.style.borderColor = 'rgb(243, 244, 246)'; e.currentTarget.style.boxShadow = '0 20px 25px -5px rgba(0, 0, 0, 0.1)'; }}>
 				<div class="mb-8">
 					<div class="text-6xl font-light transition-all duration-500 transform group-hover:scale-110 group-hover:rotate-12" style="font-family: 'Playfair Display', serif; color: {colorPalette.primary}">
 						{service.icon}
@@ -823,7 +823,7 @@
 	<div class="grid md:grid-cols-2 lg:grid-cols-4 gap-8 relative z-10 items-stretch">
 		{#each processSteps as step, i}
 			<div class="observe group h-full flex flex-col" style="animation-delay: {i * 150}ms">
-				<div class="bg-white/10 backdrop-blur-sm p-8 rounded-2xl border-2 border-white/20 transition-all duration-300 hover:shadow-2xl hover:scale-105 flex flex-col flex-grow" onmouseenter={(e) => { e.currentTarget.style.borderColor = colorPalette.accent; e.currentTarget.style.boxShadow = `0 25px 50px -12px rgba(var(--color-accent-rgb, 251, 113, 133), 0.3)`; }} onmouseleave={(e) => { e.currentTarget.style.borderColor = 'rgba(255, 255, 255, 0.2)'; e.currentTarget.style.boxShadow = '0 20px 25px -5px rgba(0, 0, 0, 0.1)'; }}>
+				<div role="article" class="bg-white/10 backdrop-blur-sm p-8 rounded-2xl border-2 border-white/20 transition-all duration-300 hover:shadow-2xl hover:scale-105 flex flex-col flex-grow" onmouseenter={(e) => { e.currentTarget.style.borderColor = colorPalette.accent; e.currentTarget.style.boxShadow = `0 25px 50px -12px rgba(var(--color-accent-rgb, 251, 113, 133), 0.3)`; }} onmouseleave={(e) => { e.currentTarget.style.borderColor = 'rgba(255, 255, 255, 0.2)'; e.currentTarget.style.boxShadow = '0 20px 25px -5px rgba(0, 0, 0, 0.1)'; }}>
 					<!-- Step Number -->
 					<div class="mb-6">
 						<div class="text-8xl font-black opacity-20 leading-none text-white" style="font-family: 'Playfair Display', serif;">
@@ -1120,13 +1120,13 @@
 			<div class="grid md:grid-cols-2 lg:grid-cols-3 gap-8 lg:gap-12 relative z-10">
 		{#each projects.filter(p => activeFilter === 'wszystkie' || p.category === activeFilter) as project, i}
 			<div class="group observe hover-lift pb-3" style="animation-delay: {i * 100}ms">
-				<div class="aspect-[4/5] bg-blue-100 relative overflow-hidden mb-8 rounded-2xl border-2 border-blue-100 transition-all duration-300" onmouseenter={(e) => e.currentTarget.style.borderColor = colorPalette.accent} onmouseleave={(e) => e.currentTarget.style.borderColor = 'rgb(243, 244, 246)'}>
+				<div role="figure" class="aspect-[4/5] bg-blue-100 relative overflow-hidden mb-8 rounded-2xl border-2 border-blue-100 transition-all duration-300" onmouseenter={(e) => e.currentTarget.style.borderColor = colorPalette.accent} onmouseleave={(e) => e.currentTarget.style.borderColor = 'rgb(243, 244, 246)'}>
 					<img
 						src={project.image}
 						alt={project.title}
 						class="w-full h-full object-cover"
 					/>
-					<div class="absolute inset-0 transition-all duration-500" style="background-color: {colorPalette.primary}; opacity: 0.1;" onmouseenter={(e) => e.currentTarget.style.opacity = '0.2'} onmouseleave={(e) => e.currentTarget.style.opacity = '0.1'}></div>
+					<div role="presentation" class="absolute inset-0 transition-all duration-500" style="background-color: {colorPalette.primary}; opacity: 0.1;" onmouseenter={(e) => e.currentTarget.style.opacity = '0.2'} onmouseleave={(e) => e.currentTarget.style.opacity = '0.1'}></div>
 					<div class="absolute top-6 right-6 text-white px-4 py-2 text-xs font-bold tracking-wider uppercase rounded-lg shadow-lg" style="background-color: {colorPalette.primary}">
 						{project.year}
 					</div>
