@@ -768,7 +768,6 @@
 	<div class="absolute top-20 left-20 w-64 h-64 rounded-full filter blur-3xl opacity-25 animate-pulse-slow" style="background-color: {colorPalette.secondary};"></div>
 	<div class="absolute bottom-20 right-20 w-72 h-72 rounded-full filter blur-3xl opacity-20 animate-pulse-slow" style="background-color: {colorPalette.success}; animation-delay: 1s;"></div>
 		<div class="text-center mb-20 observe relative z-10">
-		<p class="font-black tracking-[0.3em] uppercase text-sm mb-4" style="color: {colorPalette.primary}">💼 Oferta</p>
 		<h2 class="text-4xl md:text-5xl lg:text-6xl font-black mb-6 leading-tight" style="font-family: 'Playfair Display', serif;">
 			Oferta
 		</h2>
