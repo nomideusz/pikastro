@@ -671,22 +671,22 @@
 <section class="section bg-white border-y-8 relative overflow-hidden" style="border-top-color: {colorPalette.accent}; border-bottom-color: {colorPalette.secondary};">
 	<div class="absolute top-0 left-0 w-full h-2" style="background-color: {colorPalette.success};"></div>
 	<div class="absolute bottom-0 left-0 w-full h-2" style="background-color: {colorPalette.tertiary};"></div>
-	<div class="grid grid-cols-2 md:grid-cols-4 gap-8">
-		<div class="text-center observe transform hover:scale-110 transition-transform duration-300 p-6 rounded-2xl border-4" style="border-color: {colorPalette.primary}; background-color: rgba(39, 39, 91, 0.03);">
-			<div class="text-5xl font-black mb-3" style="font-family: 'Playfair Display', serif; color: {colorPalette.primary};">50+</div>
-			<div class="text-sm text-gray-700 uppercase tracking-wider font-bold">Zrealizowanych projektów</div>
+	<div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4 sm:gap-6 lg:gap-8">
+		<div class="text-center observe transform hover:scale-105 sm:hover:scale-110 transition-transform duration-300 p-4 sm:p-6 rounded-2xl border-4" style="border-color: {colorPalette.primary}; background-color: rgba(39, 39, 91, 0.03);">
+			<div class="text-4xl sm:text-5xl font-black mb-2 sm:mb-3" style="font-family: 'Playfair Display', serif; color: {colorPalette.primary};">50+</div>
+			<div class="text-xs sm:text-sm text-gray-700 uppercase tracking-wider font-bold leading-tight">Zrealizowanych<br>projektów</div>
 		</div>
-		<div class="text-center observe transform hover:scale-110 transition-transform duration-300 p-6 rounded-2xl border-4" style="border-color: {colorPalette.accent}; background-color: rgba(243, 42, 97, 0.03);">
-			<div class="text-5xl font-black mb-3" style="font-family: 'Playfair Display', serif; color: {colorPalette.accent};">5+</div>
-			<div class="text-sm text-gray-700 uppercase tracking-wider font-bold">Lat doświadczenia</div>
+		<div class="text-center observe transform hover:scale-105 sm:hover:scale-110 transition-transform duration-300 p-4 sm:p-6 rounded-2xl border-4" style="border-color: {colorPalette.accent}; background-color: rgba(243, 42, 97, 0.03);">
+			<div class="text-4xl sm:text-5xl font-black mb-2 sm:mb-3" style="font-family: 'Playfair Display', serif; color: {colorPalette.accent};">5+</div>
+			<div class="text-xs sm:text-sm text-gray-700 uppercase tracking-wider font-bold leading-tight">Lat<br>doświadczenia</div>
 		</div>
-		<div class="text-center observe transform hover:scale-110 transition-transform duration-300 p-6 rounded-2xl border-4" style="border-color: {colorPalette.secondary}; background-color: rgba(29, 168, 152, 0.03);">
-			<div class="text-5xl font-black mb-3" style="font-family: 'Playfair Display', serif; color: {colorPalette.secondary};">100%</div>
-			<div class="text-sm text-gray-700 uppercase tracking-wider font-bold">Zadowolonych klientów</div>
+		<div class="text-center observe transform hover:scale-105 sm:hover:scale-110 transition-transform duration-300 p-4 sm:p-6 rounded-2xl border-4" style="border-color: {colorPalette.secondary}; background-color: rgba(29, 168, 152, 0.03);">
+			<div class="text-4xl sm:text-5xl font-black mb-2 sm:mb-3" style="font-family: 'Playfair Display', serif; color: {colorPalette.secondary};">100%</div>
+			<div class="text-xs sm:text-sm text-gray-700 uppercase tracking-wider font-bold leading-tight">Zadowolonych<br>klientów</div>
 		</div>
-		<div class="text-center observe transform hover:scale-110 transition-transform duration-300 p-6 rounded-2xl border-4" style="border-color: {colorPalette.success}; background-color: rgba(242, 162, 62, 0.03);">
-			<div class="text-5xl font-black mb-3" style="font-family: 'Playfair Display', serif; color: {colorPalette.success};">15+</div>
-			<div class="text-sm text-gray-700 uppercase tracking-wider font-bold">Nagród branżowych</div>
+		<div class="text-center observe transform hover:scale-105 sm:hover:scale-110 transition-transform duration-300 p-4 sm:p-6 rounded-2xl border-4" style="border-color: {colorPalette.success}; background-color: rgba(242, 162, 62, 0.03);">
+			<div class="text-4xl sm:text-5xl font-black mb-2 sm:mb-3" style="font-family: 'Playfair Display', serif; color: {colorPalette.success};">15+</div>
+			<div class="text-xs sm:text-sm text-gray-700 uppercase tracking-wider font-bold leading-tight">Nagród<br>branżowych</div>
 		</div>
 	</div>
 </section>
