@@ -263,7 +263,7 @@
 	<div class="max-w-4xl mx-auto text-center observe">
 		<h2 class="text-3xl md:text-4xl lg:text-5xl font-black mb-6 leading-tight" style="font-family: 'Playfair Display', serif;">
 			Zacznijmy<br>
-			<span style="color: #FF6B9D;">współpracę?</span>
+			<span style="color: #FF6B9D;">współpracę!</span>
 		</h2>
 		<p class="text-xl text-gray-600 mb-8 max-w-2xl mx-auto leading-relaxed">
 			Masz pomysł na projekt? Chcesz stworzyć wyjątkową przestrzeń lub odświeżyć identyfikację wizualną?
