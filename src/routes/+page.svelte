@@ -17,6 +17,7 @@
 
 	// Import color extraction utilities
 	import { extractColorsFromImage, assignColorRoles, type ColorPalette } from '$lib/utils/colorExtractor';
+	import { validateForm, validateField, type FormValidationResult, type ValidationField } from '$lib/utils/validation';
 
 	// Color palette extracted from colors image - Eclectic Maximalism
 	let colorPalette = $state<ColorPalette>({
@@ -73,9 +74,72 @@
 	let formStatus = $state<'idle' | 'submitting' | 'success' | 'error'>('idle');
 	let formMessage = $state<string>('');
 
+	// Validation state
+	let validationErrors = $state<FormValidationResult>({
+		name: { isValid: true },
+		email: { isValid: true },
+		message: { isValid: true },
+		isFormValid: true
+	});
+
+	let touchedFields = $state<{[key in ValidationField]: boolean}>({
+		name: false,
+		email: false,
+		message: false
+	});
+	let isValidating = $state(false);
+
+	// Validation functions
+	function validateFieldRealTime(field: ValidationField, value: string) {
+		const result = validateField(field, value);
+		validationErrors[field] = result;
+		validationErrors.isFormValid = validationErrors.name.isValid &&
+			validationErrors.email.isValid &&
+			validationErrors.message.isValid;
+		return result;
+	}
+
+	function validateAllFields() {
+		const result = validateForm(formData);
+		validationErrors = result;
+		return result;
+	}
+
+	function markFieldAsTouched(field: ValidationField) {
+		touchedFields[field] = true;
+		validateFieldRealTime(field, formData[field]);
+	}
+
+	function handleFieldBlur(field: ValidationField) {
+		markFieldAsTouched(field);
+	}
+
+	function handleFieldInput(field: ValidationField, value: string) {
+		formData[field] = value;
+
+		// Only validate if field has been touched
+		if (touchedFields[field]) {
+			validateFieldRealTime(field, value);
+		}
+	}
+
 	// Form submission handler
 	async function handleSubmit(event: Event) {
 		event.preventDefault();
+
+		// Mark all fields as touched for validation
+		markFieldAsTouched('name');
+		markFieldAsTouched('email');
+		markFieldAsTouched('message');
+
+		// Validate all fields before submission
+		const validation = validateAllFields();
+		if (!validation.isFormValid) {
+			formStatus = 'error';
+			formMessage = 'Proszę poprawić błędy w formularzu przed wysłaniem.';
+			return;
+		}
+
 		formStatus = 'submitting';
 		formMessage = '';
 
@@ -99,6 +163,18 @@
 					email: '',
 					project: 'Projektowanie wnętrz',
 					message: ''
+				};
+				// Reset validation state
+				validationErrors = {
+					name: { isValid: true },
+					email: { isValid: true },
+					message: { isValid: true },
+					isFormValid: true
+				};
+				touchedFields = {
+					name: false,
+					email: false,
+					message: false
 				};
 			} else {
 				formStatus = 'error';
@@ -1155,25 +1231,59 @@
 					<input
 						type="text"
 						id="name"
-						bind:value={formData.name}
-						required
+						value={formData.name}
 						disabled={formStatus === 'submitting'}
-						class="w-full px-4 py-3 border-2 border-blue-200 rounded-lg focus:border-[#27275b] focus:outline-none transition-all bg-white disabled:opacity-50"
+						class="w-full px-4 py-3 border-2 rounded-lg focus:outline-none transition-all bg-white disabled:opacity-50 {touchedFields.name && !validationErrors.name.isValid ? 'border-red-400 focus:border-red-500' : touchedFields.name && validationErrors.name.isValid ? 'border-green-400 focus:border-green-500' : 'border-blue-200 focus:border-[#27275b]'}"
 						placeholder="Jan Kowalski"
+						oninput={(e) => handleFieldInput('name', (e.target as HTMLInputElement).value)}
+						onblur={() => handleFieldBlur('name')}
 					/>
+					{#if touchedFields.name && validationErrors.name.error}
+						<p class="mt-1 text-sm text-red-600 flex items-center">
+							<svg class="w-4 h-4 mr-1 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+								<path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 9v2m0 4h.01m-6.938 4h13.856c1.54 0 2.502-1.667 1.732-2.5L13.732 4c-.77-.833-1.964-.833-2.732 0L3.732 16.5c-.77.833.192 2.5 1.732 2.5z"></path>
+							</svg>
+							{validationErrors.name.error}
+						</p>
+					{/if}
+					{#if touchedFields.name && validationErrors.name.isValid && formData.name.trim()}
+						<p class="mt-1 text-sm text-green-600 flex items-center">
+							<svg class="w-4 h-4 mr-1 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+								<path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path>
+							</svg>
+							Wygląda dobrze!
+						</p>
+					{/if}
 				</div>
 
 				<div>
 					<label for="email" class="block text-sm uppercase tracking-wider font-bold text-gray-700 mb-2">Email</label>
 					<input
-						type="email"
+						type="text"
 						id="email"
-						bind:value={formData.email}
-						required
+						value={formData.email}
 						disabled={formStatus === 'submitting'}
-						class="w-full px-4 py-3 border-2 border-blue-200 rounded-lg focus:border-[#27275b] focus:outline-none transition-all bg-white disabled:opacity-50"
+						class="w-full px-4 py-3 border-2 rounded-lg focus:outline-none transition-all bg-white disabled:opacity-50 {touchedFields.email && !validationErrors.email.isValid ? 'border-red-400 focus:border-red-500' : touchedFields.email && validationErrors.email.isValid ? 'border-green-400 focus:border-green-500' : 'border-blue-200 focus:border-[#27275b]'}"
 						placeholder="jan@example.com"
+						oninput={(e) => handleFieldInput('email', (e.target as HTMLInputElement).value)}
+						onblur={() => handleFieldBlur('email')}
 					/>
+					{#if touchedFields.email && validationErrors.email.error}
+						<p class="mt-1 text-sm text-red-600 flex items-center">
+							<svg class="w-4 h-4 mr-1 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+								<path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 9v2m0 4h.01m-6.938 4h13.856c1.54 0 2.502-1.667 1.732-2.5L13.732 4c-.77-.833-1.964-.833-2.732 0L3.732 16.5c-.77.833.192 2.5 1.732 2.5z"></path>
+							</svg>
+							{validationErrors.email.error}
+						</p>
+					{/if}
+					{#if touchedFields.email && validationErrors.email.isValid && formData.email.trim()}
+						<p class="mt-1 text-sm text-green-600 flex items-center">
+							<svg class="w-4 h-4 mr-1 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+								<path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path>
+							</svg>
+							Wygląda dobrze!
+						</p>
+					{/if}
 				</div>
 
 				<div>
@@ -1195,13 +1305,36 @@
 					<label for="message" class="block text-sm uppercase tracking-wider font-bold text-gray-700 mb-2">Wiadomość</label>
 					<textarea
 						id="message"
-						bind:value={formData.message}
-						required
+						value={formData.message}
 						disabled={formStatus === 'submitting'}
 						rows="5"
-						class="w-full px-4 py-3 border-2 border-blue-200 rounded-lg focus:border-[#27275b] focus:outline-none transition-all bg-white resize-none disabled:opacity-50"
+						class="w-full px-4 py-3 border-2 rounded-lg focus:outline-none transition-all bg-white resize-none disabled:opacity-50 {touchedFields.message && !validationErrors.message.isValid ? 'border-red-400 focus:border-red-500' : touchedFields.message && validationErrors.message.isValid ? 'border-green-400 focus:border-green-500' : 'border-blue-200 focus:border-[#27275b]'}"
 						placeholder="Opowiedz o swoim projekcie..."
+						oninput={(e) => handleFieldInput('message', (e.target as HTMLTextAreaElement).value)}
+						onblur={() => handleFieldBlur('message')}
 					></textarea>
+					<div class="flex justify-between items-center mt-1">
+						{#if touchedFields.message && validationErrors.message.error}
+							<p class="text-sm text-red-600 flex items-center">
+								<svg class="w-4 h-4 mr-1 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+									<path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 9v2m0 4h.01m-6.938 4h13.856c1.54 0 2.502-1.667 1.732-2.5L13.732 4c-.77-.833-1.964-.833-2.732 0L3.732 16.5c-.77.833.192 2.5 1.732 2.5z"></path>
+								</svg>
+								{validationErrors.message.error}
+							</p>
+						{:else if touchedFields.message && validationErrors.message.isValid && formData.message.trim()}
+							<p class="text-sm text-green-600 flex items-center">
+								<svg class="w-4 h-4 mr-1 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+									<path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path>
+								</svg>
+								Wygląda dobrze!
+							</p>
+						{:else}
+							<span></span>
+						{/if}
+						<p class="text-xs text-gray-500">
+							{formData.message.length}/5000
+						</p>
+					</div>
 				</div>
 
 				{#if formMessage}
@@ -1212,10 +1345,10 @@
 
 				<button
 					type="submit"
-					disabled={formStatus === 'submitting'}
-					class="w-full btn disabled:opacity-50 disabled:cursor-not-allowed"
+					disabled={formStatus === 'submitting' || !validationErrors.isFormValid}
+					class="w-full btn disabled:opacity-50 disabled:cursor-not-allowed {!validationErrors.isFormValid && (touchedFields.name || touchedFields.email || touchedFields.message) ? 'opacity-60 cursor-not-allowed' : ''}"
 				>
-					{formStatus === 'submitting' ? 'Wysyłanie...' : 'Wyślij wiadomość'}
+					{formStatus === 'submitting' ? 'Wysyłanie...' : !validationErrors.isFormValid && (touchedFields.name || touchedFields.email || touchedFields.message) ? 'Popraw błędy przed wysłaniem' : 'Wyślij wiadomość'}
 				</button>
 			</form>
 		</div>
