@@ -62,6 +62,55 @@
 			});
 	});
 
+	// Contact form state
+	let formData = $state({
+		name: '',
+		email: '',
+		project: 'Projektowanie wnętrz',
+		message: ''
+	});
+
+	let formStatus = $state<'idle' | 'submitting' | 'success' | 'error'>('idle');
+	let formMessage = $state<string>('');
+
+	// Form submission handler
+	async function handleSubmit(event: Event) {
+		event.preventDefault();
+		formStatus = 'submitting';
+		formMessage = '';
+
+		try {
+			const response = await fetch('/api/contact', {
+				method: 'POST',
+				headers: {
+					'Content-Type': 'application/json',
+				},
+				body: JSON.stringify(formData)
+			});
+
+			const result = await response.json();
+
+			if (response.ok) {
+				formStatus = 'success';
+				formMessage = 'Dziękuję! Twoja wiadomość została wysłana. Odpowiem wkrótce!';
+				// Reset form
+				formData = {
+					name: '',
+					email: '',
+					project: 'Projektowanie wnętrz',
+					message: ''
+				};
+			} else {
+				formStatus = 'error';
+				formMessage = result.error || 'Wystąpił błąd podczas wysyłania wiadomości';
+			}
+		} catch (error) {
+			formStatus = 'error';
+			formMessage = 'Wystąpił błąd podczas wysyłania wiadomości. Spróbuj ponownie.';
+			console.error('Form submission error:', error);
+		}
+	}
+
 	// Before/After showcase data
 	const beforeAfterProjects = [
 		{
@@ -1100,13 +1149,16 @@
 		</div>
 
 		<div class="bg-white p-10 lg:p-12 observe rounded-2xl border-4 shadow-xl" style="border-color: {colorPalette.accent};">
-			<form class="space-y-6">
+			<form class="space-y-6" onsubmit={handleSubmit}>
 				<div>
 					<label for="name" class="block text-sm uppercase tracking-wider font-bold text-gray-700 mb-2">Imię i nazwisko</label>
 					<input
 						type="text"
 						id="name"
-						class="w-full px-4 py-3 border-2 border-blue-200 rounded-lg focus:border-[#27275b] focus:outline-none transition-all bg-white"
+						bind:value={formData.name}
+						required
+						disabled={formStatus === 'submitting'}
+						class="w-full px-4 py-3 border-2 border-blue-200 rounded-lg focus:border-[#27275b] focus:outline-none transition-all bg-white disabled:opacity-50"
 						placeholder="Jan Kowalski"
 					/>
 				</div>
@@ -1116,7 +1168,10 @@
 					<input
 						type="email"
 						id="email"
-						class="w-full px-4 py-3 border-2 border-blue-200 rounded-lg focus:border-[#27275b] focus:outline-none transition-all bg-white"
+						bind:value={formData.email}
+						required
+						disabled={formStatus === 'submitting'}
+						class="w-full px-4 py-3 border-2 border-blue-200 rounded-lg focus:border-[#27275b] focus:outline-none transition-all bg-white disabled:opacity-50"
 						placeholder="jan@example.com"
 					/>
 				</div>
@@ -1125,7 +1180,9 @@
 					<label for="project" class="block text-sm uppercase tracking-wider font-bold text-gray-700 mb-2">Typ projektu</label>
 					<select
 						id="project"
-						class="w-full px-4 py-3 border-2 border-blue-200 rounded-lg focus:border-[#27275b] focus:outline-none transition-all bg-white"
+						bind:value={formData.project}
+						disabled={formStatus === 'submitting'}
+						class="w-full px-4 py-3 border-2 border-blue-200 rounded-lg focus:border-[#27275b] focus:outline-none transition-all bg-white disabled:opacity-50"
 					>
 						<option>Projektowanie wnętrz</option>
 						<option>Identyfikacja wizualna</option>
@@ -1138,14 +1195,27 @@
 					<label for="message" class="block text-sm uppercase tracking-wider font-bold text-gray-700 mb-2">Wiadomość</label>
 					<textarea
 						id="message"
+						bind:value={formData.message}
+						required
+						disabled={formStatus === 'submitting'}
 						rows="5"
-						class="w-full px-4 py-3 border-2 border-blue-200 rounded-lg focus:border-[#27275b] focus:outline-none transition-all bg-white resize-none"
+						class="w-full px-4 py-3 border-2 border-blue-200 rounded-lg focus:border-[#27275b] focus:outline-none transition-all bg-white resize-none disabled:opacity-50"
 						placeholder="Opowiedz o swoim projekcie..."
 					></textarea>
 				</div>
 
-				<button type="submit" class="w-full btn">
-					Wyślij wiadomość
+				{#if formMessage}
+					<div class="p-4 rounded-lg {formStatus === 'success' ? 'bg-green-50 border-2 border-green-200 text-green-800' : 'bg-red-50 border-2 border-red-200 text-red-800'}">
+						<p class="font-bold">{formMessage}</p>
+					</div>
+				{/if}
+
+				<button
+					type="submit"
+					disabled={formStatus === 'submitting'}
+					class="w-full btn disabled:opacity-50 disabled:cursor-not-allowed"
+				>
+					{formStatus === 'submitting' ? 'Wysyłanie...' : 'Wyślij wiadomość'}
 				</button>
 			</form>
 		</div>
