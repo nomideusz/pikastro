@@ -698,11 +698,9 @@
 	<div class="absolute top-1/2 left-1/4 w-64 h-64 rounded-full filter blur-3xl opacity-15" style="background-color: {colorPalette.success};"></div>
 	<div class="grid md:grid-cols-2 gap-16 lg:gap-24 items-center relative z-10">
 		<div class="observe">
-			<p class="font-black tracking-[0.3em] uppercase text-sm mb-4" style="color: {colorPalette.primary}">⭐ O mnie</p>
 			<h2 class="text-4xl md:text-5xl lg:text-6xl font-black mb-8 leading-tight" style="font-family: 'Playfair Display', serif;">
 				Projektowanie przyszłości.<br>
-				<span class="italic" style="color: {colorPalette.accent}">Dziś.</span><br>
-				And this is not "O mnie" section
+				<span class="italic" style="color: {colorPalette.accent}">Dziś.</span>
 			</h2>
 			<div class="space-y-6 text-gray-600 leading-relaxed text-lg">
 				<p>
@@ -716,7 +714,7 @@
 					funkcjonalne, estetyczne rozwiązania szybciej i w atrakcyjnych cenach.
 				</p>
 				<p>
-					Specjalizuję się w projektach dla <strong style="color: {colorPalette.accent}">młodych ludzi (20-30 lat)</strong> -
+					Specjalizuję się w projektach dla -
 					odważnych nabywców pierwszych mieszkań, którzy cenią kolorowe aranżacje, przestrzenie do pracy zdalnej
 					i rozwiązania smart home, zamiast stonowanych beżowo-szarych wnętrz.
 				</p>
@@ -953,7 +951,7 @@
 				<div class="border-l-4 pl-6" style="border-color: {colorPalette.secondary}">
 					<p class="font-bold text-xl mb-2 text-white">"Dla kogo to jest?"</p>
 					<p class="text-gray-200 leading-relaxed">
-						Dla <strong>młodych ludzi (20-30 lat)</strong>, którzy kupują pierwsze mieszkanie i chcą przestrzeń
+						Dla którzy kupują pierwsze mieszkanie i chcą przestrzeń
 						do pracy zdalnej, smart home, kolorowe aranżacje - zamiast beżowo-szarych wnętrz rodem z showroomu.
 					</p>
 				</div>
@@ -1399,7 +1397,7 @@
 			<div>
 				<h3 class="text-3xl font-black mb-4" style="font-family: 'Playfair Display', serif;">Pikastro</h3>
 				<p class="text-gray-200 leading-relaxed">
-					Projektowanie wnętrz i grafika z AI dla młodych ludzi. Odważne, kolorowe aranżacje zamiast beżowo-szarych.
+					Projektowanie wnętrz i grafika z AI. Odważne, kolorowe aranżacje zamiast beżowo-szarych.
 				</p>
 			</div>
 			<div>
