@@ -29,7 +29,7 @@ export const POST: RequestHandler = async ({ request }) => {
 
 		// Send email using Resend
 		const { data, error } = await resend.emails.send({
-			from: 'Kontakt Pikastro <onboarding@resend.dev>', // You'll need to verify your domain
+			from: 'Kontakt Pikastro <noreply@auth.zaur.app>',
 			to: ['magda@zaur.app'],
 			replyTo: email,
 			subject: `Nowa wiadomość od ${name} - ${project || 'Kontakt'}`,
