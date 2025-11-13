@@ -294,7 +294,7 @@
 </script>
 
 <!-- Hero Section with AI Visualization - Eclectic Maximalism -->
-<section class="relative min-h-[90vh] flex items-center text-white overflow-hidden" style="background-color: {colorPalette.primary};">
+<section class="relative min-h-screen flex items-center text-white overflow-hidden" style="background-color: {colorPalette.primary};">
 	<!-- Background Video -->
 	<div class="absolute inset-0 z-[1]">
 		<video
@@ -357,7 +357,7 @@
 			<!-- Value Props -->
 			<div class="grid grid-cols-1 sm:grid-cols-3 gap-4 mb-12 observe animate-fade-in-up max-w-3xl" style="animation-delay: 0.4s;">
 				<div class="bg-white/10 backdrop-blur-sm px-4 py-3 rounded-lg border border-white/20">
-					<div class="font-black text-lg text-white">8-13 dni</div>
+					<div class="font-black text-lg text-white">10-21 dni</div>
 					<div class="text-white/80 text-sm">vs. 4-6 tygodni</div>
 				</div>
 				<div class="bg-white/10 backdrop-blur-sm px-4 py-3 rounded-lg border border-white/20">
@@ -370,14 +370,6 @@
 				</div>
 			</div>
 
-			<div class="flex flex-col sm:flex-row gap-6 observe animate-fade-in-up" style="animation-delay: 0.6s;">
-				<a href="#beforeafter" class="btn animate-float">
-					Zobacz Metamorfozy
-				</a>
-				<a href="#cennik" class="px-8 py-4 bg-white/10 backdrop-blur-sm text-white border-2 border-white rounded-lg hover:bg-white transition-all duration-300 shadow-lg hover:shadow-2xl font-bold tracking-wide uppercase text-sm" style="--hover-text-color: {colorPalette.primary};" onmouseenter={(e) => e.currentTarget.style.color = colorPalette.primary} onmouseleave={(e) => e.currentTarget.style.color = 'white'}>
-					Sprawdź Ceny
-				</a>
-			</div>
 		</div>
 	</div>
 	<div class="absolute bottom-12 left-1/2 -translate-x-1/2 animate-bounce">
@@ -683,7 +675,7 @@
 	<div class="mt-16 text-center observe animate-fade-in-up" style="animation-delay: 0.3s;">
 		<div class="inline-block bg-white/10 backdrop-blur-sm px-12 py-6 rounded-2xl border-2 border-white/20 transition-all duration-500 hover:border-white/40 hover:bg-white/15">
 			<p class="text-sm uppercase tracking-wider text-gray-300 mb-2">Całkowity czas realizacji</p>
-			<p class="text-4xl font-black transition-colors duration-300" style="font-family: 'Playfair Display', serif; color: {colorPalette.secondary};">8-13 dni roboczych</p>
+			<p class="text-4xl font-black transition-colors duration-300" style="font-family: 'Playfair Display', serif; color: {colorPalette.secondary};">10-21 dni roboczych</p>
 			<p class="text-sm text-gray-300 mt-2">vs. tradycyjne 4-6 tygodni</p>
 		</div>
 	</div>

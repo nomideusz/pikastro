@@ -49,27 +49,23 @@
 </svelte:head>
 
 <!-- Navigation -->
-<nav class="sticky top-0 z-50 transition-all duration-300 shadow-sm" style="background: rgba(255, 255, 255, 0.95); backdrop-filter: blur(12px); border-bottom: 1px solid rgba(0, 0, 0, 0.08); box-shadow: 0 4px 20px rgba(0, 0, 0, 0.08);">
-	<div class="max-w-7xl mx-auto px-6 md:px-12">
-		<div class="flex justify-between items-center py-6">
+<nav class="sticky top-0 z-50 transition-all duration-300 shadow-sm px-6 md:px-12" style="background: rgba(255, 255, 255, 0.95); backdrop-filter: blur(12px); border-bottom: 1px solid rgba(0, 0, 0, 0.08); box-shadow: 0 4px 20px rgba(0, 0, 0, 0.08);">
+	<div class="max-w-7xl mx-auto">
+		<div class="flex justify-between items-center py-4">
 			<div class="flex items-center">
-				<a href="/" class="flex items-center group px-3 py-2 rounded-lg transition-all duration-300 hover:bg-gray-50">
+				<a href="/" class="flex items-center group transition-all duration-300">
 					<img src="/logo.png" alt="Pikastro Logo" class="h-12 w-auto transition-transform duration-300 group-hover:scale-110 group-hover:rotate-3" />
 				</a>
 			</div>
 
 			<!-- Desktop Navigation -->
-			<div class="hidden md:flex items-center space-x-8">
+			<div class="hidden lg:flex items-center space-x-8">
 				<a href="/o-mnie" class="text-gray-700 transition-colors font-bold text-sm tracking-wide uppercase relative group hover:text-[var(--color-primary)]">
 					O mnie
 					<span class="absolute bottom-0 left-0 w-0 h-0.5 transition-all duration-300 group-hover:w-full" style="background-color: var(--color-accent);"></span>
 				</a>
-				<a href={getNavLink('#beforeafter')} class="text-gray-700 transition-colors font-bold text-sm tracking-wide uppercase relative group hover:text-[var(--color-primary)]">
-					Metamorfozy
-					<span class="absolute bottom-0 left-0 w-0 h-0.5 transition-all duration-300 group-hover:w-full" style="background-color: var(--color-accent);"></span>
-				</a>
-				<a href={getNavLink('#proces')} class="text-gray-700 transition-colors font-bold text-sm tracking-wide uppercase relative group hover:text-[var(--color-primary)]">
-					Proces
+				<a href={getNavLink('#oferta')} class="text-gray-700 transition-colors font-bold text-sm tracking-wide uppercase relative group hover:text-[var(--color-primary)]">
+					Oferta
 					<span class="absolute bottom-0 left-0 w-0 h-0.5 transition-all duration-300 group-hover:w-full" style="background-color: var(--color-accent);"></span>
 				</a>
 				<a href={getNavLink('#cennik')} class="text-gray-700 transition-colors font-bold text-sm tracking-wide uppercase relative group hover:text-[var(--color-primary)]">
@@ -86,7 +82,7 @@
 			</div>
 
 			<!-- Mobile menu button -->
-			<div class="md:hidden">
+			<div class="lg:hidden">
 				<button
 					onclick={() => isMenuOpen = !isMenuOpen}
 					class="text-gray-700 focus:outline-none transition-colors hover:text-[var(--color-primary)]"
@@ -105,14 +101,30 @@
 
 		<!-- Mobile Navigation -->
 		{#if isMenuOpen}
-			<div class="md:hidden pb-6 mt-2 animate-fade-in-up" style="border-top: 1px solid rgba(0, 0, 0, 0.08);">
-				<div class="flex flex-col space-y-4 pt-6">
-					<a href="/o-mnie" onclick={() => isMenuOpen = false} class="text-gray-700 transition-colors font-bold text-sm tracking-wide uppercase hover:text-[var(--color-primary)]">O mnie</a>
-					<a href={getNavLink('#beforeafter')} onclick={() => isMenuOpen = false} class="text-gray-700 transition-colors font-bold text-sm tracking-wide uppercase hover:text-[var(--color-primary)]">Metamorfozy</a>
-					<a href={getNavLink('#proces')} onclick={() => isMenuOpen = false} class="text-gray-700 transition-colors font-bold text-sm tracking-wide uppercase hover:text-[var(--color-primary)]">Proces</a>
-					<a href={getNavLink('#cennik')} onclick={() => isMenuOpen = false} class="text-gray-700 transition-colors font-bold text-sm tracking-wide uppercase hover:text-[var(--color-primary)]">Ceny</a>
-					<a href={getNavLink('#portfolio')} onclick={() => isMenuOpen = false} class="text-gray-700 transition-colors font-bold text-sm tracking-wide uppercase hover:text-[var(--color-primary)]">Portfolio</a>
-					<a href={getNavLink('#kontakt')} onclick={() => isMenuOpen = false} class="px-6 py-3 text-white text-center transition-all duration-300 text-sm tracking-wide uppercase font-bold rounded-lg transform hover:scale-105" style="background-color: var(--color-accent);">Kontakt</a>
+			<div class="lg:hidden pb-6 mt-2 animate-fade-in-up" style="border-top: 1px solid rgba(0, 0, 0, 0.08);">
+				<div class="px-4 pt-6 space-y-3">
+					<!-- Navigation Items -->
+					<div class="space-y-2">
+						<a href="/o-mnie" onclick={() => isMenuOpen = false} class="block px-4 py-3 text-gray-700 transition-all duration-300 font-bold text-sm tracking-wide uppercase rounded-lg hover:bg-gray-50 hover:text-[var(--color-primary)] transform hover:translate-x-1">
+							O mnie
+						</a>
+						<a href={getNavLink('#oferta')} onclick={() => isMenuOpen = false} class="block px-4 py-3 text-gray-700 transition-all duration-300 font-bold text-sm tracking-wide uppercase rounded-lg hover:bg-gray-50 hover:text-[var(--color-primary)] transform hover:translate-x-1">
+							Oferta
+						</a>
+						<a href={getNavLink('#cennik')} onclick={() => isMenuOpen = false} class="block px-4 py-3 text-gray-700 transition-all duration-300 font-bold text-sm tracking-wide uppercase rounded-lg hover:bg-gray-50 hover:text-[var(--color-primary)] transform hover:translate-x-1">
+							Ceny
+						</a>
+						<a href={getNavLink('#portfolio')} onclick={() => isMenuOpen = false} class="block px-4 py-3 text-gray-700 transition-all duration-300 font-bold text-sm tracking-wide uppercase rounded-lg hover:bg-gray-50 hover:text-[var(--color-primary)] transform hover:translate-x-1">
+							Portfolio
+						</a>
+					</div>
+
+					<!-- CTA Button -->
+					<div class="pt-3 border-t border-gray-100">
+						<a href={getNavLink('#kontakt')} onclick={() => isMenuOpen = false} class="block px-4 py-3 text-gray-700 transition-all duration-300 text-sm tracking-wide uppercase font-bold rounded-lg hover:bg-gray-50 hover:text-[var(--color-primary)] transform hover:translate-x-1">
+							Kontakt
+						</a>
+					</div>
 				</div>
 			</div>
 		{/if}
