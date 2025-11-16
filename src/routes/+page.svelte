@@ -580,7 +580,7 @@
 		<h2 class="text-3xl md:text-5xl lg:text-6xl font-black mb-6 leading-tight" style="font-family: 'Playfair Display', serif;">
 			Przed i Po<br><span style="color: {colorPalette.primary}">Transformacji z AI</span>
 		</h2>
-		<p class="text-lg md:text-xl text-gray-600 max-w-2xl mx-auto leading-relaxed">
+		<p class="text-lg md:text-xl text-[#27275b]/80 max-w-2xl mx-auto leading-relaxed">
 			Zobacz jak AI pomaga tworzyć kolorowe, funkcjonalne przestrzenie zamiast beżowo-szarych wnętrz
 		</p>
 	</div>
@@ -632,7 +632,7 @@
 				<h3 class="text-2xl font-black mb-3" style="font-family: 'Playfair Display', serif;">
 					{beforeAfterProjects[activeBeforeAfter].title}
 				</h3>
-				<p class="text-gray-600 mb-6">{beforeAfterProjects[activeBeforeAfter].description}</p>
+				<p class="text-[#27275b]/80 mb-6">{beforeAfterProjects[activeBeforeAfter].description}</p>
 				<div class="flex justify-center gap-3 flex-wrap">
 					{#each beforeAfterProjects[activeBeforeAfter].aiFeatures as feature}
 						<span class="px-4 py-2 text-white text-sm font-bold rounded-lg" style="background-color: {colorPalette.primary}">
@@ -695,7 +695,7 @@
 				Projektowanie przyszłości.<br>
 				<span class="italic" style="color: {colorPalette.accent}">Dziś.</span>
 			</h2>
-			<div class="space-y-6 text-gray-600 leading-relaxed text-lg">
+			<div class="space-y-6 text-[#27275b]/80 leading-relaxed text-lg">
 				<p>
 					Jestem projektantką wnętrz i graficzką z wykształceniem architektonicznym.
 					Łączę inżynierską wiedzę techniczną z umiejętnościami graficznymi i plastycznymi,
@@ -745,7 +745,7 @@
 		<h2 class="text-3xl md:text-5xl lg:text-6xl font-black mb-6 leading-tight" style="font-family: 'Playfair Display', serif; color: {colorPalette.primary};">
 			Od pomysłu<br><span style="color: {colorPalette.accent}">do realizacji</span>
 		</h2>
-		<p class="text-lg md:text-xl text-gray-600 max-w-2xl mx-auto leading-relaxed">
+		<p class="text-lg md:text-xl text-[#27275b]/80 max-w-2xl mx-auto leading-relaxed">
 			Od koncepcji po realizację - pełne wsparcie w procesie projektowania wnętrz i tworzenia identyfikacji wizualnej.
 		</p>
 	</div>
@@ -758,15 +758,15 @@
 						{service.icon}
 					</div>
 				</div>
-				<h3 class="text-2xl lg:text-3xl font-black mb-4 text-gray-900 transition-colors" style="font-family: 'Playfair Display', serif;" onmouseenter={(e) => e.currentTarget.style.color = colorPalette.primary} onmouseleave={(e) => e.currentTarget.style.color = 'rgb(31, 41, 55)'}>
+				<h3 class="text-2xl lg:text-3xl font-black mb-4 text-[#27275b] transition-colors" style="font-family: 'Playfair Display', serif;" onmouseenter={(e) => e.currentTarget.style.color = colorPalette.primary} onmouseleave={(e) => e.currentTarget.style.color = '#27275b'}>
 					{service.title}
 				</h3>
-				<p class="text-gray-600 mb-8 leading-relaxed">
+				<p class="text-[#27275b]/80 mb-8 leading-relaxed">
 					{service.description}
 				</p>
 				<ul class="space-y-3">
 					{#each service.features as feature}
-						<li class="flex items-start text-gray-700">
+						<li class="flex items-start text-[#27275b]/90">
 							<span class="w-1.5 h-1.5 bg-[#10B981] mt-2.5 mr-3 flex-shrink-0"></span>
 							<span class="text-sm">{feature}</span>
 						</li>
@@ -860,14 +860,14 @@
 			<div class="bg-white p-8 rounded-2xl border-4 transition-all duration-300 hover:shadow-xl" style="border-color: {colorPalette.primary};">
 				<div class="text-4xl mb-4">⚡</div>
 				<h3 class="text-2xl font-black mb-3" style="font-family: 'Playfair Display', serif; color: {colorPalette.primary}">Szybki I Dopracowany</h3>
-				<p class="text-gray-600 leading-relaxed">
+				<p class="text-[#27275b]/80 leading-relaxed">
 					AI nie zastępuje designera - wzmacnia go. Generujemy warianty w godziny, a potem dopracowujemy każdy detal ręcznie.
 				</p>
 			</div>
 
 			<div class="bg-white p-8 rounded-2xl border-4 transition-all duration-300 hover:shadow-xl" style="border-color: {colorPalette.accent};">
 				<h3 class="text-2xl font-black mb-3" style="font-family: 'Playfair Display', serif; color: {colorPalette.accent}">Kolorowy I Profesjonalny</h3>
-				<p class="text-gray-600 leading-relaxed">
+				<p class="text-[#27275b]/80 leading-relaxed">
 					Zero beżowo-szarych nudnych wnętrz. Ale też zero chaosu - każdy kolor ma swoje miejsce i funkcję.
 				</p>
 			</div>
@@ -875,7 +875,7 @@
 			<div class="bg-white p-8 rounded-2xl border-4 transition-all duration-300 hover:shadow-xl" style="border-color: {colorPalette.secondary};">
 				<div class="text-4xl mb-4">🚀</div>
 				<h3 class="text-2xl font-black mb-3" style="font-family: 'Playfair Display', serif; color: {colorPalette.secondary};">Odważny I Funkcjonalny</h3>
-				<p class="text-gray-600 leading-relaxed">
+				<p class="text-[#27275b]/80 leading-relaxed">
 					Projektujemy przestrzenie, które wyróżniają się wizualnie, ale przede wszystkim - działają dla Ciebie każdego dnia.
 				</p>
 			</div>
@@ -883,7 +883,7 @@
 			<div class="bg-white p-8 rounded-2xl border-4 transition-all duration-300 hover:shadow-xl" style="border-color: {colorPalette.success};">
 				<div class="text-4xl mb-4">💰</div>
 				<h3 class="text-2xl font-black mb-3" style="font-family: 'Playfair Display', serif; color: {colorPalette.success}">Dostępny I Wysokiej Jakości</h3>
-				<p class="text-gray-600 leading-relaxed">
+				<p class="text-[#27275b]/80 leading-relaxed">
 					AI oszczędza nam czas, więc możemy oferować Ci atrakcyjne ceny bez kompromisów w jakości wykonania.
 				</p>
 			</div>
@@ -940,11 +940,11 @@
 	<div class="absolute top-1/2 right-1/3 w-40 h-40 md:w-80 md:h-80 rounded-full filter blur-3xl opacity-15" style="background-color: {colorPalette.success}"></div>
 
 	<div class="text-center mb-20 observe relative z-10">
-		<p class="font-black tracking-[0.15em] md:tracking-[0.3em] uppercase text-sm mb-4 text-gray-500">Proces Projektowy</p>
+		<p class="font-black tracking-[0.15em] md:tracking-[0.3em] uppercase text-sm mb-4 text-[#27275b]/70">Proces Projektowy</p>
 		<h2 class="text-3xl md:text-5xl lg:text-6xl font-black mb-6 leading-tight" style="font-family: 'Playfair Display', serif;">
 			Podróż do<br><span style="color: {colorPalette.primary}">Doskonalej Przestrzeni</span>
 		</h2>
-		<p class="text-lg md:text-xl text-gray-600 max-w-3xl mx-auto leading-relaxed">
+		<p class="text-lg md:text-xl text-[#27275b]/80 max-w-3xl mx-auto leading-relaxed">
 			Każdy projekt to unikalna historia. Wybierz ścieżkę, która najlepiej odzwierciedla Twoją wizję i potrzeby.
 		</p>
 	</div>
@@ -964,11 +964,11 @@
 							<div class="flex flex-col lg:flex-row lg:items-center lg:justify-between gap-8">
 								<div class="flex-1">
 									<div class="text-6xl mb-4">{journey.image}</div>
-									<h3 class="text-3xl lg:text-4xl font-black mb-2" style="font-family: 'Playfair Display', serif; color: {journey.highlight ? colorPalette.primary : 'rgb(31, 41, 55)'}">
+									<h3 class="text-3xl lg:text-4xl font-black mb-2" style="font-family: 'Playfair Display', serif; color: {journey.highlight ? colorPalette.primary : '#27275b'}">
 										{journey.title}
 									</h3>
-									<p class="text-lg font-medium mb-3 text-gray-600">{journey.subtitle}</p>
-									<p class="text-gray-700 leading-relaxed max-w-2xl">
+									<p class="text-lg font-medium mb-3 text-[#27275b]/80">{journey.subtitle}</p>
+									<p class="text-[#27275b]/90 leading-relaxed max-w-2xl">
 										{journey.description}
 									</p>
 								</div>
@@ -976,9 +976,9 @@
 								<!-- Investment & Duration -->
 								<div class="lg:text-right">
 									<div class="inline-block p-6 bg-gray-50 rounded-2xl border border-gray-100">
-										<div class="text-sm uppercase tracking-wider text-gray-500 mb-1 font-bold">Inwestycja</div>
+										<div class="text-sm uppercase tracking-wider text-[#27275b]/70 mb-1 font-bold">Inwestycja</div>
 										<div class="text-2xl font-black mb-2" style="color: {colorPalette.primary}">{journey.investment}</div>
-										<div class="text-sm text-gray-600">{journey.duration}</div>
+										<div class="text-sm text-[#27275b]/80">{journey.duration}</div>
 									</div>
 								</div>
 							</div>
@@ -988,14 +988,14 @@
 					<!-- Process Steps -->
 					<div class="px-8 lg:px-12 pb-12">
 						<div class="border-t border-gray-100 pt-8">
-							<h4 class="text-lg font-bold mb-6 text-gray-900">Jak wygląda współpraca:</h4>
+							<h4 class="text-lg font-bold mb-6 text-[#27275b]">Jak wygląda współpraca:</h4>
 							<div class="grid md:grid-cols-2 gap-6">
 								{#each journey.process as step, stepIndex}
 									<div class="flex items-start gap-4">
 										<div class="flex-shrink-0 w-8 h-8 rounded-full flex items-center justify-center text-sm font-bold" style="background-color: {colorPalette.primary}; color: white;">
 											{stepIndex + 1}
 										</div>
-										<p class="text-gray-700 leading-relaxed">{step}</p>
+										<p class="text-[#27275b]/90 leading-relaxed">{step}</p>
 									</div>
 								{/each}
 							</div>
@@ -1003,7 +1003,7 @@
 
 						<!-- CTA -->
 						<div class="mt-8 pt-8 border-t border-gray-100 text-center">
-							<p class="text-sm text-gray-500 mb-4">Gotowy na transformację swojej przestrzeni?</p>
+							<p class="text-sm text-[#27275b]/70 mb-4">Gotowy na transformację swojej przestrzeni?</p>
 							<a href="#kontakt" class="inline-flex items-center gap-3 px-8 py-4 text-white rounded-xl hover:shadow-xl transition-all duration-300 font-bold text-sm group" style="background-color: {colorPalette.accent};">
 								<span>Rozpocznij {journey.title.toLowerCase()}</span>
 								<svg class="w-4 h-4 transform group-hover:translate-x-1 transition-transform" fill="none" stroke="currentColor" viewBox="0 0 24 24">
@@ -1024,7 +1024,7 @@
 			<h3 class="text-2xl lg:text-3xl font-black mb-4" style="font-family: 'Playfair Display', serif; color: {colorPalette.primary}">
 				Każdy Projekt Jest Inny
 			</h3>
-			<p class="text-lg text-gray-700 mb-8 leading-relaxed">
+			<p class="text-lg text-[#27275b]/90 mb-8 leading-relaxed">
 				Masz unikalną wizję lub nietypową przestrzeń? Niezależnie od skali projektu,
 				każda współpraca jest tworzona indywidualnie. Podziel się swoimi marzeniami -
 				razem stworzymy coś wyjątkowego.
@@ -1036,7 +1036,7 @@
 						<path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8 12h.01M12 12h.01M16 12h.01M21 12c0 4.418-4.03 8-9 8a9.863 9.863 0 01-4.255-.949L3 20l1.395-3.72C3.512 15.042 3 13.574 3 12c0-4.418 4.03-8 9-8s9 3.582 9 8z"/>
 					</svg>
 				</a>
-				<div class="text-sm text-gray-500">
+				<div class="text-sm text-[#27275b]/70">
 					💡 Bez zobowiązań • 30 minut • Online lub stacjonarnie
 				</div>
 			</div>
@@ -1053,7 +1053,7 @@
 		<h2 class="text-3xl md:text-5xl lg:text-6xl font-black mb-6 leading-tight" style="font-family: 'Playfair Display', serif;">
 			<span style="color: {colorPalette.primary}">Wybrane</span><br>realizacje
 		</h2>
-		<p class="text-lg md:text-xl text-gray-600 max-w-2xl mx-auto mb-12 leading-relaxed">
+		<p class="text-lg md:text-xl text-[#27275b]/80 max-w-2xl mx-auto mb-12 leading-relaxed">
 			Każdy projekt to indywidualna historia połączenia formy, funkcji i charakteru klienta.
 		</p>
 
@@ -1061,7 +1061,7 @@
 		<div class="flex justify-center gap-4 flex-wrap">
 			<button
 				onclick={() => activeFilter = 'wszystkie'}
-				class="px-8 py-3 text-sm uppercase tracking-wider font-bold transition-all duration-300 rounded-lg {activeFilter === 'wszystkie' ? 'text-white shadow-lg' : 'bg-transparent text-gray-600 border-2 border-gray-200'}"
+				class="px-8 py-3 text-sm uppercase tracking-wider font-bold transition-all duration-300 rounded-lg {activeFilter === 'wszystkie' ? 'text-white shadow-lg' : 'bg-transparent text-[#27275b]/80 border-2 border-gray-200'}"
 				style={activeFilter === 'wszystkie' ? `background-color: ${colorPalette.primary}; border-color: ${colorPalette.primary};` : `border-color: rgb(229, 231, 235);`}
 				onmouseenter={(e) => { if (activeFilter !== 'wszystkie') { e.currentTarget.style.color = colorPalette.primary; e.currentTarget.style.borderColor = colorPalette.primary; } }}
 				onmouseleave={(e) => { if (activeFilter !== 'wszystkie') { e.currentTarget.style.color = 'rgb(75, 85, 99)'; e.currentTarget.style.borderColor = 'rgb(229, 231, 235)'; } }}
@@ -1070,7 +1070,7 @@
 			</button>
 			<button
 				onclick={() => activeFilter = 'wnętrza'}
-				class="px-8 py-3 text-sm uppercase tracking-wider font-bold transition-all duration-300 rounded-lg {activeFilter === 'wnętrza' ? 'text-white shadow-lg' : 'bg-transparent text-gray-600 border-2 border-gray-200'}"
+				class="px-8 py-3 text-sm uppercase tracking-wider font-bold transition-all duration-300 rounded-lg {activeFilter === 'wnętrza' ? 'text-white shadow-lg' : 'bg-transparent text-[#27275b]/80 border-2 border-gray-200'}"
 				style={activeFilter === 'wnętrza' ? `background-color: ${colorPalette.accent}; border-color: ${colorPalette.accent};` : `border-color: rgb(229, 231, 235);`}
 				onmouseenter={(e) => { if (activeFilter !== 'wnętrza') { e.currentTarget.style.color = colorPalette.primary; e.currentTarget.style.borderColor = colorPalette.primary; } }}
 				onmouseleave={(e) => { if (activeFilter !== 'wnętrza') { e.currentTarget.style.color = 'rgb(75, 85, 99)'; e.currentTarget.style.borderColor = 'rgb(229, 231, 235)'; } }}
@@ -1079,7 +1079,7 @@
 			</button>
 			<button
 				onclick={() => activeFilter = 'grafika'}
-				class="px-8 py-3 text-sm uppercase tracking-wider font-bold transition-all duration-300 rounded-lg {activeFilter === 'grafika' ? 'text-white shadow-lg' : 'bg-transparent text-gray-600 border-2 border-gray-200'}"
+				class="px-8 py-3 text-sm uppercase tracking-wider font-bold transition-all duration-300 rounded-lg {activeFilter === 'grafika' ? 'text-white shadow-lg' : 'bg-transparent text-[#27275b]/80 border-2 border-gray-200'}"
 				style={activeFilter === 'grafika' ? `background-color: ${colorPalette.secondary}; border-color: ${colorPalette.secondary};` : `border-color: rgb(229, 231, 235);`}
 				onmouseenter={(e) => { if (activeFilter !== 'grafika') { e.currentTarget.style.color = colorPalette.primary; e.currentTarget.style.borderColor = colorPalette.primary; } }}
 				onmouseleave={(e) => { if (activeFilter !== 'grafika') { e.currentTarget.style.color = 'rgb(75, 85, 99)'; e.currentTarget.style.borderColor = 'rgb(229, 231, 235)'; } }}
@@ -1118,15 +1118,15 @@
 							{project.category === 'wnętrza' ? 'Wnętrza' : 'Grafika'}
 						</span>
 					</div>
-					<h3 class="text-2xl font-black text-gray-900 transition-colors" style="font-family: 'Playfair Display', serif;" onmouseenter={(e) => e.currentTarget.style.color = colorPalette.primary} onmouseleave={(e) => e.currentTarget.style.color = 'rgb(31, 41, 55)'}>
+					<h3 class="text-2xl font-black text-[#27275b] transition-colors" style="font-family: 'Playfair Display', serif;" onmouseenter={(e) => e.currentTarget.style.color = colorPalette.primary} onmouseleave={(e) => e.currentTarget.style.color = '#27275b'}>
 						{project.title}
 					</h3>
-					<p class="text-gray-600 leading-relaxed">
+					<p class="text-[#27275b]/80 leading-relaxed">
 						{project.description}
 					</p>
 					<div class="flex flex-wrap gap-2 pt-2">
 						{#each project.technologies.slice(0, 3) as tech}
-							<span class="text-xs px-3 py-1 border border-gray-200 text-gray-600 uppercase tracking-wider">
+							<span class="text-xs px-3 py-1 border border-gray-200 text-[#27275b]/80 uppercase tracking-wider">
 								{tech}
 							</span>
 						{/each}
@@ -1169,7 +1169,7 @@
 				Rozpocznijmy<br>
 				<span class="italic" style="color: {colorPalette.accent}">współpracę</span>
 			</h2>
-			<p class="text-lg md:text-xl text-gray-600 mb-12 leading-relaxed">
+			<p class="text-lg md:text-xl text-[#27275b]/80 mb-12 leading-relaxed">
 				Masz pomysł na projekt? Chcesz stworzyć wyjątkową przestrzeń lub odświeżyć identyfikację wizualną?
 				Skontaktuj się ze mną - razem znajdziemy idealne rozwiązanie.
 			</p>
@@ -1177,13 +1177,13 @@
 			<div class="space-y-8">
 				<div class="flex items-start space-x-4">
 					<div class="w-12 h-12 border border-gray-200 flex items-center justify-center flex-shrink-0">
-						<svg class="w-5 h-5 text-gray-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+						<svg class="w-5 h-5 text-[#27275b]/80" fill="none" stroke="currentColor" viewBox="0 0 24 24">
 							<path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z"></path>
 						</svg>
 					</div>
 					<div>
-						<p class="text-sm uppercase tracking-wider text-gray-500 mb-1">Email</p>
-						<a href="mailto:kontakt@pikastro.eu" class="text-lg text-gray-900 hover:text-[#FB7185] transition-colors">
+						<p class="text-sm uppercase tracking-wider text-[#27275b]/70 mb-1">Email</p>
+						<a href="mailto:kontakt@pikastro.eu" class="text-lg text-[#27275b] hover:text-[#FB7185] transition-colors">
 							kontakt@pikastro.eu
 						</a>
 					</div>
@@ -1191,27 +1191,27 @@
 
 				<div class="flex items-start space-x-4">
 					<div class="w-12 h-12 border border-gray-200 flex items-center justify-center flex-shrink-0">
-						<svg class="w-5 h-5 text-gray-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+						<svg class="w-5 h-5 text-[#27275b]/80" fill="none" stroke="currentColor" viewBox="0 0 24 24">
 							<path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z"></path>
 							<path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 11a3 3 0 11-6 0 3 3 0 016 0z"></path>
 						</svg>
 					</div>
 					<div>
-						<p class="text-sm uppercase tracking-wider text-gray-500 mb-1">Lokalizacja</p>
-						<p class="text-lg text-gray-900">Kraków, Polska</p>
-						<p class="text-sm text-gray-500">Współpraca zdalna w całej Polsce</p>
+						<p class="text-sm uppercase tracking-wider text-[#27275b]/70 mb-1">Lokalizacja</p>
+						<p class="text-lg text-[#27275b]">Kraków, Polska</p>
+						<p class="text-sm text-[#27275b]/70">Współpraca zdalna w całej Polsce</p>
 					</div>
 				</div>
 
 				<div class="flex items-start space-x-4">
 					<div class="w-12 h-12 border border-gray-200 flex items-center justify-center flex-shrink-0">
-						<svg class="w-5 h-5 text-gray-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+						<svg class="w-5 h-5 text-[#27275b]/80" fill="none" stroke="currentColor" viewBox="0 0 24 24">
 							<path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z"></path>
 						</svg>
 					</div>
 					<div>
-						<p class="text-sm uppercase tracking-wider text-gray-500 mb-1">Dostępność</p>
-						<p class="text-lg text-gray-900">Pn - Pt, 9:00 - 17:00</p>
+						<p class="text-sm uppercase tracking-wider text-[#27275b]/70 mb-1">Dostępność</p>
+						<p class="text-lg text-[#27275b]">Pn - Pt, 9:00 - 17:00</p>
 					</div>
 				</div>
 			</div>
@@ -1232,7 +1232,7 @@
 		<div class="bg-white p-10 lg:p-12 observe rounded-2xl border-4 shadow-xl" style="border-color: {colorPalette.accent};">
 			<form class="space-y-6" onsubmit={handleSubmit}>
 				<div>
-					<label for="name" class="block text-sm uppercase tracking-wider font-bold text-gray-700 mb-2">Imię i nazwisko</label>
+					<label for="name" class="block text-sm uppercase tracking-wider font-bold text-[#27275b]/90 mb-2">Imię i nazwisko</label>
 					<input
 						type="text"
 						id="name"
@@ -1262,7 +1262,7 @@
 				</div>
 
 				<div>
-					<label for="email" class="block text-sm uppercase tracking-wider font-bold text-gray-700 mb-2">Email</label>
+					<label for="email" class="block text-sm uppercase tracking-wider font-bold text-[#27275b]/90 mb-2">Email</label>
 					<input
 						type="text"
 						id="email"
@@ -1292,7 +1292,7 @@
 				</div>
 
 				<div>
-					<label for="project" class="block text-sm uppercase tracking-wider font-bold text-gray-700 mb-2">Typ projektu</label>
+					<label for="project" class="block text-sm uppercase tracking-wider font-bold text-[#27275b]/90 mb-2">Typ projektu</label>
 					<select
 						id="project"
 						bind:value={formData.project}
@@ -1307,7 +1307,7 @@
 				</div>
 
 				<div>
-					<label for="message" class="block text-sm uppercase tracking-wider font-bold text-gray-700 mb-2">Wiadomość</label>
+					<label for="message" class="block text-sm uppercase tracking-wider font-bold text-[#27275b]/90 mb-2">Wiadomość</label>
 					<textarea
 						id="message"
 						value={formData.message}
@@ -1336,7 +1336,7 @@
 						{:else}
 							<span></span>
 						{/if}
-						<p class="text-xs text-gray-500">
+						<p class="text-xs text-[#27275b]/70">
 							{formData.message.length}/5000
 						</p>
 					</div>
