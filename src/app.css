@@ -9,7 +9,6 @@
   html {
     font-family: 'Montserrat', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
     scroll-behavior: smooth;
-    overflow-x: hidden;
   }
 
   body {
@@ -18,6 +17,7 @@
     -moz-osx-font-smoothing: grayscale;
     overflow-x: hidden;
     width: 100%;
+    position: relative;
   }
 
   /* Main headings - elegant serif */
