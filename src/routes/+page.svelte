@@ -577,7 +577,7 @@
 	<div class="absolute bottom-0 left-0 w-40 h-40 md:w-80 md:h-80 rounded-full filter blur-3xl opacity-25" style="background-color: {colorPalette.accent};"></div>
 	<div class="text-center mb-12 md:mb-20 observe">
 		<p class="font-black tracking-[0.15em] md:tracking-[0.3em] uppercase text-sm mb-4" style="color: {colorPalette.primary}">Metamorfozy AI</p>
-		<h2 class="text-3xl md:text-5xl lg:text-6xl font-black mb-6 leading-tight" style="font-family: 'Playfair Display', serif;">
+		<h2 class="text-4xl md:text-5xl lg:text-6xl font-black mb-6 leading-tight" style="font-family: 'Playfair Display', serif;">
 			Przed i Po<br><span style="color: {colorPalette.primary}">Transformacji z AI</span>
 		</h2>
 		<p class="text-lg md:text-xl text-[#27275b]/80 max-w-2xl mx-auto leading-relaxed">
@@ -588,7 +588,7 @@
 	<div class="relative z-10">
 		<!-- Main Before/After Slider -->
 		<div class="max-w-5xl mx-auto mb-16 observe">
-			<div class="relative aspect-[16/9] bg-gray-900 rounded-2xl overflow-hidden shadow-2xl">
+			<div class="relative aspect-[16/9] bg-[#27275b] rounded-2xl overflow-hidden shadow-2xl">
 				<!-- Before Image -->
 				<div class="absolute inset-0">
 					<img 
@@ -648,7 +648,7 @@
 			{#each beforeAfterProjects as project, i}
 				<button
 					onclick={() => activeBeforeAfter = i}
-					class="relative aspect-[4/3] rounded-xl overflow-hidden border-4 transition-all duration-300 {activeBeforeAfter === i ? 'scale-105' : 'border-gray-200'}"
+					class="relative aspect-[4/3] rounded-xl overflow-hidden border-4 transition-all duration-300 {activeBeforeAfter === i ? 'scale-105' : 'border-[#27275b]/20'}"
 					style={activeBeforeAfter === i ? `border-color: ${colorPalette.accent}; box-shadow: 0 25px 50px -12px rgba(var(--color-accent-rgb, 251, 113, 133), 0.3);` : `border-color: rgb(229, 231, 235);`}
 					onmouseenter={(e) => { if (activeBeforeAfter !== i) e.currentTarget.style.borderColor = colorPalette.primary; }}
 					onmouseleave={(e) => { if (activeBeforeAfter !== i) e.currentTarget.style.borderColor = 'rgb(229, 231, 235)'; }}
@@ -672,7 +672,7 @@
 	<div class="absolute top-0 right-0 w-48 h-48 md:w-96 md:h-96 rounded-full filter blur-3xl opacity-20" style="background-color: {colorPalette.accent};"></div>
 	<div class="absolute bottom-0 left-0 w-48 h-48 md:w-96 md:h-96 rounded-full filter blur-3xl opacity-20" style="background-color: {colorPalette.secondary};"></div>
 	<div class="max-w-5xl mx-auto px-6 text-center relative z-10">
-		<h2 class="text-2xl md:text-4xl lg:text-5xl font-black mb-6 text-white leading-tight" style="font-family: 'Playfair Display', serif;">
+		<h2 class="text-3xl md:text-4xl lg:text-5xl font-black mb-6 text-white leading-tight" style="font-family: 'Playfair Display', serif;">
 			Gotowy na kolorową <span style="color: {colorPalette.accent}">metamorfozę</span>?
 		</h2>
 		<p class="text-lg md:text-xl text-gray-200 mb-8 max-w-2xl mx-auto">
@@ -691,7 +691,7 @@
 	<div class="absolute top-1/2 left-1/4 w-32 h-32 md:w-64 md:h-64 rounded-full filter blur-3xl opacity-15" style="background-color: {colorPalette.success};"></div>
 	<div class="grid md:grid-cols-2 gap-16 lg:gap-24 items-center relative z-10">
 		<div class="observe">
-			<h2 class="text-3xl md:text-5xl lg:text-6xl font-black mb-8 leading-tight" style="font-family: 'Playfair Display', serif; color: {colorPalette.primary};">
+			<h2 class="text-4xl md:text-5xl lg:text-6xl font-black mb-8 leading-tight" style="font-family: 'Playfair Display', serif; color: {colorPalette.primary};">
 				Projektowanie przyszłości.<br>
 				<span class="italic" style="color: {colorPalette.accent}">Dziś.</span>
 			</h2>
@@ -742,7 +742,7 @@
 	<div class="absolute bottom-10 right-5 w-36 h-36 md:bottom-20 md:right-20 md:w-72 md:h-72 rounded-full filter blur-3xl opacity-20 animate-pulse-slow" style="background-color: {colorPalette.success}; animation-delay: 1s;"></div>
 		<div class="text-center mb-20 observe relative z-10">
 		<p class="font-black tracking-[0.15em] md:tracking-[0.3em] uppercase text-sm mb-4" style="color: {colorPalette.primary}">Oferta</p>
-		<h2 class="text-3xl md:text-5xl lg:text-6xl font-black mb-6 leading-tight" style="font-family: 'Playfair Display', serif; color: {colorPalette.primary};">
+		<h2 class="text-4xl md:text-5xl lg:text-6xl font-black mb-6 leading-tight" style="font-family: 'Playfair Display', serif; color: {colorPalette.primary};">
 			Od pomysłu<br><span style="color: {colorPalette.accent}">do realizacji</span>
 		</h2>
 		<p class="text-lg md:text-xl text-[#27275b]/80 max-w-2xl mx-auto leading-relaxed">
@@ -758,7 +758,7 @@
 						{service.icon}
 					</div>
 				</div>
-				<h3 class="text-2xl lg:text-3xl font-black mb-4 text-[#27275b] transition-colors" style="font-family: 'Playfair Display', serif;" onmouseenter={(e) => e.currentTarget.style.color = colorPalette.primary} onmouseleave={(e) => e.currentTarget.style.color = '#27275b'}>
+				<h3 class="text-3xl lg:text-4xl font-black mb-4 text-[#27275b] transition-colors" style="font-family: 'Playfair Display', serif;" onmouseenter={(e) => e.currentTarget.style.color = colorPalette.primary} onmouseleave={(e) => e.currentTarget.style.color = '#27275b'}>
 					{service.title}
 				</h3>
 				<p class="text-[#27275b]/80 mb-8 leading-relaxed">
@@ -785,7 +785,7 @@
 
 	<div class="text-center mb-20 observe relative z-10">
 		<p class="font-black tracking-[0.15em] md:tracking-[0.3em] uppercase text-sm mb-4 neon-text" style="color: {colorPalette.accent}">Jak to działa</p>
-		<h2 class="text-3xl md:text-5xl lg:text-6xl font-black mb-6 leading-tight" style="font-family: 'Playfair Display', serif;">
+		<h2 class="text-4xl md:text-5xl lg:text-6xl font-black mb-6 leading-tight" style="font-family: 'Playfair Display', serif;">
 			Proces Projektowania<br><span class="text-white">z Wykorzystaniem AI</span>
 		</h2>
 		<p class="text-lg md:text-xl text-gray-200 max-w-2xl mx-auto leading-relaxed">
@@ -851,7 +851,7 @@
 	<div class="max-w-4xl mx-auto relative z-10">
 		<div class="text-center mb-16 observe">
 			<p class="font-black tracking-[0.15em] md:tracking-[0.3em] uppercase text-sm mb-4" style="color: {colorPalette.primary}">Nasza Filozofia</p>
-			<h2 class="text-3xl md:text-5xl lg:text-6xl font-black mb-6 leading-tight" style="font-family: 'Playfair Display', serif;">
+			<h2 class="text-4xl md:text-5xl lg:text-6xl font-black mb-6 leading-tight" style="font-family: 'Playfair Display', serif;">
 				<span style="color: {colorPalette.primary}">Wierzymy</span>, że design może być...
 			</h2>
 		</div>
@@ -941,7 +941,7 @@
 
 	<div class="text-center mb-20 observe relative z-10">
 		<p class="font-black tracking-[0.15em] md:tracking-[0.3em] uppercase text-sm mb-4 text-[#27275b]/70">Proces Projektowy</p>
-		<h2 class="text-3xl md:text-5xl lg:text-6xl font-black mb-6 leading-tight" style="font-family: 'Playfair Display', serif;">
+		<h2 class="text-4xl md:text-5xl lg:text-6xl font-black mb-6 leading-tight" style="font-family: 'Playfair Display', serif;">
 			Podróż do<br><span style="color: {colorPalette.primary}">Doskonalej Przestrzeni</span>
 		</h2>
 		<p class="text-lg md:text-xl text-[#27275b]/80 max-w-3xl mx-auto leading-relaxed">
@@ -952,7 +952,7 @@
 	<div class="space-y-16 relative z-10 max-w-7xl mx-auto">
 		{#each designJourneys as journey, i}
 			<div class="observe" style="animation-delay: {i * 200}ms">
-				<div class="bg-white rounded-3xl shadow-sm border border-gray-100 overflow-hidden transition-all duration-500 hover:shadow-2xl {journey.highlight ? 'ring-2 ring-offset-4' : ''}" style={journey.highlight ? `ring-color: ${colorPalette.primary}; --tw-ring-offset-color: rgba(var(--color-primary-rgb, 59, 130, 246), 0.1);` : ''}>
+				<div class="bg-white rounded-3xl shadow-sm border border-[#27275b]/10 overflow-hidden transition-all duration-500 hover:shadow-2xl {journey.highlight ? 'ring-2 ring-offset-4' : ''}" style={journey.highlight ? `ring-color: ${colorPalette.primary}; --tw-ring-offset-color: rgba(var(--color-primary-rgb, 59, 130, 246), 0.1);` : ''}>
 
 					<!-- Journey Header -->
 					<div class="relative">
@@ -975,7 +975,7 @@
 
 								<!-- Investment & Duration -->
 								<div class="lg:text-right">
-									<div class="inline-block p-6 bg-gray-50 rounded-2xl border border-gray-100">
+									<div class="inline-block p-6 bg-[#27275b]/5 rounded-2xl border border-[#27275b]/10">
 										<div class="text-sm uppercase tracking-wider text-[#27275b]/70 mb-1 font-bold">Inwestycja</div>
 										<div class="text-2xl font-black mb-2" style="color: {colorPalette.primary}">{journey.investment}</div>
 										<div class="text-sm text-[#27275b]/80">{journey.duration}</div>
@@ -987,7 +987,7 @@
 
 					<!-- Process Steps -->
 					<div class="px-8 lg:px-12 pb-12">
-						<div class="border-t border-gray-100 pt-8">
+						<div class="border-t border-[#27275b]/10 pt-8">
 							<h4 class="text-lg font-bold mb-6 text-[#27275b]">Jak wygląda współpraca:</h4>
 							<div class="grid md:grid-cols-2 gap-6">
 								{#each journey.process as step, stepIndex}
@@ -1002,7 +1002,7 @@
 						</div>
 
 						<!-- CTA -->
-						<div class="mt-8 pt-8 border-t border-gray-100 text-center">
+						<div class="mt-8 pt-8 border-t border-[#27275b]/10 text-center">
 							<p class="text-sm text-[#27275b]/70 mb-4">Gotowy na transformację swojej przestrzeni?</p>
 							<a href="#kontakt" class="inline-flex items-center gap-3 px-8 py-4 text-white rounded-xl hover:shadow-xl transition-all duration-300 font-bold text-sm group" style="background-color: {colorPalette.accent};">
 								<span>Rozpocznij {journey.title.toLowerCase()}</span>
@@ -1021,7 +1021,7 @@
 	<div class="mt-20 text-center observe max-w-4xl mx-auto">
 		<div class="p-8 lg:p-12 rounded-3xl border-4" style="background-color: rgba(29, 168, 152, 0.05); border-color: {colorPalette.secondary};">
 			<div class="text-6xl mb-4">🤝</div>
-			<h3 class="text-2xl lg:text-3xl font-black mb-4" style="font-family: 'Playfair Display', serif; color: {colorPalette.primary}">
+			<h3 class="text-3xl lg:text-4xl font-black mb-4" style="font-family: 'Playfair Display', serif; color: {colorPalette.primary}">
 				Każdy Projekt Jest Inny
 			</h3>
 			<p class="text-lg text-[#27275b]/90 mb-8 leading-relaxed">
@@ -1050,7 +1050,7 @@
 	<div class="absolute bottom-0 right-1/4 w-40 h-40 md:w-80 md:h-80 rounded-full filter blur-3xl opacity-20" style="background-color: {colorPalette.secondary};"></div>
 		<div class="text-center mb-20 observe relative z-10">
 		<p class="font-black tracking-[0.15em] md:tracking-[0.3em] uppercase text-sm mb-4" style="color: {colorPalette.primary}">Portfolio</p>
-		<h2 class="text-3xl md:text-5xl lg:text-6xl font-black mb-6 leading-tight" style="font-family: 'Playfair Display', serif;">
+		<h2 class="text-4xl md:text-5xl lg:text-6xl font-black mb-6 leading-tight" style="font-family: 'Playfair Display', serif;">
 			<span style="color: {colorPalette.primary}">Wybrane</span><br>realizacje
 		</h2>
 		<p class="text-lg md:text-xl text-[#27275b]/80 max-w-2xl mx-auto mb-12 leading-relaxed">
@@ -1061,7 +1061,7 @@
 		<div class="flex justify-center gap-4 flex-wrap">
 			<button
 				onclick={() => activeFilter = 'wszystkie'}
-				class="px-8 py-3 text-sm uppercase tracking-wider font-bold transition-all duration-300 rounded-lg {activeFilter === 'wszystkie' ? 'text-white shadow-lg' : 'bg-transparent text-[#27275b]/80 border-2 border-gray-200'}"
+				class="px-8 py-3 text-sm uppercase tracking-wider font-bold transition-all duration-300 rounded-lg {activeFilter === 'wszystkie' ? 'text-white shadow-lg' : 'bg-transparent text-[#27275b]/80 border-2 border-[#27275b]/20'}"
 				style={activeFilter === 'wszystkie' ? `background-color: ${colorPalette.primary}; border-color: ${colorPalette.primary};` : `border-color: rgb(229, 231, 235);`}
 				onmouseenter={(e) => { if (activeFilter !== 'wszystkie') { e.currentTarget.style.color = colorPalette.primary; e.currentTarget.style.borderColor = colorPalette.primary; } }}
 				onmouseleave={(e) => { if (activeFilter !== 'wszystkie') { e.currentTarget.style.color = 'rgb(75, 85, 99)'; e.currentTarget.style.borderColor = 'rgb(229, 231, 235)'; } }}
@@ -1070,7 +1070,7 @@
 			</button>
 			<button
 				onclick={() => activeFilter = 'wnętrza'}
-				class="px-8 py-3 text-sm uppercase tracking-wider font-bold transition-all duration-300 rounded-lg {activeFilter === 'wnętrza' ? 'text-white shadow-lg' : 'bg-transparent text-[#27275b]/80 border-2 border-gray-200'}"
+				class="px-8 py-3 text-sm uppercase tracking-wider font-bold transition-all duration-300 rounded-lg {activeFilter === 'wnętrza' ? 'text-white shadow-lg' : 'bg-transparent text-[#27275b]/80 border-2 border-[#27275b]/20'}"
 				style={activeFilter === 'wnętrza' ? `background-color: ${colorPalette.accent}; border-color: ${colorPalette.accent};` : `border-color: rgb(229, 231, 235);`}
 				onmouseenter={(e) => { if (activeFilter !== 'wnętrza') { e.currentTarget.style.color = colorPalette.primary; e.currentTarget.style.borderColor = colorPalette.primary; } }}
 				onmouseleave={(e) => { if (activeFilter !== 'wnętrza') { e.currentTarget.style.color = 'rgb(75, 85, 99)'; e.currentTarget.style.borderColor = 'rgb(229, 231, 235)'; } }}
@@ -1079,7 +1079,7 @@
 			</button>
 			<button
 				onclick={() => activeFilter = 'grafika'}
-				class="px-8 py-3 text-sm uppercase tracking-wider font-bold transition-all duration-300 rounded-lg {activeFilter === 'grafika' ? 'text-white shadow-lg' : 'bg-transparent text-[#27275b]/80 border-2 border-gray-200'}"
+				class="px-8 py-3 text-sm uppercase tracking-wider font-bold transition-all duration-300 rounded-lg {activeFilter === 'grafika' ? 'text-white shadow-lg' : 'bg-transparent text-[#27275b]/80 border-2 border-[#27275b]/20'}"
 				style={activeFilter === 'grafika' ? `background-color: ${colorPalette.secondary}; border-color: ${colorPalette.secondary};` : `border-color: rgb(229, 231, 235);`}
 				onmouseenter={(e) => { if (activeFilter !== 'grafika') { e.currentTarget.style.color = colorPalette.primary; e.currentTarget.style.borderColor = colorPalette.primary; } }}
 				onmouseleave={(e) => { if (activeFilter !== 'grafika') { e.currentTarget.style.color = 'rgb(75, 85, 99)'; e.currentTarget.style.borderColor = 'rgb(229, 231, 235)'; } }}
@@ -1126,7 +1126,7 @@
 					</p>
 					<div class="flex flex-wrap gap-2 pt-2">
 						{#each project.technologies.slice(0, 3) as tech}
-							<span class="text-xs px-3 py-1 border border-gray-200 text-[#27275b]/80 uppercase tracking-wider">
+							<span class="text-xs px-3 py-1 border border-[#27275b]/20 text-[#27275b]/80 uppercase tracking-wider">
 								{tech}
 							</span>
 						{/each}
@@ -1165,7 +1165,7 @@
 		<div class="grid lg:grid-cols-2 gap-16 lg:gap-24 relative z-10">
 		<div class="observe">
 			<p class="font-black tracking-[0.15em] md:tracking-[0.3em] uppercase text-sm mb-4" style="color: {colorPalette.primary}">💬 Kontakt</p>
-			<h2 class="text-3xl md:text-5xl lg:text-6xl font-black mb-8 leading-tight" style="font-family: 'Playfair Display', serif; color: {colorPalette.primary};">
+			<h2 class="text-4xl md:text-5xl lg:text-6xl font-black mb-8 leading-tight" style="font-family: 'Playfair Display', serif; color: {colorPalette.primary};">
 				Rozpocznijmy<br>
 				<span class="italic" style="color: {colorPalette.accent}">współpracę</span>
 			</h2>
@@ -1176,7 +1176,7 @@
 
 			<div class="space-y-8">
 				<div class="flex items-start space-x-4">
-					<div class="w-12 h-12 border border-gray-200 flex items-center justify-center flex-shrink-0">
+					<div class="w-12 h-12 border border-[#27275b]/20 flex items-center justify-center flex-shrink-0">
 						<svg class="w-5 h-5 text-[#27275b]/80" fill="none" stroke="currentColor" viewBox="0 0 24 24">
 							<path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z"></path>
 						</svg>
@@ -1190,7 +1190,7 @@
 				</div>
 
 				<div class="flex items-start space-x-4">
-					<div class="w-12 h-12 border border-gray-200 flex items-center justify-center flex-shrink-0">
+					<div class="w-12 h-12 border border-[#27275b]/20 flex items-center justify-center flex-shrink-0">
 						<svg class="w-5 h-5 text-[#27275b]/80" fill="none" stroke="currentColor" viewBox="0 0 24 24">
 							<path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z"></path>
 							<path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 11a3 3 0 11-6 0 3 3 0 016 0z"></path>
@@ -1204,7 +1204,7 @@
 				</div>
 
 				<div class="flex items-start space-x-4">
-					<div class="w-12 h-12 border border-gray-200 flex items-center justify-center flex-shrink-0">
+					<div class="w-12 h-12 border border-[#27275b]/20 flex items-center justify-center flex-shrink-0">
 						<svg class="w-5 h-5 text-[#27275b]/80" fill="none" stroke="currentColor" viewBox="0 0 24 24">
 							<path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z"></path>
 						</svg>

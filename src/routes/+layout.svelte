@@ -105,23 +105,23 @@
 				<div class="px-4 pt-6 space-y-3">
 					<!-- Navigation Items -->
 					<div class="space-y-2">
-						<a href="/o-mnie" onclick={() => isMenuOpen = false} class="block px-4 py-3 text-[#27275b]/90 transition-all duration-300 font-bold text-sm tracking-wide uppercase rounded-lg hover:bg-gray-50 hover:text-[var(--color-primary)] transform hover:translate-x-1">
+						<a href="/o-mnie" onclick={() => isMenuOpen = false} class="block px-4 py-3 text-[#27275b]/90 transition-all duration-300 font-bold text-sm tracking-wide uppercase rounded-lg hover:bg-[#27275b]/5 hover:text-[var(--color-primary)] transform hover:translate-x-1">
 							O mnie
 						</a>
-						<a href={getNavLink('#oferta')} onclick={() => isMenuOpen = false} class="block px-4 py-3 text-[#27275b]/90 transition-all duration-300 font-bold text-sm tracking-wide uppercase rounded-lg hover:bg-gray-50 hover:text-[var(--color-primary)] transform hover:translate-x-1">
+						<a href={getNavLink('#oferta')} onclick={() => isMenuOpen = false} class="block px-4 py-3 text-[#27275b]/90 transition-all duration-300 font-bold text-sm tracking-wide uppercase rounded-lg hover:bg-[#27275b]/5 hover:text-[var(--color-primary)] transform hover:translate-x-1">
 							Oferta
 						</a>
-						<a href={getNavLink('#cennik')} onclick={() => isMenuOpen = false} class="block px-4 py-3 text-[#27275b]/90 transition-all duration-300 font-bold text-sm tracking-wide uppercase rounded-lg hover:bg-gray-50 hover:text-[var(--color-primary)] transform hover:translate-x-1">
+						<a href={getNavLink('#cennik')} onclick={() => isMenuOpen = false} class="block px-4 py-3 text-[#27275b]/90 transition-all duration-300 font-bold text-sm tracking-wide uppercase rounded-lg hover:bg-[#27275b]/5 hover:text-[var(--color-primary)] transform hover:translate-x-1">
 							Ceny
 						</a>
-						<a href={getNavLink('#portfolio')} onclick={() => isMenuOpen = false} class="block px-4 py-3 text-[#27275b]/90 transition-all duration-300 font-bold text-sm tracking-wide uppercase rounded-lg hover:bg-gray-50 hover:text-[var(--color-primary)] transform hover:translate-x-1">
+						<a href={getNavLink('#portfolio')} onclick={() => isMenuOpen = false} class="block px-4 py-3 text-[#27275b]/90 transition-all duration-300 font-bold text-sm tracking-wide uppercase rounded-lg hover:bg-[#27275b]/5 hover:text-[var(--color-primary)] transform hover:translate-x-1">
 							Portfolio
 						</a>
 					</div>
 
 					<!-- CTA Button -->
-					<div class="pt-3 border-t border-gray-100">
-						<a href={getNavLink('#kontakt')} onclick={() => isMenuOpen = false} class="block px-4 py-3 text-[#27275b]/90 transition-all duration-300 text-sm tracking-wide uppercase font-bold rounded-lg hover:bg-gray-50 hover:text-[var(--color-primary)] transform hover:translate-x-1">
+					<div class="pt-3 border-t border-[#27275b]/10">
+						<a href={getNavLink('#kontakt')} onclick={() => isMenuOpen = false} class="block px-4 py-3 text-[#27275b]/90 transition-all duration-300 text-sm tracking-wide uppercase font-bold rounded-lg hover:bg-[#27275b]/5 hover:text-[var(--color-primary)] transform hover:translate-x-1">
 							Kontakt
 						</a>
 					</div>
