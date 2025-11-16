@@ -12,7 +12,8 @@
   }
 
   body {
-    @apply bg-white text-gray-900;
+    @apply bg-white;
+    color: #27275b;
     -webkit-font-smoothing: antialiased;
     -moz-osx-font-smoothing: grayscale;
     overflow-x: hidden;
