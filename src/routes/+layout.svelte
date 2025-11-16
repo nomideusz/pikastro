@@ -3,6 +3,8 @@
 	import { page } from '$app/stores';
 	import { extractColorsFromImage, assignColorRoles, type ColorPalette } from '$lib/utils/colorExtractor';
 	import colorsImg from '$lib/assets/images/colors.jpeg';
+	import { t, locale } from '$lib/i18n';
+	import LanguageToggle from '$lib/components/LanguageToggle.svelte';
 
 	// Color palette extracted from colors image - Eclectic Maximalism
 	let colorPalette = $state<ColorPalette>({
@@ -27,6 +29,13 @@
 			});
 	});
 
+	// Update HTML lang attribute when locale changes
+	$effect(() => {
+		if (typeof document !== 'undefined' && $locale) {
+			document.documentElement.lang = $locale;
+		}
+	});
+
 	// Helper function to get the correct link path
 	function getNavLink(href: string): string {
 		// If we're on the main page, use hash anchors
@@ -49,7 +58,7 @@
 </svelte:head>
 
 <!-- Navigation -->
-<nav class="sticky top-0 z-50 transition-all duration-300 shadow-sm px-4 md:px-6 lg:px-12" style="background: rgba(255, 255, 255, 0.95); backdrop-filter: blur(12px); border-bottom: 1px solid rgba(0, 0, 0, 0.08); box-shadow: 0 4px 20px rgba(0, 0, 0, 0.08);">
+<nav class="sticky top-0 z-50 transition-all duration-300 shadow-sm px-6 md:px-12" style="background: rgba(255, 255, 255, 0.95); backdrop-filter: blur(12px); border-bottom: 1px solid rgba(0, 0, 0, 0.08); box-shadow: 0 4px 20px rgba(0, 0, 0, 0.08);">
 	<div class="max-w-7xl mx-auto">
 		<div class="flex justify-between items-center py-4">
 			<div class="flex items-center">
@@ -60,24 +69,25 @@
 
 			<!-- Desktop Navigation -->
 			<div class="hidden lg:flex items-center space-x-8">
-				<a href="/o-mnie" class="text-[#27275b]/90 transition-colors font-bold text-sm tracking-wide uppercase relative group hover:text-[var(--color-primary)]">
-					O mnie
+				<a href="/o-mnie" class="text-gray-700 transition-colors font-bold text-sm tracking-wide uppercase relative group hover:text-[var(--color-primary)]">
+					{$t('nav.about')}
 					<span class="absolute bottom-0 left-0 w-0 h-0.5 transition-all duration-300 group-hover:w-full" style="background-color: var(--color-accent);"></span>
 				</a>
-				<a href={getNavLink('#oferta')} class="text-[#27275b]/90 transition-colors font-bold text-sm tracking-wide uppercase relative group hover:text-[var(--color-primary)]">
-					Oferta
+				<a href={getNavLink('#oferta')} class="text-gray-700 transition-colors font-bold text-sm tracking-wide uppercase relative group hover:text-[var(--color-primary)]">
+					{$t('nav.offer')}
 					<span class="absolute bottom-0 left-0 w-0 h-0.5 transition-all duration-300 group-hover:w-full" style="background-color: var(--color-accent);"></span>
 				</a>
-				<a href={getNavLink('#cennik')} class="text-[#27275b]/90 transition-colors font-bold text-sm tracking-wide uppercase relative group hover:text-[var(--color-primary)]">
-					Ceny
+				<a href={getNavLink('#cennik')} class="text-gray-700 transition-colors font-bold text-sm tracking-wide uppercase relative group hover:text-[var(--color-primary)]">
+					{$t('nav.pricing')}
 					<span class="absolute bottom-0 left-0 w-0 h-0.5 transition-all duration-300 group-hover:w-full" style="background-color: var(--color-accent);"></span>
 				</a>
-				<a href={getNavLink('#portfolio')} class="text-[#27275b]/90 transition-colors font-bold text-sm tracking-wide uppercase relative group hover:text-[var(--color-primary)]">
-					Portfolio
+				<a href={getNavLink('#portfolio')} class="text-gray-700 transition-colors font-bold text-sm tracking-wide uppercase relative group hover:text-[var(--color-primary)]">
+					{$t('nav.portfolio')}
 					<span class="absolute bottom-0 left-0 w-0 h-0.5 transition-all duration-300 group-hover:w-full" style="background-color: var(--color-accent);"></span>
 				</a>
+				<LanguageToggle />
 				<a href={getNavLink('#kontakt')} class="px-6 py-2.5 text-white transition-all duration-300 text-sm tracking-wide uppercase font-bold rounded-lg shadow-md hover:shadow-lg transform hover:scale-105" style="background-color: var(--color-accent);">
-					Kontakt
+					{$t('nav.contact')}
 				</a>
 			</div>
 
@@ -85,7 +95,7 @@
 			<div class="lg:hidden">
 				<button
 					onclick={() => isMenuOpen = !isMenuOpen}
-					class="text-[#27275b]/90 focus:outline-none transition-colors hover:text-[var(--color-primary)]"
+					class="text-gray-700 focus:outline-none transition-colors hover:text-[var(--color-primary)]"
 					aria-label="Toggle menu"
 				>
 					<svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24" stroke-width="2">
@@ -105,24 +115,29 @@
 				<div class="px-4 pt-6 space-y-3">
 					<!-- Navigation Items -->
 					<div class="space-y-2">
-						<a href="/o-mnie" onclick={() => isMenuOpen = false} class="block px-4 py-3 text-[#27275b]/90 transition-all duration-300 font-bold text-sm tracking-wide uppercase rounded-lg hover:bg-[#27275b]/5 hover:text-[var(--color-primary)] transform hover:translate-x-1">
-							O mnie
+						<a href="/o-mnie" onclick={() => isMenuOpen = false} class="block px-4 py-3 text-gray-700 transition-all duration-300 font-bold text-sm tracking-wide uppercase rounded-lg hover:bg-gray-50 hover:text-[var(--color-primary)] transform hover:translate-x-1">
+							{$t('nav.about')}
 						</a>
-						<a href={getNavLink('#oferta')} onclick={() => isMenuOpen = false} class="block px-4 py-3 text-[#27275b]/90 transition-all duration-300 font-bold text-sm tracking-wide uppercase rounded-lg hover:bg-[#27275b]/5 hover:text-[var(--color-primary)] transform hover:translate-x-1">
-							Oferta
+						<a href={getNavLink('#oferta')} onclick={() => isMenuOpen = false} class="block px-4 py-3 text-gray-700 transition-all duration-300 font-bold text-sm tracking-wide uppercase rounded-lg hover:bg-gray-50 hover:text-[var(--color-primary)] transform hover:translate-x-1">
+							{$t('nav.offer')}
 						</a>
-						<a href={getNavLink('#cennik')} onclick={() => isMenuOpen = false} class="block px-4 py-3 text-[#27275b]/90 transition-all duration-300 font-bold text-sm tracking-wide uppercase rounded-lg hover:bg-[#27275b]/5 hover:text-[var(--color-primary)] transform hover:translate-x-1">
-							Ceny
+						<a href={getNavLink('#cennik')} onclick={() => isMenuOpen = false} class="block px-4 py-3 text-gray-700 transition-all duration-300 font-bold text-sm tracking-wide uppercase rounded-lg hover:bg-gray-50 hover:text-[var(--color-primary)] transform hover:translate-x-1">
+							{$t('nav.pricing')}
 						</a>
-						<a href={getNavLink('#portfolio')} onclick={() => isMenuOpen = false} class="block px-4 py-3 text-[#27275b]/90 transition-all duration-300 font-bold text-sm tracking-wide uppercase rounded-lg hover:bg-[#27275b]/5 hover:text-[var(--color-primary)] transform hover:translate-x-1">
-							Portfolio
+						<a href={getNavLink('#portfolio')} onclick={() => isMenuOpen = false} class="block px-4 py-3 text-gray-700 transition-all duration-300 font-bold text-sm tracking-wide uppercase rounded-lg hover:bg-gray-50 hover:text-[var(--color-primary)] transform hover:translate-x-1">
+							{$t('nav.portfolio')}
 						</a>
 					</div>
 
+					<!-- Language Toggle -->
+					<div class="px-4">
+						<LanguageToggle />
+					</div>
+
 					<!-- CTA Button -->
-					<div class="pt-3 border-t border-[#27275b]/10">
-						<a href={getNavLink('#kontakt')} onclick={() => isMenuOpen = false} class="block px-4 py-3 text-[#27275b]/90 transition-all duration-300 text-sm tracking-wide uppercase font-bold rounded-lg hover:bg-[#27275b]/5 hover:text-[var(--color-primary)] transform hover:translate-x-1">
-							Kontakt
+					<div class="pt-3 border-t border-gray-100">
+						<a href={getNavLink('#kontakt')} onclick={() => isMenuOpen = false} class="block px-4 py-3 text-gray-700 transition-all duration-300 text-sm tracking-wide uppercase font-bold rounded-lg hover:bg-gray-50 hover:text-[var(--color-primary)] transform hover:translate-x-1">
+							{$t('nav.contact')}
 						</a>
 					</div>
 				</div>
@@ -134,7 +149,7 @@
 {@render children()}
 
 <!-- Footer -->
-<footer class="gradient-bg text-white py-16 px-4 md:px-6 lg:px-12 relative overflow-hidden">
+<footer class="gradient-bg text-white py-16 px-6 md:px-12 relative overflow-hidden">
 	<div class="absolute top-0 right-0 w-96 h-96 bg-[#FB7185] rounded-full mix-blend-multiply filter blur-3xl opacity-10"></div>
 	<div class="absolute bottom-0 left-0 w-96 h-96 bg-[#10B981] rounded-full mix-blend-multiply filter blur-3xl opacity-10"></div>
 	<div class="max-w-7xl mx-auto relative z-10">
@@ -144,43 +159,43 @@
 					<img src="/logo.png" alt="Pikastro Logo" class="h-10 w-auto" />
 				</div>
 				<p class="text-gray-200 leading-relaxed">
-					Projektowanie wnętrz i grafika z AI. Odważne, kolorowe aranżacje zamiast beżowo-szarych.
+					{$t('footer.description')}
 				</p>
 			</div>
 			<div>
-				<h4 class="text-sm uppercase tracking-wider mb-4 font-bold text-[#FB7185]">Oferta</h4>
+				<h4 class="text-sm uppercase tracking-wider mb-4 font-bold text-[#FB7185]">{$t('footer.offer')}</h4>
 				<ul class="space-y-2 text-gray-200 text-sm">
-					<li>• Projektowanie wnętrz</li>
-					<li>• Aranżacja przestrzeni</li>
-					<li>• Identyfikacja wizualna</li>
-					<li>• Grafika komputerowa</li>
-					<li>• Technologia AI</li>
+					<li>• {$t('footer.services.interior_design')}</li>
+					<li>• {$t('footer.services.space_arrangement')}</li>
+					<li>• {$t('footer.services.visual_identity')}</li>
+					<li>• {$t('footer.services.computer_graphics')}</li>
+					<li>• {$t('footer.services.ai_technology')}</li>
 				</ul>
 			</div>
 			<div>
-				<h4 class="text-sm uppercase tracking-wider mb-4 font-bold text-[#FB7185]">Klienci</h4>
+				<h4 class="text-sm uppercase tracking-wider mb-4 font-bold text-[#FB7185]">{$t('footer.clients')}</h4>
 				<ul class="space-y-2 text-gray-200 text-sm">
-					<li>• Nabywcy mieszkań</li>
-					<li>• Deweloperzy</li>
-					<li>• Biura nieruchomości</li>
-					<li>• Startupy i firmy</li>
-					<li>• Lokale komercyjne</li>
+					<li>• {$t('footer.clientTypes.apartment_buyers')}</li>
+					<li>• {$t('footer.clientTypes.developers')}</li>
+					<li>• {$t('footer.clientTypes.real_estate')}</li>
+					<li>• {$t('footer.clientTypes.startups')}</li>
+					<li>• {$t('footer.clientTypes.commercial')}</li>
 				</ul>
 			</div>
 			<div>
-				<h4 class="text-sm uppercase tracking-wider mb-4 font-bold text-[#FB7185]">Kontakt</h4>
+				<h4 class="text-sm uppercase tracking-wider mb-4 font-bold text-[#FB7185]">{$t('footer.contact')}</h4>
 				<ul class="space-y-2 text-gray-200 font-medium">
 					<li>kontakt@pikastro.eu</li>
-					<li>Kraków, Polska</li>
+					<li>{$t('footer.location')}</li>
 					<li class="pt-2">
-						<a href="/o-mnie" class="text-[#FB7185] hover:text-white transition-colors">O mnie</a> •
-						<a href="/#oferta" class="text-[#FB7185] hover:text-white transition-colors">Oferta</a>
+						<a href="/o-mnie" class="text-[#FB7185] hover:text-white transition-colors">{$t('nav.about')}</a> •
+						<a href="/#oferta" class="text-[#FB7185] hover:text-white transition-colors">{$t('nav.offer')}</a>
 					</li>
 				</ul>
 			</div>
 		</div>
 		<div class="pt-8 border-t border-white/20 text-center text-sm text-gray-300">
-			<p class="font-medium">&copy; 2025 Pikastro. Wszystkie prawa zastrzeżone.</p>
+			<p class="font-medium">&copy; 2025 Pikastro. {$t('footer.copyright')}</p>
 		</div>
 	</div>
 </footer>

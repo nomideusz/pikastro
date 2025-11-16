@@ -1,0 +1,308 @@
+{
+  "nav": {
+    "about": "About",
+    "offer": "Services",
+    "pricing": "Pricing",
+    "portfolio": "Portfolio",
+    "contact": "Contact"
+  },
+  "meta": {
+    "home": {
+      "title": "Pikastro - AI Interior Design | Graphics | Kraków",
+      "description": "AI-powered interior design and graphics for young adults (20-30). Bold, colorful spaces instead of beige and gray. Comprehensive service in Kraków - fast and affordable."
+    },
+    "about": {
+      "title": "About - Magda Makaruk | Interior & Graphic Designer | Kraków",
+      "description": "Meet Magda Makaruk - experienced interior and graphic designer. I combine architectural knowledge with artistic creativity and AI technology. Kraków."
+    }
+  },
+  "footer": {
+    "description": "Interior design and graphics with AI. Bold, colorful arrangements instead of beige and gray.",
+    "offer": "Services",
+    "clients": "Clients",
+    "contact": "Contact",
+    "services": {
+      "interior_design": "Interior Design",
+      "space_arrangement": "Space Planning",
+      "visual_identity": "Visual Identity",
+      "computer_graphics": "Computer Graphics",
+      "ai_technology": "AI Technology"
+    },
+    "clientTypes": {
+      "apartment_buyers": "Apartment Buyers",
+      "developers": "Developers",
+      "real_estate": "Real Estate Agencies",
+      "startups": "Startups & Companies",
+      "commercial": "Commercial Spaces"
+    },
+    "location": "Kraków, Poland",
+    "copyright": "All rights reserved."
+  },
+  "home": {
+    "hero": {
+      "label": "AI × Architecture × Graphics",
+      "heading1": "Enough beige.",
+      "heading2": "Time for color!",
+      "tagline": "AI × Design = Your dream interior",
+      "description": "See 10 versions of your interior before you decide. Prototyping in hours, not weeks. Faster. Bolder. Cheaper.",
+      "valueProps": {
+        "time": "10-21 days",
+        "timeVs": "vs. 4-6 weeks",
+        "variants": "5-10 variants",
+        "variantsDesc": "to choose from with AI",
+        "price": "From $400",
+        "priceDesc": "single room"
+      }
+    },
+    "video": {
+      "heading": "Transform your",
+      "headingAccent": "space",
+      "headingEnd": "with Pikastro",
+      "description": "Create unique interiors that reflect your personality"
+    },
+    "beforeAfter": {
+      "label": "AI Transformations",
+      "heading": "Before & After",
+      "headingAccent": "AI Transformation",
+      "description": "See how AI helps create colorful, functional spaces instead of beige and gray interiors"
+    },
+    "ctaBanner": {
+      "heading": "Ready for a colorful transformation?",
+      "description": "Free 30-minute consultation. Let's talk about your project.",
+      "button": "Book free consultation"
+    },
+    "aboutHome": {
+      "heading": "Designing the future.",
+      "headingAccent": "Today.",
+      "paragraph1": "I'm an interior designer and graphic artist with an architectural background. I combine technical engineering knowledge with graphic and artistic skills, using advanced AI-powered tools.",
+      "paragraph2Title": "My competitive advantage:",
+      "paragraph2": "A unique combination of three competencies - engineering approach, artistic talent, and AI technology. This allows me to create functional, aesthetic solutions faster and at attractive prices.",
+      "paragraph3": "I specialize in projects for - bold first-time apartment buyers who appreciate colorful arrangements, remote work spaces, and smart home solutions, instead of subdued beige and gray interiors.",
+      "quote": "The combination of technical knowledge, creativity, and AI creates a new quality of design.",
+      "imageCaption": "For Clients",
+      "imageSubCaption": "Individuals • Developers • Startups"
+    },
+    "services": {
+      "label": "Services",
+      "heading": "From idea",
+      "headingAccent": "to realization",
+      "description": "From concept to implementation - full support in the interior design process and creating visual identity."
+    },
+    "process": {
+      "label": "How it works",
+      "heading": "Design Process",
+      "headingAccent": "with AI",
+      "description": "Combining human creativity and AI power for the best results in the shortest time"
+    },
+    "form": {
+      "error": "Please correct the errors in the form before submitting.",
+      "success": "Thank you! Your message has been sent. I'll respond soon!",
+      "errorGeneric": "An error occurred while sending the message",
+      "errorNetwork": "An error occurred while sending the message. Please try again.",
+      "projectType": "Interior design"
+    }
+  },
+  "about": {
+    "hero": {
+      "label": "About me",
+      "name": "Magda",
+      "surname": "Makaruk",
+      "title": "Interior & Graphic Designer",
+      "description": "I combine architectural knowledge with artistic creativity and cutting-edge AI technologies, creating functional spaces and unique visual identities."
+    },
+    "experience": {
+      "heading": "Experience",
+      "headingAccent": "& Passion",
+      "paragraph1": "I am an interior and graphic designer with years of experience in the creative industry. My approach combines solid architectural foundations with modern technologies and a deep understanding of client needs.",
+      "paragraph2": "I specialize in designing residential and commercial spaces, creating functional and aesthetic solutions. My graphic work includes comprehensive visual identities, advertising materials, and specialized projects.",
+      "paragraph3": "Key competencies:",
+      "skills": "AutoCAD, SketchUp, Adobe Creative Suite, 3ds Max, V-Ray, Lumion. Experience in BIM, sustainable design, and AI technology supporting the creative process."
+    },
+    "skills": {
+      "label": "Skills",
+      "heading": "Technical",
+      "headingAccent": "Competencies",
+      "architecture": {
+        "title": "Architectural Design",
+        "description": "Comprehensive architectural projects from concept to execution documentation. Experience in residential, commercial, and public projects.",
+        "skill1": "AutoCAD & ArchiCAD",
+        "skill2": "SketchUp & 3ds Max",
+        "skill3": "BIM & documentation"
+      },
+      "graphics": {
+        "title": "Computer Graphics",
+        "description": "Visual identities, advertising materials, illustrations, and specialized projects. Over 50 completed branding projects.",
+        "skill1": "Adobe Creative Suite",
+        "skill2": "Branding & Visual Identity",
+        "skill3": "Print & Digital Design"
+      },
+      "ai": {
+        "title": "AI Technology",
+        "description": "Using artificial intelligence to accelerate design processes and generate innovative solutions. Optimization of costs and project timelines.",
+        "skill1": "AI-assisted design",
+        "skill2": "Generative workflows",
+        "skill3": "Process optimization"
+      }
+    },
+    "philosophy": {
+      "heading": "Design",
+      "headingAccent": "Philosophy",
+      "functionality": {
+        "title": "Functionality first",
+        "description": "Beauty without functionality is just decoration. Every project must first and foremost work for its users - be comfortable, practical, and safe."
+      },
+      "personality": {
+        "title": "Space personality",
+        "description": "Every space should reflect the character of its owner. I create places that tell a story and express individuality."
+      },
+      "innovation": {
+        "title": "Technological innovation",
+        "description": "I use the latest technologies, including AI, to accelerate design processes and achieve better results in less time."
+      },
+      "partnership": {
+        "title": "Client partnership",
+        "description": "A project is a shared journey. I listen, advise, and together we create a solution perfectly tailored to the client's needs and dreams."
+      },
+      "quote": "Good design is not just beautiful forms, but above all solutions to problems."
+    },
+    "cta": {
+      "heading": "Let's start",
+      "headingAccent": "working together!",
+      "description": "Have a project idea? Want to create a unique space or refresh your visual identity? Contact me - together we'll create something amazing.",
+      "button1": "Book Consultation",
+      "button2": "See Portfolio"
+    }
+  },
+  "services": {
+    "interiorDesign": {
+      "title": "Interior Design",
+      "description": "Comprehensive design and arrangement of residential and commercial spaces using AI.",
+      "feature1": "Room layout design",
+      "feature2": "Ergonomics and functionality optimization",
+      "feature3": "Apartment, house and flat arrangements",
+      "feature4": "Commercial spaces (offices, hotels)",
+      "feature5": "Graphic interior decorations"
+    },
+    "graphicDesign": {
+      "title": "Graphic Design",
+      "description": "Full range of graphic services - from visual identity to marketing materials.",
+      "feature1": "Visual identity for companies",
+      "feature2": "Graphics for textile products",
+      "feature3": "Advertising materials and digital marketing",
+      "feature4": "Personalized posters and decorations"
+    },
+    "aiTechnology": {
+      "title": "AI Technology",
+      "description": "Innovative use of artificial intelligence in the design process for faster results.",
+      "feature1": "Rapid concept prototyping",
+      "feature2": "Project cost optimization",
+      "feature3": "Automatic variant generation",
+      "feature4": "Time and budget efficiency"
+    }
+  },
+  "process": {
+    "consultation": {
+      "title": "Consultation & Brief",
+      "description": "We gather information about your needs, lifestyle, and budget. AI analyzes similar projects."
+    },
+    "prototyping": {
+      "title": "AI Prototyping",
+      "description": "We generate 5-10 arrangement variants using AI. Quick concept iteration."
+    },
+    "refinement": {
+      "title": "Refinement",
+      "description": "You choose your favorite variant. We refine details, materials, colors according to your preferences."
+    },
+    "documentation": {
+      "title": "Documentation",
+      "description": "You receive full project documentation, 3D visualizations, shopping list and contractor contacts."
+    }
+  },
+  "pricing": {
+    "singleRoom": {
+      "title": "Single Spaces",
+      "subtitle": "Bedroom • Living Room • Kitchen • Office",
+      "description": "Intimate collaboration on one room. We'll discover its potential and create a space that reflects your lifestyle.",
+      "process1": "Discussion about your needs and dreams",
+      "process2": "Site visit and space analysis",
+      "process3": "3-5 design concepts with AI",
+      "process4": "3D visualizations and technical documentation",
+      "process5": "Shopping list with recommendations",
+      "process6": "Support during implementation",
+      "investment": "From $900"
+    },
+    "fullApartment": {
+      "title": "Full Apartment",
+      "subtitle": "Complete transformation",
+      "description": "Total apartment transformation. From first sketch to turnkey - we'll create a space that will be your home for years.",
+      "process1": "Deep lifestyle and needs analysis",
+      "process2": "Complete design of all rooms",
+      "process3": "3D visualizations of all spaces",
+      "process4": "Contractor and supplier coordination",
+      "process5": "Authorial supervision of implementation",
+      "process6": "Final detail refinement",
+      "investment": "From $3,000"
+    },
+    "businessSpaces": {
+      "title": "Business Spaces",
+      "subtitle": "Offices • Cafes • Shops • Restaurants",
+      "description": "Professional commercial projects combining ergonomics, branding and functionality. We create spaces that attract customers and support business.",
+      "process1": "Business analysis and strategic brief",
+      "process2": "Functional and ergonomic design",
+      "process3": "Visual space identity",
+      "process4": "3D visualizations and animations",
+      "process5": "Executive documentation",
+      "process6": "Contractor collaboration",
+      "investment": "From $4,500"
+    }
+  },
+  "beforeAfter": {
+    "project1": {
+      "title": "Living Room with Kitchen - AI Transformation",
+      "description": "Transformation of beige living room into colorful, functional space with AI",
+      "feature1": "Layout optimization",
+      "feature2": "Color selection",
+      "feature3": "Smart storage"
+    },
+    "project2": {
+      "title": "Young Professionals' Bedroom",
+      "description": "From empty room to modern bedroom with home office",
+      "feature1": "Space management",
+      "feature2": "Multifunctionality",
+      "feature3": "Mood lighting"
+    },
+    "project3": {
+      "title": "Home Office",
+      "description": "Creating remote work space",
+      "feature1": "Ergonomics",
+      "feature2": "Acoustics",
+      "feature3": "Smart tech integration"
+    }
+  },
+  "portfolio": {
+    "scandinavianApartment": {
+      "title": "Scandinavian Style Apartment",
+      "description": "Minimalist elegance combined with functionality. 85m² apartment design for a young family in the heart of Kraków."
+    },
+    "studioIdentity": {
+      "title": "Studio Visual Identity",
+      "description": "Comprehensive branding for architecture studio - from logo to corporate materials and office space."
+    },
+    "coworkingSpace": {
+      "title": "Coworking Space",
+      "description": "Modern collaborative office for tech startups. 300m² of creative space."
+    },
+    "modernHouse": {
+      "title": "Modern Single-Family House",
+      "description": "180m² house design combining modern architecture with natural materials."
+    },
+    "cafeConcept": {
+      "title": "Cafe Concept Store",
+      "description": "Interior design and visual identity for author's cafe with art gallery."
+    },
+    "industrialLoft": {
+      "title": "Industrial Loft",
+      "description": "Adaptation of post-industrial space into modern apartment with open plan."
+    }
+  }
+}
