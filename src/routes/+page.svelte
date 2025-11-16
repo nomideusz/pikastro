@@ -274,7 +274,7 @@
 			title: 'Dokumentacja',
 			description: 'Otrzymujesz pełną dokumentację projektową, wizualizacje 3D, listę zakupów i kontakty do wykonawców.',
 			duration: '2-3 dni',
-			icon: '📐'
+			icon: '04'
 		}
 	];
 
@@ -311,7 +311,7 @@
 			],
 			duration: '6-8 tygodni',
 			investment: 'Od 12.000 zł',
-			image: '🏡',
+			image: '',
 			highlight: true
 		},
 		{
@@ -328,7 +328,7 @@
 			],
 			duration: '8-12 tygodni',
 			investment: 'Od 18.000 zł',
-			image: '🏢',
+			image: '',
 			highlight: false
 		}
 	];
@@ -389,7 +389,7 @@
 		{
 			title: 'Projektowanie Wnętrz',
 			description: 'Kompleksowe projektowanie i aranżacja przestrzeni mieszkalnych i komercyjnych z wykorzystaniem AI.',
-			icon: '◻',
+			icon: '',
 			features: [
 				'Projektowanie układu pomieszczeń',
 				'Optymalizacja ergonomii i funkcjonalności',
@@ -858,7 +858,6 @@
 
 		<div class="grid md:grid-cols-2 gap-8 mb-16 observe">
 			<div class="bg-white p-8 rounded-2xl border-4 transition-all duration-300 hover:shadow-xl" style="border-color: {colorPalette.primary};">
-				<div class="text-4xl mb-4">⚡</div>
 				<h3 class="text-2xl font-black mb-3" style="font-family: 'Playfair Display', serif; color: {colorPalette.primary}">Szybki I Dopracowany</h3>
 				<p class="text-[#27275b]/80 leading-relaxed">
 					AI nie zastępuje designera - wzmacnia go. Generujemy warianty w godziny, a potem dopracowujemy każdy detal ręcznie.
@@ -873,7 +872,6 @@
 			</div>
 
 			<div class="bg-white p-8 rounded-2xl border-4 transition-all duration-300 hover:shadow-xl" style="border-color: {colorPalette.secondary};">
-				<div class="text-4xl mb-4">🚀</div>
 				<h3 class="text-2xl font-black mb-3" style="font-family: 'Playfair Display', serif; color: {colorPalette.secondary};">Odważny I Funkcjonalny</h3>
 				<p class="text-[#27275b]/80 leading-relaxed">
 					Projektujemy przestrzenie, które wyróżniają się wizualnie, ale przede wszystkim - działają dla Ciebie każdego dnia.
@@ -963,7 +961,6 @@
 						<div class="p-8 lg:p-12">
 							<div class="flex flex-col lg:flex-row lg:items-center lg:justify-between gap-8">
 								<div class="flex-1">
-									<div class="text-6xl mb-4">{journey.image}</div>
 									<h3 class="text-3xl lg:text-4xl font-black mb-2" style="font-family: 'Playfair Display', serif; color: {journey.highlight ? colorPalette.primary : '#27275b'}">
 										{journey.title}
 									</h3>
@@ -1020,7 +1017,6 @@
 	<!-- Personal Consultation Note -->
 	<div class="mt-20 text-center observe max-w-4xl mx-auto">
 		<div class="p-8 lg:p-12 rounded-3xl border-4" style="background-color: rgba(29, 168, 152, 0.05); border-color: {colorPalette.secondary};">
-			<div class="text-6xl mb-4">🤝</div>
 			<h3 class="text-3xl lg:text-4xl font-black mb-4" style="font-family: 'Playfair Display', serif; color: {colorPalette.primary}">
 				Każdy Projekt Jest Inny
 			</h3>
@@ -1164,7 +1160,7 @@
 	<div class="absolute bottom-0 left-0 w-40 h-40 md:w-80 md:h-80 rounded-full filter blur-3xl opacity-25" style="background-color: {colorPalette.success};"></div>
 		<div class="grid lg:grid-cols-2 gap-16 lg:gap-24 relative z-10">
 		<div class="observe">
-			<p class="font-black tracking-[0.15em] md:tracking-[0.3em] uppercase text-sm mb-4" style="color: {colorPalette.primary}">💬 Kontakt</p>
+			<p class="font-black tracking-[0.15em] md:tracking-[0.3em] uppercase text-sm mb-4" style="color: {colorPalette.primary}">Kontakt</p>
 			<h2 class="text-4xl md:text-5xl lg:text-6xl font-black mb-8 leading-tight" style="font-family: 'Playfair Display', serif; color: {colorPalette.primary};">
 				Rozpocznijmy<br>
 				<span class="italic" style="color: {colorPalette.accent}">współpracę</span>
