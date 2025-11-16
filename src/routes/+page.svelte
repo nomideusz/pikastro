@@ -454,7 +454,7 @@
 </script>
 
 <!-- Hero Section with AI Visualization - Eclectic Maximalism -->
-<section class="relative flex items-center text-white overflow-hidden" style="height: calc(100vh - 5rem); background-color: {colorPalette.primary};">
+<section class="relative flex items-center text-white overflow-hidden min-h-screen md:h-screen" style="background-color: {colorPalette.primary};">
 	<!-- Background Video -->
 	<div class="absolute inset-0 z-[1]">
 		<video
@@ -496,15 +496,15 @@
 	<div class="absolute top-1/2 left-1/2 w-48 h-48 md:w-80 md:h-80 rounded-full mix-blend-multiply filter blur-3xl opacity-40 animate-pulse-slow transition-all duration-1000" style="background-color: {colorPalette.secondary}; animation-delay: 2s;"></div>
 	<div class="absolute top-20 left-1/4 w-40 h-40 md:top-40 md:w-64 md:h-64 rounded-full mix-blend-multiply filter blur-3xl opacity-35 animate-pulse-slow transition-all duration-1000" style="background-color: {colorPalette.tertiary}; animation-delay: 0.5s;"></div>
 
-	<div class="section relative z-20 py-20 md:py-24">
+	<div class="relative z-20 px-4 md:px-6 lg:px-12 py-8 md:py-24 max-w-7xl mx-auto">
 		<div class="max-w-5xl">
-			<div class="mb-10 md:mb-8 observe animate-fade-in-up">
+			<div class="mb-8 md:mb-8 observe animate-fade-in-up">
 				<p class="font-bold tracking-[0.15em] md:tracking-[0.3em] uppercase text-sm mb-6 animate-pulse-slow neon-text" style="color: {colorPalette.accent}">AI × Architektura × Grafika</p>
-				<h1 class="text-4xl md:text-7xl lg:text-8xl font-black mb-6 leading-[1.05]" style="font-family: 'Playfair Display', serif;">
+				<h1 class="text-5xl md:text-7xl lg:text-8xl font-black mb-6 leading-[1.05]" style="font-family: 'Playfair Display', serif;">
 					<span class="block">Dość beżu.</span>
 					<span class="block">Czas na <span style="color: #00D4FF;">kolor!</span></span>
 				</h1>
-				<p class="text-xl md:text-3xl font-bold mb-4 leading-tight" style="color: #FF6B9D;">
+				<p class="text-2xl md:text-3xl font-bold mb-4 leading-tight" style="color: #FF6B9D;">
 					AI × Design = Twoje wymarzone wnętrze
 				</p>
 			</div>
@@ -531,7 +531,7 @@
 
 		</div>
 	</div>
-	<div class="absolute bottom-12 left-1/2 -translate-x-1/2 animate-bounce">
+	<div class="absolute bottom-6 md:bottom-12 left-1/2 -translate-x-1/2 animate-bounce">
 		<svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24" style="color: {colorPalette.accent}">
 			<path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 14l-7 7m0 0l-7-7m7 7V3"></path>
 		</svg>
