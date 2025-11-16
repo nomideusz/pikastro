@@ -49,7 +49,7 @@
 </svelte:head>
 
 <!-- Navigation -->
-<nav class="sticky top-0 z-50 transition-all duration-300 shadow-sm px-6 md:px-12" style="background: rgba(255, 255, 255, 0.95); backdrop-filter: blur(12px); border-bottom: 1px solid rgba(0, 0, 0, 0.08); box-shadow: 0 4px 20px rgba(0, 0, 0, 0.08);">
+<nav class="sticky top-0 z-50 transition-all duration-300 shadow-sm px-4 md:px-6 lg:px-12" style="background: rgba(255, 255, 255, 0.95); backdrop-filter: blur(12px); border-bottom: 1px solid rgba(0, 0, 0, 0.08); box-shadow: 0 4px 20px rgba(0, 0, 0, 0.08);">
 	<div class="max-w-7xl mx-auto">
 		<div class="flex justify-between items-center py-4">
 			<div class="flex items-center">
@@ -134,7 +134,7 @@
 {@render children()}
 
 <!-- Footer -->
-<footer class="gradient-bg text-white py-16 px-6 md:px-12 relative overflow-hidden">
+<footer class="gradient-bg text-white py-16 px-4 md:px-6 lg:px-12 relative overflow-hidden">
 	<div class="absolute top-0 right-0 w-96 h-96 bg-[#FB7185] rounded-full mix-blend-multiply filter blur-3xl opacity-10"></div>
 	<div class="absolute bottom-0 left-0 w-96 h-96 bg-[#10B981] rounded-full mix-blend-multiply filter blur-3xl opacity-10"></div>
 	<div class="max-w-7xl mx-auto relative z-10">

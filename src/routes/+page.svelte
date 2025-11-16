@@ -491,15 +491,15 @@
 	</div>
 
 	<!-- Floating color blobs - Maximalism -->
-	<div class="absolute top-20 right-20 w-72 h-72 rounded-full mix-blend-multiply filter blur-3xl opacity-40 animate-pulse-slow transition-all duration-1000" style="background-color: {colorPalette.accent}"></div>
-	<div class="absolute bottom-20 left-20 w-96 h-96 rounded-full mix-blend-multiply filter blur-3xl opacity-40 animate-pulse-slow transition-all duration-1000" style="background-color: {colorPalette.success}; animation-delay: 1s;"></div>
-	<div class="absolute top-1/2 left-1/2 w-80 h-80 rounded-full mix-blend-multiply filter blur-3xl opacity-40 animate-pulse-slow transition-all duration-1000" style="background-color: {colorPalette.secondary}; animation-delay: 2s;"></div>
-	<div class="absolute top-40 left-1/4 w-64 h-64 rounded-full mix-blend-multiply filter blur-3xl opacity-35 animate-pulse-slow transition-all duration-1000" style="background-color: {colorPalette.tertiary}; animation-delay: 0.5s;"></div>
+	<div class="absolute top-10 right-5 w-48 h-48 md:top-20 md:right-20 md:w-72 md:h-72 rounded-full mix-blend-multiply filter blur-3xl opacity-40 animate-pulse-slow transition-all duration-1000" style="background-color: {colorPalette.accent}"></div>
+	<div class="absolute bottom-10 left-5 w-56 h-56 md:bottom-20 md:left-20 md:w-96 md:h-96 rounded-full mix-blend-multiply filter blur-3xl opacity-40 animate-pulse-slow transition-all duration-1000" style="background-color: {colorPalette.success}; animation-delay: 1s;"></div>
+	<div class="absolute top-1/2 left-1/2 w-48 h-48 md:w-80 md:h-80 rounded-full mix-blend-multiply filter blur-3xl opacity-40 animate-pulse-slow transition-all duration-1000" style="background-color: {colorPalette.secondary}; animation-delay: 2s;"></div>
+	<div class="absolute top-20 left-1/4 w-40 h-40 md:top-40 md:w-64 md:h-64 rounded-full mix-blend-multiply filter blur-3xl opacity-35 animate-pulse-slow transition-all duration-1000" style="background-color: {colorPalette.tertiary}; animation-delay: 0.5s;"></div>
 
 	<div class="section relative z-20">
 		<div class="max-w-5xl">
 			<div class="mb-8 observe animate-fade-in-up">
-				<p class="font-bold tracking-[0.3em] uppercase text-sm mb-6 animate-pulse-slow neon-text" style="color: {colorPalette.accent}">AI × Architektura × Grafika</p>
+				<p class="font-bold tracking-[0.15em] md:tracking-[0.3em] uppercase text-sm mb-6 animate-pulse-slow neon-text" style="color: {colorPalette.accent}">AI × Architektura × Grafika</p>
 				<h1 class="text-5xl md:text-7xl lg:text-8xl font-black mb-6 leading-[1.05]" style="font-family: 'Playfair Display', serif;">
 					<span class="block">Dość beżu.</span>
 					<span class="block">Czas na <span style="color: #00D4FF;">kolor!</span></span>
@@ -573,10 +573,10 @@
 
 <!-- Before/After Showcase Section - Maximalism -->
 <section id="beforeafter" class="section bg-white relative overflow-hidden border-t-8" style="border-top-color: {colorPalette.success};">
-	<div class="absolute top-0 right-0 w-96 h-96 rounded-full filter blur-3xl opacity-25" style="background-color: {colorPalette.tertiary};"></div>
-	<div class="absolute bottom-0 left-0 w-80 h-80 rounded-full filter blur-3xl opacity-25" style="background-color: {colorPalette.accent};"></div>
+	<div class="absolute top-0 right-0 w-48 h-48 md:w-96 md:h-96 rounded-full filter blur-3xl opacity-25" style="background-color: {colorPalette.tertiary};"></div>
+	<div class="absolute bottom-0 left-0 w-40 h-40 md:w-80 md:h-80 rounded-full filter blur-3xl opacity-25" style="background-color: {colorPalette.accent};"></div>
 	<div class="text-center mb-20 observe">
-		<p class="font-black tracking-[0.3em] uppercase text-sm mb-4" style="color: {colorPalette.primary}">Metamorfozy AI</p>
+		<p class="font-black tracking-[0.15em] md:tracking-[0.3em] uppercase text-sm mb-4" style="color: {colorPalette.primary}">Metamorfozy AI</p>
 		<h2 class="text-4xl md:text-5xl lg:text-6xl font-black mb-6 leading-tight" style="font-family: 'Playfair Display', serif;">
 			Przed i Po<br><span style="color: {colorPalette.primary}">Transformacji z AI</span>
 		</h2>
@@ -669,8 +669,8 @@
 
 <!-- CTA Banner -->
 <section class="relative py-12 md:py-16 overflow-hidden border-t-4" style="background-color: {colorPalette.primary}; border-top-color: {colorPalette.accent};">
-	<div class="absolute top-0 right-0 w-96 h-96 rounded-full filter blur-3xl opacity-20" style="background-color: {colorPalette.accent};"></div>
-	<div class="absolute bottom-0 left-0 w-96 h-96 rounded-full filter blur-3xl opacity-20" style="background-color: {colorPalette.secondary};"></div>
+	<div class="absolute top-0 right-0 w-48 h-48 md:w-96 md:h-96 rounded-full filter blur-3xl opacity-20" style="background-color: {colorPalette.accent};"></div>
+	<div class="absolute bottom-0 left-0 w-48 h-48 md:w-96 md:h-96 rounded-full filter blur-3xl opacity-20" style="background-color: {colorPalette.secondary};"></div>
 	<div class="max-w-5xl mx-auto px-6 text-center relative z-10">
 		<h2 class="text-3xl md:text-4xl lg:text-5xl font-black mb-6 text-white leading-tight" style="font-family: 'Playfair Display', serif;">
 			Gotowy na kolorową <span style="color: {colorPalette.accent}">metamorfozę</span>?
@@ -686,9 +686,9 @@
 
 <!-- About Section - Maximalism -->
 <section id="omnie" class="section bg-white relative overflow-hidden">
-	<div class="absolute top-0 right-0 w-96 h-96 rounded-full filter blur-3xl opacity-20" style="background-color: {colorPalette.secondary};"></div>
-	<div class="absolute bottom-0 left-0 w-96 h-96 rounded-full filter blur-3xl opacity-20" style="background-color: {colorPalette.tertiary};"></div>
-	<div class="absolute top-1/2 left-1/4 w-64 h-64 rounded-full filter blur-3xl opacity-15" style="background-color: {colorPalette.success};"></div>
+	<div class="absolute top-0 right-0 w-48 h-48 md:w-96 md:h-96 rounded-full filter blur-3xl opacity-20" style="background-color: {colorPalette.secondary};"></div>
+	<div class="absolute bottom-0 left-0 w-48 h-48 md:w-96 md:h-96 rounded-full filter blur-3xl opacity-20" style="background-color: {colorPalette.tertiary};"></div>
+	<div class="absolute top-1/2 left-1/4 w-32 h-32 md:w-64 md:h-64 rounded-full filter blur-3xl opacity-15" style="background-color: {colorPalette.success};"></div>
 	<div class="grid md:grid-cols-2 gap-16 lg:gap-24 items-center relative z-10">
 		<div class="observe">
 			<h2 class="text-4xl md:text-5xl lg:text-6xl font-black mb-8 leading-tight" style="font-family: 'Playfair Display', serif; color: {colorPalette.primary};">
@@ -738,10 +738,10 @@
 
 <!-- Services Section - Maximalism -->
 <section id="oferta" class="section bg-white relative overflow-hidden border-t-8" style="border-top-color: {colorPalette.secondary};">
-	<div class="absolute top-20 left-20 w-64 h-64 rounded-full filter blur-3xl opacity-25 animate-pulse-slow" style="background-color: {colorPalette.secondary};"></div>
-	<div class="absolute bottom-20 right-20 w-72 h-72 rounded-full filter blur-3xl opacity-20 animate-pulse-slow" style="background-color: {colorPalette.success}; animation-delay: 1s;"></div>
+	<div class="absolute top-10 left-5 w-32 h-32 md:top-20 md:left-20 md:w-64 md:h-64 rounded-full filter blur-3xl opacity-25 animate-pulse-slow" style="background-color: {colorPalette.secondary};"></div>
+	<div class="absolute bottom-10 right-5 w-36 h-36 md:bottom-20 md:right-20 md:w-72 md:h-72 rounded-full filter blur-3xl opacity-20 animate-pulse-slow" style="background-color: {colorPalette.success}; animation-delay: 1s;"></div>
 		<div class="text-center mb-20 observe relative z-10">
-		<p class="font-black tracking-[0.3em] uppercase text-sm mb-4" style="color: {colorPalette.primary}">Oferta</p>
+		<p class="font-black tracking-[0.15em] md:tracking-[0.3em] uppercase text-sm mb-4" style="color: {colorPalette.primary}">Oferta</p>
 		<h2 class="text-4xl md:text-5xl lg:text-6xl font-black mb-6 leading-tight" style="font-family: 'Playfair Display', serif; color: {colorPalette.primary};">
 			Od pomysłu<br><span style="color: {colorPalette.accent}">do realizacji</span>
 		</h2>
@@ -779,12 +779,12 @@
 
 <!-- Process Section - Maximalism -->
 <section id="proces" class="section text-white relative overflow-hidden" style="background-color: {colorPalette.primary};">
-	<div class="absolute top-10 right-10 w-96 h-96 rounded-full mix-blend-multiply filter blur-3xl opacity-30 animate-pulse-slow transition-all duration-1000" style="background-color: {colorPalette.accent}"></div>
-	<div class="absolute bottom-10 left-10 w-96 h-96 rounded-full mix-blend-multiply filter blur-3xl opacity-30 animate-pulse-slow transition-all duration-1000" style="background-color: {colorPalette.secondary}; animation-delay: 1.5s;"></div>
-	<div class="absolute top-1/3 right-1/4 w-80 h-80 rounded-full mix-blend-multiply filter blur-3xl opacity-25 animate-pulse-slow transition-all duration-1000" style="background-color: {colorPalette.success}; animation-delay: 0.7s;"></div>
+	<div class="absolute top-5 right-5 w-48 h-48 md:top-10 md:right-10 md:w-96 md:h-96 rounded-full mix-blend-multiply filter blur-3xl opacity-30 animate-pulse-slow transition-all duration-1000" style="background-color: {colorPalette.accent}"></div>
+	<div class="absolute bottom-5 left-5 w-48 h-48 md:bottom-10 md:left-10 md:w-96 md:h-96 rounded-full mix-blend-multiply filter blur-3xl opacity-30 animate-pulse-slow transition-all duration-1000" style="background-color: {colorPalette.secondary}; animation-delay: 1.5s;"></div>
+	<div class="absolute top-1/3 right-1/4 w-40 h-40 md:w-80 md:h-80 rounded-full mix-blend-multiply filter blur-3xl opacity-25 animate-pulse-slow transition-all duration-1000" style="background-color: {colorPalette.success}; animation-delay: 0.7s;"></div>
 
 	<div class="text-center mb-20 observe relative z-10">
-		<p class="font-black tracking-[0.3em] uppercase text-sm mb-4 neon-text" style="color: {colorPalette.accent}">Jak to działa</p>
+		<p class="font-black tracking-[0.15em] md:tracking-[0.3em] uppercase text-sm mb-4 neon-text" style="color: {colorPalette.accent}">Jak to działa</p>
 		<h2 class="text-4xl md:text-5xl lg:text-6xl font-black mb-6 leading-tight" style="font-family: 'Playfair Display', serif;">
 			Proces Projektowania<br><span class="text-white">z Wykorzystaniem AI</span>
 		</h2>
@@ -836,7 +836,7 @@
 
 	<!-- Total Time Banner -->
 	<div class="mt-16 text-center observe animate-fade-in-up" style="animation-delay: 0.3s;">
-		<div class="inline-block bg-white/10 backdrop-blur-sm px-12 py-6 rounded-2xl border-2 border-white/20 transition-all duration-500 hover:border-white/40 hover:bg-white/15">
+		<div class="inline-block bg-white/10 backdrop-blur-sm px-6 md:px-12 py-6 rounded-2xl border-2 border-white/20 transition-all duration-500 hover:border-white/40 hover:bg-white/15">
 			<p class="text-sm uppercase tracking-wider text-gray-300 mb-2">Całkowity czas realizacji</p>
 			<p class="text-4xl font-black transition-colors duration-300" style="font-family: 'Playfair Display', serif; color: {colorPalette.secondary};">10-21 dni roboczych</p>
 			<p class="text-sm text-gray-300 mt-2">vs. tradycyjne 4-6 tygodni</p>
@@ -846,11 +846,11 @@
 
 <!-- Manifesto / Why Section - Maximalism -->
 <section class="section bg-white relative overflow-hidden border-y-8" style="border-top-color: {colorPalette.primary}; border-bottom-color: {colorPalette.success};">
-	<div class="absolute top-0 right-0 w-96 h-96 rounded-full filter blur-3xl opacity-20" style="background-color: {colorPalette.secondary};"></div>
-	<div class="absolute bottom-0 left-0 w-80 h-80 rounded-full filter blur-3xl opacity-20" style="background-color: {colorPalette.accent};"></div>
+	<div class="absolute top-0 right-0 w-48 h-48 md:w-96 md:h-96 rounded-full filter blur-3xl opacity-20" style="background-color: {colorPalette.secondary};"></div>
+	<div class="absolute bottom-0 left-0 w-40 h-40 md:w-80 md:h-80 rounded-full filter blur-3xl opacity-20" style="background-color: {colorPalette.accent};"></div>
 	<div class="max-w-4xl mx-auto relative z-10">
 		<div class="text-center mb-16 observe">
-			<p class="font-black tracking-[0.3em] uppercase text-sm mb-4" style="color: {colorPalette.primary}">Nasza Filozofia</p>
+			<p class="font-black tracking-[0.15em] md:tracking-[0.3em] uppercase text-sm mb-4" style="color: {colorPalette.primary}">Nasza Filozofia</p>
 			<h2 class="text-4xl md:text-5xl lg:text-6xl font-black mb-6 leading-tight" style="font-family: 'Playfair Display', serif;">
 				<span style="color: {colorPalette.primary}">Wierzymy</span>, że design może być...
 			</h2>
@@ -935,12 +935,12 @@
 <!-- Design Journeys Section - Maximalism -->
 <section id="cennik" class="section bg-white relative overflow-hidden">
 	<!-- Colorful background elements - Maximalism -->
-	<div class="absolute top-0 right-0 w-96 h-96 rounded-full filter blur-3xl opacity-20" style="background-color: {colorPalette.tertiary}"></div>
-	<div class="absolute bottom-0 left-0 w-96 h-96 rounded-full filter blur-3xl opacity-20" style="background-color: {colorPalette.secondary}"></div>
-	<div class="absolute top-1/2 right-1/3 w-80 h-80 rounded-full filter blur-3xl opacity-15" style="background-color: {colorPalette.success}"></div>
+	<div class="absolute top-0 right-0 w-48 h-48 md:w-96 md:h-96 rounded-full filter blur-3xl opacity-20" style="background-color: {colorPalette.tertiary}"></div>
+	<div class="absolute bottom-0 left-0 w-48 h-48 md:w-96 md:h-96 rounded-full filter blur-3xl opacity-20" style="background-color: {colorPalette.secondary}"></div>
+	<div class="absolute top-1/2 right-1/3 w-40 h-40 md:w-80 md:h-80 rounded-full filter blur-3xl opacity-15" style="background-color: {colorPalette.success}"></div>
 
 	<div class="text-center mb-20 observe relative z-10">
-		<p class="font-black tracking-[0.3em] uppercase text-sm mb-4 text-gray-500">Proces Projektowy</p>
+		<p class="font-black tracking-[0.15em] md:tracking-[0.3em] uppercase text-sm mb-4 text-gray-500">Proces Projektowy</p>
 		<h2 class="text-4xl md:text-5xl lg:text-6xl font-black mb-6 leading-tight" style="font-family: 'Playfair Display', serif;">
 			Podróż do<br><span style="color: {colorPalette.primary}">Doskonalej Przestrzeni</span>
 		</h2>
@@ -1046,10 +1046,10 @@
 
 <!-- Portfolio Section - Maximalism -->
 <section id="portfolio" class="section bg-white relative overflow-hidden border-t-8" style="border-top-color: {colorPalette.accent};">
-	<div class="absolute top-0 left-1/2 w-96 h-96 rounded-full filter blur-3xl opacity-25" style="background-color: {colorPalette.tertiary};"></div>
-	<div class="absolute bottom-0 right-1/4 w-80 h-80 rounded-full filter blur-3xl opacity-20" style="background-color: {colorPalette.secondary};"></div>
+	<div class="absolute top-0 left-1/2 w-48 h-48 md:w-96 md:h-96 rounded-full filter blur-3xl opacity-25" style="background-color: {colorPalette.tertiary};"></div>
+	<div class="absolute bottom-0 right-1/4 w-40 h-40 md:w-80 md:h-80 rounded-full filter blur-3xl opacity-20" style="background-color: {colorPalette.secondary};"></div>
 		<div class="text-center mb-20 observe relative z-10">
-		<p class="font-black tracking-[0.3em] uppercase text-sm mb-4" style="color: {colorPalette.primary}">Portfolio</p>
+		<p class="font-black tracking-[0.15em] md:tracking-[0.3em] uppercase text-sm mb-4" style="color: {colorPalette.primary}">Portfolio</p>
 		<h2 class="text-4xl md:text-5xl lg:text-6xl font-black mb-6 leading-tight" style="font-family: 'Playfair Display', serif;">
 			<span style="color: {colorPalette.primary}">Wybrane</span><br>realizacje
 		</h2>
@@ -1139,8 +1139,8 @@
 
 <!-- Testimonial Section -->
 <section class="section gradient-bg text-white relative overflow-hidden">
-	<div class="absolute top-10 right-10 w-72 h-72 bg-[#FB7185] rounded-full mix-blend-multiply filter blur-3xl opacity-20 animate-pulse-slow"></div>
-	<div class="absolute bottom-10 left-10 w-72 h-72 bg-[#10B981] rounded-full mix-blend-multiply filter blur-3xl opacity-20 animate-pulse-slow" style="animation-delay: 1.5s;"></div>
+	<div class="absolute top-5 right-5 w-36 h-36 md:top-10 md:right-10 md:w-72 md:h-72 bg-[#FB7185] rounded-full mix-blend-multiply filter blur-3xl opacity-20 animate-pulse-slow"></div>
+	<div class="absolute bottom-5 left-5 w-36 h-36 md:bottom-10 md:left-10 md:w-72 md:h-72 bg-[#10B981] rounded-full mix-blend-multiply filter blur-3xl opacity-20 animate-pulse-slow" style="animation-delay: 1.5s;"></div>
 	<div class="max-w-4xl mx-auto text-center observe relative z-10">
 		<div class="mb-12">
 			<svg class="w-16 h-16 mx-auto text-[#FB7185] opacity-70" fill="currentColor" viewBox="0 0 24 24">
@@ -1160,11 +1160,11 @@
 
 <!-- Contact Section - Maximalism -->
 <section id="kontakt" class="section bg-white relative overflow-hidden border-t-8 border-b-8" style="border-top-color: {colorPalette.tertiary}; border-bottom-color: {colorPalette.primary};">
-	<div class="absolute top-0 right-0 w-96 h-96 rounded-full filter blur-3xl opacity-25" style="background-color: {colorPalette.secondary};"></div>
-	<div class="absolute bottom-0 left-0 w-80 h-80 rounded-full filter blur-3xl opacity-25" style="background-color: {colorPalette.success};"></div>
+	<div class="absolute top-0 right-0 w-48 h-48 md:w-96 md:h-96 rounded-full filter blur-3xl opacity-25" style="background-color: {colorPalette.secondary};"></div>
+	<div class="absolute bottom-0 left-0 w-40 h-40 md:w-80 md:h-80 rounded-full filter blur-3xl opacity-25" style="background-color: {colorPalette.success};"></div>
 		<div class="grid lg:grid-cols-2 gap-16 lg:gap-24 relative z-10">
 		<div class="observe">
-			<p class="font-black tracking-[0.3em] uppercase text-sm mb-4" style="color: {colorPalette.primary}">💬 Kontakt</p>
+			<p class="font-black tracking-[0.15em] md:tracking-[0.3em] uppercase text-sm mb-4" style="color: {colorPalette.primary}">💬 Kontakt</p>
 			<h2 class="text-4xl md:text-5xl lg:text-6xl font-black mb-8 leading-tight" style="font-family: 'Playfair Display', serif; color: {colorPalette.primary};">
 				Rozpocznijmy<br>
 				<span class="italic" style="color: {colorPalette.accent}">współpracę</span>
