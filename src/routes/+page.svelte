@@ -496,19 +496,19 @@
 	<div class="absolute top-1/2 left-1/2 w-48 h-48 md:w-80 md:h-80 rounded-full mix-blend-multiply filter blur-3xl opacity-40 animate-pulse-slow transition-all duration-1000" style="background-color: {colorPalette.secondary}; animation-delay: 2s;"></div>
 	<div class="absolute top-20 left-1/4 w-40 h-40 md:top-40 md:w-64 md:h-64 rounded-full mix-blend-multiply filter blur-3xl opacity-35 animate-pulse-slow transition-all duration-1000" style="background-color: {colorPalette.tertiary}; animation-delay: 0.5s;"></div>
 
-	<div class="section relative z-20">
+	<div class="section relative z-20 py-20 md:py-24">
 		<div class="max-w-5xl">
-			<div class="mb-8 observe animate-fade-in-up">
+			<div class="mb-10 md:mb-8 observe animate-fade-in-up">
 				<p class="font-bold tracking-[0.15em] md:tracking-[0.3em] uppercase text-sm mb-6 animate-pulse-slow neon-text" style="color: {colorPalette.accent}">AI × Architektura × Grafika</p>
-				<h1 class="text-5xl md:text-7xl lg:text-8xl font-black mb-6 leading-[1.05]" style="font-family: 'Playfair Display', serif;">
+				<h1 class="text-4xl md:text-7xl lg:text-8xl font-black mb-6 leading-[1.05]" style="font-family: 'Playfair Display', serif;">
 					<span class="block">Dość beżu.</span>
 					<span class="block">Czas na <span style="color: #00D4FF;">kolor!</span></span>
 				</h1>
-				<p class="text-2xl md:text-3xl font-bold mb-4 leading-tight" style="color: #FF6B9D;">
+				<p class="text-xl md:text-3xl font-bold mb-4 leading-tight" style="color: #FF6B9D;">
 					AI × Design = Twoje wymarzone wnętrze
 				</p>
 			</div>
-				<p class="text-xl md:text-2xl mb-8 max-w-3xl leading-relaxed text-gray-100 observe animate-fade-in-up" style="animation-delay: 0.2s; font-weight: 400;">
+				<p class="text-lg md:text-2xl mb-8 max-w-3xl leading-relaxed text-gray-100 observe animate-fade-in-up" style="animation-delay: 0.2s; font-weight: 400;">
 				Zobacz <span class="font-bold text-white">10 wersji swojego wnętrza</span> zanim zdecydujesz.
 				Prototypowanie w godziny, nie tygodnie. <span class="font-bold neon-text" style="color: {colorPalette.accent}">Szybciej. Odważniej. Taniej.</span>
 			</p>
@@ -559,12 +559,12 @@
 	<!-- Centered Text Content -->
 	<div class="relative z-10 flex items-center justify-center h-full">
 		<div class="text-center text-white px-6 max-w-4xl">
-			<h2 class="text-5xl md:text-7xl lg:text-8xl font-black mb-6 leading-tight" style="font-family: 'Playfair Display', serif;">
+			<h2 class="text-3xl md:text-7xl lg:text-8xl font-black mb-6 leading-tight" style="font-family: 'Playfair Display', serif;">
 				Odmień swoją<br>
 				<span style="color: {colorPalette.accent}">przestrzeń</span><br>
 				z Pikastro
 			</h2>
-			<p class="text-xl md:text-2xl text-gray-200 font-light">
+			<p class="text-lg md:text-2xl text-gray-200 font-light">
 				Twórz wyjątkowe wnętrza, które odzwierciedlają Twoją osobowość
 			</p>
 		</div>
@@ -575,9 +575,9 @@
 <section id="beforeafter" class="section bg-white relative overflow-hidden border-t-8" style="border-top-color: {colorPalette.success};">
 	<div class="absolute top-0 right-0 w-48 h-48 md:w-96 md:h-96 rounded-full filter blur-3xl opacity-25" style="background-color: {colorPalette.tertiary};"></div>
 	<div class="absolute bottom-0 left-0 w-40 h-40 md:w-80 md:h-80 rounded-full filter blur-3xl opacity-25" style="background-color: {colorPalette.accent};"></div>
-	<div class="text-center mb-20 observe">
+	<div class="text-center mb-12 md:mb-20 observe">
 		<p class="font-black tracking-[0.15em] md:tracking-[0.3em] uppercase text-sm mb-4" style="color: {colorPalette.primary}">Metamorfozy AI</p>
-		<h2 class="text-4xl md:text-5xl lg:text-6xl font-black mb-6 leading-tight" style="font-family: 'Playfair Display', serif;">
+		<h2 class="text-3xl md:text-5xl lg:text-6xl font-black mb-6 leading-tight" style="font-family: 'Playfair Display', serif;">
 			Przed i Po<br><span style="color: {colorPalette.primary}">Transformacji z AI</span>
 		</h2>
 		<p class="text-lg md:text-xl text-gray-600 max-w-2xl mx-auto leading-relaxed">
@@ -672,7 +672,7 @@
 	<div class="absolute top-0 right-0 w-48 h-48 md:w-96 md:h-96 rounded-full filter blur-3xl opacity-20" style="background-color: {colorPalette.accent};"></div>
 	<div class="absolute bottom-0 left-0 w-48 h-48 md:w-96 md:h-96 rounded-full filter blur-3xl opacity-20" style="background-color: {colorPalette.secondary};"></div>
 	<div class="max-w-5xl mx-auto px-6 text-center relative z-10">
-		<h2 class="text-3xl md:text-4xl lg:text-5xl font-black mb-6 text-white leading-tight" style="font-family: 'Playfair Display', serif;">
+		<h2 class="text-2xl md:text-4xl lg:text-5xl font-black mb-6 text-white leading-tight" style="font-family: 'Playfair Display', serif;">
 			Gotowy na kolorową <span style="color: {colorPalette.accent}">metamorfozę</span>?
 		</h2>
 		<p class="text-lg md:text-xl text-gray-200 mb-8 max-w-2xl mx-auto">
@@ -691,7 +691,7 @@
 	<div class="absolute top-1/2 left-1/4 w-32 h-32 md:w-64 md:h-64 rounded-full filter blur-3xl opacity-15" style="background-color: {colorPalette.success};"></div>
 	<div class="grid md:grid-cols-2 gap-16 lg:gap-24 items-center relative z-10">
 		<div class="observe">
-			<h2 class="text-4xl md:text-5xl lg:text-6xl font-black mb-8 leading-tight" style="font-family: 'Playfair Display', serif; color: {colorPalette.primary};">
+			<h2 class="text-3xl md:text-5xl lg:text-6xl font-black mb-8 leading-tight" style="font-family: 'Playfair Display', serif; color: {colorPalette.primary};">
 				Projektowanie przyszłości.<br>
 				<span class="italic" style="color: {colorPalette.accent}">Dziś.</span>
 			</h2>
@@ -742,7 +742,7 @@
 	<div class="absolute bottom-10 right-5 w-36 h-36 md:bottom-20 md:right-20 md:w-72 md:h-72 rounded-full filter blur-3xl opacity-20 animate-pulse-slow" style="background-color: {colorPalette.success}; animation-delay: 1s;"></div>
 		<div class="text-center mb-20 observe relative z-10">
 		<p class="font-black tracking-[0.15em] md:tracking-[0.3em] uppercase text-sm mb-4" style="color: {colorPalette.primary}">Oferta</p>
-		<h2 class="text-4xl md:text-5xl lg:text-6xl font-black mb-6 leading-tight" style="font-family: 'Playfair Display', serif; color: {colorPalette.primary};">
+		<h2 class="text-3xl md:text-5xl lg:text-6xl font-black mb-6 leading-tight" style="font-family: 'Playfair Display', serif; color: {colorPalette.primary};">
 			Od pomysłu<br><span style="color: {colorPalette.accent}">do realizacji</span>
 		</h2>
 		<p class="text-lg md:text-xl text-gray-600 max-w-2xl mx-auto leading-relaxed">
@@ -785,7 +785,7 @@
 
 	<div class="text-center mb-20 observe relative z-10">
 		<p class="font-black tracking-[0.15em] md:tracking-[0.3em] uppercase text-sm mb-4 neon-text" style="color: {colorPalette.accent}">Jak to działa</p>
-		<h2 class="text-4xl md:text-5xl lg:text-6xl font-black mb-6 leading-tight" style="font-family: 'Playfair Display', serif;">
+		<h2 class="text-3xl md:text-5xl lg:text-6xl font-black mb-6 leading-tight" style="font-family: 'Playfair Display', serif;">
 			Proces Projektowania<br><span class="text-white">z Wykorzystaniem AI</span>
 		</h2>
 		<p class="text-lg md:text-xl text-gray-200 max-w-2xl mx-auto leading-relaxed">
@@ -851,7 +851,7 @@
 	<div class="max-w-4xl mx-auto relative z-10">
 		<div class="text-center mb-16 observe">
 			<p class="font-black tracking-[0.15em] md:tracking-[0.3em] uppercase text-sm mb-4" style="color: {colorPalette.primary}">Nasza Filozofia</p>
-			<h2 class="text-4xl md:text-5xl lg:text-6xl font-black mb-6 leading-tight" style="font-family: 'Playfair Display', serif;">
+			<h2 class="text-3xl md:text-5xl lg:text-6xl font-black mb-6 leading-tight" style="font-family: 'Playfair Display', serif;">
 				<span style="color: {colorPalette.primary}">Wierzymy</span>, że design może być...
 			</h2>
 		</div>
@@ -941,10 +941,10 @@
 
 	<div class="text-center mb-20 observe relative z-10">
 		<p class="font-black tracking-[0.15em] md:tracking-[0.3em] uppercase text-sm mb-4 text-gray-500">Proces Projektowy</p>
-		<h2 class="text-4xl md:text-5xl lg:text-6xl font-black mb-6 leading-tight" style="font-family: 'Playfair Display', serif;">
+		<h2 class="text-3xl md:text-5xl lg:text-6xl font-black mb-6 leading-tight" style="font-family: 'Playfair Display', serif;">
 			Podróż do<br><span style="color: {colorPalette.primary}">Doskonalej Przestrzeni</span>
 		</h2>
-		<p class="text-xl text-gray-600 max-w-3xl mx-auto leading-relaxed">
+		<p class="text-lg md:text-xl text-gray-600 max-w-3xl mx-auto leading-relaxed">
 			Każdy projekt to unikalna historia. Wybierz ścieżkę, która najlepiej odzwierciedla Twoją wizję i potrzeby.
 		</p>
 	</div>
@@ -1050,7 +1050,7 @@
 	<div class="absolute bottom-0 right-1/4 w-40 h-40 md:w-80 md:h-80 rounded-full filter blur-3xl opacity-20" style="background-color: {colorPalette.secondary};"></div>
 		<div class="text-center mb-20 observe relative z-10">
 		<p class="font-black tracking-[0.15em] md:tracking-[0.3em] uppercase text-sm mb-4" style="color: {colorPalette.primary}">Portfolio</p>
-		<h2 class="text-4xl md:text-5xl lg:text-6xl font-black mb-6 leading-tight" style="font-family: 'Playfair Display', serif;">
+		<h2 class="text-3xl md:text-5xl lg:text-6xl font-black mb-6 leading-tight" style="font-family: 'Playfair Display', serif;">
 			<span style="color: {colorPalette.primary}">Wybrane</span><br>realizacje
 		</h2>
 		<p class="text-lg md:text-xl text-gray-600 max-w-2xl mx-auto mb-12 leading-relaxed">
@@ -1165,11 +1165,11 @@
 		<div class="grid lg:grid-cols-2 gap-16 lg:gap-24 relative z-10">
 		<div class="observe">
 			<p class="font-black tracking-[0.15em] md:tracking-[0.3em] uppercase text-sm mb-4" style="color: {colorPalette.primary}">💬 Kontakt</p>
-			<h2 class="text-4xl md:text-5xl lg:text-6xl font-black mb-8 leading-tight" style="font-family: 'Playfair Display', serif; color: {colorPalette.primary};">
+			<h2 class="text-3xl md:text-5xl lg:text-6xl font-black mb-8 leading-tight" style="font-family: 'Playfair Display', serif; color: {colorPalette.primary};">
 				Rozpocznijmy<br>
 				<span class="italic" style="color: {colorPalette.accent}">współpracę</span>
 			</h2>
-			<p class="text-xl text-gray-600 mb-12 leading-relaxed">
+			<p class="text-lg md:text-xl text-gray-600 mb-12 leading-relaxed">
 				Masz pomysł na projekt? Chcesz stworzyć wyjątkową przestrzeń lub odświeżyć identyfikację wizualną?
 				Skontaktuj się ze mną - razem znajdziemy idealne rozwiązanie.
 			</p>
