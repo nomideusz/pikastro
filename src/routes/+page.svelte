@@ -860,29 +860,28 @@
 			<div class="bg-white p-8 rounded-2xl border-4 transition-all duration-300 hover:shadow-xl" style="border-color: {colorPalette.primary};">
 				<h3 class="text-2xl font-black mb-3" style="font-family: 'Playfair Display', serif; color: {colorPalette.primary}">Szybki I Dopracowany</h3>
 				<p class="text-[#27275b]/80 leading-relaxed">
-					AI nie zastępuje designera - wzmacnia go. Generujemy warianty w godziny, a potem dopracowujemy każdy detal ręcznie.
+					Technologia AI pozwala nam pokazać Ci kilkanaście wariantów projektowych w kilka dni zamiast tygodni. Następnie wybrane rozwiązanie dopracowujemy ręcznie w każdym szczególe.
 				</p>
 			</div>
 
 			<div class="bg-white p-8 rounded-2xl border-4 transition-all duration-300 hover:shadow-xl" style="border-color: {colorPalette.accent};">
 				<h3 class="text-2xl font-black mb-3" style="font-family: 'Playfair Display', serif; color: {colorPalette.accent}">Kolorowy I Profesjonalny</h3>
 				<p class="text-[#27275b]/80 leading-relaxed">
-					Zero beżowo-szarych nudnych wnętrz. Ale też zero chaosu - każdy kolor ma swoje miejsce i funkcję.
+					Żadnych beżowo-szarych przestrzeni. Tworzymy wnętrza z charakterem, w których kolory są starannie dobrane i przemyślane - odważne, ale harmonijne.
 				</p>
 			</div>
 
 			<div class="bg-white p-8 rounded-2xl border-4 transition-all duration-300 hover:shadow-xl" style="border-color: {colorPalette.secondary};">
 				<h3 class="text-2xl font-black mb-3" style="font-family: 'Playfair Display', serif; color: {colorPalette.secondary};">Odważny I Funkcjonalny</h3>
 				<p class="text-[#27275b]/80 leading-relaxed">
-					Projektujemy przestrzenie, które wyróżniają się wizualnie, ale przede wszystkim - działają dla Ciebie każdego dnia.
+					Projektujemy tak, żeby przestrzeń nie tylko pięknie wyglądała, ale przede wszystkim - służyła Ci każdego dnia. Estetyka idzie w parze z funkcjonalnością.
 				</p>
 			</div>
 
 			<div class="bg-white p-8 rounded-2xl border-4 transition-all duration-300 hover:shadow-xl" style="border-color: {colorPalette.success};">
-				<div class="text-4xl mb-4">💰</div>
 				<h3 class="text-2xl font-black mb-3" style="font-family: 'Playfair Display', serif; color: {colorPalette.success}">Dostępny I Wysokiej Jakości</h3>
 				<p class="text-[#27275b]/80 leading-relaxed">
-					AI oszczędza nam czas, więc możemy oferować Ci atrakcyjne ceny bez kompromisów w jakości wykonania.
+					Dzięki technologii AI skracamy czas pracy nad koncepcją, co przekłada się na atrakcyjne ceny. Wysoka jakość designu w przystępnej cenie.
 				</p>
 			</div>
 		</div>
