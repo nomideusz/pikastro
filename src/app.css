@@ -1,0 +1,189 @@
+@import url('https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;500;600;700;800&family=Montserrat:wght@300;400;500;600;700;800&display=swap');
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* Custom styles for professional interior design & architecture portfolio */
+@layer base {
+  html {
+    font-family: 'Montserrat', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+    scroll-behavior: smooth;
+  }
+
+  body {
+    @apply bg-white;
+    color: #27275b;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+    overflow-x: hidden;
+    width: 100%;
+    position: relative;
+  }
+
+  /* Main headings - elegant serif */
+  h1, h2 {
+    font-family: 'Playfair Display', Georgia, serif;
+    font-weight: 700;
+    letter-spacing: -0.02em;
+  }
+
+  /* Subheadings and UI - modern sans-serif */
+  h3, h4, h5, h6 {
+    font-family: 'Montserrat', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+    font-weight: 600;
+    letter-spacing: -0.01em;
+  }
+}
+
+@layer components {
+  .btn {
+    @apply px-8 py-4 bg-[#27275b] text-white rounded-lg hover:shadow-2xl hover:shadow-[#FB7185]/50 transition-all duration-300 shadow-lg transform hover:scale-105 hover:-translate-y-1 font-bold tracking-wide uppercase text-sm;
+    font-family: 'Montserrat', sans-serif;
+  }
+
+  .btn-secondary {
+    @apply px-8 py-4 bg-transparent text-[#27275b] border-2 border-[#27275b] rounded-lg hover:bg-[#27275b] hover:text-white transition-all duration-300 shadow-lg hover:shadow-2xl font-bold tracking-wide uppercase text-sm;
+    font-family: 'Montserrat', sans-serif;
+  }
+
+  .section {
+    @apply py-16 md:py-24 px-4 md:px-6 lg:px-12 max-w-7xl mx-auto;
+  }
+
+  .card {
+    @apply bg-white shadow-md hover:shadow-2xl transition-all duration-300 border border-gray-100 overflow-hidden hover:border-[#FB7185]/30 hover:shadow-[#FB7185]/20;
+  }
+
+  .gradient-bg {
+    @apply bg-[#27275b];
+    position: relative;
+  }
+
+  .gradient-bg::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: transparent;
+    pointer-events: none;
+  }
+
+  .gradient-text {
+    @apply text-[#27275b];
+  }
+
+  .accent-text {
+    @apply text-[#FB7185];
+  }
+
+  /* Neon glow effect */
+  .neon-glow {
+    box-shadow:
+      0 0 10px rgba(251, 113, 133, 0.5),
+      0 0 20px rgba(251, 113, 133, 0.3),
+      0 0 30px rgba(251, 113, 133, 0.2);
+  }
+
+  .neon-text {
+    text-shadow:
+      0 0 10px rgba(251, 113, 133, 0.8),
+      0 0 20px rgba(251, 113, 133, 0.5),
+      0 0 30px rgba(251, 113, 133, 0.3);
+  }
+
+  /* Elegant underline effect */
+  .elegant-underline {
+    position: relative;
+    display: inline-block;
+  }
+
+  .elegant-underline::after {
+    content: '';
+    position: absolute;
+    bottom: -8px;
+    left: 0;
+    width: 60px;
+    height: 3px;
+    background: #27275b;
+  }
+
+  /* Reveal animation on scroll */
+  @keyframes fadeInUp {
+    from {
+      opacity: 0;
+      transform: translateY(40px);
+    }
+    to {
+      opacity: 1;
+      transform: translateY(0);
+    }
+  }
+
+  .animate-fade-in-up {
+    animation: fadeInUp 0.6s cubic-bezier(0.22, 1, 0.36, 1) forwards;
+  }
+
+  /* Professional hover effects with color */
+  .hover-lift {
+    @apply transition-all duration-300 ease-out;
+  }
+
+  .hover-lift:hover {
+    @apply transform -translate-y-2 shadow-2xl;
+  }
+
+  /* Vibrant quote block */
+  .quote-block {
+    @apply border-l-4 border-[#27275b] pl-6 italic text-gray-600 bg-blue-50 py-4;
+  }
+
+  /* Animated background */
+  .animated-gradient {
+    background: #27275b;
+  }
+
+  /* Pulse animation for accents */
+  @keyframes pulse {
+    0%, 100% {
+      opacity: 1;
+    }
+    50% {
+      opacity: 0.7;
+    }
+  }
+
+  .animate-pulse-slow {
+    animation: pulse 3s cubic-bezier(0.4, 0, 0.6, 1) infinite;
+  }
+
+  /* Floating animation */
+  @keyframes float {
+    0%, 100% {
+      transform: translateY(0px);
+    }
+    50% {
+      transform: translateY(-10px);
+    }
+  }
+
+  .animate-float {
+    animation: float 3s ease-in-out infinite;
+  }
+
+  /* Subtle pulse animation for CTA buttons */
+  @keyframes pulse-subtle {
+    0%, 100% {
+      box-shadow: 0 0 0 0 rgba(251, 113, 133, 0.7);
+    }
+    50% {
+      box-shadow: 0 0 0 10px rgba(251, 113, 133, 0);
+    }
+  }
+
+  .animate-pulse-subtle {
+    animation: pulse-subtle 2s cubic-bezier(0.4, 0, 0.6, 1) infinite;
+  }
+}
