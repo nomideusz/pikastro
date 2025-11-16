@@ -425,6 +425,82 @@
 	let activeFilter = $state('wszystkie');
 	let activeBeforeAfter = $state(0);
 	let sliderPosition = $state(50); // percentage for before/after slider
+	let isDragging = $state(false);
+	let sliderContainer: HTMLDivElement | null = null;
+
+	// Handle slider position update from mouse/touch events
+	function updateSliderPosition(event: MouseEvent | TouchEvent) {
+		if (!sliderContainer) return;
+
+		const rect = sliderContainer.getBoundingClientRect();
+		const clientX = 'touches' in event ? event.touches[0].clientX : event.clientX;
+		const x = clientX - rect.left;
+		const percentage = Math.max(0, Math.min(100, (x / rect.width) * 100));
+		sliderPosition = percentage;
+	}
+
+	// Mouse events
+	function handleMouseDown(event: MouseEvent) {
+		isDragging = true;
+		updateSliderPosition(event);
+	}
+
+	function handleMouseMove(event: MouseEvent) {
+		if (isDragging) {
+			updateSliderPosition(event);
+		}
+	}
+
+	function handleMouseUp() {
+		isDragging = false;
+	}
+
+	// Touch events
+	function handleTouchStart(event: TouchEvent) {
+		isDragging = true;
+		updateSliderPosition(event);
+	}
+
+	function handleTouchMove(event: TouchEvent) {
+		if (isDragging) {
+			event.preventDefault(); // Prevent scrolling while dragging
+			updateSliderPosition(event);
+		}
+	}
+
+	function handleTouchEnd() {
+		isDragging = false;
+	}
+
+	// Keyboard support for accessibility
+	function handleKeyDown(event: KeyboardEvent) {
+		if (event.key === 'ArrowLeft') {
+			sliderPosition = Math.max(0, sliderPosition - 5);
+			event.preventDefault();
+		} else if (event.key === 'ArrowRight') {
+			sliderPosition = Math.min(100, sliderPosition + 5);
+			event.preventDefault();
+		}
+	}
+
+	// Add global mouse/touch up listeners
+	$effect(() => {
+		if (typeof window !== 'undefined') {
+			const globalMouseUp = () => {
+				if (isDragging) {
+					isDragging = false;
+				}
+			};
+
+			window.addEventListener('mouseup', globalMouseUp);
+			window.addEventListener('touchend', globalMouseUp);
+
+			return () => {
+				window.removeEventListener('mouseup', globalMouseUp);
+				window.removeEventListener('touchend', globalMouseUp);
+			};
+		}
+	});
 
 	$effect(() => {
 		// Add scroll animations
@@ -588,43 +664,61 @@
 	<div class="relative z-10">
 		<!-- Main Before/After Slider -->
 		<div class="max-w-5xl mx-auto mb-16 observe">
-			<div class="relative aspect-[16/9] bg-[#27275b] rounded-2xl overflow-hidden shadow-2xl">
+			<div
+				bind:this={sliderContainer}
+				class="relative aspect-[16/9] bg-[#27275b] rounded-2xl overflow-hidden shadow-2xl cursor-ew-resize select-none touch-none"
+				onmousedown={handleMouseDown}
+				onmousemove={handleMouseMove}
+				onmouseup={handleMouseUp}
+				onmouseleave={handleMouseUp}
+				ontouchstart={handleTouchStart}
+				ontouchmove={handleTouchMove}
+				ontouchend={handleTouchEnd}
+				onkeydown={handleKeyDown}
+				role="slider"
+				aria-label="Slider porównujący zdjęcia przed i po transformacji"
+				aria-valuemin={0}
+				aria-valuemax={100}
+				aria-valuenow={sliderPosition}
+				tabindex="0"
+			>
 				<!-- Before Image -->
-				<div class="absolute inset-0">
-					<img 
-						src={beforeAfterProjects[activeBeforeAfter].before} 
+				<div class="absolute inset-0 pointer-events-none">
+					<img
+						src={beforeAfterProjects[activeBeforeAfter].before}
 						alt="Przed transformacją"
 						class="w-full h-full object-cover"
+						draggable="false"
 					/>
 				</div>
 
 				<!-- After Image with slider -->
-				<div class="absolute inset-0" style="clip-path: inset(0 {100 - sliderPosition}% 0 0)">
-					<img 
-						src={beforeAfterProjects[activeBeforeAfter].after} 
+				<div class="absolute inset-0 pointer-events-none" style="clip-path: inset(0 {100 - sliderPosition}% 0 0)">
+					<img
+						src={beforeAfterProjects[activeBeforeAfter].after}
 						alt="Po transformacji AI"
 						class="w-full h-full object-cover"
+						draggable="false"
 					/>
 				</div>
 
 				<!-- Slider Handle -->
-				<div class="absolute inset-y-0 z-10 pointer-events-none" style="left: {sliderPosition}%">
+				<div class="absolute inset-y-0 z-10 pointer-events-none transition-shadow duration-200" style="left: {sliderPosition}%; {isDragging ? 'filter: drop-shadow(0 0 8px rgba(251, 113, 133, 0.5));' : ''}">
 					<div class="absolute inset-y-0 w-1 bg-white shadow-lg"></div>
-					<div class="absolute top-1/2 -translate-y-1/2 -translate-x-1/2 w-12 h-12 bg-white rounded-full shadow-lg flex items-center justify-center">
-						<svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24" style="color: {colorPalette.primary}">
+					<div class="absolute top-1/2 -translate-y-1/2 -translate-x-1/2 w-14 h-14 md:w-12 md:h-12 bg-white rounded-full shadow-2xl flex items-center justify-center transition-transform duration-200 {isDragging ? 'scale-110' : ''}">
+						<svg class="w-7 h-7 md:w-6 md:h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24" style="color: {colorPalette.primary}">
 							<path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 8l-4 4 4 4m6 0l4-4-4-4"></path>
 						</svg>
 					</div>
 				</div>
 
-				<!-- Slider Input -->
-				<input
-					type="range"
-					min="0"
-					max="100"
-					bind:value={sliderPosition}
-					class="absolute inset-0 w-full h-full opacity-0 cursor-move z-20"
-				/>
+				<!-- Labels -->
+				<div class="absolute bottom-4 left-4 bg-black/70 text-white px-3 py-1.5 rounded-lg text-sm font-bold pointer-events-none">
+					PRZED
+				</div>
+				<div class="absolute bottom-4 right-4 bg-black/70 text-white px-3 py-1.5 rounded-lg text-sm font-bold pointer-events-none">
+					PO
+				</div>
 			</div>
 
 			<!-- Project Info -->
