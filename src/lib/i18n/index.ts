@@ -1,129 +1,100 @@
-import { init, locale, dictionary, t, _, addMessages } from 'svelte-i18n';
-import { derived, get } from 'svelte/store';
+// Simple, SSR-safe i18n for Svelte 5
+import { writable, derived } from 'svelte/store';
+import type { Readable, Writable } from 'svelte/store';
 
 // Import translations
 import en from '../../locales/en/common.json';
 import pl from '../../locales/pl/common.json';
 
-// Keep a direct reference to translations for SSR fallback
-const translations: Record<string, any> = {
+// Type for translations
+type Translations = Record<string, any>;
+type Locale = 'en' | 'pl';
+
+// Store all translations
+const translations: Record<Locale, Translations> = {
 	en,
 	pl
 };
 
-// Add messages for each locale BEFORE init (required for SSR)
-addMessages('en', en);
-addMessages('pl', pl);
+// Create locale store with default value
+export const locale: Writable<Locale> = writable('pl');
 
-// Initialize i18n with proper SSR settings
-init({
-	fallbackLocale: 'pl',
-	initialLocale: 'pl'
-});
+// Helper to navigate nested object by key path
+function getNestedValue(obj: any, keyPath: string): string | null {
+	const keys = keyPath.split('.');
+	let value: any = obj;
 
-// Set locale after init
-locale.set('pl');
+	for (const k of keys) {
+		if (value && typeof value === 'object' && k in value) {
+			value = value[k];
+		} else {
+			return null;
+		}
+	}
 
-
-// Create a reactive translation store that's safe for SSR
-// This derived store will work in $derived blocks
-export function createT() {
-	return derived(t, ($t) => {
-		return (key: string, defaultValue: string = '') => {
-			try {
-				if (typeof $t === 'function') {
-					const value = $t(key);
-					return value || defaultValue || key;
-				}
-				return defaultValue || key;
-			} catch (e) {
-				return defaultValue || key;
-			}
-		};
-	});
+	return typeof value === 'string' ? value : null;
 }
 
-// Safe translation function for SSR - can be used in $derived blocks
-export function getT(key: string, defaultValue: string = ''): string {
-	// Helper function to navigate nested object by key path
-	const getNestedValue = (obj: any, keyPath: string): string | null => {
-		const keys = keyPath.split('.');
-		let value: any = obj;
+// Simple translation function - works in both SSR and client
+export function getT(key: string, providedLocale?: Locale): string {
+	// Determine which locale to use
+	let currentLocale: Locale = 'pl';
 
-		for (const k of keys) {
-			if (value && typeof value === 'object' && k in value) {
-				value = value[k];
-			} else {
-				return null;
-			}
+	if (providedLocale) {
+		// Use provided locale if given
+		currentLocale = providedLocale;
+	} else if (typeof window !== 'undefined') {
+		// On client, try to get from localStorage
+		const saved = localStorage.getItem('locale');
+		if (saved === 'en' || saved === 'pl') {
+			currentLocale = saved;
 		}
+	}
 
-		return typeof value === 'string' ? value : null;
-	};
+	// Try current locale
+	const value = getNestedValue(translations[currentLocale], key);
+	if (value) return value;
 
-	try {
-		// Get current locale - try store first, fall back to default
-		let currentLocale = 'pl';
-		try {
-			const localeValue = get(locale);
-			if (localeValue) {
-				currentLocale = localeValue;
-			}
-		} catch (e) {
-			// Store not available, use default 'pl'
-		}
+	// Try fallback locale
+	if (currentLocale !== 'pl') {
+		const fallbackValue = getNestedValue(translations['pl'], key);
+		if (fallbackValue) return fallbackValue;
+	}
 
-		// ALWAYS try direct translations first (most reliable, always available)
-		if (translations) {
-			const value = getNestedValue(translations[currentLocale], key);
-			if (value) return value;
+	// Return key if no translation found
+	return key;
+}
 
-			// Try fallback locale if current locale fails
-			if (currentLocale !== 'pl') {
-				const fallbackValue = getNestedValue(translations['pl'], key);
-				if (fallbackValue) return fallbackValue;
-			}
-		}
+// Reactive translation store for client-side use
+export const t: Readable<(key: string) => string> = derived(
+	locale,
+	($locale) => (key: string) => getT(key, $locale)
+);
 
-		// Try dictionary store as fallback (for dynamic locale changes on client)
-		try {
-			const dict = get(dictionary);
-			if (dict && dict[currentLocale]) {
-				const value = getNestedValue(dict[currentLocale], key);
-				if (value) return value;
-			}
-		} catch (e) {
-			// Dictionary not available
-		}
+// Helper to switch language
+export function setLocale(newLocale: Locale) {
+	locale.set(newLocale);
 
-		// Last resort: try t store (for client-side reactivity)
-		try {
-			const translateFn = get(t);
-			if (typeof translateFn === 'function') {
-				const value = translateFn(key);
-				if (value && value !== key) {
-					return value;
-				}
-			}
-		} catch (e) {
-			// t store not available
-		}
-
-		// Return default or key if nothing worked
-		return defaultValue || key;
-	} catch (e) {
-		// Complete failure, return default or key
-		return defaultValue || key;
+	// Save to localStorage if in browser
+	if (typeof window !== 'undefined') {
+		localStorage.setItem('locale', newLocale);
 	}
 }
 
-// Export commonly used stores and functions
-export { locale, t, _, dictionary };
-
-// Helper to switch language
-export function setLocale(newLocale: string) {
-	locale.set(newLocale);
+// Get current locale value (for SSR and client)
+export function getCurrentLocale(): Locale {
+	if (typeof window !== 'undefined') {
+		// Client-side: try localStorage first
+		const saved = localStorage.getItem('locale');
+		if (saved === 'en' || saved === 'pl') {
+			return saved;
+		}
+	}
+	return 'pl';
 }
 
-// Helper to get current locale
-export const currentLocale = derived(locale, ($locale) => $locale);
+// Initialize locale on client
+if (typeof window !== 'undefined') {
+	const initialLocale = getCurrentLocale();
+	locale.set(initialLocale);
+}
