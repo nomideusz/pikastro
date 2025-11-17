@@ -791,7 +791,7 @@
 		<p class="text-lg md:text-xl text-gray-200 mb-8 max-w-2xl mx-auto">
 			{translate('home.ctaBanner.description')}
 		</p>
-		<a href="#kontakt" class="inline-block px-8 py-4 text-lg font-bold rounded-xl shadow-xl transition-all duration-300 hover:shadow-2xl hover:scale-105 transform animate-pulse-subtle" style="background-color: {colorPalette.primary}; color: {colorPalette.secondary};">
+		<a href="#kontakt" class="inline-block px-8 py-4 text-lg font-bold rounded-xl shadow-xl transition-all duration-300 hover:shadow-2xl hover:scale-105 transform animate-pulse-subtle" style="background-color: {colorPalette.secondary}; color: {colorPalette.primary};">
 			{translate('home.ctaBanner.button')}
 		</a>
 	</div>
