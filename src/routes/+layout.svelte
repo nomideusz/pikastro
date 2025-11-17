@@ -86,19 +86,19 @@
 
 			<!-- Desktop Navigation -->
 			<div class="hidden lg:flex items-center space-x-8">
-				<a href="/o-mnie" class="text-gray-700 transition-colors font-bold text-sm tracking-wide uppercase relative group hover:text-[var(--color-primary)]">
+				<a href="/o-mnie" class="text-[#27275b] transition-colors font-bold text-sm tracking-wide uppercase relative group hover:text-[var(--color-primary)]">
 					{translate('nav.about')}
 					<span class="absolute bottom-0 left-0 w-0 h-0.5 transition-all duration-300 group-hover:w-full" style="background-color: var(--color-accent);"></span>
 				</a>
-				<a href={getNavLink('#oferta')} class="text-gray-700 transition-colors font-bold text-sm tracking-wide uppercase relative group hover:text-[var(--color-primary)]">
+				<a href={getNavLink('#oferta')} class="text-[#27275b] transition-colors font-bold text-sm tracking-wide uppercase relative group hover:text-[var(--color-primary)]">
 					{translate('nav.offer')}
 					<span class="absolute bottom-0 left-0 w-0 h-0.5 transition-all duration-300 group-hover:w-full" style="background-color: var(--color-accent);"></span>
 				</a>
-				<a href="/ceny" class="text-gray-700 transition-colors font-bold text-sm tracking-wide uppercase relative group hover:text-[var(--color-primary)]">
+				<a href="/ceny" class="text-[#27275b] transition-colors font-bold text-sm tracking-wide uppercase relative group hover:text-[var(--color-primary)]">
 					{translate('nav.pricing')}
 					<span class="absolute bottom-0 left-0 w-0 h-0.5 transition-all duration-300 group-hover:w-full" style="background-color: var(--color-accent);"></span>
 				</a>
-				<a href={getNavLink('#portfolio')} class="text-gray-700 transition-colors font-bold text-sm tracking-wide uppercase relative group hover:text-[var(--color-primary)]">
+				<a href={getNavLink('#portfolio')} class="text-[#27275b] transition-colors font-bold text-sm tracking-wide uppercase relative group hover:text-[var(--color-primary)]">
 					{translate('nav.portfolio')}
 					<span class="absolute bottom-0 left-0 w-0 h-0.5 transition-all duration-300 group-hover:w-full" style="background-color: var(--color-accent);"></span>
 				</a>
@@ -112,7 +112,7 @@
 			<div class="lg:hidden">
 				<button
 					onclick={() => isMenuOpen = !isMenuOpen}
-					class="text-gray-700 focus:outline-none transition-colors hover:text-[var(--color-primary)]"
+					class="text-[#27275b] focus:outline-none transition-colors hover:text-[var(--color-primary)]"
 					aria-label="Toggle menu"
 				>
 					<svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24" stroke-width="2">
@@ -132,16 +132,16 @@
 				<div class="px-4 pt-6 space-y-3">
 					<!-- Navigation Items -->
 					<div class="space-y-2">
-						<a href="/o-mnie" onclick={() => isMenuOpen = false} class="block px-4 py-3 text-gray-700 transition-all duration-300 font-bold text-sm tracking-wide uppercase rounded-lg hover:bg-gray-50 hover:text-[var(--color-primary)] transform hover:translate-x-1">
+						<a href="/o-mnie" onclick={() => isMenuOpen = false} class="block px-4 py-3 text-[#27275b] transition-all duration-300 font-bold text-sm tracking-wide uppercase rounded-lg hover:bg-gray-50 hover:text-[var(--color-primary)] transform hover:translate-x-1">
 							{translate('nav.about')}
 						</a>
-						<a href={getNavLink('#oferta')} onclick={() => isMenuOpen = false} class="block px-4 py-3 text-gray-700 transition-all duration-300 font-bold text-sm tracking-wide uppercase rounded-lg hover:bg-gray-50 hover:text-[var(--color-primary)] transform hover:translate-x-1">
+						<a href={getNavLink('#oferta')} onclick={() => isMenuOpen = false} class="block px-4 py-3 text-[#27275b] transition-all duration-300 font-bold text-sm tracking-wide uppercase rounded-lg hover:bg-gray-50 hover:text-[var(--color-primary)] transform hover:translate-x-1">
 							{translate('nav.offer')}
 						</a>
-						<a href="/ceny" onclick={() => isMenuOpen = false} class="block px-4 py-3 text-gray-700 transition-all duration-300 font-bold text-sm tracking-wide uppercase rounded-lg hover:bg-gray-50 hover:text-[var(--color-primary)] transform hover:translate-x-1">
+						<a href="/ceny" onclick={() => isMenuOpen = false} class="block px-4 py-3 text-[#27275b] transition-all duration-300 font-bold text-sm tracking-wide uppercase rounded-lg hover:bg-gray-50 hover:text-[var(--color-primary)] transform hover:translate-x-1">
 							{translate('nav.pricing')}
 						</a>
-						<a href={getNavLink('#portfolio')} onclick={() => isMenuOpen = false} class="block px-4 py-3 text-gray-700 transition-all duration-300 font-bold text-sm tracking-wide uppercase rounded-lg hover:bg-gray-50 hover:text-[var(--color-primary)] transform hover:translate-x-1">
+						<a href={getNavLink('#portfolio')} onclick={() => isMenuOpen = false} class="block px-4 py-3 text-[#27275b] transition-all duration-300 font-bold text-sm tracking-wide uppercase rounded-lg hover:bg-gray-50 hover:text-[var(--color-primary)] transform hover:translate-x-1">
 							{translate('nav.portfolio')}
 						</a>
 					</div>
@@ -153,7 +153,7 @@
 
 					<!-- CTA Button -->
 					<div class="pt-3 border-t border-gray-100">
-						<a href={getNavLink('#kontakt')} onclick={() => isMenuOpen = false} class="block px-4 py-3 text-gray-700 transition-all duration-300 text-sm tracking-wide uppercase font-bold rounded-lg hover:bg-gray-50 hover:text-[var(--color-primary)] transform hover:translate-x-1">
+						<a href={getNavLink('#kontakt')} onclick={() => isMenuOpen = false} class="block px-4 py-3 text-[#27275b] transition-all duration-300 text-sm tracking-wide uppercase font-bold rounded-lg hover:bg-gray-50 hover:text-[var(--color-primary)] transform hover:translate-x-1">
 							{translate('nav.contact')}
 						</a>
 					</div>

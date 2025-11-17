@@ -656,7 +656,7 @@
 		<div class="text-center text-white px-6 max-w-4xl">
 			<h2 class="text-3xl md:text-7xl lg:text-8xl font-black mb-6 leading-tight" style="font-family: 'Playfair Display', serif;">
 				{translate('home.video.heading')}<br>
-				<span style="color: {colorPalette.accent}">{translate('home.video.headingAccent')}</span><br>
+				<span style="color: {colorPalette.primary}">{translate('home.video.headingAccent')}</span><br>
 				{translate('home.video.headingEnd')}
 			</h2>
 			<p class="text-lg md:text-2xl text-gray-200 font-light">
@@ -805,8 +805,7 @@
 	<div class="grid md:grid-cols-2 gap-16 lg:gap-24 items-center relative z-10">
 		<div class="observe">
 			<h2 class="text-4xl md:text-5xl lg:text-6xl font-black mb-8 leading-tight" style="font-family: 'Playfair Display', serif; color: {colorPalette.primary};">
-				{translate('home.aboutHome.heading')}<br>
-				<span class="italic" style="color: {colorPalette.accent}">{translate('home.aboutHome.headingAccent')}</span>
+				{translate('home.aboutHome.heading')} <span class="italic" style="color: {colorPalette.primary}">{translate('home.aboutHome.headingAccent')}</span>
 			</h2>
 			<div class="space-y-6 text-[#27275b]/80 leading-relaxed text-lg">
 				<p>
@@ -850,7 +849,7 @@
 		<div class="text-center mb-20 observe relative z-10">
 		<p class="font-black tracking-[0.15em] md:tracking-[0.3em] uppercase text-sm mb-4" style="color: {colorPalette.primary}">{translate('home.services.label')}</p>
 		<h2 class="text-4xl md:text-5xl lg:text-6xl font-black mb-6 leading-tight" style="font-family: 'Playfair Display', serif; color: {colorPalette.primary};">
-			{translate('home.services.heading')}<br><span style="color: {colorPalette.accent}">{translate('home.services.headingAccent')}</span>
+			{translate('home.services.heading')}<br><span style="color: {colorPalette.primary}">{translate('home.services.headingAccent')}</span>
 		</h2>
 		<p class="text-lg md:text-xl text-[#27275b]/80 max-w-2xl mx-auto leading-relaxed">
 			{translate('home.services.description')}
