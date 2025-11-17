@@ -14,6 +14,10 @@
     "about": {
       "title": "About - Magda Makaruk | Interior & Graphic Designer | Kraków",
       "description": "Meet Magda Makaruk - experienced interior and graphic designer. I combine architectural knowledge with artistic creativity and AI technology. Kraków."
+    },
+    "pricing": {
+      "title": "Pricing - Magda Makaruk | Interior & Graphic Designer | Kraków",
+      "description": "Interior design and graphic design pricing. Single rooms from $900, full apartment from $3,000. Professional AI-powered projects."
     }
   },
   "footer": {
@@ -219,6 +223,21 @@
     }
   },
   "pricing": {
+    "page": {
+      "label": "Design Process",
+      "heading": "Journey to",
+      "headingAccent": "Perfect Space",
+      "tagline": "Every project is a unique story",
+      "description": "Choose the path that best reflects your vision and needs. Professional design with AI technology.",
+      "processLabel": "How collaboration works:",
+      "investmentLabel": "Investment",
+      "ctaQuestion": "Ready to transform your space?",
+      "ctaButton": "Start",
+      "everyProjectHeading": "Every Project Is Different",
+      "everyProjectDescription": "Have a unique vision or unusual space? Regardless of project scale, each collaboration is tailored individually. Share your dreams - together we'll create something exceptional.",
+      "ctaConsultation": "Book Free Consultation",
+      "consultationDetails": "💡 No obligation • 30 minutes • Online or in-person"
+    },
     "singleRoom": {
       "title": "Single Spaces",
       "subtitle": "Bedroom • Living Room • Kitchen • Office",
@@ -229,7 +248,8 @@
       "process4": "3D visualizations and technical documentation",
       "process5": "Shopping list with recommendations",
       "process6": "Support during implementation",
-      "investment": "From $900"
+      "investment": "From $900",
+      "duration": "2-3 weeks"
     },
     "fullApartment": {
       "title": "Full Apartment",
@@ -241,7 +261,8 @@
       "process4": "Contractor and supplier coordination",
       "process5": "Authorial supervision of implementation",
       "process6": "Final detail refinement",
-      "investment": "From $3,000"
+      "investment": "From $3,000",
+      "duration": "6-8 weeks"
     },
     "businessSpaces": {
       "title": "Business Spaces",
@@ -253,7 +274,8 @@
       "process4": "3D visualizations and animations",
       "process5": "Executive documentation",
       "process6": "Contractor collaboration",
-      "investment": "From $4,500"
+      "investment": "From $4,500",
+      "duration": "8-12 weeks"
     }
   },
   "beforeAfter": {

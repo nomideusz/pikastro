@@ -14,6 +14,10 @@
     "about": {
       "title": "O mnie - Magda Makaruk | Projektantka Wnętrz i Grafiki | Kraków",
       "description": "Poznaj Magdę Makaruk - doświadczoną projektantkę wnętrz i grafiki komputerowej. Łączę wiedzę architektoniczną z kreatywnością plastyczną i technologią AI. Kraków."
+    },
+    "pricing": {
+      "title": "Ceny - Magda Makaruk | Projektantka Wnętrz i Grafiki | Kraków",
+      "description": "Cennik usług projektowania wnętrz i grafiki komputerowej. Pojedyncze przestrzenie od 3.500 zł, pełne mieszkanie od 12.000 zł. Profesjonalne projekty z technologią AI."
     }
   },
   "footer": {
@@ -219,6 +223,21 @@
     }
   },
   "pricing": {
+    "page": {
+      "label": "Proces Projektowy",
+      "heading": "Podróż do",
+      "headingAccent": "Doskonałej Przestrzeni",
+      "tagline": "Każdy projekt to unikalna historia",
+      "description": "Wybierz ścieżkę, która najlepiej odzwierciedla Twoją wizję i potrzeby. Profesjonalne projektowanie z wykorzystaniem technologii AI.",
+      "processLabel": "Jak wygląda współpraca:",
+      "investmentLabel": "Inwestycja",
+      "ctaQuestion": "Gotowy na transformację swojej przestrzeni?",
+      "ctaButton": "Rozpocznij",
+      "everyProjectHeading": "Każdy Projekt Jest Inny",
+      "everyProjectDescription": "Masz unikalną wizję lub nietypową przestrzeń? Niezależnie od skali projektu, każda współpraca jest tworzona indywidualnie. Podziel się swoimi marzeniami - razem stworzymy coś wyjątkowego.",
+      "ctaConsultation": "Umów Bezpłatną Konsultację",
+      "consultationDetails": "💡 Bez zobowiązań • 30 minut • Online lub stacjonarnie"
+    },
     "singleRoom": {
       "title": "Pojedyncze Przestrzenie",
       "subtitle": "Sypialnia • Salon • Kuchnia • Biuro",
@@ -229,7 +248,8 @@
       "process4": "Wizualizacje 3D i dokumentacja techniczna",
       "process5": "Lista zakupów z rekomendacjami",
       "process6": "Wsparcie podczas realizacji",
-      "investment": "Od 3.500 zł"
+      "investment": "Od 3.500 zł",
+      "duration": "2-3 tygodnie"
     },
     "fullApartment": {
       "title": "Pełne Mieszkanie",
@@ -241,7 +261,8 @@
       "process4": "Koordynacja wykonawców i dostawców",
       "process5": "Nadzór autorski nad realizacją",
       "process6": "Finalne dopracowanie detali",
-      "investment": "Od 12.000 zł"
+      "investment": "Od 12.000 zł",
+      "duration": "6-8 tygodni"
     },
     "businessSpaces": {
       "title": "Przestrzenie Biznesowe",
@@ -253,7 +274,8 @@
       "process4": "Wizualizacje i animacje 3D",
       "process5": "Dokumentacja wykonawcza",
       "process6": "Współpraca z wykonawcami",
-      "investment": "Od 18.000 zł"
+      "investment": "Od 18.000 zł",
+      "duration": "8-12 tygodni"
     }
   },
   "beforeAfter": {

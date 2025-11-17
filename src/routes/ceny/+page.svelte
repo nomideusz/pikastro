@@ -4,6 +4,8 @@
 	// Import color extraction utilities
 	import { extractColorsFromImage, assignColorRoles, type ColorPalette } from '$lib/utils/colorExtractor';
 	import colorsImg from '$lib/assets/images/colors.jpeg';
+	import { t, locale } from '$lib/i18n';
+	import { pricingTiers } from '$lib/data/pricing';
 
 	// Color palette extracted from colors image - Eclectic Maximalism
 	let colorPalette = $state<ColorPalette>({
@@ -66,66 +68,11 @@
 
 		return () => observer.disconnect();
 	});
-
-	// Design journeys - Professional creative process
-	const designJourneys = [
-		{
-			title: 'Pojedyncze Przestrzenie',
-			subtitle: 'Sypialnia • Salon • Kuchnia • Biuro',
-			description: 'Intymna współpraca nad jednym pomieszczeniem. Odkryjemy jego potencjał i stworzymy przestrzeń, która odzwierciedla Twój styl życia.',
-			process: [
-				'Rozmowa o Twoich potrzebach i marzeniach',
-				'Wizyta na miejscu i analiza przestrzeni',
-				'3-5 koncepcji projektowych z AI',
-				'Wizualizacje 3D i dokumentacja techniczna',
-				'Lista zakupów z rekomendacjami',
-				'Wsparcie podczas realizacji'
-			],
-			duration: '2-3 tygodnie',
-			investment: 'Od 3.500 zł',
-			image: '',
-			highlight: false
-		},
-		{
-			title: 'Pełne Mieszkanie',
-			subtitle: 'Kompleksowa metamorfoza',
-			description: 'Całkowita transformacja mieszkania. Od pierwszego szkicu po klucz w drzwiach - stworzymy przestrzeń, która będzie Twoim domem na lata.',
-			process: [
-				'Głęboka analiza stylu życia i potrzeb',
-				'Kompletny projekt wszystkich pomieszczeń',
-				'Wizualizacje 3D wszystkich przestrzeni',
-				'Koordynacja wykonawców i dostawców',
-				'Nadzór autorski nad realizacją',
-				'Finalne dopracowanie detali'
-			],
-			duration: '6-8 tygodni',
-			investment: 'Od 12.000 zł',
-			image: '',
-			highlight: true
-		},
-		{
-			title: 'Przestrzenie Biznesowe',
-			subtitle: 'Biura • Kawiarnie • Sklepy • Restauracje',
-			description: 'Profesjonalne projekty komercyjne łączące ergonomię, branding i funkcjonalność. Tworzymy przestrzenie, które przyciągają klientów i wspierają biznes.',
-			process: [
-				'Analiza biznesowa i brief strategiczny',
-				'Projekt funkcjonalny i ergonomiczny',
-				'Identyfikacja wizualna przestrzeni',
-				'Wizualizacje i animacje 3D',
-				'Dokumentacja wykonawcza',
-				'Współpraca z wykonawcami'
-			],
-			duration: '8-12 tygodni',
-			investment: 'Od 18.000 zł',
-			image: '',
-			highlight: false
-		}
-	];
 </script>
 
 <svelte:head>
-	<title>Ceny - Magda Makaruk | Projektantka Wnętrz i Grafiki | Kraków</title>
-	<meta name="description" content="Cennik usług projektowania wnętrz i grafiki komputerowej. Pojedyncze przestrzenie od 3.500 zł, pełne mieszkanie od 12.000 zł. Profesjonalne projekty z technologią AI." />
+	<title>{$t('meta.pricing.title')}</title>
+	<meta name="description" content={$t('meta.pricing.description')} />
 </svelte:head>
 
 <!-- Hero Section -->
@@ -149,17 +96,16 @@
 	<div class="section relative z-10">
 		<div class="max-w-4xl">
 			<div class="mb-8 observe">
-				<p class="font-bold tracking-[0.3em] uppercase text-sm mb-6 animate-pulse-slow neon-text" style="color: {colorPalette.accent}">Proces Projektowy</p>
+				<p class="font-bold tracking-[0.3em] uppercase text-sm mb-6 animate-pulse-slow neon-text" style="color: {colorPalette.accent}">{$t('pricing.page.label')}</p>
 				<h1 class="text-4xl md:text-6xl lg:text-7xl font-black mb-6 leading-tight" style="font-family: 'Playfair Display', serif;">
-					Podróż do<br>
-					<span style="color: #00D4FF;">Doskonałej Przestrzeni</span>
+					{$t('pricing.page.heading')}<br>
+					<span style="color: #00D4FF;">{$t('pricing.page.headingAccent')}</span>
 				</h1>
 				<p class="text-xl md:text-2xl font-bold mb-4 text-white/90 leading-tight">
-					Każdy projekt to unikalna historia
+					{$t('pricing.page.tagline')}
 				</p>
 				<p class="text-lg md:text-xl mb-8 max-w-2xl leading-relaxed text-gray-100">
-					Wybierz ścieżkę, która najlepiej odzwierciedla Twoją wizję i potrzeby.
-					Profesjonalne projektowanie z wykorzystaniem technologii AI.
+					{$t('pricing.page.description')}
 				</p>
 			</div>
 		</div>
@@ -174,7 +120,7 @@
 	<div class="absolute top-1/2 right-1/3 w-40 h-40 md:w-80 md:h-80 rounded-full filter blur-3xl opacity-15" style="background-color: {colorPalette.success}"></div>
 
 	<div class="space-y-16 relative z-10 max-w-7xl mx-auto">
-		{#each designJourneys as journey, i}
+		{#each pricingTiers as journey, i}
 			<div class="observe" style="animation-delay: {i * 200}ms">
 				<div class="bg-white rounded-3xl shadow-sm border border-[#27275b]/10 overflow-hidden transition-all duration-500 hover:shadow-2xl {journey.highlight ? 'ring-2 ring-offset-4' : ''}" style={journey.highlight ? `ring-color: ${colorPalette.primary}; --tw-ring-offset-color: rgba(var(--color-primary-rgb, 59, 130, 246), 0.1);` : ''}>
 
@@ -188,20 +134,20 @@
 							<div class="flex flex-col lg:flex-row lg:items-center lg:justify-between gap-8">
 								<div class="flex-1">
 									<h3 class="text-3xl lg:text-4xl font-black mb-2" style="font-family: 'Playfair Display', serif; color: {journey.highlight ? colorPalette.primary : '#27275b'}">
-										{journey.title}
+										{$t(journey.titleKey)}
 									</h3>
-									<p class="text-lg font-medium mb-3 text-[#27275b]/80">{journey.subtitle}</p>
+									<p class="text-lg font-medium mb-3 text-[#27275b]/80">{$t(journey.subtitleKey)}</p>
 									<p class="text-[#27275b]/90 leading-relaxed max-w-2xl">
-										{journey.description}
+										{$t(journey.descriptionKey)}
 									</p>
 								</div>
 
 								<!-- Investment & Duration -->
 								<div class="lg:text-right">
 									<div class="inline-block p-6 bg-[#27275b]/5 rounded-2xl border border-[#27275b]/10">
-										<div class="text-sm uppercase tracking-wider text-[#27275b]/70 mb-1 font-bold">Inwestycja</div>
-										<div class="text-2xl font-black mb-2" style="color: {colorPalette.primary}">{journey.investment}</div>
-										<div class="text-sm text-[#27275b]/80">{journey.duration}</div>
+										<div class="text-sm uppercase tracking-wider text-[#27275b]/70 mb-1 font-bold">{$t('pricing.page.investmentLabel')}</div>
+										<div class="text-2xl font-black mb-2" style="color: {colorPalette.primary}">{$t(journey.investmentKey)}</div>
+										<div class="text-sm text-[#27275b]/80">{$t(journey.titleKey + 'Duration') || journey.duration}</div>
 									</div>
 								</div>
 							</div>
@@ -211,14 +157,14 @@
 					<!-- Process Steps -->
 					<div class="px-8 lg:px-12 pb-12">
 						<div class="border-t border-[#27275b]/10 pt-8">
-							<h4 class="text-lg font-bold mb-6 text-[#27275b]">Jak wygląda współpraca:</h4>
+							<h4 class="text-lg font-bold mb-6 text-[#27275b]">{$t('pricing.page.processLabel')}</h4>
 							<div class="grid md:grid-cols-2 gap-6">
-								{#each journey.process as step, stepIndex}
+								{#each journey.processKeys as processKey, stepIndex}
 									<div class="flex items-start gap-4">
 										<div class="flex-shrink-0 w-8 h-8 rounded-full flex items-center justify-center text-sm font-bold" style="background-color: {colorPalette.primary}; color: white;">
 											{stepIndex + 1}
 										</div>
-										<p class="text-[#27275b]/90 leading-relaxed">{step}</p>
+										<p class="text-[#27275b]/90 leading-relaxed">{$t(processKey)}</p>
 									</div>
 								{/each}
 							</div>
@@ -226,9 +172,9 @@
 
 						<!-- CTA -->
 						<div class="mt-8 pt-8 border-t border-[#27275b]/10 text-center">
-							<p class="text-sm text-[#27275b]/70 mb-4">Gotowy na transformację swojej przestrzeni?</p>
+							<p class="text-sm text-[#27275b]/70 mb-4">{$t('pricing.page.ctaQuestion')}</p>
 							<a href="/#kontakt" class="inline-flex items-center gap-3 px-8 py-4 text-white rounded-xl hover:shadow-xl transition-all duration-300 font-bold text-sm group" style="background-color: {colorPalette.accent};">
-								<span>Rozpocznij {journey.title.toLowerCase()}</span>
+								<span>{$t('pricing.page.ctaButton')} {$t(journey.titleKey).toLowerCase()}</span>
 								<svg class="w-4 h-4 transform group-hover:translate-x-1 transition-transform" fill="none" stroke="currentColor" viewBox="0 0 24 24">
 									<path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 7l5 5m0 0l-5 5m5-5H6"/>
 								</svg>
@@ -244,22 +190,20 @@
 	<div class="mt-20 text-center observe max-w-4xl mx-auto">
 		<div class="p-8 lg:p-12 rounded-3xl border-4" style="background-color: rgba(29, 168, 152, 0.05); border-color: {colorPalette.secondary};">
 			<h3 class="text-3xl lg:text-4xl font-black mb-4" style="font-family: 'Playfair Display', serif; color: {colorPalette.primary}">
-				Każdy Projekt Jest Inny
+				{$t('pricing.page.everyProjectHeading')}
 			</h3>
 			<p class="text-lg text-[#27275b]/90 mb-8 leading-relaxed">
-				Masz unikalną wizję lub nietypową przestrzeń? Niezależnie od skali projektu,
-				każda współpraca jest tworzona indywidualnie. Podziel się swoimi marzeniami -
-				razem stworzymy coś wyjątkowego.
+				{$t('pricing.page.everyProjectDescription')}
 			</p>
 			<div class="flex flex-col sm:flex-row gap-4 justify-center items-center">
 				<a href="/#kontakt" class="inline-flex items-center gap-3 px-8 py-4 text-white rounded-xl hover:shadow-xl transition-all duration-300 font-bold text-sm" style="background-color: {colorPalette.success};">
-					<span>Umów Bezpłatną Konsultację</span>
+					<span>{$t('pricing.page.ctaConsultation')}</span>
 					<svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
 						<path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8 12h.01M12 12h.01M16 12h.01M21 12c0 4.418-4.03 8-9 8a9.863 9.863 0 01-4.255-.949L3 20l1.395-3.72C3.512 15.042 3 13.574 3 12c0-4.418 4.03-8 9-8s9 3.582 9 8z"/>
 					</svg>
 				</a>
 				<div class="text-sm text-[#27275b]/70">
-					💡 Bez zobowiązań • 30 minut • Online lub stacjonarnie
+					{$t('pricing.page.consultationDetails')}
 				</div>
 			</div>
 		</div>
