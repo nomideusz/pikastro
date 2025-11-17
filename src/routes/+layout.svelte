@@ -33,18 +33,19 @@
 	}
 
 	// Extract colors from the colors image on mount
-	$effect(() => {
-		extractColorsFromImage(colorsImg, 5)
-			.then((colors) => {
-				if (colors.length > 0) {
-					const roles = assignColorRoles(colors);
-					colorPalette = roles;
-				}
-			})
-			.catch((error) => {
-				console.warn('Could not extract colors from image:', error);
-			});
-	});
+	// Disabled to use static color palette
+	// $effect(() => {
+	// 	extractColorsFromImage(colorsImg, 5)
+	// 		.then((colors) => {
+	// 			if (colors.length > 0) {
+	// 				const roles = assignColorRoles(colors);
+	// 				colorPalette = roles;
+	// 			}
+	// 		})
+	// 		.catch((error) => {
+	// 			console.warn('Could not extract colors from image:', error);
+	// 		});
+	// });
 
 	// Update HTML lang attribute when locale changes
 	$effect(() => {
