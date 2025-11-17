@@ -45,59 +45,58 @@ export function createT() {
 
 // Safe translation function for SSR - can be used in $derived blocks
 export function getT(key: string, defaultValue: string = ''): string {
+	// Helper function to navigate nested object by key path
+	const getNestedValue = (obj: any, keyPath: string): string | null => {
+		const keys = keyPath.split('.');
+		let value: any = obj;
+
+		for (const k of keys) {
+			if (value && typeof value === 'object' && k in value) {
+				value = value[k];
+			} else {
+				return null;
+			}
+		}
+
+		return typeof value === 'string' ? value : null;
+	};
+
 	try {
-		// Get current locale (default to 'pl')
+		// Get current locale - try store first, fall back to default
 		let currentLocale = 'pl';
 		try {
-			currentLocale = get(locale) || 'pl';
+			const localeValue = get(locale);
+			if (localeValue) {
+				currentLocale = localeValue;
+			}
 		} catch (e) {
-			// Locale store not ready, use default
+			// Store not available, use default 'pl'
 		}
 
-		// First, try direct access to imported translations (most reliable for SSR)
-		if (translations && translations[currentLocale]) {
-			const keys = key.split('.');
-			let value: any = translations[currentLocale];
+		// ALWAYS try direct translations first (most reliable, always available)
+		if (translations) {
+			const value = getNestedValue(translations[currentLocale], key);
+			if (value) return value;
 
-			for (const k of keys) {
-				if (value && typeof value === 'object' && k in value) {
-					value = value[k];
-				} else {
-					value = null;
-					break;
-				}
-			}
-
-			if (value && typeof value === 'string') {
-				return value;
+			// Try fallback locale if current locale fails
+			if (currentLocale !== 'pl') {
+				const fallbackValue = getNestedValue(translations['pl'], key);
+				if (fallbackValue) return fallbackValue;
 			}
 		}
 
-		// Fallback to dictionary store if direct access fails
+		// Try dictionary store as fallback (for dynamic locale changes on client)
 		try {
 			const dict = get(dictionary);
 			if (dict && dict[currentLocale]) {
-				const keys = key.split('.');
-				let value: any = dict[currentLocale];
-
-				for (const k of keys) {
-					if (value && typeof value === 'object' && k in value) {
-						value = value[k];
-					} else {
-						value = null;
-						break;
-					}
-				}
-
-				if (value && typeof value === 'string') {
-					return value;
-				}
+				const value = getNestedValue(dict[currentLocale], key);
+				if (value) return value;
 			}
 		} catch (e) {
-			// Dictionary not ready
+			// Dictionary not available
 		}
 
-		// Last resort: try t store
+		// Last resort: try t store (for client-side reactivity)
 		try {
 			const translateFn = get(t);
 			if (typeof translateFn === 'function') {
@@ -107,7 +106,7 @@ export function getT(key: string, defaultValue: string = ''): string {
 				}
 			}
 		} catch (e) {
-			// t store not ready
+			// t store not available
 		}
 
 		// Return default or key if nothing worked
