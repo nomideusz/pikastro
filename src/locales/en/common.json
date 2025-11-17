@@ -63,6 +63,10 @@
       "after": "AFTER"
     },
     "portfolio": {
+      "label": "Portfolio",
+      "heading": "Our",
+      "headingEnd": "work",
+      "description": "See examples of our interior design and graphics projects. Each project is a unique story and individual approach to client needs.",
       "filterAll": "All",
       "filterInteriors": "Interiors",
       "filterGraphics": "Graphics",

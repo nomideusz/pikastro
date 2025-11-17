@@ -63,6 +63,10 @@
       "after": "PO"
     },
     "portfolio": {
+      "label": "Portfolio",
+      "heading": "Nasze",
+      "headingEnd": "realizacje",
+      "description": "Zobacz przykłady naszych projektów wnętrz i grafiki. Każdy projekt to unikalna historia i indywidualne podejście do potrzeb klienta.",
       "filterAll": "Wszystkie",
       "filterInteriors": "Wnętrza",
       "filterGraphics": "Grafika",
