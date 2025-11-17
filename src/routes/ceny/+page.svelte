@@ -4,7 +4,7 @@
 	// Import color extraction utilities
 	import { extractColorsFromImage, assignColorRoles, type ColorPalette } from '$lib/utils/colorExtractor';
 	import colorsImg from '$lib/assets/images/colors.jpeg';
-	import { tSafe, locale } from '$lib/i18n';
+	import { t, locale, getT } from '$lib/i18n';
 	import { pricingTiers } from '$lib/data/pricing';
 
 	// Color palette extracted from colors image - Eclectic Maximalism
@@ -71,8 +71,8 @@
 </script>
 
 <svelte:head>
-	<title>{$t('meta.pricing.title')}</title>
-	<meta name="description" content={$t('meta.pricing.description')} />
+	<title>{getT('meta.pricing.title')}</title>
+	<meta name="description" content={getT('meta.pricing.description')} />
 </svelte:head>
 
 <!-- Hero Section -->

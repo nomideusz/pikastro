@@ -2,7 +2,7 @@
 	import '../../app.css';
 
 	// Import i18n
-	import { tSafe, locale } from '$lib/i18n';
+	import { t, locale, getT } from '$lib/i18n';
 
 	// Import color extraction utilities
 	import { extractColorsFromImage, assignColorRoles, type ColorPalette } from '$lib/utils/colorExtractor';
@@ -73,8 +73,8 @@
 </script>
 
 <svelte:head>
-	<title>{$t('meta.about.title')}</title>
-	<meta name="description" content={$t('meta.about.description')} />
+	<title>{getT('meta.about.title')}</title>
+	<meta name="description" content={getT('meta.about.description')} />
 </svelte:head>
 
 <!-- Hero Section -->
