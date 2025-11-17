@@ -46,11 +46,40 @@ export function createT() {
 // Safe translation function for SSR - can be used in $derived blocks
 export function getT(key: string, defaultValue: string = ''): string {
 	try {
+		// First try to get the current locale
+		const currentLocale = get(locale) || 'pl';
+
+		// Try to get translations from dictionary directly (more reliable for SSR)
+		const dict = get(dictionary);
+		if (dict && dict[currentLocale]) {
+			// Navigate through nested keys (e.g., 'home.hero.heading1')
+			const keys = key.split('.');
+			let value: any = dict[currentLocale];
+
+			for (const k of keys) {
+				if (value && typeof value === 'object' && k in value) {
+					value = value[k];
+				} else {
+					value = null;
+					break;
+				}
+			}
+
+			if (value && typeof value === 'string') {
+				return value;
+			}
+		}
+
+		// Fallback to t store if dictionary access fails
 		const translateFn = get(t);
 		if (typeof translateFn === 'function') {
 			const value = translateFn(key);
-			return value || defaultValue || key;
+			if (value && value !== key) {
+				return value;
+			}
 		}
+
+		// Return default or key if nothing worked
 		return defaultValue || key;
 	} catch (e) {
 		// Store not ready yet, return default or key
