@@ -598,9 +598,9 @@
 				<p class="font-bold tracking-[0.15em] md:tracking-[0.3em] uppercase text-sm mb-6 animate-pulse-slow neon-text" style="color: {colorPalette.accent}">{translate('home.hero.label')}</p>
 				<h1 class="text-5xl md:text-7xl lg:text-8xl font-black mb-6 leading-[1.05]" style="font-family: 'Playfair Display', serif;">
 					<span class="block">{translate('home.hero.heading1')}</span>
-					<span class="block">{translate('home.hero.heading2')}</span>
+					<span class="block" style="color: #F5848E">{translate('home.hero.heading2')}</span>
 				</h1>
-				<p class="text-2xl md:text-3xl font-bold mb-4 leading-tight" style="color: #FF6B9D;">
+				<p class="text-2xl md:text-3xl font-bold mb-4 leading-tight" style="color: #27275B;">
 					{translate('home.hero.tagline')}
 				</p>
 			</div>
