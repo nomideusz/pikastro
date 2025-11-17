@@ -804,7 +804,7 @@
 	<div class="absolute top-1/2 left-1/4 w-32 h-32 md:w-64 md:h-64 rounded-full filter blur-3xl opacity-15" style="background-color: {colorPalette.success};"></div>
 	<div class="grid md:grid-cols-2 gap-16 lg:gap-24 items-center relative z-10">
 		<div class="observe">
-			<h2 class="text-4xl md:text-5xl lg:text-6xl font-black mb-8 leading-tight" style="font-family: 'Playfair Display', serif;">
+			<h2 class="text-4xl md:text-5xl lg:text-6xl font-black mb-8 leading-tight text-[#27275b]" style="font-family: 'Playfair Display', serif;">
 				{translate('home.aboutHome.heading')} <span class="italic" style="color: #27275b">{translate('home.aboutHome.headingAccent')}</span>
 			</h2>
 			<div class="space-y-6 text-[#27275b]/80 leading-relaxed text-lg">
