@@ -1154,7 +1154,7 @@
 			<p class="font-black tracking-[0.15em] md:tracking-[0.3em] uppercase text-sm mb-4" style="color: {colorPalette.primary}">{translate('home.contact.label')}</p>
 			<h2 class="text-4xl md:text-5xl lg:text-6xl font-black mb-8 leading-tight" style="font-family: 'Playfair Display', serif; color: {colorPalette.primary};">
 				{translate('home.contact.heading')}<br>
-				<span class="italic" style="color: {colorPalette.accent}">{translate('home.contact.headingAccent')}</span>
+				<span class="italic" style="color: {colorPalette.primary}">{translate('home.contact.headingAccent')}</span>
 			</h2>
 			<p class="text-lg md:text-xl text-[#27275b]/80 mb-12 leading-relaxed">
 				{translate('home.contact.description')}
