@@ -11,18 +11,29 @@ dictionary.set({
 	pl
 });
 
-// Initialize i18n
+// Initialize i18n with proper SSR support
 init({
 	fallbackLocale: 'pl',
-	initialLocale: getLocaleFromNavigator() || 'pl',
+	initialLocale: 'pl', // Set a default locale for SSR
 });
 
-// Browser-side language persistence
+// Set initial locale - for SSR compatibility
+locale.set('pl');
+
+// Browser-side language persistence and locale detection
 if (typeof window !== 'undefined') {
-	// Try to get saved language from localStorage
+	// Try to get saved language from localStorage first
 	const savedLocale = localStorage.getItem('locale');
 	if (savedLocale && (savedLocale === 'en' || savedLocale === 'pl')) {
 		locale.set(savedLocale);
+	} else {
+		// Fallback to navigator language
+		const navigatorLocale = getLocaleFromNavigator();
+		if (navigatorLocale && (navigatorLocale === 'en' || navigatorLocale.startsWith('en'))) {
+			locale.set('en');
+		} else {
+			locale.set('pl');
+		}
 	}
 
 	// Save locale changes to localStorage
