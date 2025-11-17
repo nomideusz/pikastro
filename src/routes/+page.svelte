@@ -100,7 +100,7 @@
 	// Update project type when t is available
 	$effect(() => {
 		try {
-			const projectType = $t('home.form.projectType');
+			const projectType = getT('home.form.projectType');
 			if (projectType && formData.project === defaultProjectType) {
 				formData.project = projectType;
 			}
@@ -186,7 +186,7 @@
 		const validation = validateAllFields();
 		if (!validation.isFormValid) {
 			formStatus = 'error';
-			formMessage = $t('home.form.error');
+			formMessage = getT('home.form.error');
 			return;
 		}
 
@@ -206,11 +206,11 @@
 
 			if (response.ok) {
 				formStatus = 'success';
-				formMessage = $t('home.form.success');
+				formMessage = getT('home.form.success');
 				// Reset form
 				let resetProjectType = defaultProjectType;
 				try {
-					resetProjectType = $t('home.form.projectType');
+					resetProjectType = getT('home.form.projectType');
 				} catch (e) {
 					// t not ready, use default
 				}
@@ -236,11 +236,11 @@
 				setTimeout(() => ensureVideoPlays(vid02Element), 100);
 			} else {
 				formStatus = 'error';
-				formMessage = result.error || $t('home.form.errorGeneric');
+				formMessage = result.error || getT('home.form.errorGeneric');
 			}
 		} catch (error) {
 			formStatus = 'error';
-			formMessage = $t('home.form.errorNetwork');
+			formMessage = getT('home.form.errorNetwork');
 			console.error('Form submission error:', error);
 		}
 	}
