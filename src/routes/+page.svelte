@@ -127,6 +127,21 @@
 	});
 	let isValidating = $state(false);
 
+	// Submit button text - use getT for SSR safety
+	const submitButtonText = $derived.by(() => {
+		if (formStatus === 'submitting') return getT('home.form.submit.sending');
+		if (!validationErrors.isFormValid && (touchedFields.name || touchedFields.email || touchedFields.message)) {
+			return getT('home.form.submit.fixErrors');
+		}
+		return getT('home.form.submit.send');
+	});
+
+	// Project category text - use getT for SSR safety
+	const getProjectCategoryText = (category: string) => {
+		return category === 'wnętrza' ? getT('home.portfolio.categoryInteriors') : getT('home.portfolio.categoryGraphics');
+	};
+
+
 	// Video references for playback control
 	let vid02Element: HTMLVideoElement;
 
@@ -1077,7 +1092,7 @@
 					<div class="space-y-3 px-2 pt-2">
 					<div class="flex items-center justify-between">
 						<span class="text-xs uppercase tracking-wider font-black px-3 py-1 bg-blue-50 rounded-full" style="color: {colorPalette.primary}">
-							{project.category === 'wnętrza' ? $t('home.portfolio.categoryInteriors') : $t('home.portfolio.categoryGraphics')}
+							{getProjectCategoryText(project.category)}
 						</span>
 					</div>
 					<h3 class="text-2xl font-black text-[#27275b] transition-colors" style="font-family: 'Playfair Display', serif;" onmouseenter={(e) => e.currentTarget.style.color = colorPalette.primary} onmouseleave={(e) => e.currentTarget.style.color = '#27275b'}>
@@ -1314,7 +1329,7 @@
 					disabled={formStatus === 'submitting' || !validationErrors.isFormValid}
 					class="w-full btn disabled:opacity-50 disabled:cursor-not-allowed {!validationErrors.isFormValid && (touchedFields.name || touchedFields.email || touchedFields.message) ? 'opacity-60 cursor-not-allowed' : ''}"
 				>
-					{formStatus === 'submitting' ? $t('home.form.submit.sending') : !validationErrors.isFormValid && (touchedFields.name || touchedFields.email || touchedFields.message) ? $t('home.form.submit.fixErrors') : $t('home.form.submit.send')}
+					{submitButtonText}
 				</button>
 			</form>
 		</div>
