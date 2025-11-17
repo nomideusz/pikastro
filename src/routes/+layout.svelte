@@ -103,7 +103,7 @@
 					<span class="absolute bottom-0 left-0 w-0 h-0.5 transition-all duration-300 group-hover:w-full" style="background-color: var(--color-accent);"></span>
 				</a>
 				<LanguageToggle />
-				<a href={getNavLink('#kontakt')} class="px-6 py-2.5 transition-all duration-300 text-sm tracking-wide uppercase font-bold rounded-lg shadow-md hover:shadow-lg transform hover:scale-105" style="background-color: var(--color-secondary); color: var(--color-primary);">
+				<a href={getNavLink('#kontakt')} class="px-6 py-2.5 transition-all duration-300 text-sm tracking-wide uppercase font-bold rounded-lg shadow-md hover:shadow-lg transform hover:scale-105" style="background-color: var(--color-primary); color: var(--color-secondary);">
 					{translate('nav.contact')}
 				</a>
 			</div>

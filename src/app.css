@@ -38,7 +38,7 @@
 
 @layer components {
   .btn {
-    @apply px-8 py-4 bg-[#1DA898] text-[#27275b] rounded-lg hover:shadow-2xl hover:shadow-[#1DA898]/50 transition-all duration-300 shadow-lg transform hover:scale-105 hover:-translate-y-1 font-bold tracking-wide uppercase text-sm;
+    @apply px-8 py-4 bg-[#27275b] text-[#1DA898] rounded-lg hover:shadow-2xl hover:shadow-[#1DA898]/50 transition-all duration-300 shadow-lg transform hover:scale-105 hover:-translate-y-1 font-bold tracking-wide uppercase text-sm;
     font-family: 'Montserrat', sans-serif;
   }
 
