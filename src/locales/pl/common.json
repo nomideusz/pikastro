@@ -58,6 +58,68 @@
         "priceDesc": "jeden pokój"
       }
     },
+    "slider": {
+      "before": "PRZED",
+      "after": "PO"
+    },
+    "portfolio": {
+      "filterAll": "Wszystkie",
+      "filterInteriors": "Wnętrza",
+      "filterGraphics": "Grafika",
+      "viewProject": "Zobacz projekt",
+      "categoryInteriors": "Wnętrza",
+      "categoryGraphics": "Grafika"
+    },
+    "timeline": {
+      "totalTime": "Całkowity czas realizacji",
+      "workingDays": "10-21 dni roboczych",
+      "vsTraditional": "vs. tradycyjne 4-6 tygodni"
+    },
+    "philosophy": {
+      "label": "Nasza Filozofia",
+      "heading": "Wierzymy",
+      "headingEnd": ", że design może być...",
+      "fastAndRefined": {
+        "title": "Szybki I Dopracowany",
+        "description": "Technologia AI pozwala nam pokazać Ci kilkanaście wariantów projektowych w kilka dni zamiast tygodni. Następnie wybrane rozwiązanie dopracowujemy ręcznie w każdym szczególe."
+      },
+      "colorfulAndProfessional": {
+        "title": "Kolorowy I Profesjonalny",
+        "description": "Żadnych beżowo-szarych przestrzeni. Tworzymy wnętrza z charakterem, w których kolory są starannie dobrane i przemyślane - odważne, ale harmonijne."
+      },
+      "boldAndFunctional": {
+        "title": "Odważny I Funkcjonalny",
+        "description": "Projektujemy tak, żeby przestrzeń nie tylko pięknie wyglądała, ale przede wszystkim - służyła Ci każdego dnia. Estetyka idzie w parze z funkcjonalnością."
+      },
+      "accessibleAndQuality": {
+        "title": "Dostępny I Wysokiej Jakości",
+        "description": "Dzięki technologii AI skracamy czas pracy nad koncepcją, co przekłada się na atrakcyjne ceny. Wysoka jakość designu w przystępnej cenie."
+      }
+    },
+    "faq": {
+      "heading": "Najczęstsze pytania",
+      "question1": {
+        "q": "\"Czy AI to nie tandetnie?\"",
+        "a": "Nie, jeśli ma <strong>inżyniera i designera przy sterach</strong>. AI to narzędzie - jak pędzel dla malarza. W moich rękach generuje propozycje, ale każdy projekt przechodzi przez ludzką kurację i dopracowanie."
+      },
+      "question2": {
+        "q": "\"Ile to kosztuje?\"",
+        "a": "<strong>Mniej niż myślisz.</strong> Bo AI oszczędza nam czas, a Tobie pieniądze. Jeden pokój od 1,500 zł, mieszkanie 2-3 pokoje od 3,500 zł. Zero ukrytych kosztów."
+      },
+      "question3": {
+        "q": "\"Czy to naprawdę działa?\"",
+        "a": "<strong>50+ zrealizowanych projektów mówi samo za siebie.</strong> Pierwsze studio w Krakowie, które połączyło architekturę × grafikę × AI. Sprawdź metamorfozy poniżej."
+      },
+      "question4": {
+        "q": "\"Dla kogo to jest?\"",
+        "a": "Dla którzy kupują pierwsze mieszkanie i chcą przestrzeń do pracy zdalnej, smart home, kolorowe aranżacje - zamiast beżowo-szarych wnętrz rodem z showroomu."
+      }
+    },
+    "contact": {
+      "location": "Kraków, Polska",
+      "locationDesc": "Współpraca zdalna w całej Polsce",
+      "availability": "Pn - Pt, 9:00 - 17:00"
+    },
     "video": {
       "heading": "Odmień swoją",
       "headingAccent": "przestrzeń",
@@ -103,7 +165,28 @@
       "success": "Dziękuję! Twoja wiadomość została wysłana. Odpowiem wkrótce!",
       "errorGeneric": "Wystąpił błąd podczas wysyłania wiadomości",
       "errorNetwork": "Wystąpił błąd podczas wysyłania wiadomości. Spróbuj ponownie.",
-      "projectType": "Projektowanie wnętrz"
+      "projectType": "Projektowanie wnętrz",
+      "nameLabel": "Imię i nazwisko",
+      "namePlaceholder": "Jan Kowalski",
+      "emailLabel": "Email",
+      "emailPlaceholder": "jan@example.com",
+      "projectLabel": "Typ projektu",
+      "projectOptions": {
+        "interiorDesign": "Projektowanie wnętrz",
+        "visualIdentity": "Identyfikacja wizualna",
+        "consultations": "Konsultacje",
+        "other": "Inne"
+      },
+      "messageLabel": "Wiadomość",
+      "messagePlaceholder": "Opowiedz o swoim projekcie...",
+      "validation": {
+        "looksGood": "Wygląda dobrze!"
+      },
+      "submit": {
+        "sending": "Wysyłanie...",
+        "fixErrors": "Popraw błędy przed wysłaniem",
+        "send": "Wyślij wiadomość"
+      }
     }
   },
   "about": {

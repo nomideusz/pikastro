@@ -15,6 +15,9 @@
 	import heroVideo from '$lib/assets/videos/vid01.mp4';
 	import vid02 from '$lib/assets/videos/vid02.mp4';
 
+	// Import i18n
+	import { t, locale } from '$lib/i18n';
+
 	// Import color extraction utilities
 	import { extractColorsFromImage, assignColorRoles, type ColorPalette } from '$lib/utils/colorExtractor';
 	import { validateForm, validateField, type FormValidationResult, type ValidationField } from '$lib/utils/validation';
@@ -87,7 +90,7 @@
 	let formData = $state({
 		name: '',
 		email: '',
-		project: 'Projektowanie wnętrz',
+		project: $t('home.form.projectType'),
 		message: ''
 	});
 
@@ -168,7 +171,7 @@
 		const validation = validateAllFields();
 		if (!validation.isFormValid) {
 			formStatus = 'error';
-			formMessage = 'Proszę poprawić błędy w formularzu przed wysłaniem.';
+			formMessage = $t('home.form.error');
 			return;
 		}
 
@@ -188,12 +191,12 @@
 
 			if (response.ok) {
 				formStatus = 'success';
-				formMessage = 'Dziękuję! Twoja wiadomość została wysłana. Odpowiem wkrótce!';
+				formMessage = $t('home.form.success');
 				// Reset form
 				formData = {
 					name: '',
 					email: '',
-					project: 'Projektowanie wnętrz',
+					project: $t('home.form.projectType'),
 					message: ''
 				};
 				// Reset validation state
@@ -212,160 +215,160 @@
 				setTimeout(() => ensureVideoPlays(vid02Element), 100);
 			} else {
 				formStatus = 'error';
-				formMessage = result.error || 'Wystąpił błąd podczas wysyłania wiadomości';
+				formMessage = result.error || $t('home.form.errorGeneric');
 			}
 		} catch (error) {
 			formStatus = 'error';
-			formMessage = 'Wystąpił błąd podczas wysyłania wiadomości. Spróbuj ponownie.';
+			formMessage = $t('home.form.errorNetwork');
 			console.error('Form submission error:', error);
 		}
 	}
 
 	// Before/After showcase data
-	const beforeAfterProjects = [
+	const beforeAfterProjects = $derived([
 		{
-			title: 'Salon z Kuchnią - Metamorfoza AI',
+			title: $t('beforeAfter.project1.title'),
 			before: img01,
 			after: img02,
-			description: 'Transformacja beżowego salonu w kolorową, funkcjonalną przestrzeń z AI',
-			aiFeatures: ['Optymalizacja układu', 'Dobór kolorystyki', 'Smart storage']
+			description: $t('beforeAfter.project1.description'),
+			aiFeatures: [$t('beforeAfter.project1.feature1'), $t('beforeAfter.project1.feature2'), $t('beforeAfter.project1.feature3')]
 		},
 		{
-			title: 'Sypialnia Młodych Profesjonalistów',
+			title: $t('beforeAfter.project2.title'),
 			before: img03,
 			after: img04,
-			description: 'Z pustego pokoju w nowoczesną sypialnię z home office',
-			aiFeatures: ['Zarządzanie przestrzenią', 'Wielofunkcyjność', 'Oświetlenie mood']
+			description: $t('beforeAfter.project2.description'),
+			aiFeatures: [$t('beforeAfter.project2.feature1'), $t('beforeAfter.project2.feature2'), $t('beforeAfter.project2.feature3')]
 		},
 		{
-			title: 'Biuro Home Office',
+			title: $t('beforeAfter.project3.title'),
 			before: img05,
 			after: img06,
-			description: 'Kreacja przestrzeni do pracy zdalnej',
-			aiFeatures: ['Ergonomia', 'Akustyka', 'Smart tech integration']
+			description: $t('beforeAfter.project3.description'),
+			aiFeatures: [$t('beforeAfter.project3.feature1'), $t('beforeAfter.project3.feature2'), $t('beforeAfter.project3.feature3')]
 		}
-	];
+	]);
 
 	// Process steps
-	const processSteps = [
+	const processSteps = $derived([
 		{
 			number: '01',
-			title: 'Konsultacja & Brief',
-			description: 'Zbieramy informacje o Twoich potrzebach, stylu życia i budżecie. AI analizuje podobne projekty.',
+			title: $t('process.consultation.title'),
+			description: $t('process.consultation.description'),
 			duration: '1-2 dni',
 			icon: '01'
 		},
 		{
 			number: '02',
-			title: 'AI Prototyping',
-			description: 'Generujemy 5-10 wariantów aranżacji z wykorzystaniem AI. Szybka iteracja koncepcji.',
+			title: $t('process.prototyping.title'),
+			description: $t('process.prototyping.description'),
 			duration: '2-3 dni',
 			icon: '02'
 		},
 		{
 			number: '03',
-			title: 'Refinement',
-			description: 'Wybierasz ulubiony wariant. Dopracowujemy detale, materiały, kolory według Twoich preferencji.',
+			title: $t('process.refinement.title'),
+			description: $t('process.refinement.description'),
 			duration: '3-5 dni',
 			icon: '03'
 		},
 		{
 			number: '04',
-			title: 'Dokumentacja',
-			description: 'Otrzymujesz pełną dokumentację projektową, wizualizacje 3D, listę zakupów i kontakty do wykonawców.',
+			title: $t('process.documentation.title'),
+			description: $t('process.documentation.description'),
 			duration: '2-3 dni',
 			icon: '04'
 		}
-	];
+	]);
 
 	// Portfolio data - professionally curated projects
-	const projects = [
+	const projects = $derived([
 		{
-			title: 'Apartament w Stylu Skandynawskim',
-			description: 'Minimalistyczna elegancja połączona z funkcjonalnością. Projekt 85m² mieszkania dla młodej rodziny w sercu Krakowa.',
+			title: $t('portfolio.scandinavianApartment.title'),
+			description: $t('portfolio.scandinavianApartment.description'),
 			technologies: ['AutoCAD', 'SketchUp', 'V-Ray', '3ds Max'],
 			image: img07,
 			category: 'wnętrza',
 			year: '2024'
 		},
 		{
-			title: 'Identyfikacja Wizualna Studia',
-			description: 'Kompleksowy branding dla studia architektury - od logo po materiały firmowe i przestrzeń biurową.',
+			title: $t('portfolio.studioIdentity.title'),
+			description: $t('portfolio.studioIdentity.description'),
 			technologies: ['Adobe Creative Suite', 'Brand Strategy', 'Print Design'],
 			image: colorsImg,
 			category: 'grafika',
 			year: '2024'
 		},
 		{
-			title: 'Przestrzeń Coworkingowa',
-			description: 'Nowoczesne biuro kolaboracyjne dla startupów technologicznych. 300m² przestrzeni kreatywnej.',
+			title: $t('portfolio.coworkingSpace.title'),
+			description: $t('portfolio.coworkingSpace.description'),
 			technologies: ['3D Modeling', 'Space Planning', 'Smart Solutions'],
 			image: img08,
 			category: 'wnętrza',
 			year: '2023'
 		},
 		{
-			title: 'Dom Jednorodzinny Modern',
-			description: 'Projekt domu o powierzchni 180m² łączący nowoczesną architekturę z naturalnymi materiałami.',
+			title: $t('portfolio.modernHouse.title'),
+			description: $t('portfolio.modernHouse.description'),
 			technologies: ['ArchiCAD', 'Lumion', 'Sustainable Design'],
 			image: img09,
 			category: 'wnętrza',
 			year: '2023'
 		},
 		{
-			title: 'Kawiarnia Concept Store',
-			description: 'Design wnętrza i identyfikacja wizualna autorskiej kawiarni z galerią sztuki.',
+			title: $t('portfolio.cafeConcept.title'),
+			description: $t('portfolio.cafeConcept.description'),
 			technologies: ['Interior Design', 'Branding', 'Visual Identity'],
 			image: img10,
 			category: 'grafika',
 			year: '2024'
 		},
 		{
-			title: 'Loft Industrialny',
-			description: 'Adaptacja przestrzeni poprzemysłowej na nowoczesne mieszkanie z otwartym planem.',
+			title: $t('portfolio.industrialLoft.title'),
+			description: $t('portfolio.industrialLoft.description'),
 			technologies: ['Adaptive Reuse', 'Industrial Design', 'BIM'],
 			image: img11,
 			category: 'wnętrza',
 			year: '2023'
 		}
-	];
+	]);
 
-	const services = [
+	const services = $derived([
 		{
-			title: 'Projektowanie Wnętrz',
-			description: 'Kompleksowe projektowanie i aranżacja przestrzeni mieszkalnych i komercyjnych z wykorzystaniem AI.',
+			title: $t('services.interiorDesign.title'),
+			description: $t('services.interiorDesign.description'),
 			icon: '',
 			features: [
-				'Projektowanie układu pomieszczeń',
-				'Optymalizacja ergonomii i funkcjonalności',
-				'Aranżacja mieszkań, domów i apartamentów',
-				'Przestrzenie komercyjne (biura, hotele)',
-				'Graficzne dekoracje wnętrz'
+				$t('services.interiorDesign.feature1'),
+				$t('services.interiorDesign.feature2'),
+				$t('services.interiorDesign.feature3'),
+				$t('services.interiorDesign.feature4'),
+				$t('services.interiorDesign.feature5')
 			]
 		},
 		{
-			title: 'Grafika Komputerowa',
-			description: 'Pełen zakres usług graficznych - od identyfikacji wizualnej po materiały marketingowe.',
+			title: $t('services.graphicDesign.title'),
+			description: $t('services.graphicDesign.description'),
 			icon: '○',
 			features: [
-				'Identyfikacja wizualna dla firm',
-				'Grafiki na produkty tekstylne',
-				'Materiały reklamowe i digital marketing',
-				'Plakaty i dekoracje spersonalizowane'
+				$t('services.graphicDesign.feature1'),
+				$t('services.graphicDesign.feature2'),
+				$t('services.graphicDesign.feature3'),
+				$t('services.graphicDesign.feature4')
 			]
 		},
 		{
-			title: 'Technologia AI',
-			description: 'Innowacyjne wykorzystanie sztucznej inteligencji w procesie projektowym dla szybszych rezultatów.',
+			title: $t('services.aiTechnology.title'),
+			description: $t('services.aiTechnology.description'),
 			icon: '△',
 			features: [
-				'Szybkie prototypowanie koncepcji',
-				'Optymalizacja kosztów projektu',
-				'Automatyczne generowanie wariantów',
-				'Efektywność czasowa i budżetowa'
+				$t('services.aiTechnology.feature1'),
+				$t('services.aiTechnology.feature2'),
+				$t('services.aiTechnology.feature3'),
+				$t('services.aiTechnology.feature4')
 			]
 		}
-	];
+	]);
 
 	let activeFilter = $state('wszystkie');
 	let activeBeforeAfter = $state(0);
@@ -474,6 +477,11 @@
 	});
 </script>
 
+<svelte:head>
+	<title>{$t('meta.home.title')}</title>
+	<meta name="description" content={$t('meta.home.description')} />
+</svelte:head>
+
 <!-- Hero Section with AI Visualization - Eclectic Maximalism -->
 <section class="relative flex items-center text-white overflow-hidden min-h-screen md:h-screen" style="background-color: {colorPalette.primary};">
 	<!-- Background Video -->
@@ -520,33 +528,32 @@
 	<div class="relative z-20 px-4 md:px-6 lg:px-12 py-8 md:py-24 max-w-7xl mx-auto">
 		<div class="max-w-5xl">
 			<div class="mb-8 md:mb-8 observe animate-fade-in-up">
-				<p class="font-bold tracking-[0.15em] md:tracking-[0.3em] uppercase text-sm mb-6 animate-pulse-slow neon-text" style="color: {colorPalette.accent}">AI × Architektura × Grafika</p>
+				<p class="font-bold tracking-[0.15em] md:tracking-[0.3em] uppercase text-sm mb-6 animate-pulse-slow neon-text" style="color: {colorPalette.accent}">{$t('home.hero.label')}</p>
 				<h1 class="text-5xl md:text-7xl lg:text-8xl font-black mb-6 leading-[1.05]" style="font-family: 'Playfair Display', serif;">
-					<span class="block">Dość beżu.</span>
-					<span class="block">Czas na <span style="color: #00D4FF;">kolor!</span></span>
+					<span class="block">{$t('home.hero.heading1')}</span>
+					<span class="block">{$t('home.hero.heading2')}</span>
 				</h1>
 				<p class="text-2xl md:text-3xl font-bold mb-4 leading-tight" style="color: #FF6B9D;">
-					AI × Design = Twoje wymarzone wnętrze
+					{$t('home.hero.tagline')}
 				</p>
 			</div>
 				<p class="text-lg md:text-2xl mb-8 max-w-3xl leading-relaxed text-gray-100 observe animate-fade-in-up" style="animation-delay: 0.2s; font-weight: 400;">
-				Zobacz <span class="font-bold text-white">10 wersji swojego wnętrza</span> zanim zdecydujesz.
-				Prototypowanie w godziny, nie tygodnie. <span class="font-bold neon-text" style="color: {colorPalette.accent}">Szybciej. Odważniej. Taniej.</span>
+				{$t('home.hero.description')}
 			</p>
 
 			<!-- Value Props -->
 			<div class="grid grid-cols-1 sm:grid-cols-3 gap-4 mb-12 observe animate-fade-in-up max-w-3xl" style="animation-delay: 0.4s;">
 				<div class="bg-white/10 backdrop-blur-sm px-4 py-3 rounded-lg border border-white/20">
-					<div class="font-black text-lg text-white">10-21 dni</div>
-					<div class="text-white/80 text-sm">vs. 4-6 tygodni</div>
+					<div class="font-black text-lg text-white">{$t('home.hero.valueProps.time')}</div>
+					<div class="text-white/80 text-sm">{$t('home.hero.valueProps.timeVs')}</div>
 				</div>
 				<div class="bg-white/10 backdrop-blur-sm px-4 py-3 rounded-lg border border-white/20">
-					<div class="font-black text-lg neon-text" style="color: {colorPalette.accent}">5-10 wariantów</div>
-					<div class="text-white/80 text-sm">do wyboru z AI</div>
+					<div class="font-black text-lg neon-text" style="color: {colorPalette.accent}">{$t('home.hero.valueProps.variants')}</div>
+					<div class="text-white/80 text-sm">{$t('home.hero.valueProps.variantsDesc')}</div>
 				</div>
 				<div class="bg-white/10 backdrop-blur-sm px-4 py-3 rounded-lg border border-white/20">
-					<div class="font-black text-lg text-white">Od 1,500 zł</div>
-					<div class="text-white/80 text-sm">jeden pokój</div>
+					<div class="font-black text-lg text-white">{$t('home.hero.valueProps.price')}</div>
+					<div class="text-white/80 text-sm">{$t('home.hero.valueProps.priceDesc')}</div>
 				</div>
 			</div>
 
@@ -581,12 +588,12 @@
 	<div class="relative z-10 flex items-center justify-center h-full">
 		<div class="text-center text-white px-6 max-w-4xl">
 			<h2 class="text-3xl md:text-7xl lg:text-8xl font-black mb-6 leading-tight" style="font-family: 'Playfair Display', serif;">
-				Odmień swoją<br>
-				<span style="color: {colorPalette.accent}">przestrzeń</span><br>
-				z Pikastro
+				{$t('home.video.heading')}<br>
+				<span style="color: {colorPalette.accent}">{$t('home.video.headingAccent')}</span><br>
+				{$t('home.video.headingEnd')}
 			</h2>
 			<p class="text-lg md:text-2xl text-gray-200 font-light">
-				Twórz wyjątkowe wnętrza, które odzwierciedlają Twoją osobowość
+				{$t('home.video.description')}
 			</p>
 		</div>
 	</div>
@@ -597,12 +604,12 @@
 	<div class="absolute top-0 right-0 w-48 h-48 md:w-96 md:h-96 rounded-full filter blur-3xl opacity-25" style="background-color: {colorPalette.tertiary};"></div>
 	<div class="absolute bottom-0 left-0 w-40 h-40 md:w-80 md:h-80 rounded-full filter blur-3xl opacity-25" style="background-color: {colorPalette.accent};"></div>
 	<div class="text-center mb-12 md:mb-20 observe">
-		<p class="font-black tracking-[0.15em] md:tracking-[0.3em] uppercase text-sm mb-4" style="color: {colorPalette.primary}">Metamorfozy AI</p>
+		<p class="font-black tracking-[0.15em] md:tracking-[0.3em] uppercase text-sm mb-4" style="color: {colorPalette.primary}">{$t('home.beforeAfter.label')}</p>
 		<h2 class="text-4xl md:text-5xl lg:text-6xl font-black mb-6 leading-tight" style="font-family: 'Playfair Display', serif;">
-			Przed i Po<br><span style="color: {colorPalette.primary}">Transformacji z AI</span>
+			{$t('home.beforeAfter.heading')}<br><span style="color: {colorPalette.primary}">{$t('home.beforeAfter.headingAccent')}</span>
 		</h2>
 		<p class="text-lg md:text-xl text-[#27275b]/80 max-w-2xl mx-auto leading-relaxed">
-			Zobacz jak AI pomaga tworzyć kolorowe, funkcjonalne przestrzenie zamiast beżowo-szarych wnętrz
+			{$t('home.beforeAfter.description')}
 		</p>
 	</div>
 
@@ -659,10 +666,10 @@
 
 				<!-- Labels -->
 				<div class="absolute bottom-4 left-4 bg-black/70 text-white px-3 py-1.5 rounded-lg text-sm font-bold pointer-events-none">
-					PRZED
+					{$t('home.slider.before')}
 				</div>
 				<div class="absolute bottom-4 right-4 bg-black/70 text-white px-3 py-1.5 rounded-lg text-sm font-bold pointer-events-none">
-					PO
+					{$t('home.slider.after')}
 				</div>
 			</div>
 
@@ -712,13 +719,13 @@
 	<div class="absolute bottom-0 left-0 w-48 h-48 md:w-96 md:h-96 rounded-full filter blur-3xl opacity-20" style="background-color: {colorPalette.secondary};"></div>
 	<div class="max-w-5xl mx-auto px-6 text-center relative z-10">
 		<h2 class="text-3xl md:text-4xl lg:text-5xl font-black mb-6 text-white leading-tight" style="font-family: 'Playfair Display', serif;">
-			Gotowy na kolorową <span style="color: {colorPalette.accent}">metamorfozę</span>?
+			{$t('home.ctaBanner.heading')}
 		</h2>
 		<p class="text-lg md:text-xl text-gray-200 mb-8 max-w-2xl mx-auto">
-			Bezpłatna 30-minutowa konsultacja. Porozmawiajmy o Twoim projekcie.
+			{$t('home.ctaBanner.description')}
 		</p>
 		<a href="#kontakt" class="inline-block px-8 py-4 text-white text-lg font-bold rounded-xl shadow-xl transition-all duration-300 hover:shadow-2xl hover:scale-105 transform animate-pulse-subtle" style="background-color: {colorPalette.accent};">
-			Umów bezpłatną konsultację
+			{$t('home.ctaBanner.button')}
 		</a>
 	</div>
 </section>
@@ -731,27 +738,21 @@
 	<div class="grid md:grid-cols-2 gap-16 lg:gap-24 items-center relative z-10">
 		<div class="observe">
 			<h2 class="text-4xl md:text-5xl lg:text-6xl font-black mb-8 leading-tight" style="font-family: 'Playfair Display', serif; color: {colorPalette.primary};">
-				Projektowanie przyszłości.<br>
-				<span class="italic" style="color: {colorPalette.accent}">Dziś.</span>
+				{$t('home.aboutHome.heading')}<br>
+				<span class="italic" style="color: {colorPalette.accent}">{$t('home.aboutHome.headingAccent')}</span>
 			</h2>
 			<div class="space-y-6 text-[#27275b]/80 leading-relaxed text-lg">
 				<p>
-					Jestem projektantką wnętrz i graficzką z wykształceniem architektonicznym.
-					Łączę inżynierską wiedzę techniczną z umiejętnościami graficznymi i plastycznymi,
-					wykorzystując zaawansowane narzędzia oparte na sztucznej inteligencji.
+					{$t('home.aboutHome.paragraph1')}
 				</p>
 				<p>
-					<strong style="color: {colorPalette.primary}">Moja przewaga konkurencyjna:</strong> Unikalne połączenie trzech kompetencji -
-					podejścia inżynierskiego, talentu plastycznego i technologii AI. To pozwala mi tworzyć
-					funkcjonalne, estetyczne rozwiązania szybciej i w atrakcyjnych cenach.
+					<strong style="color: {colorPalette.primary}">{$t('home.aboutHome.paragraph2Title')}</strong> {$t('home.aboutHome.paragraph2')}
 				</p>
 				<p>
-					Specjalizuję się w projektach dla -
-					odważnych nabywców pierwszych mieszkań, którzy cenią kolorowe aranżacje, przestrzenie do pracy zdalnej
-					i rozwiązania smart home, zamiast stonowanych beżowo-szarych wnętrz.
+					{$t('home.aboutHome.paragraph3')}
 				</p>
 				<p class="quote-block">
-					„Połączenie wiedzy technicznej, kreatywności i AI tworzy nową jakość projektowania."
+					„{$t('home.aboutHome.quote')}"
 				</p>
 			</div>
 		</div>
@@ -766,8 +767,8 @@
 				<div class="absolute inset-0 bg-[#27275b]/30 group-hover:bg-[#27275b]/20 transition-all duration-300"></div>
 				<div class="absolute inset-0 flex items-center justify-center">
 					<div class="text-center p-8">
-						<p class="text-2xl font-bold text-white mb-3" style="font-family: 'Playfair Display', serif;">Dla Klientów</p>
-						<p class="text-base text-white/90">Indywidualnych • Deweloperów • Startupów</p>
+						<p class="text-2xl font-bold text-white mb-3" style="font-family: 'Playfair Display', serif;">{$t('home.aboutHome.imageCaption')}</p>
+						<p class="text-base text-white/90">{$t('home.aboutHome.imageSubCaption')}</p>
 					</div>
 				</div>
 			</div>
@@ -780,12 +781,12 @@
 	<div class="absolute top-10 left-5 w-32 h-32 md:top-20 md:left-20 md:w-64 md:h-64 rounded-full filter blur-3xl opacity-25 animate-pulse-slow" style="background-color: {colorPalette.secondary};"></div>
 	<div class="absolute bottom-10 right-5 w-36 h-36 md:bottom-20 md:right-20 md:w-72 md:h-72 rounded-full filter blur-3xl opacity-20 animate-pulse-slow" style="background-color: {colorPalette.success}; animation-delay: 1s;"></div>
 		<div class="text-center mb-20 observe relative z-10">
-		<p class="font-black tracking-[0.15em] md:tracking-[0.3em] uppercase text-sm mb-4" style="color: {colorPalette.primary}">Oferta</p>
+		<p class="font-black tracking-[0.15em] md:tracking-[0.3em] uppercase text-sm mb-4" style="color: {colorPalette.primary}">{$t('home.services.label')}</p>
 		<h2 class="text-4xl md:text-5xl lg:text-6xl font-black mb-6 leading-tight" style="font-family: 'Playfair Display', serif; color: {colorPalette.primary};">
-			Od pomysłu<br><span style="color: {colorPalette.accent}">do realizacji</span>
+			{$t('home.services.heading')}<br><span style="color: {colorPalette.accent}">{$t('home.services.headingAccent')}</span>
 		</h2>
 		<p class="text-lg md:text-xl text-[#27275b]/80 max-w-2xl mx-auto leading-relaxed">
-			Od koncepcji po realizację - pełne wsparcie w procesie projektowania wnętrz i tworzenia identyfikacji wizualnej.
+			{$t('home.services.description')}
 		</p>
 	</div>
 
@@ -823,12 +824,12 @@
 	<div class="absolute top-1/3 right-1/4 w-40 h-40 md:w-80 md:h-80 rounded-full mix-blend-multiply filter blur-3xl opacity-25 animate-pulse-slow transition-all duration-1000" style="background-color: {colorPalette.success}; animation-delay: 0.7s;"></div>
 
 	<div class="text-center mb-20 observe relative z-10">
-		<p class="font-black tracking-[0.15em] md:tracking-[0.3em] uppercase text-sm mb-4 neon-text" style="color: {colorPalette.accent}">Jak to działa</p>
+		<p class="font-black tracking-[0.15em] md:tracking-[0.3em] uppercase text-sm mb-4 neon-text" style="color: {colorPalette.accent}">{$t('home.process.label')}</p>
 		<h2 class="text-4xl md:text-5xl lg:text-6xl font-black mb-6 leading-tight" style="font-family: 'Playfair Display', serif;">
-			Proces Projektowania<br><span class="text-white">z Wykorzystaniem AI</span>
+			{$t('home.process.heading')}<br><span class="text-white">{$t('home.process.headingAccent')}</span>
 		</h2>
 		<p class="text-lg md:text-xl text-gray-200 max-w-2xl mx-auto leading-relaxed">
-			Połączenie ludzkiej kreatywności i mocy AI dla najlepszych rezultatów w najkrótszym czasie
+			{$t('home.process.description')}
 		</p>
 	</div>
 
@@ -876,9 +877,9 @@
 	<!-- Total Time Banner -->
 	<div class="mt-16 text-center observe animate-fade-in-up" style="animation-delay: 0.3s;">
 		<div class="inline-block bg-white/10 backdrop-blur-sm px-6 md:px-12 py-6 rounded-2xl border-2 border-white/20 transition-all duration-500 hover:border-white/40 hover:bg-white/15">
-			<p class="text-sm uppercase tracking-wider text-gray-300 mb-2">Całkowity czas realizacji</p>
-			<p class="text-4xl font-black transition-colors duration-300" style="font-family: 'Playfair Display', serif; color: {colorPalette.secondary};">10-21 dni roboczych</p>
-			<p class="text-sm text-gray-300 mt-2">vs. tradycyjne 4-6 tygodni</p>
+			<p class="text-sm uppercase tracking-wider text-gray-300 mb-2">{$t('home.timeline.totalTime')}</p>
+			<p class="text-4xl font-black transition-colors duration-300" style="font-family: 'Playfair Display', serif; color: {colorPalette.secondary};">{$t('home.timeline.workingDays')}</p>
+			<p class="text-sm text-gray-300 mt-2">{$t('home.timeline.vsTraditional')}</p>
 		</div>
 	</div>
 </section>
@@ -889,38 +890,38 @@
 	<div class="absolute bottom-0 left-0 w-40 h-40 md:w-80 md:h-80 rounded-full filter blur-3xl opacity-20" style="background-color: {colorPalette.accent};"></div>
 	<div class="max-w-4xl mx-auto relative z-10">
 		<div class="text-center mb-16 observe">
-			<p class="font-black tracking-[0.15em] md:tracking-[0.3em] uppercase text-sm mb-4" style="color: {colorPalette.primary}">Nasza Filozofia</p>
+			<p class="font-black tracking-[0.15em] md:tracking-[0.3em] uppercase text-sm mb-4" style="color: {colorPalette.primary}">{$t('home.philosophy.label')}</p>
 			<h2 class="text-4xl md:text-5xl lg:text-6xl font-black mb-6 leading-tight" style="font-family: 'Playfair Display', serif;">
-				<span style="color: {colorPalette.primary}">Wierzymy</span>, że design może być...
+				<span style="color: {colorPalette.primary}">{$t('home.philosophy.heading')}</span>{$t('home.philosophy.headingEnd')}
 			</h2>
 		</div>
 
 		<div class="grid md:grid-cols-2 gap-8 mb-16 observe">
 			<div class="bg-white p-8 rounded-2xl border-4 transition-all duration-300 hover:shadow-xl" style="border-color: {colorPalette.primary};">
-				<h3 class="text-2xl font-black mb-3" style="font-family: 'Playfair Display', serif; color: {colorPalette.primary}">Szybki I Dopracowany</h3>
+				<h3 class="text-2xl font-black mb-3" style="font-family: 'Playfair Display', serif; color: {colorPalette.primary}">{$t('home.philosophy.fastAndRefined.title')}</h3>
 				<p class="text-[#27275b]/80 leading-relaxed">
-					Technologia AI pozwala nam pokazać Ci kilkanaście wariantów projektowych w kilka dni zamiast tygodni. Następnie wybrane rozwiązanie dopracowujemy ręcznie w każdym szczególe.
+					{$t('home.philosophy.fastAndRefined.description')}
 				</p>
 			</div>
 
 			<div class="bg-white p-8 rounded-2xl border-4 transition-all duration-300 hover:shadow-xl" style="border-color: {colorPalette.accent};">
-				<h3 class="text-2xl font-black mb-3" style="font-family: 'Playfair Display', serif; color: {colorPalette.accent}">Kolorowy I Profesjonalny</h3>
+				<h3 class="text-2xl font-black mb-3" style="font-family: 'Playfair Display', serif; color: {colorPalette.accent}">{$t('home.philosophy.colorfulAndProfessional.title')}</h3>
 				<p class="text-[#27275b]/80 leading-relaxed">
-					Żadnych beżowo-szarych przestrzeni. Tworzymy wnętrza z charakterem, w których kolory są starannie dobrane i przemyślane - odważne, ale harmonijne.
+					{$t('home.philosophy.colorfulAndProfessional.description')}
 				</p>
 			</div>
 
 			<div class="bg-white p-8 rounded-2xl border-4 transition-all duration-300 hover:shadow-xl" style="border-color: {colorPalette.secondary};">
-				<h3 class="text-2xl font-black mb-3" style="font-family: 'Playfair Display', serif; color: {colorPalette.secondary};">Odważny I Funkcjonalny</h3>
+				<h3 class="text-2xl font-black mb-3" style="font-family: 'Playfair Display', serif; color: {colorPalette.secondary};">{$t('home.philosophy.boldAndFunctional.title')}</h3>
 				<p class="text-[#27275b]/80 leading-relaxed">
-					Projektujemy tak, żeby przestrzeń nie tylko pięknie wyglądała, ale przede wszystkim - służyła Ci każdego dnia. Estetyka idzie w parze z funkcjonalnością.
+					{$t('home.philosophy.boldAndFunctional.description')}
 				</p>
 			</div>
 
 			<div class="bg-white p-8 rounded-2xl border-4 transition-all duration-300 hover:shadow-xl" style="border-color: {colorPalette.success};">
-				<h3 class="text-2xl font-black mb-3" style="font-family: 'Playfair Display', serif; color: {colorPalette.success}">Dostępny I Wysokiej Jakości</h3>
+				<h3 class="text-2xl font-black mb-3" style="font-family: 'Playfair Display', serif; color: {colorPalette.success}">{$t('home.philosophy.accessibleAndQuality.title')}</h3>
 				<p class="text-[#27275b]/80 leading-relaxed">
-					Dzięki technologii AI skracamy czas pracy nad koncepcją, co przekłada się na atrakcyjne ceny. Wysoka jakość designu w przystępnej cenie.
+					{$t('home.philosophy.accessibleAndQuality.description')}
 				</p>
 			</div>
 		</div>
@@ -928,39 +929,35 @@
 		<!-- FAQ Quick Hits -->
 		<div class="p-10 lg:p-12 rounded-2xl text-white observe" style="background-color: {colorPalette.primary}">
 			<h3 class="text-3xl font-black mb-8 text-center" style="font-family: 'Playfair Display', serif;">
-				Najczęstsze pytania
+				{$t('home.faq.heading')}
 			</h3>
 
 			<div class="space-y-6">
 				<div class="border-l-4 pl-6" style="border-color: {colorPalette.accent}">
-					<p class="font-bold text-xl mb-2 neon-text" style="color: {colorPalette.accent}">"Czy AI to nie tandetnie?"</p>
+					<p class="font-bold text-xl mb-2 neon-text" style="color: {colorPalette.accent}">{$t('home.faq.question1.q')}</p>
 					<p class="text-gray-200 leading-relaxed">
-						Nie, jeśli ma <strong>inżyniera i designera przy sterach</strong>. AI to narzędzie - jak pędzel dla malarza.
-						W moich rękach generuje propozycje, ale każdy projekt przechodzi przez ludzką kurację i dopracowanie.
+						{@html $t('home.faq.question1.a')}
 					</p>
 				</div>
 
 				<div class="border-l-4 pl-6" style="border-color: {colorPalette.secondary}">
-					<p class="font-bold text-xl mb-2 text-white">"Ile to kosztuje?"</p>
+					<p class="font-bold text-xl mb-2 text-white">{$t('home.faq.question2.q')}</p>
 					<p class="text-gray-200 leading-relaxed">
-						<strong>Mniej niż myślisz.</strong> Bo AI oszczędza nam czas, a Tobie pieniądze.
-						Jeden pokój od 1,500 zł, mieszkanie 2-3 pokoje od 3,500 zł. Zero ukrytych kosztów.
+						{@html $t('home.faq.question2.a')}
 					</p>
 				</div>
 
 				<div class="border-l-4 pl-6" style="border-color: {colorPalette.accent}">
-					<p class="font-bold text-xl mb-2 neon-text" style="color: {colorPalette.accent}">"Czy to naprawdę działa?"</p>
+					<p class="font-bold text-xl mb-2 neon-text" style="color: {colorPalette.accent}">{$t('home.faq.question3.q')}</p>
 					<p class="text-gray-200 leading-relaxed">
-						<strong>50+ zrealizowanych projektów mówi samo za siebie.</strong> Pierwsze studio w Krakowie,
-						które połączyło architekturę × grafikę × AI. Sprawdź metamorfozy poniżej.
+						{@html $t('home.faq.question3.a')}
 					</p>
 				</div>
 
 				<div class="border-l-4 pl-6" style="border-color: {colorPalette.secondary}">
-					<p class="font-bold text-xl mb-2 text-white">"Dla kogo to jest?"</p>
+					<p class="font-bold text-xl mb-2 text-white">{$t('home.faq.question4.q')}</p>
 					<p class="text-gray-200 leading-relaxed">
-						Dla którzy kupują pierwsze mieszkanie i chcą przestrzeń
-						do pracy zdalnej, smart home, kolorowe aranżacje - zamiast beżowo-szarych wnętrz rodem z showroomu.
+						{@html $t('home.faq.question4.a')}
 					</p>
 				</div>
 			</div>
@@ -973,12 +970,12 @@
 	<div class="absolute top-0 left-1/2 w-48 h-48 md:w-96 md:h-96 rounded-full filter blur-3xl opacity-25" style="background-color: {colorPalette.tertiary};"></div>
 	<div class="absolute bottom-0 right-1/4 w-40 h-40 md:w-80 md:h-80 rounded-full filter blur-3xl opacity-20" style="background-color: {colorPalette.secondary};"></div>
 		<div class="text-center mb-20 observe relative z-10">
-		<p class="font-black tracking-[0.15em] md:tracking-[0.3em] uppercase text-sm mb-4" style="color: {colorPalette.primary}">Portfolio</p>
+		<p class="font-black tracking-[0.15em] md:tracking-[0.3em] uppercase text-sm mb-4" style="color: {colorPalette.primary}">{$t('home.portfolio.label')}</p>
 		<h2 class="text-4xl md:text-5xl lg:text-6xl font-black mb-6 leading-tight" style="font-family: 'Playfair Display', serif;">
-			<span style="color: {colorPalette.primary}">Wybrane</span><br>realizacje
+			<span style="color: {colorPalette.primary}">{$t('home.portfolio.heading')}</span><br>{$t('home.portfolio.headingEnd')}
 		</h2>
 		<p class="text-lg md:text-xl text-[#27275b]/80 max-w-2xl mx-auto mb-12 leading-relaxed">
-			Każdy projekt to indywidualna historia połączenia formy, funkcji i charakteru klienta.
+			{$t('home.portfolio.description')}
 		</p>
 
 		<!-- Filter -->
@@ -990,7 +987,7 @@
 				onmouseenter={(e) => { if (activeFilter !== 'wszystkie') { e.currentTarget.style.color = colorPalette.primary; e.currentTarget.style.borderColor = colorPalette.primary; } }}
 				onmouseleave={(e) => { if (activeFilter !== 'wszystkie') { e.currentTarget.style.color = 'rgb(75, 85, 99)'; e.currentTarget.style.borderColor = 'rgb(229, 231, 235)'; } }}
 			>
-				Wszystkie
+				{$t('home.portfolio.filterAll')}
 			</button>
 			<button
 				onclick={() => activeFilter = 'wnętrza'}
@@ -999,7 +996,7 @@
 				onmouseenter={(e) => { if (activeFilter !== 'wnętrza') { e.currentTarget.style.color = colorPalette.primary; e.currentTarget.style.borderColor = colorPalette.primary; } }}
 				onmouseleave={(e) => { if (activeFilter !== 'wnętrza') { e.currentTarget.style.color = 'rgb(75, 85, 99)'; e.currentTarget.style.borderColor = 'rgb(229, 231, 235)'; } }}
 			>
-				Wnętrza
+				{$t('home.portfolio.filterInteriors')}
 			</button>
 			<button
 				onclick={() => activeFilter = 'grafika'}
@@ -1008,7 +1005,7 @@
 				onmouseenter={(e) => { if (activeFilter !== 'grafika') { e.currentTarget.style.color = colorPalette.primary; e.currentTarget.style.borderColor = colorPalette.primary; } }}
 				onmouseleave={(e) => { if (activeFilter !== 'grafika') { e.currentTarget.style.color = 'rgb(75, 85, 99)'; e.currentTarget.style.borderColor = 'rgb(229, 231, 235)'; } }}
 			>
-				Grafika
+				{$t('home.portfolio.filterGraphics')}
 			</button>
 		</div>
 	</div>
@@ -1032,14 +1029,14 @@
 								<path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M15 12a3 3 0 11-6 0 3 3 0 016 0z"></path>
 								<path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M2.458 12C3.732 7.943 7.523 5 12 5c4.478 0 8.268 2.943 9.542 7-1.274 4.057-5.064 7-9.542 7-4.477 0-8.268-2.943-9.542-7z"></path>
 							</svg>
-							<span class="text-sm uppercase tracking-wider">Zobacz projekt</span>
+							<span class="text-sm uppercase tracking-wider">{$t('home.portfolio.viewProject')}</span>
 						</div>
 					</div>
 				</div>
 					<div class="space-y-3 px-2 pt-2">
 					<div class="flex items-center justify-between">
 						<span class="text-xs uppercase tracking-wider font-black px-3 py-1 bg-blue-50 rounded-full" style="color: {colorPalette.primary}">
-							{project.category === 'wnętrza' ? 'Wnętrza' : 'Grafika'}
+							{project.category === 'wnętrza' ? $t('home.portfolio.categoryInteriors') : $t('home.portfolio.categoryGraphics')}
 						</span>
 					</div>
 					<h3 class="text-2xl font-black text-[#27275b] transition-colors" style="font-family: 'Playfair Display', serif;" onmouseenter={(e) => e.currentTarget.style.color = colorPalette.primary} onmouseleave={(e) => e.currentTarget.style.color = '#27275b'}>
@@ -1088,14 +1085,13 @@
 	<div class="absolute bottom-0 left-0 w-40 h-40 md:w-80 md:h-80 rounded-full filter blur-3xl opacity-25" style="background-color: {colorPalette.success};"></div>
 		<div class="grid lg:grid-cols-2 gap-16 lg:gap-24 relative z-10">
 		<div class="observe">
-			<p class="font-black tracking-[0.15em] md:tracking-[0.3em] uppercase text-sm mb-4" style="color: {colorPalette.primary}">Kontakt</p>
+			<p class="font-black tracking-[0.15em] md:tracking-[0.3em] uppercase text-sm mb-4" style="color: {colorPalette.primary}">{$t('home.contact.label')}</p>
 			<h2 class="text-4xl md:text-5xl lg:text-6xl font-black mb-8 leading-tight" style="font-family: 'Playfair Display', serif; color: {colorPalette.primary};">
-				Rozpocznijmy<br>
-				<span class="italic" style="color: {colorPalette.accent}">współpracę</span>
+				{$t('home.contact.heading')}<br>
+				<span class="italic" style="color: {colorPalette.accent}">{$t('home.contact.headingAccent')}</span>
 			</h2>
 			<p class="text-lg md:text-xl text-[#27275b]/80 mb-12 leading-relaxed">
-				Masz pomysł na projekt? Chcesz stworzyć wyjątkową przestrzeń lub odświeżyć identyfikację wizualną?
-				Skontaktuj się ze mną - razem znajdziemy idealne rozwiązanie.
+				{$t('home.contact.description')}
 			</p>
 
 			<div class="space-y-8">
@@ -1122,8 +1118,8 @@
 					</div>
 					<div>
 						<p class="text-sm uppercase tracking-wider text-[#27275b]/70 mb-1">Lokalizacja</p>
-						<p class="text-lg text-[#27275b]">Kraków, Polska</p>
-						<p class="text-sm text-[#27275b]/70">Współpraca zdalna w całej Polsce</p>
+						<p class="text-lg text-[#27275b]">{$t('home.contact.location')}</p>
+						<p class="text-sm text-[#27275b]/70">{$t('home.contact.locationDesc')}</p>
 					</div>
 				</div>
 
@@ -1135,7 +1131,7 @@
 					</div>
 					<div>
 						<p class="text-sm uppercase tracking-wider text-[#27275b]/70 mb-1">Dostępność</p>
-						<p class="text-lg text-[#27275b]">Pn - Pt, 9:00 - 17:00</p>
+						<p class="text-lg text-[#27275b]">{$t('home.contact.availability')}</p>
 					</div>
 				</div>
 			</div>
@@ -1156,14 +1152,14 @@
 		<div class="bg-white p-10 lg:p-12 observe rounded-2xl border-4 shadow-xl" style="border-color: {colorPalette.accent};">
 			<form class="space-y-6" onsubmit={handleSubmit}>
 				<div>
-					<label for="name" class="block text-sm uppercase tracking-wider font-bold text-[#27275b]/90 mb-2">Imię i nazwisko</label>
+					<label for="name" class="block text-sm uppercase tracking-wider font-bold text-[#27275b]/90 mb-2">{$t('home.form.nameLabel')}</label>
 					<input
 						type="text"
 						id="name"
 						value={formData.name}
 						disabled={formStatus === 'submitting'}
 						class="w-full px-4 py-3 border-2 rounded-lg focus:outline-none transition-all bg-white disabled:opacity-50 {touchedFields.name && !validationErrors.name.isValid ? 'border-red-400 focus:border-red-500' : touchedFields.name && validationErrors.name.isValid ? 'border-green-400 focus:border-green-500' : 'border-blue-200 focus:border-[#27275b]'}"
-						placeholder="Jan Kowalski"
+						placeholder={$t('home.form.namePlaceholder')}
 						oninput={(e) => handleFieldInput('name', (e.target as HTMLInputElement).value)}
 						onblur={() => handleFieldBlur('name')}
 					/>
@@ -1180,20 +1176,20 @@
 							<svg class="w-4 h-4 mr-1 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24">
 								<path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path>
 							</svg>
-							Wygląda dobrze!
+							{$t('home.form.validation.looksGood')}
 						</p>
 					{/if}
 				</div>
 
 				<div>
-					<label for="email" class="block text-sm uppercase tracking-wider font-bold text-[#27275b]/90 mb-2">Email</label>
+					<label for="email" class="block text-sm uppercase tracking-wider font-bold text-[#27275b]/90 mb-2">{$t('home.form.emailLabel')}</label>
 					<input
 						type="text"
 						id="email"
 						value={formData.email}
 						disabled={formStatus === 'submitting'}
 						class="w-full px-4 py-3 border-2 rounded-lg focus:outline-none transition-all bg-white disabled:opacity-50 {touchedFields.email && !validationErrors.email.isValid ? 'border-red-400 focus:border-red-500' : touchedFields.email && validationErrors.email.isValid ? 'border-green-400 focus:border-green-500' : 'border-blue-200 focus:border-[#27275b]'}"
-						placeholder="jan@example.com"
+						placeholder={$t('home.form.emailPlaceholder')}
 						oninput={(e) => handleFieldInput('email', (e.target as HTMLInputElement).value)}
 						onblur={() => handleFieldBlur('email')}
 					/>
@@ -1210,35 +1206,35 @@
 							<svg class="w-4 h-4 mr-1 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24">
 								<path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path>
 							</svg>
-							Wygląda dobrze!
+							{$t('home.form.validation.looksGood')}
 						</p>
 					{/if}
 				</div>
 
 				<div>
-					<label for="project" class="block text-sm uppercase tracking-wider font-bold text-[#27275b]/90 mb-2">Typ projektu</label>
+					<label for="project" class="block text-sm uppercase tracking-wider font-bold text-[#27275b]/90 mb-2">{$t('home.form.projectLabel')}</label>
 					<select
 						id="project"
 						bind:value={formData.project}
 						disabled={formStatus === 'submitting'}
 						class="w-full px-4 py-3 border-2 border-blue-200 rounded-lg focus:border-[#27275b] focus:outline-none transition-all bg-white disabled:opacity-50"
 					>
-						<option>Projektowanie wnętrz</option>
-						<option>Identyfikacja wizualna</option>
-						<option>Konsultacje</option>
-						<option>Inne</option>
+						<option>{$t('home.form.projectOptions.interiorDesign')}</option>
+						<option>{$t('home.form.projectOptions.visualIdentity')}</option>
+						<option>{$t('home.form.projectOptions.consultations')}</option>
+						<option>{$t('home.form.projectOptions.other')}</option>
 					</select>
 				</div>
 
 				<div>
-					<label for="message" class="block text-sm uppercase tracking-wider font-bold text-[#27275b]/90 mb-2">Wiadomość</label>
+					<label for="message" class="block text-sm uppercase tracking-wider font-bold text-[#27275b]/90 mb-2">{$t('home.form.messageLabel')}</label>
 					<textarea
 						id="message"
 						value={formData.message}
 						disabled={formStatus === 'submitting'}
 						rows="5"
 						class="w-full px-4 py-3 border-2 rounded-lg focus:outline-none transition-all bg-white resize-none disabled:opacity-50 {touchedFields.message && !validationErrors.message.isValid ? 'border-red-400 focus:border-red-500' : touchedFields.message && validationErrors.message.isValid ? 'border-green-400 focus:border-green-500' : 'border-blue-200 focus:border-[#27275b]'}"
-						placeholder="Opowiedz o swoim projekcie..."
+						placeholder={$t('home.form.messagePlaceholder')}
 						oninput={(e) => handleFieldInput('message', (e.target as HTMLTextAreaElement).value)}
 						onblur={() => handleFieldBlur('message')}
 					></textarea>
@@ -1255,7 +1251,7 @@
 								<svg class="w-4 h-4 mr-1 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24">
 									<path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path>
 								</svg>
-								Wygląda dobrze!
+								{$t('home.form.validation.looksGood')}
 							</p>
 						{:else}
 							<span></span>
@@ -1277,7 +1273,7 @@
 					disabled={formStatus === 'submitting' || !validationErrors.isFormValid}
 					class="w-full btn disabled:opacity-50 disabled:cursor-not-allowed {!validationErrors.isFormValid && (touchedFields.name || touchedFields.email || touchedFields.message) ? 'opacity-60 cursor-not-allowed' : ''}"
 				>
-					{formStatus === 'submitting' ? 'Wysyłanie...' : !validationErrors.isFormValid && (touchedFields.name || touchedFields.email || touchedFields.message) ? 'Popraw błędy przed wysłaniem' : 'Wyślij wiadomość'}
+					{formStatus === 'submitting' ? $t('home.form.submit.sending') : !validationErrors.isFormValid && (touchedFields.name || touchedFields.email || touchedFields.message) ? $t('home.form.submit.fixErrors') : $t('home.form.submit.send')}
 				</button>
 			</form>
 		</div>

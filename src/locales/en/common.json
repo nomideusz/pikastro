@@ -58,6 +58,68 @@
         "priceDesc": "single room"
       }
     },
+    "slider": {
+      "before": "BEFORE",
+      "after": "AFTER"
+    },
+    "portfolio": {
+      "filterAll": "All",
+      "filterInteriors": "Interiors",
+      "filterGraphics": "Graphics",
+      "viewProject": "View project",
+      "categoryInteriors": "Interiors",
+      "categoryGraphics": "Graphics"
+    },
+    "timeline": {
+      "totalTime": "Total execution time",
+      "workingDays": "10-21 working days",
+      "vsTraditional": "vs. traditional 4-6 weeks"
+    },
+    "philosophy": {
+      "label": "Our Philosophy",
+      "heading": "We believe",
+      "headingEnd": " that design can be...",
+      "fastAndRefined": {
+        "title": "Fast AND Refined",
+        "description": "AI technology allows us to show you dozens of design variants in a few days instead of weeks. Then we manually refine the chosen solution in every detail."
+      },
+      "colorfulAndProfessional": {
+        "title": "Colorful AND Professional",
+        "description": "No beige-gray spaces. We create interiors with character, where colors are carefully selected and thoughtful - bold yet harmonious."
+      },
+      "boldAndFunctional": {
+        "title": "Bold AND Functional",
+        "description": "We design spaces that not only look beautiful but, above all, serve you every day. Aesthetics go hand in hand with functionality."
+      },
+      "accessibleAndQuality": {
+        "title": "Accessible AND High Quality",
+        "description": "Thanks to AI technology, we shorten the concept work time, which translates to attractive prices. High-quality design at an affordable price."
+      }
+    },
+    "faq": {
+      "heading": "Most common questions",
+      "question1": {
+        "q": "\"Isn't AI cheap and tacky?\"",
+        "a": "Not if there's an <strong>engineer and designer at the helm</strong>. AI is a tool - like a brush for a painter. In my hands, it generates proposals, but every project goes through human curation and refinement."
+      },
+      "question2": {
+        "q": "\"How much does it cost?\"",
+        "a": "<strong>Less than you think.</strong> Because AI saves us time, and you money. Single room from $900, 2-3 room apartment from $1,800. Zero hidden costs."
+      },
+      "question3": {
+        "q": "\"Does it really work?\"",
+        "a": "<strong>50+ completed projects speak for themselves.</strong> The first studio in Kraków that combined architecture × graphics × AI. Check out the transformations below."
+      },
+      "question4": {
+        "q": "\"Who is this for?\"",
+        "a": "For those buying their first apartment and want space for remote work, smart home, colorful arrangements - instead of beige-gray interiors straight from the showroom."
+      }
+    },
+    "contact": {
+      "location": "Kraków, Poland",
+      "locationDesc": "Remote collaboration across Poland",
+      "availability": "Mon - Fri, 9:00 AM - 5:00 PM"
+    },
     "video": {
       "heading": "Transform your",
       "headingAccent": "space",
@@ -103,7 +165,28 @@
       "success": "Thank you! Your message has been sent. I'll respond soon!",
       "errorGeneric": "An error occurred while sending the message",
       "errorNetwork": "An error occurred while sending the message. Please try again.",
-      "projectType": "Interior design"
+      "projectType": "Interior design",
+      "nameLabel": "Name and surname",
+      "namePlaceholder": "John Smith",
+      "emailLabel": "Email",
+      "emailPlaceholder": "john@example.com",
+      "projectLabel": "Project type",
+      "projectOptions": {
+        "interiorDesign": "Interior design",
+        "visualIdentity": "Visual identity",
+        "consultations": "Consultations",
+        "other": "Other"
+      },
+      "messageLabel": "Message",
+      "messagePlaceholder": "Tell us about your project...",
+      "validation": {
+        "looksGood": "Looks good!"
+      },
+      "submit": {
+        "sending": "Sending...",
+        "fixErrors": "Fix errors before sending",
+        "send": "Send message"
+      }
     }
   },
   "about": {

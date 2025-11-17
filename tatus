@@ -1,0 +1,35 @@
+[33m4d6826e[m[33m ([m[1;31morigin/master[m[33m, [m[1;32mmaster[m[33m)[m fix: change CTA from question to exclamation for stronger call-to-action
+[33m8481c03[m feat: comprehensive polish and modernization of website design
+[33madf1b99[m refactor: remove statistics cards from home page
+[33m329f0a5[m fix: add ARIA roles to interactive elements for accessibility compliance
+[33ma654491[m fix: prevent text from turning black after animations complete
+[33m3f7d783[m feat: improve statistics cards for mobile responsiveness
+[33m0445408[m feat: restructure services section with consistent design pattern
+[33me75d0a0[m fix: remove duplicate 'oferta' in section title
+[33m9ea2e74[m fix: resolve section naming duplication
+[33mc39fd8b[m refactor: remove age-specific targeting and section labels
+[33mfa69092[m feat: update section headings and content
+[33med1e2d1[m fix: ensure vid02 continues playing after form submission
+[33m71f491c[m feat: implement professional custom form validation
+[33mee5a711[m[33m ([m[1;31morigin/claude/fix-kontakt-form-emails-011CV66Rh8BYRHkvFqb3KLAA[m[33m)[m fix: update email sender to use auth.zaur.app domain
+[33m7befae1[m feat: implement functional contact form with email delivery
+[33meb9d114[m feat: optimize video section performance
+[33ma3c1d31[m fix: optimize video for web loading
+[33mbb78b7c[m fix: resolve loading issues and remove gradients
+[33mdf85c6e[m feat: add grid pattern SVG for hero section background
+[33mb2331e0[m feat: add full-width video section below hero
+[33m695e8a4[m feat: update header navigation and hero section
+[33mdc3dd10[m[33m ([m[1;31morigin/claude/remove-gradients-add-colors-011CV3ZzSDK1FsG4BKtB1g4v[m[33m)[m Remove all gradients and apply eclectic maximalism color palette
+[33mb7bbb1f[m � Complete website redesign and enhancements
+[33m867a533[m[33m ([m[1;31morigin/claude/professional-modern-redesign-011CV2UhpBLqGfAAYudYTdpH[m[33m)[m Remove all gradients and fix before/after slider interaction
+[33m01c6105[m Add bold personality-driven messaging: anti-beige hero and FAQ section
+[33me12359f[m Add must-have branding elements: AI visualization, before/after slider, process, and pricing
+[33m331e370[m Implement AI Design Studio visual identity with cobalt blue, coral, and mint
+[33m481ca81[m Update website content with detailed business information
+[33m39466b6[m Fix contrast for hero secondary button
+[33m62e3f1b[m Transform website to vibrant design for young audience
+[33m2236bcd[m Transform website into professional modern portfolio
+[33m3ebafd7[m Transform website to Polish interior design portfolio
+[33m9c61ee4[m Update pnpm-lock.yaml with Netlify adapter
+[33m8fe744c[m Configure Netlify adapter for deployment
+[33m11cd01c[m Initial commit: Svelte 5 portfolio website for graphic designer

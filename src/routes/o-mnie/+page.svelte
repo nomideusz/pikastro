@@ -1,6 +1,9 @@
 <script lang="ts">
 	import '../../app.css';
 
+	// Import i18n
+	import { t, locale } from '$lib/i18n';
+
 	// Import color extraction utilities
 	import { extractColorsFromImage, assignColorRoles, type ColorPalette } from '$lib/utils/colorExtractor';
 	import colorsImg from '$lib/assets/images/colors.jpeg';
@@ -70,8 +73,8 @@
 </script>
 
 <svelte:head>
-	<title>O mnie - Magda Makaruk | Projektantka Wnętrz i Grafiki | Kraków</title>
-	<meta name="description" content="Poznaj Magdę Makaruk - doświadczoną projektantkę wnętrz i grafiki komputerowej. Łączę wiedzę architektoniczną z kreatywnością plastyczną i technologią AI. Kraków." />
+	<title>{$t('meta.about.title')}</title>
+	<meta name="description" content={$t('meta.about.description')} />
 </svelte:head>
 
 <!-- Hero Section -->
@@ -95,17 +98,16 @@
 	<div class="section relative z-10">
 		<div class="max-w-4xl">
 			<div class="mb-8 observe">
-				<p class="font-bold tracking-[0.3em] uppercase text-sm mb-6 animate-pulse-slow neon-text" style="color: {colorPalette.accent}">O mnie</p>
+				<p class="font-bold tracking-[0.3em] uppercase text-sm mb-6 animate-pulse-slow neon-text" style="color: {colorPalette.accent}">{$t('about.hero.label')}</p>
 				<h1 class="text-4xl md:text-6xl lg:text-7xl font-black mb-6 leading-tight" style="font-family: 'Playfair Display', serif;">
-					Magda<br>
-					<span style="color: #FF6B9D;">Makaruk</span>
+					{$t('about.hero.name')}<br>
+					<span style="color: #FF6B9D;">{$t('about.hero.surname')}</span>
 				</h1>
 				<p class="text-xl md:text-2xl font-bold mb-4 text-white/90 leading-tight">
-					Projektantka Wnętrz & Grafiki Komputerowej
+					{$t('about.hero.title')}
 				</p>
 				<p class="text-lg md:text-xl mb-8 max-w-2xl leading-relaxed text-gray-100">
-					Łączę wiedzę architektoniczną z kreatywnością plastyczną i najnowszymi technologiami AI,
-					tworząc funkcjonalne przestrzenie i unikalne identyfikacje wizualne.
+					{$t('about.hero.description')}
 				</p>
 			</div>
 		</div>
@@ -119,7 +121,7 @@
 			<div class="aspect-[3/4] bg-blue-100 relative overflow-hidden rounded-2xl shadow-2xl group">
 				<img
 					src={magdaPhoto}
-					alt="Magda Makaruk - Projektantka Wnętrz i Grafiki"
+					alt="{$t('about.hero.name')} {$t('about.hero.surname')} - {$t('about.hero.title')}"
 					class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
 				/>
 				<div class="absolute inset-0 opacity-0 group-hover:opacity-100 transition-opacity duration-300" style="background-color: rgba(39, 39, 91, 0.15);"></div>
@@ -129,23 +131,18 @@
 		<div class="space-y-8 observe">
 			<div>
 				<h2 class="text-3xl md:text-4xl lg:text-5xl font-black mb-6 leading-tight" style="font-family: 'Playfair Display', serif;">
-					Doświadczenie<br>
-					<span style="color: #00D4FF;">i Pasja</span>
+					{$t('about.experience.heading')}<br>
+					<span style="color: #00D4FF;">{$t('about.experience.headingAccent')}</span>
 				</h2>
 				<div class="space-y-6 text-gray-600 leading-relaxed text-lg">
 					<p>
-						Jestem projektantką wnętrz i graficzką komputerową z wieloletnim doświadczeniem w branży kreatywnej.
-						Moje podejście łączy solidne podstawy architektoniczne z nowoczesnymi technologiami i głębokim
-						zrozumieniem potrzeb klientów.
+						{$t('about.experience.paragraph1')}
 					</p>
 					<p>
-						Specjalizuję się w projektowaniu przestrzeni mieszkalnych i komercyjnych, tworząc rozwiązania
-						funkcjonalne i estetyczne. Moja praca graficzna obejmuje kompleksowe identyfikacje wizualne,
-						materiały reklamowe i projekty specjalizowane.
+						{$t('about.experience.paragraph2')}
 					</p>
 					<p>
-						<strong style="color: {colorPalette.primary}">Kluczowe kompetencje:</strong> AutoCAD, SketchUp, Adobe Creative Suite, 3ds Max, V-Ray, Lumion.
-						Doświadczenie w BIM, projektowaniu zrównoważonym i technologii AI wspomagającej proces kreatywny.
+						<strong style="color: {colorPalette.primary}">{$t('about.experience.paragraph3')}</strong> {$t('about.experience.skills')}
 					</p>
 				</div>
 			</div>
@@ -156,50 +153,47 @@
 <!-- Skills & Expertise -->
 <section class="section bg-blue-50 border-t-4" style="border-top-color: {colorPalette.accent};">
 	<div class="text-center mb-16 observe">
-		<p class="font-black tracking-[0.3em] uppercase text-sm mb-4" style="color: {colorPalette.primary}">Umiejętności</p>
+		<p class="font-black tracking-[0.3em] uppercase text-sm mb-4" style="color: {colorPalette.primary}">{$t('about.skills.label')}</p>
 		<h2 class="text-3xl md:text-4xl lg:text-5xl font-black mb-6 leading-tight" style="font-family: 'Playfair Display', serif;">
-			Kompetencje<br>
-			<span style="color: {colorPalette.primary}">Techniczne</span>
+			{$t('about.skills.heading')}<br>
+			<span style="color: {colorPalette.primary}">{$t('about.skills.headingAccent')}</span>
 		</h2>
 	</div>
 
 	<div class="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
 		<div class="bg-white p-8 rounded-2xl border-2 border-blue-100 hover:border-blue-300 transition-all duration-300 observe group">
-			<h3 class="text-xl font-black mb-3" style="font-family: 'Playfair Display', serif; color: {colorPalette.primary}">Projektowanie Architektury</h3>
+			<h3 class="text-xl font-black mb-3" style="font-family: 'Playfair Display', serif; color: {colorPalette.primary}">{$t('about.skills.architecture.title')}</h3>
 			<p class="text-gray-600 leading-relaxed">
-				Kompleksowe projekty architektoniczne od koncepcji po dokumentację wykonawczą.
-				Doświadczenie w projektach mieszkalnych, komercyjnych i publicznych.
+				{$t('about.skills.architecture.description')}
 			</p>
 			<ul class="mt-4 space-y-2 text-sm text-gray-600">
-				<li>• AutoCAD & ArchiCAD</li>
-				<li>• SketchUp & 3ds Max</li>
-				<li>• BIM & dokumentacja</li>
+				<li>• {$t('about.skills.architecture.skill1')}</li>
+				<li>• {$t('about.skills.architecture.skill2')}</li>
+				<li>• {$t('about.skills.architecture.skill3')}</li>
 			</ul>
 		</div>
 
 		<div class="bg-white p-8 rounded-2xl border-2 border-blue-100 hover:border-blue-300 transition-all duration-300 observe group">
-			<h3 class="text-xl font-black mb-3" style="font-family: 'Playfair Display', serif; color: {colorPalette.primary}">Grafika Komputerowa</h3>
+			<h3 class="text-xl font-black mb-3" style="font-family: 'Playfair Display', serif; color: {colorPalette.primary}">{$t('about.skills.graphics.title')}</h3>
 			<p class="text-gray-600 leading-relaxed">
-				Identyfikacje wizualne, materiały reklamowe, ilustracje i projekty specjalizowane.
-				Ponad 50 zrealizowanych projektów brandingowych.
+				{$t('about.skills.graphics.description')}
 			</p>
 			<ul class="mt-4 space-y-2 text-sm text-gray-600">
-				<li>• Adobe Creative Suite</li>
-				<li>• Branding & Visual Identity</li>
-				<li>• Print & Digital Design</li>
+				<li>• {$t('about.skills.graphics.skill1')}</li>
+				<li>• {$t('about.skills.graphics.skill2')}</li>
+				<li>• {$t('about.skills.graphics.skill3')}</li>
 			</ul>
 		</div>
 
 		<div class="bg-white p-8 rounded-2xl border-2 border-blue-100 hover:border-blue-300 transition-all duration-300 observe group">
-			<h3 class="text-xl font-black mb-3" style="font-family: 'Playfair Display', serif; color: {colorPalette.primary}">Technologia AI</h3>
+			<h3 class="text-xl font-black mb-3" style="font-family: 'Playfair Display', serif; color: {colorPalette.primary}">{$t('about.skills.ai.title')}</h3>
 			<p class="text-gray-600 leading-relaxed">
-				Wykorzystanie sztucznej inteligencji do przyspieszenia procesów projektowych i generowania
-				innowacyjnych rozwiązań. Optymalizacja kosztów i czasu realizacji.
+				{$t('about.skills.ai.description')}
 			</p>
 			<ul class="mt-4 space-y-2 text-sm text-gray-600">
-				<li>• AI-assisted design</li>
-				<li>• Generative workflows</li>
-				<li>• Process optimization</li>
+				<li>• {$t('about.skills.ai.skill1')}</li>
+				<li>• {$t('about.skills.ai.skill2')}</li>
+				<li>• {$t('about.skills.ai.skill3')}</li>
 			</ul>
 		</div>
 	</div>
@@ -212,48 +206,44 @@
 
 	<div class="max-w-4xl mx-auto text-center observe relative z-10">
 		<h2 class="text-3xl md:text-4xl lg:text-5xl font-black mb-8 leading-tight" style="font-family: 'Playfair Display', serif;">
-			<span style="color: #FF6B9D;">Filozofia</span> Projektowania
+			<span style="color: #FF6B9D;">{$t('about.philosophy.heading')}</span> {$t('about.philosophy.headingAccent')}
 		</h2>
 
 		<div class="grid md:grid-cols-2 gap-8 mb-12">
 			<div class="bg-white/10 backdrop-blur-sm p-8 rounded-2xl border border-white/20">
-				<h3 class="text-xl font-black mb-3" style="font-family: 'Playfair Display', serif;">Funkcjonalność przede wszystkim</h3>
+				<h3 class="text-xl font-black mb-3" style="font-family: 'Playfair Display', serif;">{$t('about.philosophy.functionality.title')}</h3>
 				<p class="text-gray-200 leading-relaxed">
-					Piękno bez funkcjonalności to tylko dekoracja. Każdy projekt musi przede wszystkim działać
-					dla swoich użytkowników - być wygodny, praktyczny i bezpieczny.
+					{$t('about.philosophy.functionality.description')}
 				</p>
 			</div>
 
 			<div class="bg-white/10 backdrop-blur-sm p-8 rounded-2xl border border-white/20">
-				<h3 class="text-xl font-black mb-3" style="font-family: 'Playfair Display', serif;">Osobowość przestrzeni</h3>
+				<h3 class="text-xl font-black mb-3" style="font-family: 'Playfair Display', serif;">{$t('about.philosophy.personality.title')}</h3>
 				<p class="text-gray-200 leading-relaxed">
-					Każda przestrzeń powinna odzwierciedlać charakter swojego właściciela.
-					Tworzę miejsca, które opowiadają historię i wyrażają indywidualność.
+					{$t('about.philosophy.personality.description')}
 				</p>
 			</div>
 
 			<div class="bg-white/10 backdrop-blur-sm p-8 rounded-2xl border border-white/20">
-				<h3 class="text-xl font-black mb-3" style="font-family: 'Playfair Display', serif;">Innowacja technologiczna</h3>
+				<h3 class="text-xl font-black mb-3" style="font-family: 'Playfair Display', serif;">{$t('about.philosophy.innovation.title')}</h3>
 				<p class="text-gray-200 leading-relaxed">
-					Wykorzystuję najnowsze technologie, w tym AI, aby przyspieszyć procesy projektowe
-					i osiągnąć lepsze rezultaty w krótszym czasie.
+					{$t('about.philosophy.innovation.description')}
 				</p>
 			</div>
 
 			<div class="bg-white/10 backdrop-blur-sm p-8 rounded-2xl border border-white/20">
-				<h3 class="text-xl font-black mb-3" style="font-family: 'Playfair Display', serif;">Partnerstwo z klientem</h3>
+				<h3 class="text-xl font-black mb-3" style="font-family: 'Playfair Display', serif;">{$t('about.philosophy.partnership.title')}</h3>
 				<p class="text-gray-200 leading-relaxed">
-					Projekt to wspólna podróż. Słucham, doradzam i wspólnie tworzymy rozwiązanie
-					doskonale dopasowane do potrzeb i marzeń klienta.
+					{$t('about.philosophy.partnership.description')}
 				</p>
 			</div>
 		</div>
 
 		<div class="bg-white/10 backdrop-blur-sm p-8 rounded-2xl border border-white/20 max-w-2xl mx-auto">
 			<blockquote class="text-xl md:text-2xl font-light italic mb-4" style="font-family: 'Playfair Display', serif;">
-				"Dobry design to nie tylko piękne formy, ale przede wszystkim rozwiązania problemów."
+				"{$t('about.philosophy.quote')}"
 			</blockquote>
-			<p class="font-bold" style="color: #00D4FF;">— Magda Makaruk</p>
+			<p class="font-bold" style="color: #00D4FF;">— {$t('about.hero.name')} {$t('about.hero.surname')}</p>
 		</div>
 	</div>
 </section>
@@ -262,19 +252,18 @@
 <section class="section bg-blue-50 border-t-4" style="border-top-color: {colorPalette.accent};">
 	<div class="max-w-4xl mx-auto text-center observe">
 		<h2 class="text-3xl md:text-4xl lg:text-5xl font-black mb-6 leading-tight" style="font-family: 'Playfair Display', serif;">
-			Zacznijmy<br>
-			<span style="color: #FF6B9D;">współpracę!</span>
+			{$t('about.cta.heading')}<br>
+			<span style="color: #FF6B9D;">{$t('about.cta.headingAccent')}</span>
 		</h2>
 		<p class="text-xl text-gray-600 mb-8 max-w-2xl mx-auto leading-relaxed">
-			Masz pomysł na projekt? Chcesz stworzyć wyjątkową przestrzeń lub odświeżyć identyfikację wizualną?
-			Skontaktuj się ze mną - razem stworzymy coś niesamowitego.
+			{$t('about.cta.description')}
 		</p>
 		<div class="flex flex-col sm:flex-row gap-4 justify-center">
 			<a href="/#kontakt" class="btn">
-				Umów Konsultację
+				{$t('about.cta.button1')}
 			</a>
 			<a href="/#portfolio" class="btn-secondary">
-				Zobacz Portfolio
+				{$t('about.cta.button2')}
 			</a>
 		</div>
 	</div>
