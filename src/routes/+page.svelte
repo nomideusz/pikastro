@@ -598,7 +598,7 @@
 				<p class="font-bold tracking-[0.15em] md:tracking-[0.3em] uppercase text-sm mb-6 animate-pulse-slow neon-text" style="color: {colorPalette.accent}">{translate('home.hero.label')}</p>
 				<h1 class="text-5xl md:text-7xl lg:text-8xl font-black mb-6 leading-[1.05]" style="font-family: 'Playfair Display', serif;">
 					<span class="block">{translate('home.hero.heading1')}</span>
-					<span class="block" style="color: #F5848E">{translate('home.hero.heading2')}</span>
+					<span class="block">{translate('home.hero.heading2')}<span style="color: #F5848E">{translate('home.hero.heading2Accent')}</span></span>
 				</h1>
 				<p class="text-2xl md:text-3xl font-bold mb-4 leading-tight" style="color: #27275B;">
 					{translate('home.hero.tagline')}
@@ -804,7 +804,7 @@
 	<div class="absolute top-1/2 left-1/4 w-32 h-32 md:w-64 md:h-64 rounded-full filter blur-3xl opacity-15" style="background-color: {colorPalette.success};"></div>
 	<div class="grid md:grid-cols-2 gap-16 lg:gap-24 items-center relative z-10">
 		<div class="observe">
-			<h2 class="text-4xl md:text-5xl lg:text-6xl font-black mb-8 leading-tight" style="font-family: 'Playfair Display', serif; color: #27275b;">
+			<h2 class="text-4xl md:text-5xl lg:text-6xl font-black mb-8 leading-tight" style="font-family: 'Playfair Display', serif;">
 				{translate('home.aboutHome.heading')} <span class="italic" style="color: #27275b">{translate('home.aboutHome.headingAccent')}</span>
 			</h2>
 			<div class="space-y-6 text-[#27275b]/80 leading-relaxed text-lg">

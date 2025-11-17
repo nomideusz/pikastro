@@ -46,7 +46,8 @@
     "hero": {
       "label": "AI × Architektura × Grafika",
       "heading1": "Dość beżu.",
-      "heading2": "Czas na kolor!",
+      "heading2": "Czas na ",
+      "heading2Accent": "kolor!",
       "tagline": "AI × Design = Twoje wymarzone wnętrze",
       "description": "Zobacz 10 wersji swojego wnętrza zanim zdecydujesz. Prototypowanie w godziny, nie tygodnie. Szybciej. Odważniej. Taniej.",
       "valueProps": {
