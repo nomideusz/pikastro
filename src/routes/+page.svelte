@@ -562,7 +562,7 @@
 		>
 			<source src={heroVideo} type="video/mp4" />
 		</video>
-		<div class="absolute inset-0 opacity-40 transition-all duration-1000" style="background-color: {colorPalette.primary}"></div>
+		<div class="absolute inset-0 opacity-20 transition-all duration-1000" style="background-color: {colorPalette.primary}"></div>
 	</div>
 		<!-- Animated AI Network Background -->
 		<div class="absolute inset-0 z-[2]">
