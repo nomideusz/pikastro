@@ -1,27 +1,27 @@
-import { init, locale, dictionary, t, _ } from 'svelte-i18n';
+import { init, locale, dictionary, t, _, addMessages } from 'svelte-i18n';
 import { derived, get } from 'svelte/store';
 
 // Import translations
 import en from '../../locales/en/common.json';
 import pl from '../../locales/pl/common.json';
 
-// Add all translations BEFORE init (required for SSR)
-dictionary.set({
+// Keep a direct reference to translations for SSR fallback
+const translations: Record<string, any> = {
 	en,
 	pl
-});
+};
 
-// Set default locale BEFORE init (required for SSR)
-locale.set('pl');
+// Add messages for each locale BEFORE init (required for SSR)
+addMessages('en', en);
+addMessages('pl', pl);
 
-// Initialize i18n synchronously for SSR
-// The dictionary is already set, so this should work immediately
+// Initialize i18n with proper SSR settings
 init({
 	fallbackLocale: 'pl',
 	initialLocale: 'pl'
 });
 
-// Ensure locale is set after init (in case init resets it)
+// Set locale after init
 locale.set('pl');
 
 
@@ -46,15 +46,18 @@ export function createT() {
 // Safe translation function for SSR - can be used in $derived blocks
 export function getT(key: string, defaultValue: string = ''): string {
 	try {
-		// First try to get the current locale
-		const currentLocale = get(locale) || 'pl';
+		// Get current locale (default to 'pl')
+		let currentLocale = 'pl';
+		try {
+			currentLocale = get(locale) || 'pl';
+		} catch (e) {
+			// Locale store not ready, use default
+		}
 
-		// Try to get translations from dictionary directly (more reliable for SSR)
-		const dict = get(dictionary);
-		if (dict && dict[currentLocale]) {
-			// Navigate through nested keys (e.g., 'home.hero.heading1')
+		// First, try direct access to imported translations (most reliable for SSR)
+		if (translations && translations[currentLocale]) {
 			const keys = key.split('.');
-			let value: any = dict[currentLocale];
+			let value: any = translations[currentLocale];
 
 			for (const k of keys) {
 				if (value && typeof value === 'object' && k in value) {
@@ -70,19 +73,47 @@ export function getT(key: string, defaultValue: string = ''): string {
 			}
 		}
 
-		// Fallback to t store if dictionary access fails
-		const translateFn = get(t);
-		if (typeof translateFn === 'function') {
-			const value = translateFn(key);
-			if (value && value !== key) {
-				return value;
+		// Fallback to dictionary store if direct access fails
+		try {
+			const dict = get(dictionary);
+			if (dict && dict[currentLocale]) {
+				const keys = key.split('.');
+				let value: any = dict[currentLocale];
+
+				for (const k of keys) {
+					if (value && typeof value === 'object' && k in value) {
+						value = value[k];
+					} else {
+						value = null;
+						break;
+					}
+				}
+
+				if (value && typeof value === 'string') {
+					return value;
+				}
 			}
+		} catch (e) {
+			// Dictionary not ready
+		}
+
+		// Last resort: try t store
+		try {
+			const translateFn = get(t);
+			if (typeof translateFn === 'function') {
+				const value = translateFn(key);
+				if (value && value !== key) {
+					return value;
+				}
+			}
+		} catch (e) {
+			// t store not ready
 		}
 
 		// Return default or key if nothing worked
 		return defaultValue || key;
 	} catch (e) {
-		// Store not ready yet, return default or key
+		// Complete failure, return default or key
 		return defaultValue || key;
 	}
 }
