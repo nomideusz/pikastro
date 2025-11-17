@@ -1,23 +1,16 @@
-// Simple, SSR-safe i18n for Svelte 5
-import { writable, derived } from 'svelte/store';
-import type { Readable, Writable } from 'svelte/store';
-
-// Import translations
+// SSR-safe i18n for Svelte 5 with runes
 import en from '../../locales/en/common.json';
 import pl from '../../locales/pl/common.json';
 
 // Type for translations
 type Translations = Record<string, any>;
-type Locale = 'en' | 'pl';
+export type Locale = 'en' | 'pl';
 
 // Store all translations
 const translations: Record<Locale, Translations> = {
 	en,
 	pl
 };
-
-// Create locale store with default value
-export const locale: Writable<Locale> = writable('pl');
 
 // Helper to navigate nested object by key path
 function getNestedValue(obj: any, keyPath: string): string | null {
@@ -35,21 +28,50 @@ function getNestedValue(obj: any, keyPath: string): string | null {
 	return typeof value === 'string' ? value : null;
 }
 
-// Simple translation function - works in both SSR and client
-export function getT(key: string, providedLocale?: Locale): string {
-	// Determine which locale to use
-	let currentLocale: Locale = 'pl';
+// Create a simple reactive locale using a class with getters/setters
+class LocaleStore {
+	private _value: Locale = 'pl';
+	private listeners: Set<() => void> = new Set();
 
-	if (providedLocale) {
-		// Use provided locale if given
-		currentLocale = providedLocale;
-	} else if (typeof window !== 'undefined') {
-		// On client, try to get from localStorage
-		const saved = localStorage.getItem('locale');
-		if (saved === 'en' || saved === 'pl') {
-			currentLocale = saved;
+	constructor() {
+		// Initialize from localStorage on client
+		if (typeof window !== 'undefined') {
+			const saved = localStorage.getItem('locale');
+			if (saved === 'en' || saved === 'pl') {
+				this._value = saved;
+			}
 		}
 	}
+
+	get value(): Locale {
+		return this._value;
+	}
+
+	set value(newValue: Locale) {
+		if (this._value !== newValue) {
+			this._value = newValue;
+			if (typeof window !== 'undefined') {
+				localStorage.setItem('locale', newValue);
+			}
+			this.notify();
+		}
+	}
+
+	subscribe(listener: () => void): () => void {
+		this.listeners.add(listener);
+		return () => this.listeners.delete(listener);
+	}
+
+	private notify() {
+		this.listeners.forEach(listener => listener());
+	}
+}
+
+export const localeStore = new LocaleStore();
+
+// Translation function
+export function t(key: string): string {
+	const currentLocale = localeStore.value;
 
 	// Try current locale
 	const value = getNestedValue(translations[currentLocale], key);
@@ -65,36 +87,12 @@ export function getT(key: string, providedLocale?: Locale): string {
 	return key;
 }
 
-// Reactive translation store for client-side use
-export const t: Readable<(key: string) => string> = derived(
-	locale,
-	($locale) => (key: string) => getT(key, $locale)
-);
-
 // Helper to switch language
 export function setLocale(newLocale: Locale) {
-	locale.set(newLocale);
-
-	// Save to localStorage if in browser
-	if (typeof window !== 'undefined') {
-		localStorage.setItem('locale', newLocale);
-	}
+	localeStore.value = newLocale;
 }
 
-// Get current locale value (for SSR and client)
-export function getCurrentLocale(): Locale {
-	if (typeof window !== 'undefined') {
-		// Client-side: try localStorage first
-		const saved = localStorage.getItem('locale');
-		if (saved === 'en' || saved === 'pl') {
-			return saved;
-		}
-	}
-	return 'pl';
-}
-
-// Initialize locale on client
-if (typeof window !== 'undefined') {
-	const initialLocale = getCurrentLocale();
-	locale.set(initialLocale);
+// Helper to get current locale
+export function getLocale(): Locale {
+	return localeStore.value;
 }

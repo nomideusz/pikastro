@@ -3,7 +3,7 @@
 	import { page } from '$app/stores';
 	import { extractColorsFromImage, assignColorRoles, type ColorPalette } from '$lib/utils/colorExtractor';
 	import colorsImg from '$lib/assets/images/colors.jpeg';
-	import { t, locale } from '$lib/i18n';
+	import { t, localeStore, getLocale } from '$lib/i18n';
 	import LanguageToggle from '$lib/components/LanguageToggle.svelte';
 
 	// Color palette extracted from colors image - Eclectic Maximalism
@@ -14,6 +14,23 @@
 		success: '#F2A23E',      // Golden Orange
 		tertiary: '#F5848E'      // Coral Pink
 	});
+
+	// Reactive translation function
+	let currentLocale = $state(getLocale());
+
+	// Subscribe to locale changes
+	$effect(() => {
+		const unsubscribe = localeStore.subscribe(() => {
+			currentLocale = getLocale();
+		});
+		return unsubscribe;
+	});
+
+	// Translate function that reacts to locale changes
+	function translate(key: string): string {
+		void currentLocale; // Access to create reactive dependency
+		return t(key);
+	}
 
 	// Extract colors from the colors image on mount
 	$effect(() => {
@@ -31,8 +48,8 @@
 
 	// Update HTML lang attribute when locale changes
 	$effect(() => {
-		if (typeof document !== 'undefined' && $locale) {
-			document.documentElement.lang = $locale;
+		if (typeof document !== 'undefined') {
+			document.documentElement.lang = currentLocale;
 		}
 	});
 
@@ -70,24 +87,24 @@
 			<!-- Desktop Navigation -->
 			<div class="hidden lg:flex items-center space-x-8">
 				<a href="/o-mnie" class="text-gray-700 transition-colors font-bold text-sm tracking-wide uppercase relative group hover:text-[var(--color-primary)]">
-					{$t('nav.about')}
+					{translate('nav.about')}
 					<span class="absolute bottom-0 left-0 w-0 h-0.5 transition-all duration-300 group-hover:w-full" style="background-color: var(--color-accent);"></span>
 				</a>
 				<a href={getNavLink('#oferta')} class="text-gray-700 transition-colors font-bold text-sm tracking-wide uppercase relative group hover:text-[var(--color-primary)]">
-					{$t('nav.offer')}
+					{translate('nav.offer')}
 					<span class="absolute bottom-0 left-0 w-0 h-0.5 transition-all duration-300 group-hover:w-full" style="background-color: var(--color-accent);"></span>
 				</a>
 				<a href="/ceny" class="text-gray-700 transition-colors font-bold text-sm tracking-wide uppercase relative group hover:text-[var(--color-primary)]">
-					{$t('nav.pricing')}
+					{translate('nav.pricing')}
 					<span class="absolute bottom-0 left-0 w-0 h-0.5 transition-all duration-300 group-hover:w-full" style="background-color: var(--color-accent);"></span>
 				</a>
 				<a href={getNavLink('#portfolio')} class="text-gray-700 transition-colors font-bold text-sm tracking-wide uppercase relative group hover:text-[var(--color-primary)]">
-					{$t('nav.portfolio')}
+					{translate('nav.portfolio')}
 					<span class="absolute bottom-0 left-0 w-0 h-0.5 transition-all duration-300 group-hover:w-full" style="background-color: var(--color-accent);"></span>
 				</a>
 				<LanguageToggle />
 				<a href={getNavLink('#kontakt')} class="px-6 py-2.5 text-white transition-all duration-300 text-sm tracking-wide uppercase font-bold rounded-lg shadow-md hover:shadow-lg transform hover:scale-105" style="background-color: var(--color-accent);">
-					{$t('nav.contact')}
+					{translate('nav.contact')}
 				</a>
 			</div>
 
@@ -116,16 +133,16 @@
 					<!-- Navigation Items -->
 					<div class="space-y-2">
 						<a href="/o-mnie" onclick={() => isMenuOpen = false} class="block px-4 py-3 text-gray-700 transition-all duration-300 font-bold text-sm tracking-wide uppercase rounded-lg hover:bg-gray-50 hover:text-[var(--color-primary)] transform hover:translate-x-1">
-							{$t('nav.about')}
+							{translate('nav.about')}
 						</a>
 						<a href={getNavLink('#oferta')} onclick={() => isMenuOpen = false} class="block px-4 py-3 text-gray-700 transition-all duration-300 font-bold text-sm tracking-wide uppercase rounded-lg hover:bg-gray-50 hover:text-[var(--color-primary)] transform hover:translate-x-1">
-							{$t('nav.offer')}
+							{translate('nav.offer')}
 						</a>
 						<a href="/ceny" onclick={() => isMenuOpen = false} class="block px-4 py-3 text-gray-700 transition-all duration-300 font-bold text-sm tracking-wide uppercase rounded-lg hover:bg-gray-50 hover:text-[var(--color-primary)] transform hover:translate-x-1">
-							{$t('nav.pricing')}
+							{translate('nav.pricing')}
 						</a>
 						<a href={getNavLink('#portfolio')} onclick={() => isMenuOpen = false} class="block px-4 py-3 text-gray-700 transition-all duration-300 font-bold text-sm tracking-wide uppercase rounded-lg hover:bg-gray-50 hover:text-[var(--color-primary)] transform hover:translate-x-1">
-							{$t('nav.portfolio')}
+							{translate('nav.portfolio')}
 						</a>
 					</div>
 
@@ -137,7 +154,7 @@
 					<!-- CTA Button -->
 					<div class="pt-3 border-t border-gray-100">
 						<a href={getNavLink('#kontakt')} onclick={() => isMenuOpen = false} class="block px-4 py-3 text-gray-700 transition-all duration-300 text-sm tracking-wide uppercase font-bold rounded-lg hover:bg-gray-50 hover:text-[var(--color-primary)] transform hover:translate-x-1">
-							{$t('nav.contact')}
+							{translate('nav.contact')}
 						</a>
 					</div>
 				</div>
@@ -159,43 +176,43 @@
 					<img src="/logo.png" alt="Pikastro Logo" class="h-10 w-auto" />
 				</div>
 				<p class="text-gray-200 leading-relaxed">
-					{$t('footer.description')}
+					{translate('footer.description')}
 				</p>
 			</div>
 			<div>
-				<h4 class="text-sm uppercase tracking-wider mb-4 font-bold text-[#FB7185]">{$t('footer.offer')}</h4>
+				<h4 class="text-sm uppercase tracking-wider mb-4 font-bold text-[#FB7185]">{translate('footer.offer')}</h4>
 				<ul class="space-y-2 text-gray-200 text-sm">
-					<li>• {$t('footer.services.interior_design')}</li>
-					<li>• {$t('footer.services.space_arrangement')}</li>
-					<li>• {$t('footer.services.visual_identity')}</li>
-					<li>• {$t('footer.services.computer_graphics')}</li>
-					<li>• {$t('footer.services.ai_technology')}</li>
+					<li>• {translate('footer.services.interior_design')}</li>
+					<li>• {translate('footer.services.space_arrangement')}</li>
+					<li>• {translate('footer.services.visual_identity')}</li>
+					<li>• {translate('footer.services.computer_graphics')}</li>
+					<li>• {translate('footer.services.ai_technology')}</li>
 				</ul>
 			</div>
 			<div>
-				<h4 class="text-sm uppercase tracking-wider mb-4 font-bold text-[#FB7185]">{$t('footer.clients')}</h4>
+				<h4 class="text-sm uppercase tracking-wider mb-4 font-bold text-[#FB7185]">{translate('footer.clients')}</h4>
 				<ul class="space-y-2 text-gray-200 text-sm">
-					<li>• {$t('footer.clientTypes.apartment_buyers')}</li>
-					<li>• {$t('footer.clientTypes.developers')}</li>
-					<li>• {$t('footer.clientTypes.real_estate')}</li>
-					<li>• {$t('footer.clientTypes.startups')}</li>
-					<li>• {$t('footer.clientTypes.commercial')}</li>
+					<li>• {translate('footer.clientTypes.apartment_buyers')}</li>
+					<li>• {translate('footer.clientTypes.developers')}</li>
+					<li>• {translate('footer.clientTypes.real_estate')}</li>
+					<li>• {translate('footer.clientTypes.startups')}</li>
+					<li>• {translate('footer.clientTypes.commercial')}</li>
 				</ul>
 			</div>
 			<div>
-				<h4 class="text-sm uppercase tracking-wider mb-4 font-bold text-[#FB7185]">{$t('footer.contact')}</h4>
+				<h4 class="text-sm uppercase tracking-wider mb-4 font-bold text-[#FB7185]">{translate('footer.contact')}</h4>
 				<ul class="space-y-2 text-gray-200 font-medium">
 					<li>kontakt@pikastro.eu</li>
-					<li>{$t('footer.location')}</li>
+					<li>{translate('footer.location')}</li>
 					<li class="pt-2">
-						<a href="/o-mnie" class="text-[#FB7185] hover:text-white transition-colors">{$t('nav.about')}</a> •
-						<a href="/#oferta" class="text-[#FB7185] hover:text-white transition-colors">{$t('nav.offer')}</a>
+						<a href="/o-mnie" class="text-[#FB7185] hover:text-white transition-colors">{translate('nav.about')}</a> •
+						<a href="/#oferta" class="text-[#FB7185] hover:text-white transition-colors">{translate('nav.offer')}</a>
 					</li>
 				</ul>
 			</div>
 		</div>
 		<div class="pt-8 border-t border-white/20 text-center text-sm text-gray-300">
-			<p class="font-medium">&copy; 2025 Pikastro. {$t('footer.copyright')}</p>
+			<p class="font-medium">&copy; 2025 Pikastro. {translate('footer.copyright')}</p>
 		</div>
 	</div>
 </footer>
