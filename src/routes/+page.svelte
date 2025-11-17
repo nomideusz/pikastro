@@ -16,7 +16,7 @@
 	import vid02 from '$lib/assets/videos/vid02.mp4';
 
 	// Import i18n
-	import { t, locale, getT } from '$lib/i18n';
+	import { t, locale } from '$lib/i18n';
 
 	// Import color extraction utilities
 	import { extractColorsFromImage, assignColorRoles, type ColorPalette } from '$lib/utils/colorExtractor';
@@ -100,7 +100,7 @@
 	// Update project type when t is available
 	$effect(() => {
 		try {
-			const projectType = getT('home.form.projectType');
+			const projectType = $t('home.form.projectType');
 			if (projectType && formData.project === defaultProjectType) {
 				formData.project = projectType;
 			}
@@ -127,18 +127,18 @@
 	});
 	let isValidating = $state(false);
 
-	// Submit button text - use getT for SSR safety
+	// Submit button text - use $t for reactivity
 	const submitButtonText = $derived.by(() => {
-		if (formStatus === 'submitting') return getT('home.form.submit.sending');
+		if (formStatus === 'submitting') return $t('home.form.submit.sending');
 		if (!validationErrors.isFormValid && (touchedFields.name || touchedFields.email || touchedFields.message)) {
-			return getT('home.form.submit.fixErrors');
+			return $t('home.form.submit.fixErrors');
 		}
-		return getT('home.form.submit.send');
+		return $t('home.form.submit.send');
 	});
 
-	// Project category text - use getT for SSR safety
+	// Project category text - use $t for reactivity
 	const getProjectCategoryText = (category: string) => {
-		return category === 'wnętrza' ? getT('home.portfolio.categoryInteriors') : getT('home.portfolio.categoryGraphics');
+		return category === 'wnętrza' ? $t('home.portfolio.categoryInteriors') : $t('home.portfolio.categoryGraphics');
 	};
 
 
@@ -201,7 +201,7 @@
 		const validation = validateAllFields();
 		if (!validation.isFormValid) {
 			formStatus = 'error';
-			formMessage = getT('home.form.error');
+			formMessage = $t('home.form.error');
 			return;
 		}
 
@@ -221,11 +221,11 @@
 
 			if (response.ok) {
 				formStatus = 'success';
-				formMessage = getT('home.form.success');
+				formMessage = $t('home.form.success');
 				// Reset form
 				let resetProjectType = defaultProjectType;
 				try {
-					resetProjectType = getT('home.form.projectType');
+					resetProjectType = $t('home.form.projectType');
 				} catch (e) {
 					// t not ready, use default
 				}
@@ -251,20 +251,20 @@
 				setTimeout(() => ensureVideoPlays(vid02Element), 100);
 			} else {
 				formStatus = 'error';
-				formMessage = result.error || getT('home.form.errorGeneric');
+				formMessage = result.error || $t('home.form.errorGeneric');
 			}
 		} catch (error) {
 			formStatus = 'error';
-			formMessage = getT('home.form.errorNetwork');
+			formMessage = $t('home.form.errorNetwork');
 			console.error('Form submission error:', error);
 		}
 	}
 
-	// Before/After showcase data - use getT for SSR safety, reactive to locale changes
+	// Before/After showcase data - use $t for reactivity, reactive to locale changes
 	const beforeAfterProjects = $derived.by(() => {
 		// Access $locale to make this reactive to locale changes
 		const _ = $locale;
-		const translate = getT;
+		const translate = $t;
 		return [
 			{
 				title: translate('beforeAfter.project1.title'),
@@ -290,11 +290,11 @@
 		];
 	});
 
-	// Process steps - use getT for SSR safety, reactive to locale changes
+	// Process steps - use $t for reactivity, reactive to locale changes
 	const processSteps = $derived.by(() => {
 		// Access $locale to make this reactive to locale changes
 		const _ = $locale;
-		const translate = getT;
+		const translate = $t;
 		return [
 			{
 				number: '01',
@@ -327,11 +327,11 @@
 		];
 	});
 
-	// Portfolio data - professionally curated projects - use getT for SSR safety, reactive to locale changes
+	// Portfolio data - professionally curated projects - use $t for reactivity, reactive to locale changes
 	const projects = $derived.by(() => {
 		// Access $locale to make this reactive to locale changes
 		const _ = $locale;
-		const translate = getT;
+		const translate = $t;
 		return [
 			{
 				title: translate('portfolio.scandinavianApartment.title'),
@@ -387,7 +387,7 @@
 	const services = $derived.by(() => {
 		// Access $locale to make this reactive to locale changes
 		const _ = $locale;
-		const translate = getT;
+		const translate = $t;
 		return [
 			{
 				title: translate('services.interiorDesign.title'),
@@ -584,32 +584,32 @@
 	<div class="relative z-20 px-4 md:px-6 lg:px-12 py-8 md:py-24 max-w-7xl mx-auto">
 		<div class="max-w-5xl">
 			<div class="mb-8 md:mb-8 observe animate-fade-in-up">
-				<p class="font-bold tracking-[0.15em] md:tracking-[0.3em] uppercase text-sm mb-6 animate-pulse-slow neon-text" style="color: {colorPalette.accent}">{getT('home.hero.label')}</p>
+				<p class="font-bold tracking-[0.15em] md:tracking-[0.3em] uppercase text-sm mb-6 animate-pulse-slow neon-text" style="color: {colorPalette.accent}">{$t('home.hero.label')}</p>
 				<h1 class="text-5xl md:text-7xl lg:text-8xl font-black mb-6 leading-[1.05]" style="font-family: 'Playfair Display', serif;">
-					<span class="block">{getT('home.hero.heading1')}</span>
-					<span class="block">{getT('home.hero.heading2')}</span>
+					<span class="block">{$t('home.hero.heading1')}</span>
+					<span class="block">{$t('home.hero.heading2')}</span>
 				</h1>
 				<p class="text-2xl md:text-3xl font-bold mb-4 leading-tight" style="color: #FF6B9D;">
-					{getT('home.hero.tagline')}
+					{$t('home.hero.tagline')}
 				</p>
 			</div>
 				<p class="text-lg md:text-2xl mb-8 max-w-3xl leading-relaxed text-gray-100 observe animate-fade-in-up" style="animation-delay: 0.2s; font-weight: 400;">
-				{getT('home.hero.description')}
+				{$t('home.hero.description')}
 			</p>
 
 			<!-- Value Props -->
 			<div class="grid grid-cols-1 sm:grid-cols-3 gap-4 mb-12 observe animate-fade-in-up max-w-3xl" style="animation-delay: 0.4s;">
 				<div class="bg-white/10 backdrop-blur-sm px-4 py-3 rounded-lg border border-white/20">
-					<div class="font-black text-lg text-white">{getT('home.hero.valueProps.time')}</div>
-					<div class="text-white/80 text-sm">{getT('home.hero.valueProps.timeVs')}</div>
+					<div class="font-black text-lg text-white">{$t('home.hero.valueProps.time')}</div>
+					<div class="text-white/80 text-sm">{$t('home.hero.valueProps.timeVs')}</div>
 				</div>
 				<div class="bg-white/10 backdrop-blur-sm px-4 py-3 rounded-lg border border-white/20">
-					<div class="font-black text-lg neon-text" style="color: {colorPalette.accent}">{getT('home.hero.valueProps.variants')}</div>
-					<div class="text-white/80 text-sm">{getT('home.hero.valueProps.variantsDesc')}</div>
+					<div class="font-black text-lg neon-text" style="color: {colorPalette.accent}">{$t('home.hero.valueProps.variants')}</div>
+					<div class="text-white/80 text-sm">{$t('home.hero.valueProps.variantsDesc')}</div>
 				</div>
 				<div class="bg-white/10 backdrop-blur-sm px-4 py-3 rounded-lg border border-white/20">
-					<div class="font-black text-lg text-white">{getT('home.hero.valueProps.price')}</div>
-					<div class="text-white/80 text-sm">{getT('home.hero.valueProps.priceDesc')}</div>
+					<div class="font-black text-lg text-white">{$t('home.hero.valueProps.price')}</div>
+					<div class="text-white/80 text-sm">{$t('home.hero.valueProps.priceDesc')}</div>
 				</div>
 			</div>
 
@@ -644,12 +644,12 @@
 	<div class="relative z-10 flex items-center justify-center h-full">
 		<div class="text-center text-white px-6 max-w-4xl">
 			<h2 class="text-3xl md:text-7xl lg:text-8xl font-black mb-6 leading-tight" style="font-family: 'Playfair Display', serif;">
-				{getT('home.video.heading')}<br>
-				<span style="color: {colorPalette.accent}">{getT('home.video.headingAccent')}</span><br>
-				{getT('home.video.headingEnd')}
+				{$t('home.video.heading')}<br>
+				<span style="color: {colorPalette.accent}">{$t('home.video.headingAccent')}</span><br>
+				{$t('home.video.headingEnd')}
 			</h2>
 			<p class="text-lg md:text-2xl text-gray-200 font-light">
-				{getT('home.video.description')}
+				{$t('home.video.description')}
 			</p>
 		</div>
 	</div>
@@ -660,12 +660,12 @@
 	<div class="absolute top-0 right-0 w-48 h-48 md:w-96 md:h-96 rounded-full filter blur-3xl opacity-25" style="background-color: {colorPalette.tertiary};"></div>
 	<div class="absolute bottom-0 left-0 w-40 h-40 md:w-80 md:h-80 rounded-full filter blur-3xl opacity-25" style="background-color: {colorPalette.accent};"></div>
 	<div class="text-center mb-12 md:mb-20 observe">
-		<p class="font-black tracking-[0.15em] md:tracking-[0.3em] uppercase text-sm mb-4" style="color: {colorPalette.primary}">{getT('home.beforeAfter.label')}</p>
+		<p class="font-black tracking-[0.15em] md:tracking-[0.3em] uppercase text-sm mb-4" style="color: {colorPalette.primary}">{$t('home.beforeAfter.label')}</p>
 		<h2 class="text-4xl md:text-5xl lg:text-6xl font-black mb-6 leading-tight" style="font-family: 'Playfair Display', serif;">
-			{getT('home.beforeAfter.heading')}<br><span style="color: {colorPalette.primary}">{getT('home.beforeAfter.headingAccent')}</span>
+			{$t('home.beforeAfter.heading')}<br><span style="color: {colorPalette.primary}">{$t('home.beforeAfter.headingAccent')}</span>
 		</h2>
 		<p class="text-lg md:text-xl text-[#27275b]/80 max-w-2xl mx-auto leading-relaxed">
-			{getT('home.beforeAfter.description')}
+			{$t('home.beforeAfter.description')}
 		</p>
 	</div>
 
@@ -722,10 +722,10 @@
 
 				<!-- Labels -->
 				<div class="absolute bottom-4 left-4 bg-black/70 text-white px-3 py-1.5 rounded-lg text-sm font-bold pointer-events-none">
-					{getT('home.slider.before')}
+					{$t('home.slider.before')}
 				</div>
 				<div class="absolute bottom-4 right-4 bg-black/70 text-white px-3 py-1.5 rounded-lg text-sm font-bold pointer-events-none">
-					{getT('home.slider.after')}
+					{$t('home.slider.after')}
 				</div>
 			</div>
 
@@ -775,13 +775,13 @@
 	<div class="absolute bottom-0 left-0 w-48 h-48 md:w-96 md:h-96 rounded-full filter blur-3xl opacity-20" style="background-color: {colorPalette.secondary};"></div>
 	<div class="max-w-5xl mx-auto px-6 text-center relative z-10">
 		<h2 class="text-3xl md:text-4xl lg:text-5xl font-black mb-6 text-white leading-tight" style="font-family: 'Playfair Display', serif;">
-			{getT('home.ctaBanner.heading')}
+			{$t('home.ctaBanner.heading')}
 		</h2>
 		<p class="text-lg md:text-xl text-gray-200 mb-8 max-w-2xl mx-auto">
-			{getT('home.ctaBanner.description')}
+			{$t('home.ctaBanner.description')}
 		</p>
 		<a href="#kontakt" class="inline-block px-8 py-4 text-white text-lg font-bold rounded-xl shadow-xl transition-all duration-300 hover:shadow-2xl hover:scale-105 transform animate-pulse-subtle" style="background-color: {colorPalette.accent};">
-			{getT('home.ctaBanner.button')}
+			{$t('home.ctaBanner.button')}
 		</a>
 	</div>
 </section>
@@ -794,21 +794,21 @@
 	<div class="grid md:grid-cols-2 gap-16 lg:gap-24 items-center relative z-10">
 		<div class="observe">
 			<h2 class="text-4xl md:text-5xl lg:text-6xl font-black mb-8 leading-tight" style="font-family: 'Playfair Display', serif; color: {colorPalette.primary};">
-				{getT('home.aboutHome.heading')}<br>
-				<span class="italic" style="color: {colorPalette.accent}">{getT('home.aboutHome.headingAccent')}</span>
+				{$t('home.aboutHome.heading')}<br>
+				<span class="italic" style="color: {colorPalette.accent}">{$t('home.aboutHome.headingAccent')}</span>
 			</h2>
 			<div class="space-y-6 text-[#27275b]/80 leading-relaxed text-lg">
 				<p>
-					{getT('home.aboutHome.paragraph1')}
+					{$t('home.aboutHome.paragraph1')}
 				</p>
 				<p>
-					<strong style="color: {colorPalette.primary}">{getT('home.aboutHome.paragraph2Title')}</strong> {getT('home.aboutHome.paragraph2')}
+					<strong style="color: {colorPalette.primary}">{$t('home.aboutHome.paragraph2Title')}</strong> {$t('home.aboutHome.paragraph2')}
 				</p>
 				<p>
-					{getT('home.aboutHome.paragraph3')}
+					{$t('home.aboutHome.paragraph3')}
 				</p>
 				<p class="quote-block">
-					„{getT('home.aboutHome.quote')}"
+					„{$t('home.aboutHome.quote')}"
 				</p>
 			</div>
 		</div>
@@ -823,8 +823,8 @@
 				<div class="absolute inset-0 bg-[#27275b]/30 group-hover:bg-[#27275b]/20 transition-all duration-300"></div>
 				<div class="absolute inset-0 flex items-center justify-center">
 					<div class="text-center p-8">
-						<p class="text-2xl font-bold text-white mb-3" style="font-family: 'Playfair Display', serif;">{getT('home.aboutHome.imageCaption')}</p>
-						<p class="text-base text-white/90">{getT('home.aboutHome.imageSubCaption')}</p>
+						<p class="text-2xl font-bold text-white mb-3" style="font-family: 'Playfair Display', serif;">{$t('home.aboutHome.imageCaption')}</p>
+						<p class="text-base text-white/90">{$t('home.aboutHome.imageSubCaption')}</p>
 					</div>
 				</div>
 			</div>
@@ -837,12 +837,12 @@
 	<div class="absolute top-10 left-5 w-32 h-32 md:top-20 md:left-20 md:w-64 md:h-64 rounded-full filter blur-3xl opacity-25 animate-pulse-slow" style="background-color: {colorPalette.secondary};"></div>
 	<div class="absolute bottom-10 right-5 w-36 h-36 md:bottom-20 md:right-20 md:w-72 md:h-72 rounded-full filter blur-3xl opacity-20 animate-pulse-slow" style="background-color: {colorPalette.success}; animation-delay: 1s;"></div>
 		<div class="text-center mb-20 observe relative z-10">
-		<p class="font-black tracking-[0.15em] md:tracking-[0.3em] uppercase text-sm mb-4" style="color: {colorPalette.primary}">{getT('home.services.label')}</p>
+		<p class="font-black tracking-[0.15em] md:tracking-[0.3em] uppercase text-sm mb-4" style="color: {colorPalette.primary}">{$t('home.services.label')}</p>
 		<h2 class="text-4xl md:text-5xl lg:text-6xl font-black mb-6 leading-tight" style="font-family: 'Playfair Display', serif; color: {colorPalette.primary};">
-			{getT('home.services.heading')}<br><span style="color: {colorPalette.accent}">{getT('home.services.headingAccent')}</span>
+			{$t('home.services.heading')}<br><span style="color: {colorPalette.accent}">{$t('home.services.headingAccent')}</span>
 		</h2>
 		<p class="text-lg md:text-xl text-[#27275b]/80 max-w-2xl mx-auto leading-relaxed">
-			{getT('home.services.description')}
+			{$t('home.services.description')}
 		</p>
 	</div>
 
@@ -880,12 +880,12 @@
 	<div class="absolute top-1/3 right-1/4 w-40 h-40 md:w-80 md:h-80 rounded-full mix-blend-multiply filter blur-3xl opacity-25 animate-pulse-slow transition-all duration-1000" style="background-color: {colorPalette.success}; animation-delay: 0.7s;"></div>
 
 	<div class="text-center mb-20 observe relative z-10">
-		<p class="font-black tracking-[0.15em] md:tracking-[0.3em] uppercase text-sm mb-4 neon-text" style="color: {colorPalette.accent}">{getT('home.process.label')}</p>
+		<p class="font-black tracking-[0.15em] md:tracking-[0.3em] uppercase text-sm mb-4 neon-text" style="color: {colorPalette.accent}">{$t('home.process.label')}</p>
 		<h2 class="text-4xl md:text-5xl lg:text-6xl font-black mb-6 leading-tight" style="font-family: 'Playfair Display', serif;">
-			{getT('home.process.heading')}<br><span class="text-white">{getT('home.process.headingAccent')}</span>
+			{$t('home.process.heading')}<br><span class="text-white">{$t('home.process.headingAccent')}</span>
 		</h2>
 		<p class="text-lg md:text-xl text-gray-200 max-w-2xl mx-auto leading-relaxed">
-			{getT('home.process.description')}
+			{$t('home.process.description')}
 		</p>
 	</div>
 
@@ -933,9 +933,9 @@
 	<!-- Total Time Banner -->
 	<div class="mt-16 text-center observe animate-fade-in-up" style="animation-delay: 0.3s;">
 		<div class="inline-block bg-white/10 backdrop-blur-sm px-6 md:px-12 py-6 rounded-2xl border-2 border-white/20 transition-all duration-500 hover:border-white/40 hover:bg-white/15">
-			<p class="text-sm uppercase tracking-wider text-gray-300 mb-2">{getT('home.timeline.totalTime')}</p>
-			<p class="text-4xl font-black transition-colors duration-300" style="font-family: 'Playfair Display', serif; color: {colorPalette.secondary};">{getT('home.timeline.workingDays')}</p>
-			<p class="text-sm text-gray-300 mt-2">{getT('home.timeline.vsTraditional')}</p>
+			<p class="text-sm uppercase tracking-wider text-gray-300 mb-2">{$t('home.timeline.totalTime')}</p>
+			<p class="text-4xl font-black transition-colors duration-300" style="font-family: 'Playfair Display', serif; color: {colorPalette.secondary};">{$t('home.timeline.workingDays')}</p>
+			<p class="text-sm text-gray-300 mt-2">{$t('home.timeline.vsTraditional')}</p>
 		</div>
 	</div>
 </section>
@@ -946,38 +946,38 @@
 	<div class="absolute bottom-0 left-0 w-40 h-40 md:w-80 md:h-80 rounded-full filter blur-3xl opacity-20" style="background-color: {colorPalette.accent};"></div>
 	<div class="max-w-4xl mx-auto relative z-10">
 		<div class="text-center mb-16 observe">
-			<p class="font-black tracking-[0.15em] md:tracking-[0.3em] uppercase text-sm mb-4" style="color: {colorPalette.primary}">{getT('home.philosophy.label')}</p>
+			<p class="font-black tracking-[0.15em] md:tracking-[0.3em] uppercase text-sm mb-4" style="color: {colorPalette.primary}">{$t('home.philosophy.label')}</p>
 			<h2 class="text-4xl md:text-5xl lg:text-6xl font-black mb-6 leading-tight" style="font-family: 'Playfair Display', serif;">
-				<span style="color: {colorPalette.primary}">{getT('home.philosophy.heading')}</span>{getT('home.philosophy.headingEnd')}
+				<span style="color: {colorPalette.primary}">{$t('home.philosophy.heading')}</span>{$t('home.philosophy.headingEnd')}
 			</h2>
 		</div>
 
 		<div class="grid md:grid-cols-2 gap-8 mb-16 observe">
 			<div class="bg-white p-8 rounded-2xl border-4 transition-all duration-300 hover:shadow-xl" style="border-color: {colorPalette.primary};">
-				<h3 class="text-2xl font-black mb-3" style="font-family: 'Playfair Display', serif; color: {colorPalette.primary}">{getT('home.philosophy.fastAndRefined.title')}</h3>
+				<h3 class="text-2xl font-black mb-3" style="font-family: 'Playfair Display', serif; color: {colorPalette.primary}">{$t('home.philosophy.fastAndRefined.title')}</h3>
 				<p class="text-[#27275b]/80 leading-relaxed">
-					{getT('home.philosophy.fastAndRefined.description')}
+					{$t('home.philosophy.fastAndRefined.description')}
 				</p>
 			</div>
 
 			<div class="bg-white p-8 rounded-2xl border-4 transition-all duration-300 hover:shadow-xl" style="border-color: {colorPalette.accent};">
-				<h3 class="text-2xl font-black mb-3" style="font-family: 'Playfair Display', serif; color: {colorPalette.accent}">{getT('home.philosophy.colorfulAndProfessional.title')}</h3>
+				<h3 class="text-2xl font-black mb-3" style="font-family: 'Playfair Display', serif; color: {colorPalette.accent}">{$t('home.philosophy.colorfulAndProfessional.title')}</h3>
 				<p class="text-[#27275b]/80 leading-relaxed">
-					{getT('home.philosophy.colorfulAndProfessional.description')}
+					{$t('home.philosophy.colorfulAndProfessional.description')}
 				</p>
 			</div>
 
 			<div class="bg-white p-8 rounded-2xl border-4 transition-all duration-300 hover:shadow-xl" style="border-color: {colorPalette.secondary};">
-				<h3 class="text-2xl font-black mb-3" style="font-family: 'Playfair Display', serif; color: {colorPalette.secondary};">{getT('home.philosophy.boldAndFunctional.title')}</h3>
+				<h3 class="text-2xl font-black mb-3" style="font-family: 'Playfair Display', serif; color: {colorPalette.secondary};">{$t('home.philosophy.boldAndFunctional.title')}</h3>
 				<p class="text-[#27275b]/80 leading-relaxed">
-					{getT('home.philosophy.boldAndFunctional.description')}
+					{$t('home.philosophy.boldAndFunctional.description')}
 				</p>
 			</div>
 
 			<div class="bg-white p-8 rounded-2xl border-4 transition-all duration-300 hover:shadow-xl" style="border-color: {colorPalette.success};">
-				<h3 class="text-2xl font-black mb-3" style="font-family: 'Playfair Display', serif; color: {colorPalette.success}">{getT('home.philosophy.accessibleAndQuality.title')}</h3>
+				<h3 class="text-2xl font-black mb-3" style="font-family: 'Playfair Display', serif; color: {colorPalette.success}">{$t('home.philosophy.accessibleAndQuality.title')}</h3>
 				<p class="text-[#27275b]/80 leading-relaxed">
-					{getT('home.philosophy.accessibleAndQuality.description')}
+					{$t('home.philosophy.accessibleAndQuality.description')}
 				</p>
 			</div>
 		</div>
@@ -985,35 +985,35 @@
 		<!-- FAQ Quick Hits -->
 		<div class="p-10 lg:p-12 rounded-2xl text-white observe" style="background-color: {colorPalette.primary}">
 			<h3 class="text-3xl font-black mb-8 text-center" style="font-family: 'Playfair Display', serif;">
-				{getT('home.faq.heading')}
+				{$t('home.faq.heading')}
 			</h3>
 
 			<div class="space-y-6">
 				<div class="border-l-4 pl-6" style="border-color: {colorPalette.accent}">
-					<p class="font-bold text-xl mb-2 neon-text" style="color: {colorPalette.accent}">{getT('home.faq.question1.q')}</p>
+					<p class="font-bold text-xl mb-2 neon-text" style="color: {colorPalette.accent}">{$t('home.faq.question1.q')}</p>
 					<p class="text-gray-200 leading-relaxed">
-						{@html getT('home.faq.question1.a')}
+						{@html $t('home.faq.question1.a')}
 					</p>
 				</div>
 
 				<div class="border-l-4 pl-6" style="border-color: {colorPalette.secondary}">
-					<p class="font-bold text-xl mb-2 text-white">{getT('home.faq.question2.q')}</p>
+					<p class="font-bold text-xl mb-2 text-white">{$t('home.faq.question2.q')}</p>
 					<p class="text-gray-200 leading-relaxed">
-						{@html getT('home.faq.question2.a')}
+						{@html $t('home.faq.question2.a')}
 					</p>
 				</div>
 
 				<div class="border-l-4 pl-6" style="border-color: {colorPalette.accent}">
-					<p class="font-bold text-xl mb-2 neon-text" style="color: {colorPalette.accent}">{getT('home.faq.question3.q')}</p>
+					<p class="font-bold text-xl mb-2 neon-text" style="color: {colorPalette.accent}">{$t('home.faq.question3.q')}</p>
 					<p class="text-gray-200 leading-relaxed">
-						{@html getT('home.faq.question3.a')}
+						{@html $t('home.faq.question3.a')}
 					</p>
 				</div>
 
 				<div class="border-l-4 pl-6" style="border-color: {colorPalette.secondary}">
-					<p class="font-bold text-xl mb-2 text-white">{getT('home.faq.question4.q')}</p>
+					<p class="font-bold text-xl mb-2 text-white">{$t('home.faq.question4.q')}</p>
 					<p class="text-gray-200 leading-relaxed">
-						{@html getT('home.faq.question4.a')}
+						{@html $t('home.faq.question4.a')}
 					</p>
 				</div>
 			</div>
@@ -1026,12 +1026,12 @@
 	<div class="absolute top-0 left-1/2 w-48 h-48 md:w-96 md:h-96 rounded-full filter blur-3xl opacity-25" style="background-color: {colorPalette.tertiary};"></div>
 	<div class="absolute bottom-0 right-1/4 w-40 h-40 md:w-80 md:h-80 rounded-full filter blur-3xl opacity-20" style="background-color: {colorPalette.secondary};"></div>
 		<div class="text-center mb-20 observe relative z-10">
-		<p class="font-black tracking-[0.15em] md:tracking-[0.3em] uppercase text-sm mb-4" style="color: {colorPalette.primary}">{getT('home.portfolio.label')}</p>
+		<p class="font-black tracking-[0.15em] md:tracking-[0.3em] uppercase text-sm mb-4" style="color: {colorPalette.primary}">{$t('home.portfolio.label')}</p>
 		<h2 class="text-4xl md:text-5xl lg:text-6xl font-black mb-6 leading-tight" style="font-family: 'Playfair Display', serif;">
-			<span style="color: {colorPalette.primary}">{getT('home.portfolio.heading')}</span><br>{getT('home.portfolio.headingEnd')}
+			<span style="color: {colorPalette.primary}">{$t('home.portfolio.heading')}</span><br>{$t('home.portfolio.headingEnd')}
 		</h2>
 		<p class="text-lg md:text-xl text-[#27275b]/80 max-w-2xl mx-auto mb-12 leading-relaxed">
-			{getT('home.portfolio.description')}
+			{$t('home.portfolio.description')}
 		</p>
 
 		<!-- Filter -->
@@ -1043,7 +1043,7 @@
 				onmouseenter={(e) => { if (activeFilter !== 'wszystkie') { e.currentTarget.style.color = colorPalette.primary; e.currentTarget.style.borderColor = colorPalette.primary; } }}
 				onmouseleave={(e) => { if (activeFilter !== 'wszystkie') { e.currentTarget.style.color = 'rgb(75, 85, 99)'; e.currentTarget.style.borderColor = 'rgb(229, 231, 235)'; } }}
 			>
-				{getT('home.portfolio.filterAll')}
+				{$t('home.portfolio.filterAll')}
 			</button>
 			<button
 				onclick={() => activeFilter = 'wnętrza'}
@@ -1052,7 +1052,7 @@
 				onmouseenter={(e) => { if (activeFilter !== 'wnętrza') { e.currentTarget.style.color = colorPalette.primary; e.currentTarget.style.borderColor = colorPalette.primary; } }}
 				onmouseleave={(e) => { if (activeFilter !== 'wnętrza') { e.currentTarget.style.color = 'rgb(75, 85, 99)'; e.currentTarget.style.borderColor = 'rgb(229, 231, 235)'; } }}
 			>
-				{getT('home.portfolio.filterInteriors')}
+				{$t('home.portfolio.filterInteriors')}
 			</button>
 			<button
 				onclick={() => activeFilter = 'grafika'}
@@ -1061,7 +1061,7 @@
 				onmouseenter={(e) => { if (activeFilter !== 'grafika') { e.currentTarget.style.color = colorPalette.primary; e.currentTarget.style.borderColor = colorPalette.primary; } }}
 				onmouseleave={(e) => { if (activeFilter !== 'grafika') { e.currentTarget.style.color = 'rgb(75, 85, 99)'; e.currentTarget.style.borderColor = 'rgb(229, 231, 235)'; } }}
 			>
-				{getT('home.portfolio.filterGraphics')}
+				{$t('home.portfolio.filterGraphics')}
 			</button>
 		</div>
 	</div>
@@ -1085,7 +1085,7 @@
 								<path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M15 12a3 3 0 11-6 0 3 3 0 016 0z"></path>
 								<path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M2.458 12C3.732 7.943 7.523 5 12 5c4.478 0 8.268 2.943 9.542 7-1.274 4.057-5.064 7-9.542 7-4.477 0-8.268-2.943-9.542-7z"></path>
 							</svg>
-							<span class="text-sm uppercase tracking-wider">{getT('home.portfolio.viewProject')}</span>
+							<span class="text-sm uppercase tracking-wider">{$t('home.portfolio.viewProject')}</span>
 						</div>
 					</div>
 				</div>
@@ -1141,13 +1141,13 @@
 	<div class="absolute bottom-0 left-0 w-40 h-40 md:w-80 md:h-80 rounded-full filter blur-3xl opacity-25" style="background-color: {colorPalette.success};"></div>
 		<div class="grid lg:grid-cols-2 gap-16 lg:gap-24 relative z-10">
 		<div class="observe">
-			<p class="font-black tracking-[0.15em] md:tracking-[0.3em] uppercase text-sm mb-4" style="color: {colorPalette.primary}">{getT('home.contact.label')}</p>
+			<p class="font-black tracking-[0.15em] md:tracking-[0.3em] uppercase text-sm mb-4" style="color: {colorPalette.primary}">{$t('home.contact.label')}</p>
 			<h2 class="text-4xl md:text-5xl lg:text-6xl font-black mb-8 leading-tight" style="font-family: 'Playfair Display', serif; color: {colorPalette.primary};">
-				{getT('home.contact.heading')}<br>
-				<span class="italic" style="color: {colorPalette.accent}">{getT('home.contact.headingAccent')}</span>
+				{$t('home.contact.heading')}<br>
+				<span class="italic" style="color: {colorPalette.accent}">{$t('home.contact.headingAccent')}</span>
 			</h2>
 			<p class="text-lg md:text-xl text-[#27275b]/80 mb-12 leading-relaxed">
-				{getT('home.contact.description')}
+				{$t('home.contact.description')}
 			</p>
 
 			<div class="space-y-8">
@@ -1174,8 +1174,8 @@
 					</div>
 					<div>
 						<p class="text-sm uppercase tracking-wider text-[#27275b]/70 mb-1">Lokalizacja</p>
-						<p class="text-lg text-[#27275b]">{getT('home.contact.location')}</p>
-						<p class="text-sm text-[#27275b]/70">{getT('home.contact.locationDesc')}</p>
+						<p class="text-lg text-[#27275b]">{$t('home.contact.location')}</p>
+						<p class="text-sm text-[#27275b]/70">{$t('home.contact.locationDesc')}</p>
 					</div>
 				</div>
 
@@ -1187,7 +1187,7 @@
 					</div>
 					<div>
 						<p class="text-sm uppercase tracking-wider text-[#27275b]/70 mb-1">Dostępność</p>
-						<p class="text-lg text-[#27275b]">{getT('home.contact.availability')}</p>
+						<p class="text-lg text-[#27275b]">{$t('home.contact.availability')}</p>
 					</div>
 				</div>
 			</div>
@@ -1208,14 +1208,14 @@
 		<div class="bg-white p-10 lg:p-12 observe rounded-2xl border-4 shadow-xl" style="border-color: {colorPalette.accent};">
 			<form class="space-y-6" onsubmit={handleSubmit}>
 				<div>
-					<label for="name" class="block text-sm uppercase tracking-wider font-bold text-[#27275b]/90 mb-2">{getT('home.form.nameLabel')}</label>
+					<label for="name" class="block text-sm uppercase tracking-wider font-bold text-[#27275b]/90 mb-2">{$t('home.form.nameLabel')}</label>
 					<input
 						type="text"
 						id="name"
 						value={formData.name}
 						disabled={formStatus === 'submitting'}
 						class="w-full px-4 py-3 border-2 rounded-lg focus:outline-none transition-all bg-white disabled:opacity-50 {touchedFields.name && !validationErrors.name.isValid ? 'border-red-400 focus:border-red-500' : touchedFields.name && validationErrors.name.isValid ? 'border-green-400 focus:border-green-500' : 'border-blue-200 focus:border-[#27275b]'}"
-						placeholder={getT('home.form.namePlaceholder')}
+						placeholder={$t('home.form.namePlaceholder')}
 						oninput={(e) => handleFieldInput('name', (e.target as HTMLInputElement).value)}
 						onblur={() => handleFieldBlur('name')}
 					/>
@@ -1232,20 +1232,20 @@
 							<svg class="w-4 h-4 mr-1 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24">
 								<path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path>
 							</svg>
-							{getT('home.form.validation.looksGood')}
+							{$t('home.form.validation.looksGood')}
 						</p>
 					{/if}
 				</div>
 
 				<div>
-					<label for="email" class="block text-sm uppercase tracking-wider font-bold text-[#27275b]/90 mb-2">{getT('home.form.emailLabel')}</label>
+					<label for="email" class="block text-sm uppercase tracking-wider font-bold text-[#27275b]/90 mb-2">{$t('home.form.emailLabel')}</label>
 					<input
 						type="text"
 						id="email"
 						value={formData.email}
 						disabled={formStatus === 'submitting'}
 						class="w-full px-4 py-3 border-2 rounded-lg focus:outline-none transition-all bg-white disabled:opacity-50 {touchedFields.email && !validationErrors.email.isValid ? 'border-red-400 focus:border-red-500' : touchedFields.email && validationErrors.email.isValid ? 'border-green-400 focus:border-green-500' : 'border-blue-200 focus:border-[#27275b]'}"
-						placeholder={getT('home.form.emailPlaceholder')}
+						placeholder={$t('home.form.emailPlaceholder')}
 						oninput={(e) => handleFieldInput('email', (e.target as HTMLInputElement).value)}
 						onblur={() => handleFieldBlur('email')}
 					/>
@@ -1262,35 +1262,35 @@
 							<svg class="w-4 h-4 mr-1 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24">
 								<path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path>
 							</svg>
-							{getT('home.form.validation.looksGood')}
+							{$t('home.form.validation.looksGood')}
 						</p>
 					{/if}
 				</div>
 
 				<div>
-					<label for="project" class="block text-sm uppercase tracking-wider font-bold text-[#27275b]/90 mb-2">{getT('home.form.projectLabel')}</label>
+					<label for="project" class="block text-sm uppercase tracking-wider font-bold text-[#27275b]/90 mb-2">{$t('home.form.projectLabel')}</label>
 					<select
 						id="project"
 						bind:value={formData.project}
 						disabled={formStatus === 'submitting'}
 						class="w-full px-4 py-3 border-2 border-blue-200 rounded-lg focus:border-[#27275b] focus:outline-none transition-all bg-white disabled:opacity-50"
 					>
-						<option>{getT('home.form.projectOptions.interiorDesign')}</option>
-						<option>{getT('home.form.projectOptions.visualIdentity')}</option>
-						<option>{getT('home.form.projectOptions.consultations')}</option>
-						<option>{getT('home.form.projectOptions.other')}</option>
+						<option>{$t('home.form.projectOptions.interiorDesign')}</option>
+						<option>{$t('home.form.projectOptions.visualIdentity')}</option>
+						<option>{$t('home.form.projectOptions.consultations')}</option>
+						<option>{$t('home.form.projectOptions.other')}</option>
 					</select>
 				</div>
 
 				<div>
-					<label for="message" class="block text-sm uppercase tracking-wider font-bold text-[#27275b]/90 mb-2">{getT('home.form.messageLabel')}</label>
+					<label for="message" class="block text-sm uppercase tracking-wider font-bold text-[#27275b]/90 mb-2">{$t('home.form.messageLabel')}</label>
 					<textarea
 						id="message"
 						value={formData.message}
 						disabled={formStatus === 'submitting'}
 						rows="5"
 						class="w-full px-4 py-3 border-2 rounded-lg focus:outline-none transition-all bg-white resize-none disabled:opacity-50 {touchedFields.message && !validationErrors.message.isValid ? 'border-red-400 focus:border-red-500' : touchedFields.message && validationErrors.message.isValid ? 'border-green-400 focus:border-green-500' : 'border-blue-200 focus:border-[#27275b]'}"
-						placeholder={getT('home.form.messagePlaceholder')}
+						placeholder={$t('home.form.messagePlaceholder')}
 						oninput={(e) => handleFieldInput('message', (e.target as HTMLTextAreaElement).value)}
 						onblur={() => handleFieldBlur('message')}
 					></textarea>
@@ -1307,7 +1307,7 @@
 								<svg class="w-4 h-4 mr-1 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24">
 									<path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path>
 								</svg>
-								{getT('home.form.validation.looksGood')}
+								{$t('home.form.validation.looksGood')}
 							</p>
 						{:else}
 							<span></span>

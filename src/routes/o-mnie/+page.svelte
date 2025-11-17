@@ -2,7 +2,7 @@
 	import '../../app.css';
 
 	// Import i18n
-	import { t, locale, getT } from '$lib/i18n';
+	import { t, locale } from '$lib/i18n';
 
 	// Import color extraction utilities
 	import { extractColorsFromImage, assignColorRoles, type ColorPalette } from '$lib/utils/colorExtractor';
@@ -73,8 +73,8 @@
 </script>
 
 <svelte:head>
-	<title>{getT('meta.about.title')}</title>
-	<meta name="description" content={getT('meta.about.description')} />
+	<title>{$t('meta.about.title')}</title>
+	<meta name="description" content={$t('meta.about.description')} />
 </svelte:head>
 
 <!-- Hero Section -->
@@ -98,16 +98,16 @@
 	<div class="section relative z-10">
 		<div class="max-w-4xl">
 			<div class="mb-8 observe">
-				<p class="font-bold tracking-[0.3em] uppercase text-sm mb-6 animate-pulse-slow neon-text" style="color: {colorPalette.accent}">{getT('about.hero.label')}</p>
+				<p class="font-bold tracking-[0.3em] uppercase text-sm mb-6 animate-pulse-slow neon-text" style="color: {colorPalette.accent}">{$t('about.hero.label')}</p>
 				<h1 class="text-4xl md:text-6xl lg:text-7xl font-black mb-6 leading-tight" style="font-family: 'Playfair Display', serif;">
-					{getT('about.hero.name')}<br>
-					<span style="color: #FF6B9D;">{getT('about.hero.surname')}</span>
+					{$t('about.hero.name')}<br>
+					<span style="color: #FF6B9D;">{$t('about.hero.surname')}</span>
 				</h1>
 				<p class="text-xl md:text-2xl font-bold mb-4 text-white/90 leading-tight">
-					{getT('about.hero.title')}
+					{$t('about.hero.title')}
 				</p>
 				<p class="text-lg md:text-xl mb-8 max-w-2xl leading-relaxed text-gray-100">
-					{getT('about.hero.description')}
+					{$t('about.hero.description')}
 				</p>
 			</div>
 		</div>
@@ -121,7 +121,7 @@
 			<div class="aspect-[3/4] bg-blue-100 relative overflow-hidden rounded-2xl shadow-2xl group">
 				<img
 					src={magdaPhoto}
-					alt="{getT('about.hero.name')} {getT('about.hero.surname')} - {getT('about.hero.title')}"
+					alt="{$t('about.hero.name')} {$t('about.hero.surname')} - {$t('about.hero.title')}"
 					class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
 				/>
 				<div class="absolute inset-0 opacity-0 group-hover:opacity-100 transition-opacity duration-300" style="background-color: rgba(39, 39, 91, 0.15);"></div>
@@ -131,18 +131,18 @@
 		<div class="space-y-8 observe">
 			<div>
 				<h2 class="text-3xl md:text-4xl lg:text-5xl font-black mb-6 leading-tight" style="font-family: 'Playfair Display', serif;">
-					{getT('about.experience.heading')}<br>
-					<span style="color: #00D4FF;">{getT('about.experience.headingAccent')}</span>
+					{$t('about.experience.heading')}<br>
+					<span style="color: #00D4FF;">{$t('about.experience.headingAccent')}</span>
 				</h2>
 				<div class="space-y-6 text-gray-600 leading-relaxed text-lg">
 					<p>
-						{getT('about.experience.paragraph1')}
+						{$t('about.experience.paragraph1')}
 					</p>
 					<p>
-						{getT('about.experience.paragraph2')}
+						{$t('about.experience.paragraph2')}
 					</p>
 					<p>
-						<strong style="color: {colorPalette.primary}">{getT('about.experience.paragraph3')}</strong> {getT('about.experience.skills')}
+						<strong style="color: {colorPalette.primary}">{$t('about.experience.paragraph3')}</strong> {$t('about.experience.skills')}
 					</p>
 				</div>
 			</div>
@@ -153,47 +153,47 @@
 <!-- Skills & Expertise -->
 <section class="section bg-blue-50 border-t-4" style="border-top-color: {colorPalette.accent};">
 	<div class="text-center mb-16 observe">
-		<p class="font-black tracking-[0.3em] uppercase text-sm mb-4" style="color: {colorPalette.primary}">{getT('about.skills.label')}</p>
+		<p class="font-black tracking-[0.3em] uppercase text-sm mb-4" style="color: {colorPalette.primary}">{$t('about.skills.label')}</p>
 		<h2 class="text-3xl md:text-4xl lg:text-5xl font-black mb-6 leading-tight" style="font-family: 'Playfair Display', serif;">
-			{getT('about.skills.heading')}<br>
-			<span style="color: {colorPalette.primary}">{getT('about.skills.headingAccent')}</span>
+			{$t('about.skills.heading')}<br>
+			<span style="color: {colorPalette.primary}">{$t('about.skills.headingAccent')}</span>
 		</h2>
 	</div>
 
 	<div class="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
 		<div class="bg-white p-8 rounded-2xl border-2 border-blue-100 hover:border-blue-300 transition-all duration-300 observe group">
-			<h3 class="text-xl font-black mb-3" style="font-family: 'Playfair Display', serif; color: {colorPalette.primary}">{getT('about.skills.architecture.title')}</h3>
+			<h3 class="text-xl font-black mb-3" style="font-family: 'Playfair Display', serif; color: {colorPalette.primary}">{$t('about.skills.architecture.title')}</h3>
 			<p class="text-gray-600 leading-relaxed">
-				{getT('about.skills.architecture.description')}
+				{$t('about.skills.architecture.description')}
 			</p>
 			<ul class="mt-4 space-y-2 text-sm text-gray-600">
-				<li>• {getT('about.skills.architecture.skill1')}</li>
-				<li>• {getT('about.skills.architecture.skill2')}</li>
-				<li>• {getT('about.skills.architecture.skill3')}</li>
+				<li>• {$t('about.skills.architecture.skill1')}</li>
+				<li>• {$t('about.skills.architecture.skill2')}</li>
+				<li>• {$t('about.skills.architecture.skill3')}</li>
 			</ul>
 		</div>
 
 		<div class="bg-white p-8 rounded-2xl border-2 border-blue-100 hover:border-blue-300 transition-all duration-300 observe group">
-			<h3 class="text-xl font-black mb-3" style="font-family: 'Playfair Display', serif; color: {colorPalette.primary}">{getT('about.skills.graphics.title')}</h3>
+			<h3 class="text-xl font-black mb-3" style="font-family: 'Playfair Display', serif; color: {colorPalette.primary}">{$t('about.skills.graphics.title')}</h3>
 			<p class="text-gray-600 leading-relaxed">
-				{getT('about.skills.graphics.description')}
+				{$t('about.skills.graphics.description')}
 			</p>
 			<ul class="mt-4 space-y-2 text-sm text-gray-600">
-				<li>• {getT('about.skills.graphics.skill1')}</li>
-				<li>• {getT('about.skills.graphics.skill2')}</li>
-				<li>• {getT('about.skills.graphics.skill3')}</li>
+				<li>• {$t('about.skills.graphics.skill1')}</li>
+				<li>• {$t('about.skills.graphics.skill2')}</li>
+				<li>• {$t('about.skills.graphics.skill3')}</li>
 			</ul>
 		</div>
 
 		<div class="bg-white p-8 rounded-2xl border-2 border-blue-100 hover:border-blue-300 transition-all duration-300 observe group">
-			<h3 class="text-xl font-black mb-3" style="font-family: 'Playfair Display', serif; color: {colorPalette.primary}">{getT('about.skills.ai.title')}</h3>
+			<h3 class="text-xl font-black mb-3" style="font-family: 'Playfair Display', serif; color: {colorPalette.primary}">{$t('about.skills.ai.title')}</h3>
 			<p class="text-gray-600 leading-relaxed">
-				{getT('about.skills.ai.description')}
+				{$t('about.skills.ai.description')}
 			</p>
 			<ul class="mt-4 space-y-2 text-sm text-gray-600">
-				<li>• {getT('about.skills.ai.skill1')}</li>
-				<li>• {getT('about.skills.ai.skill2')}</li>
-				<li>• {getT('about.skills.ai.skill3')}</li>
+				<li>• {$t('about.skills.ai.skill1')}</li>
+				<li>• {$t('about.skills.ai.skill2')}</li>
+				<li>• {$t('about.skills.ai.skill3')}</li>
 			</ul>
 		</div>
 	</div>
@@ -206,44 +206,44 @@
 
 	<div class="max-w-4xl mx-auto text-center observe relative z-10">
 		<h2 class="text-3xl md:text-4xl lg:text-5xl font-black mb-8 leading-tight" style="font-family: 'Playfair Display', serif;">
-			<span style="color: #FF6B9D;">{getT('about.philosophy.heading')}</span> {getT('about.philosophy.headingAccent')}
+			<span style="color: #FF6B9D;">{$t('about.philosophy.heading')}</span> {$t('about.philosophy.headingAccent')}
 		</h2>
 
 		<div class="grid md:grid-cols-2 gap-8 mb-12">
 			<div class="bg-white/10 backdrop-blur-sm p-8 rounded-2xl border border-white/20">
-				<h3 class="text-xl font-black mb-3" style="font-family: 'Playfair Display', serif;">{getT('about.philosophy.functionality.title')}</h3>
+				<h3 class="text-xl font-black mb-3" style="font-family: 'Playfair Display', serif;">{$t('about.philosophy.functionality.title')}</h3>
 				<p class="text-gray-200 leading-relaxed">
-					{getT('about.philosophy.functionality.description')}
+					{$t('about.philosophy.functionality.description')}
 				</p>
 			</div>
 
 			<div class="bg-white/10 backdrop-blur-sm p-8 rounded-2xl border border-white/20">
-				<h3 class="text-xl font-black mb-3" style="font-family: 'Playfair Display', serif;">{getT('about.philosophy.personality.title')}</h3>
+				<h3 class="text-xl font-black mb-3" style="font-family: 'Playfair Display', serif;">{$t('about.philosophy.personality.title')}</h3>
 				<p class="text-gray-200 leading-relaxed">
-					{getT('about.philosophy.personality.description')}
+					{$t('about.philosophy.personality.description')}
 				</p>
 			</div>
 
 			<div class="bg-white/10 backdrop-blur-sm p-8 rounded-2xl border border-white/20">
-				<h3 class="text-xl font-black mb-3" style="font-family: 'Playfair Display', serif;">{getT('about.philosophy.innovation.title')}</h3>
+				<h3 class="text-xl font-black mb-3" style="font-family: 'Playfair Display', serif;">{$t('about.philosophy.innovation.title')}</h3>
 				<p class="text-gray-200 leading-relaxed">
-					{getT('about.philosophy.innovation.description')}
+					{$t('about.philosophy.innovation.description')}
 				</p>
 			</div>
 
 			<div class="bg-white/10 backdrop-blur-sm p-8 rounded-2xl border border-white/20">
-				<h3 class="text-xl font-black mb-3" style="font-family: 'Playfair Display', serif;">{getT('about.philosophy.partnership.title')}</h3>
+				<h3 class="text-xl font-black mb-3" style="font-family: 'Playfair Display', serif;">{$t('about.philosophy.partnership.title')}</h3>
 				<p class="text-gray-200 leading-relaxed">
-					{getT('about.philosophy.partnership.description')}
+					{$t('about.philosophy.partnership.description')}
 				</p>
 			</div>
 		</div>
 
 		<div class="bg-white/10 backdrop-blur-sm p-8 rounded-2xl border border-white/20 max-w-2xl mx-auto">
 			<blockquote class="text-xl md:text-2xl font-light italic mb-4" style="font-family: 'Playfair Display', serif;">
-				"{getT('about.philosophy.quote')}"
+				"{$t('about.philosophy.quote')}"
 			</blockquote>
-			<p class="font-bold" style="color: #00D4FF;">— {getT('about.hero.name')} {getT('about.hero.surname')}</p>
+			<p class="font-bold" style="color: #00D4FF;">— {$t('about.hero.name')} {$t('about.hero.surname')}</p>
 		</div>
 	</div>
 </section>
@@ -252,18 +252,18 @@
 <section class="section bg-blue-50 border-t-4" style="border-top-color: {colorPalette.accent};">
 	<div class="max-w-4xl mx-auto text-center observe">
 		<h2 class="text-3xl md:text-4xl lg:text-5xl font-black mb-6 leading-tight" style="font-family: 'Playfair Display', serif;">
-			{getT('about.cta.heading')}<br>
-			<span style="color: #FF6B9D;">{getT('about.cta.headingAccent')}</span>
+			{$t('about.cta.heading')}<br>
+			<span style="color: #FF6B9D;">{$t('about.cta.headingAccent')}</span>
 		</h2>
 		<p class="text-xl text-gray-600 mb-8 max-w-2xl mx-auto leading-relaxed">
-			{getT('about.cta.description')}
+			{$t('about.cta.description')}
 		</p>
 		<div class="flex flex-col sm:flex-row gap-4 justify-center">
 			<a href="/#kontakt" class="btn">
-				{getT('about.cta.button1')}
+				{$t('about.cta.button1')}
 			</a>
 			<a href="/#portfolio" class="btn-secondary">
-				{getT('about.cta.button2')}
+				{$t('about.cta.button2')}
 			</a>
 		</div>
 	</div>
