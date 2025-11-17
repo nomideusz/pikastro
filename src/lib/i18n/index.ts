@@ -44,6 +44,9 @@ if (typeof window !== 'undefined') {
 	});
 }
 
+// Create a safe translation function that works with SSR
+export const tSafe = derived(t, ($t) => $t || ((key: string) => key));
+
 // Export commonly used stores and functions
 export { locale, t, _, dictionary };
 
