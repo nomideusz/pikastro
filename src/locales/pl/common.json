@@ -120,6 +120,10 @@
       }
     },
     "contact": {
+      "label": "Kontakt",
+      "heading": "Gotowy na",
+      "headingAccent": "kolorową metamorfozę?",
+      "description": "Napisz do mnie i porozmawiajmy o Twoim projekcie. Odpowiem w ciągu 24 godzin.",
       "location": "Kraków, Polska",
       "locationDesc": "Współpraca zdalna w całej Polsce",
       "availability": "Pn - Pt, 9:00 - 17:00"
