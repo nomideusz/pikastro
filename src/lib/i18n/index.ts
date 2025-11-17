@@ -45,7 +45,28 @@ if (typeof window !== 'undefined') {
 }
 
 // Create a safe translation function that works with SSR
-export const tSafe = derived(t, ($t) => $t || ((key: string) => key));
+export function tSafe(key: string): string {
+	if (typeof window === 'undefined') {
+		// Server-side rendering: return key as fallback
+		return key;
+	}
+
+	// Client-side: get current translation function
+	let currentT: ((key: string) => string) | null = null;
+	const unsubscribe = t.subscribe(($t) => {
+		currentT = $t;
+	});
+
+	// Get current value synchronously
+	if (currentT) {
+		unsubscribe();
+		return currentT(key);
+	}
+
+	// Fallback if store isn't ready
+	unsubscribe();
+	return key;
+}
 
 // Export commonly used stores and functions
 export { locale, t, _, dictionary };
