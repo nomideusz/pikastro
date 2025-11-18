@@ -695,12 +695,12 @@
 	<!-- Centered Text Content -->
 	<div class="relative z-10 flex items-center justify-center h-full">
 		<div class="text-center text-white px-6 max-w-4xl">
-			<h2 class="text-3xl md:text-7xl lg:text-8xl font-black mb-6 leading-tight" style="font-family: 'Playfair Display', serif;">
+			<h2 class="text-3xl md:text-7xl lg:text-8xl font-black mb-6 leading-tight" style="font-family: 'Playfair Display', serif; text-shadow: 0 0 20px rgba(0, 0, 0, 0.8), 0 0 40px rgba(0, 0, 0, 0.6), 0 0 60px rgba(0, 0, 0, 0.4), 0 0 80px rgba(0, 0, 0, 0.2);">
 				{translate('home.video.heading')}<br>
 				<span style="color: #FF6B9D;">{translate('home.video.headingAccent')}</span><br>
 				<span style="color: #ffffff;">{translate('home.video.headingEnd').split(' ')[0]}</span> <span style="color: #27275B;">{translate('home.video.headingEnd').split(' ')[1]}</span>
 			</h2>
-			<p class="text-lg md:text-2xl text-gray-200 font-light">
+			<p class="text-lg md:text-2xl text-gray-200 font-light" style="text-shadow: 0 0 15px rgba(0, 0, 0, 0.8), 0 0 30px rgba(0, 0, 0, 0.6);">
 				{translate('home.video.description')}
 			</p>
 		</div>
