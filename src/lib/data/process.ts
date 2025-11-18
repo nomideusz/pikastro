@@ -8,7 +8,7 @@ export interface ProcessStep {
 	number: string;
 	titleKey: string;
 	descriptionKey: string;
-	duration: string;
+	durationKey: string;
 	icon: string;
 }
 
@@ -18,7 +18,7 @@ export const processSteps: ProcessStep[] = [
 		number: '01',
 		titleKey: 'process.consultation.title',
 		descriptionKey: 'process.consultation.description',
-		duration: '1-2 dni',
+		durationKey: 'process.consultation.duration',
 		icon: '01'
 	},
 	{
@@ -26,7 +26,7 @@ export const processSteps: ProcessStep[] = [
 		number: '02',
 		titleKey: 'process.prototyping.title',
 		descriptionKey: 'process.prototyping.description',
-		duration: '2-3 dni',
+		durationKey: 'process.prototyping.duration',
 		icon: '02'
 	},
 	{
@@ -34,7 +34,7 @@ export const processSteps: ProcessStep[] = [
 		number: '03',
 		titleKey: 'process.refinement.title',
 		descriptionKey: 'process.refinement.description',
-		duration: '3-5 dni',
+		durationKey: 'process.refinement.duration',
 		icon: '03'
 	},
 	{
@@ -42,7 +42,7 @@ export const processSteps: ProcessStep[] = [
 		number: '04',
 		titleKey: 'process.documentation.title',
 		descriptionKey: 'process.documentation.description',
-		duration: '2-3 dni',
+		durationKey: 'process.documentation.duration',
 		icon: '📐'
 	}
 ];

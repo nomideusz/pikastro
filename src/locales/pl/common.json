@@ -51,7 +51,7 @@
       "tagline": "AI × Design = Twoje wymarzone wnętrze",
       "description": "Zobacz 10 wersji swojego wnętrza zanim zdecydujesz. Prototypowanie w godziny, nie tygodnie. Szybciej. Odważniej. Taniej.",
       "valueProps": {
-        "time": "10-21 dni",
+        "time": "10-27 dni",
         "timeVs": "vs. 4-6 tygodni",
         "variants": "5-10 wariantów",
         "variantsDesc": "do wyboru z AI",
@@ -77,7 +77,7 @@
     },
     "timeline": {
       "totalTime": "Całkowity czas realizacji",
-      "workingDays": "10-21 dni roboczych",
+      "workingDays": "10-27 dni roboczych",
       "vsTraditional": "vs. tradycyjne 4-6 tygodni"
     },
     "philosophy": {
@@ -136,10 +136,9 @@
       "description": "Twórz wyjątkowe wnętrza, które odzwierciedlają Twoją osobowość"
     },
     "beforeAfter": {
-      "label": "Metamorfozy AI",
-      "heading": "Przed i Po",
-      "headingAccent": "Transformacji z AI",
-      "description": "Zobacz jak AI pomaga tworzyć kolorowe, funkcjonalne przestrzenie zamiast beżowo-szarych wnętrz"
+      "heading": "30m2 M1 w Krakowie",
+      "headingAccent": "Case Study Metamorfozy",
+      "description": "Kompleksowy projekt remontu mieszkania w bloku z lat 80tych obejmujący **zmiane układu pomieszczeń**,\nw tym wyburzenie ścian, projekt **nowej kuchni**, wydzielenie **aneksu sypialnianego** oraz wnęk gospodarczych.\n\nWybrana została **odważna paleta kolorystyczna** z dominującym kolorem morskim oraz różem dopełniona\nintensywnymi ciepłymi odcieniami.\n\nMeble i inne elementy wystroju zostały dobrane tak aby **maksymalnie wykorzystać niewielką powierzchnię**\n**mieszkania**, tworząc spójną komfortową i funkcjonalną całość, przeznaczoną dla 1 osoby.\n\nDodatkowo zaprojektowano **'kociostradę'** - układ elementów mocowanych do ścian, przeznaczonych do\nużytku przez kotka klientki, oraz **aranżację balkonu**."
     },
     "ctaBanner": {
       "heading": "Gotowy na kolorową metamorfozę?",
@@ -307,19 +306,23 @@
   "process": {
     "consultation": {
       "title": "Konsultacja & Brief",
-      "description": "Zbieramy informacje o Twoich potrzebach, stylu życia i budżecie. AI analizuje podobne projekty."
+      "description": "Zbieramy informacje o Twoich potrzebach, stylu życia i budżecie. AI analizuje podobne projekty.",
+      "duration": "1-7 dni"
     },
     "prototyping": {
       "title": "AI Prototyping",
-      "description": "Generujemy 5-10 wariantów aranżacji z wykorzystaniem AI. Szybka iteracja koncepcji."
+      "description": "Generujemy 5-10 wariantów aranżacji z wykorzystaniem AI. Szybka iteracja koncepcji.",
+      "duration": "2-3 dni"
     },
     "refinement": {
       "title": "Refinement",
-      "description": "Wybierasz ulubiony wariant. Dopracowujemy detale, materiały, kolory według Twoich preferencji."
+      "description": "Wybierasz ulubiony wariant. Dopracowujemy detale, materiały, kolory według Twoich preferencji.",
+      "duration": "3-10 dni"
     },
     "documentation": {
       "title": "Dokumentacja",
-      "description": "Otrzymujesz pełną dokumentację projektową, wizualizacje 3D, listę zakupów i kontakty do wykonawców."
+      "description": "Otrzymujesz pełną dokumentację projektową, wizualizacje 3D, listę zakupów i kontakty do podwykonawców. Projekt w wersji gotowej do druku / na stronę.",
+      "duration": "1-7 dni"
     }
   },
   "pricing": {
@@ -344,7 +347,7 @@
       "description": "Intymna współpraca nad jednym pomieszczeniem. Odkryjemy jego potencjał i stworzymy przestrzeń, która odzwierciedla Twój styl życia.",
       "process1": "Rozmowa o Twoich potrzebach i marzeniach",
       "process2": "Wizyta na miejscu i analiza przestrzeni",
-      "process3": "3-5 koncepcji projektowych z AI",
+      "process3": "3-10 koncepcji projektowych z AI",
       "process4": "Wizualizacje 3D i dokumentacja techniczna",
       "process5": "Lista zakupów z rekomendacjami",
       "process6": "Wsparcie podczas realizacji",

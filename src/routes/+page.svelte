@@ -11,6 +11,8 @@
 	import img09 from '$lib/assets/images/09.jpeg';
 	import img10 from '$lib/assets/images/10.jpeg';
 	import img11 from '$lib/assets/images/11.jpeg';
+	import przedImg from '$lib/assets/images/przed.png';
+	import poImg from '$lib/assets/images/po.png';
 	import colorsImg from '$lib/assets/images/colors.jpeg';
 	import heroVideo from '$lib/assets/videos/vid01.mp4';
 	import vid02 from '$lib/assets/videos/vid02.mp4';
@@ -46,6 +48,11 @@
 	function translate(key: string): string {
 		void currentLocale; // Access to create reactive dependency
 		return t(key);
+	}
+
+	// Function to convert markdown bold to HTML
+	function processMarkdown(text: string): string {
+		return text.replace(/\*\*(.*?)\*\*/g, '<strong>$1</strong>');
 	}
 
 	// Helper function to convert hex to RGB
@@ -281,11 +288,11 @@
 		void currentLocale;
 		return [
 			{
-				title: translate('beforeAfter.project1.title'),
-				before: img01,
-				after: img02,
-				description: translate('beforeAfter.project1.description'),
-				aiFeatures: [translate('beforeAfter.project1.feature1'), translate('beforeAfter.project1.feature2'), translate('beforeAfter.project1.feature3')]
+				title: '',
+				before: przedImg,
+				after: poImg,
+				description: translate('home.beforeAfter.description'),
+				aiFeatures: ['Kociostrada']
 			},
 			{
 				title: translate('beforeAfter.project2.title'),
@@ -313,28 +320,28 @@
 				number: '01',
 				title: translate('process.consultation.title'),
 				description: translate('process.consultation.description'),
-				duration: '1-2 dni',
+				duration: translate('process.consultation.duration'),
 				icon: '01'
 			},
 			{
 				number: '02',
 				title: translate('process.prototyping.title'),
 				description: translate('process.prototyping.description'),
-				duration: '2-3 dni',
+				duration: translate('process.prototyping.duration'),
 				icon: '02'
 			},
 			{
 				number: '03',
 				title: translate('process.refinement.title'),
 				description: translate('process.refinement.description'),
-				duration: '3-5 dni',
+				duration: translate('process.refinement.duration'),
 				icon: '03'
 			},
 			{
 				number: '04',
 				title: translate('process.documentation.title'),
 				description: translate('process.documentation.description'),
-				duration: '2-3 dni',
+				duration: translate('process.documentation.duration'),
 				icon: '04'
 			}
 		];
@@ -609,7 +616,7 @@
 				<p class="font-bold tracking-[0.15em] md:tracking-[0.3em] uppercase text-sm mb-6 animate-pulse-slow neon-text" style="color: {colorPalette.accent}">{translate('home.hero.label')}</p>
 				<h1 class="text-5xl md:text-7xl lg:text-8xl font-black mb-6 leading-[1.05]" style="font-family: 'Playfair Display', serif;">
 					<span class="block">{translate('home.hero.heading1')}</span>
-					<span class="block">{translate('home.hero.heading2')}<span style="color: #F5848E">{translate('home.hero.heading2Accent')}</span></span>
+					<span class="block">{translate('home.hero.heading2')}{#if translate('home.hero.heading2Accent')}<span style="color: #F5848E">{translate('home.hero.heading2Accent')}</span>{/if}</span>
 				</h1>
 				<p class="text-2xl md:text-3xl font-bold mb-4 leading-tight" style="color: #27275B;">
 					{translate('home.hero.tagline')}
@@ -667,8 +674,8 @@
 		<div class="text-center text-white px-6 max-w-4xl">
 			<h2 class="text-3xl md:text-7xl lg:text-8xl font-black mb-6 leading-tight" style="font-family: 'Playfair Display', serif;">
 				{translate('home.video.heading')}<br>
-				<span style="color: #27275b">{translate('home.video.headingAccent')}</span><br>
-				{translate('home.video.headingEnd')}
+				<span style="color: #FF6B9D;">{translate('home.video.headingAccent')}</span><br>
+				<span style="color: #ffffff;">{translate('home.video.headingEnd').split(' ')[0]}</span> <span style="color: #27275B;">{translate('home.video.headingEnd').split(' ')[1]}</span>
 			</h2>
 			<p class="text-lg md:text-2xl text-gray-200 font-light">
 				{translate('home.video.description')}
@@ -681,19 +688,22 @@
 <section id="beforeafter" class="section bg-white relative overflow-hidden border-t-8" style="border-top-color: {colorPalette.success};">
 	<div class="absolute top-0 right-0 w-48 h-48 md:w-96 md:h-96 rounded-full filter blur-3xl opacity-25" style="background-color: {colorPalette.tertiary};"></div>
 	<div class="absolute bottom-0 left-0 w-40 h-40 md:w-80 md:h-80 rounded-full filter blur-3xl opacity-25" style="background-color: {colorPalette.accent};"></div>
-	<div class="text-center mb-12 md:mb-20 observe">
-		<p class="font-black tracking-[0.15em] md:tracking-[0.3em] uppercase text-sm mb-4" style="color: {colorPalette.primary}">{translate('home.beforeAfter.label')}</p>
+	<div class="text-center mb-8 md:mb-12 observe">
 		<h2 class="text-4xl md:text-5xl lg:text-6xl font-black mb-6 leading-tight" style="font-family: 'Playfair Display', serif;">
 			{translate('home.beforeAfter.heading')}<br><span style="color: {colorPalette.primary}">{translate('home.beforeAfter.headingAccent')}</span>
 		</h2>
-		<p class="text-lg md:text-xl text-[#27275b]/80 max-w-2xl mx-auto leading-relaxed">
-			{translate('home.beforeAfter.description')}
-		</p>
+
+		<!-- Description moved here -->
+		<div class="text-[#27275b]/80 mb-8 space-y-6 max-w-4xl mx-auto">
+			{#each beforeAfterProjects[activeBeforeAfter].description.split('\n\n') as paragraph}
+				<p class="leading-relaxed text-lg md:text-xl">{@html processMarkdown(paragraph.replace(/\n/g, ' '))}</p>
+			{/each}
+		</div>
 	</div>
 
 	<div class="relative z-10">
 		<!-- Main Before/After Slider -->
-		<div class="max-w-5xl mx-auto mb-16 observe">
+		<div class="max-w-5xl mx-auto mb-8 observe">
 			<div
 				bind:this={sliderContainer}
 				class="relative aspect-[16/9] bg-[#27275b] rounded-2xl overflow-hidden shadow-2xl cursor-ew-resize select-none touch-none"
@@ -751,12 +761,8 @@
 				</div>
 			</div>
 
-			<!-- Project Info -->
-			<div class="mt-8 text-center">
-				<h3 class="text-2xl font-black mb-3" style="font-family: 'Playfair Display', serif;">
-					{beforeAfterProjects[activeBeforeAfter].title}
-				</h3>
-				<p class="text-[#27275b]/80 mb-6">{beforeAfterProjects[activeBeforeAfter].description}</p>
+			<!-- Kociostrada Button -->
+			<div class="mt-4 text-center">
 				<div class="flex justify-center gap-3 flex-wrap">
 					{#each beforeAfterProjects[activeBeforeAfter].aiFeatures as feature}
 						<span class="px-4 py-2 text-white text-sm font-bold rounded-lg" style="background-color: {colorPalette.primary}">
@@ -767,8 +773,8 @@
 			</div>
 		</div>
 
-		<!-- Project Thumbnails -->
-		<div class="grid md:grid-cols-3 gap-6 observe">
+		<!-- Project Thumbnails - Hidden as requested -->
+		<!-- <div class="grid md:grid-cols-3 gap-6 observe">
 			{#each beforeAfterProjects as project, i}
 				<button
 					onclick={() => activeBeforeAfter = i}
@@ -777,8 +783,8 @@
 					onmouseenter={(e) => { if (activeBeforeAfter !== i) e.currentTarget.style.borderColor = colorPalette.primary; }}
 					onmouseleave={(e) => { if (activeBeforeAfter !== i) e.currentTarget.style.borderColor = 'rgb(229, 231, 235)'; }}
 				>
-					<img 
-						src={project.after} 
+					<img
+						src={project.after}
 						alt={project.title}
 						class="w-full h-full object-cover"
 					/>
@@ -787,7 +793,7 @@
 					</div>
 				</button>
 			{/each}
-		</div>
+		</div> -->
 	</div>
 </section>
 
@@ -815,8 +821,8 @@
 	<div class="absolute top-1/2 left-1/4 w-32 h-32 md:w-64 md:h-64 rounded-full filter blur-3xl opacity-15" style="background-color: {colorPalette.success};"></div>
 	<div class="grid md:grid-cols-2 gap-16 lg:gap-24 items-center relative z-10">
 		<div class="observe">
-			<h2 class="text-4xl md:text-5xl lg:text-6xl font-black mb-8 leading-tight text-[#27275b]" style="font-family: 'Playfair Display', serif;">
-				{translate('home.aboutHome.heading')} <span class="italic" style="color: #27275b">{translate('home.aboutHome.headingAccent')}</span>
+			<h2 class="text-4xl md:text-5xl lg:text-6xl font-black mb-8 leading-tight" style="font-family: 'Playfair Display', serif;">
+				{translate('home.aboutHome.heading')} <span class="italic" style="color: {colorPalette.primary}">{translate('home.aboutHome.headingAccent')}</span>
 			</h2>
 			<div class="space-y-6 text-[#27275b]/80 leading-relaxed text-lg">
 				<p>
@@ -859,8 +865,8 @@
 	<div class="absolute bottom-10 right-5 w-36 h-36 md:bottom-20 md:right-20 md:w-72 md:h-72 rounded-full filter blur-3xl opacity-20 animate-pulse-slow" style="background-color: {colorPalette.success}; animation-delay: 1s;"></div>
 		<div class="text-center mb-20 observe relative z-10">
 		<p class="font-black tracking-[0.15em] md:tracking-[0.3em] uppercase text-sm mb-4" style="color: {colorPalette.primary}">{translate('home.services.label')}</p>
-		<h2 class="text-4xl md:text-5xl lg:text-6xl font-black mb-6 leading-tight" style="font-family: 'Playfair Display', serif; color: #27275b;">
-			{translate('home.services.heading')}<br><span style="color: #27275b">{translate('home.services.headingAccent')}</span>
+		<h2 class="text-4xl md:text-5xl lg:text-6xl font-black mb-6 leading-tight" style="font-family: 'Playfair Display', serif;">
+			{translate('home.services.heading')}<br><span style="color: {colorPalette.primary}">{translate('home.services.headingAccent')}</span>
 		</h2>
 		<p class="text-lg md:text-xl text-[#27275b]/80 max-w-2xl mx-auto leading-relaxed">
 			{translate('home.services.description')}
@@ -981,22 +987,22 @@
 				</p>
 			</div>
 
-			<div class="bg-white p-8 rounded-2xl border-4 transition-all duration-300 hover:shadow-xl" style="border-color: {colorPalette.accent};">
-				<h3 class="text-2xl font-black mb-3" style="font-family: 'Playfair Display', serif; color: {colorPalette.accent}">{translate('home.philosophy.colorfulAndProfessional.title')}</h3>
+			<div class="bg-white p-8 rounded-2xl border-4 transition-all duration-300 hover:shadow-xl" style="border-color: {colorPalette.primary};">
+				<h3 class="text-2xl font-black mb-3" style="font-family: 'Playfair Display', serif; color: {colorPalette.primary}">{translate('home.philosophy.colorfulAndProfessional.title')}</h3>
 				<p class="text-[#27275b]/80 leading-relaxed">
 					{translate('home.philosophy.colorfulAndProfessional.description')}
 				</p>
 			</div>
 
-			<div class="bg-white p-8 rounded-2xl border-4 transition-all duration-300 hover:shadow-xl" style="border-color: {colorPalette.secondary};">
-				<h3 class="text-2xl font-black mb-3" style="font-family: 'Playfair Display', serif; color: {colorPalette.secondary};">{translate('home.philosophy.boldAndFunctional.title')}</h3>
+			<div class="bg-white p-8 rounded-2xl border-4 transition-all duration-300 hover:shadow-xl" style="border-color: {colorPalette.primary};">
+				<h3 class="text-2xl font-black mb-3" style="font-family: 'Playfair Display', serif; color: {colorPalette.primary};">{translate('home.philosophy.boldAndFunctional.title')}</h3>
 				<p class="text-[#27275b]/80 leading-relaxed">
 					{translate('home.philosophy.boldAndFunctional.description')}
 				</p>
 			</div>
 
-			<div class="bg-white p-8 rounded-2xl border-4 transition-all duration-300 hover:shadow-xl" style="border-color: {colorPalette.success};">
-				<h3 class="text-2xl font-black mb-3" style="font-family: 'Playfair Display', serif; color: {colorPalette.success}">{translate('home.philosophy.accessibleAndQuality.title')}</h3>
+			<div class="bg-white p-8 rounded-2xl border-4 transition-all duration-300 hover:shadow-xl" style="border-color: {colorPalette.primary};">
+				<h3 class="text-2xl font-black mb-3" style="font-family: 'Playfair Display', serif; color: {colorPalette.primary}">{translate('home.philosophy.accessibleAndQuality.title')}</h3>
 				<p class="text-[#27275b]/80 leading-relaxed">
 					{translate('home.philosophy.accessibleAndQuality.description')}
 				</p>

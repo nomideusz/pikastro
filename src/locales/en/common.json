@@ -131,10 +131,9 @@
       "description": "Create unique interiors that reflect your personality"
     },
     "beforeAfter": {
-      "label": "AI Transformations",
-      "heading": "Before & After",
-      "headingAccent": "AI Transformation",
-      "description": "See how AI helps create colorful, functional spaces instead of beige and gray interiors"
+      "heading": "30m2 Apt M1 in Krakow",
+      "headingAccent": "Case Study Transformations",
+      "description": "Comprehensive renovation project of an apartment in an 80s building including **changing the layout of rooms**,\nincluding wall demolition, **new kitchen design**, creation of a **sleeping alcove** and utility niches.\n\nA **bold color palette** was chosen with a dominant sea color and pink complemented by intense warm shades.\n\nFurniture and other decor elements were selected to **maximize the use of the small apartment area**,\n**apartment**, creating a coherent, comfortable and functional whole, designed for 1 person.\n\nAdditionally, a **'cat highway'** was designed - a system of wall-mounted elements for use by the client's kitten,\nand **balcony arrangement**."
     },
     "ctaBanner": {
       "heading": "Ready for a colorful transformation?",
@@ -294,19 +293,23 @@
   "process": {
     "consultation": {
       "title": "Consultation & Brief",
-      "description": "We gather information about your needs, lifestyle, and budget. AI analyzes similar projects."
+      "description": "We gather information about your needs, lifestyle, and budget. AI analyzes similar projects.",
+      "duration": "1-7 days"
     },
     "prototyping": {
       "title": "AI Prototyping",
-      "description": "We generate 5-10 arrangement variants using AI. Quick concept iteration."
+      "description": "We generate 5-10 arrangement variants using AI. Quick concept iteration.",
+      "duration": "2-3 days"
     },
     "refinement": {
       "title": "Refinement",
-      "description": "You choose your favorite variant. We refine details, materials, colors according to your preferences."
+      "description": "You choose your favorite variant. We refine details, materials, colors according to your preferences.",
+      "duration": "3-10 days"
     },
     "documentation": {
       "title": "Documentation",
-      "description": "You receive full project documentation, 3D visualizations, shopping list and contractor contacts."
+      "description": "You receive full project documentation, 3D visualizations, shopping list and subcontractor contacts. Project ready for printing/web format.",
+      "duration": "1-7 days"
     }
   },
   "pricing": {
@@ -331,7 +334,7 @@
       "description": "Intimate collaboration on one room. We'll discover its potential and create a space that reflects your lifestyle.",
       "process1": "Discussion about your needs and dreams",
       "process2": "Site visit and space analysis",
-      "process3": "3-5 design concepts with AI",
+      "process3": "3-10 design concepts with AI",
       "process4": "3D visualizations and technical documentation",
       "process5": "Shopping list with recommendations",
       "process6": "Support during implementation",
