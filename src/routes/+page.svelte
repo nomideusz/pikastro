@@ -924,12 +924,13 @@
 </section>
 
 <!-- Process Section - Maximalism -->
-<section id="proces" class="section text-white relative overflow-hidden" style="background-color: {colorPalette.primary};">
+<section id="proces" class="relative py-16 md:py-24 text-white overflow-hidden" style="background-color: {colorPalette.primary};">
 	<div class="absolute top-5 right-5 w-48 h-48 md:top-10 md:right-10 md:w-96 md:h-96 rounded-full mix-blend-multiply filter blur-3xl opacity-30 animate-pulse-slow transition-all duration-1000" style="background-color: {colorPalette.accent}"></div>
 	<div class="absolute bottom-5 left-5 w-48 h-48 md:bottom-10 md:left-10 md:w-96 md:h-96 rounded-full mix-blend-multiply filter blur-3xl opacity-30 animate-pulse-slow transition-all duration-1000" style="background-color: {colorPalette.secondary}; animation-delay: 1.5s;"></div>
 	<div class="absolute top-1/3 right-1/4 w-40 h-40 md:w-80 md:h-80 rounded-full mix-blend-multiply filter blur-3xl opacity-25 animate-pulse-slow transition-all duration-1000" style="background-color: {colorPalette.success}; animation-delay: 0.7s;"></div>
 
-	<div class="text-center mb-20 observe relative z-10">
+	<div class="max-w-7xl mx-auto px-4 md:px-6 lg:px-12">
+		<div class="text-center mb-20 observe relative z-10">
 		<p class="font-black tracking-[0.15em] md:tracking-[0.3em] uppercase text-sm mb-4 neon-text" style="color: {colorPalette.accent}">{translate('home.process.label')}</p>
 		<h2 class="text-4xl md:text-5xl lg:text-6xl font-black mb-6 leading-tight" style="font-family: 'Playfair Display', serif;">
 			{translate('home.process.heading')}<br><span class="text-white">{translate('home.process.headingAccent')}</span>
@@ -937,9 +938,9 @@
 		<p class="text-lg md:text-xl text-gray-200 max-w-2xl mx-auto leading-relaxed">
 			{translate('home.process.description')}
 		</p>
-	</div>
+		</div>
 
-	<div class="grid md:grid-cols-2 lg:grid-cols-4 gap-8 relative z-10 items-stretch">
+		<div class="grid md:grid-cols-2 lg:grid-cols-4 gap-8 relative z-10 items-stretch">
 		{#each processSteps as step, i}
 			<div class="observe group h-full flex flex-col" style="animation-delay: {i * 150}ms">
 				<div role="article" class="bg-white/10 backdrop-blur-sm p-8 rounded-2xl border-2 border-white/20 transition-all duration-300 hover:shadow-2xl hover:scale-105 flex flex-col flex-grow" onmouseenter={(e) => { e.currentTarget.style.borderColor = colorPalette.accent; e.currentTarget.style.boxShadow = `0 25px 50px -12px rgba(var(--color-accent-rgb, 251, 113, 133), 0.3)`; }} onmouseleave={(e) => { e.currentTarget.style.borderColor = 'rgba(255, 255, 255, 0.2)'; e.currentTarget.style.boxShadow = '0 20px 25px -5px rgba(0, 0, 0, 0.1)'; }}>
@@ -978,14 +979,15 @@
 				{/if}
 			</div>
 		{/each}
-	</div>
+		</div>
 
-	<!-- Total Time Banner -->
-	<div class="mt-16 text-center observe animate-fade-in-up" style="animation-delay: 0.3s;">
-		<div class="inline-block bg-white/10 backdrop-blur-sm px-6 md:px-12 py-6 rounded-2xl border-2 border-white/20 transition-all duration-500 hover:border-white/40 hover:bg-white/15">
-			<p class="text-sm uppercase tracking-wider text-gray-300 mb-2">{translate('home.timeline.totalTime')}</p>
-			<p class="text-4xl font-black transition-colors duration-300" style="font-family: 'Playfair Display', serif; color: {colorPalette.secondary};">{translate('home.timeline.workingDays')}</p>
-			<p class="text-sm text-gray-300 mt-2">{translate('home.timeline.vsTraditional')}</p>
+		<!-- Total Time Banner -->
+		<div class="mt-16 text-center observe animate-fade-in-up" style="animation-delay: 0.3s;">
+			<div class="inline-block bg-white/10 backdrop-blur-sm px-6 md:px-12 py-6 rounded-2xl border-2 border-white/20 transition-all duration-500 hover:border-white/40 hover:bg-white/15">
+				<p class="text-sm uppercase tracking-wider text-gray-300 mb-2">{translate('home.timeline.totalTime')}</p>
+				<p class="text-4xl font-black transition-colors duration-300" style="font-family: 'Playfair Display', serif; color: {colorPalette.secondary};">{translate('home.timeline.workingDays')}</p>
+				<p class="text-sm text-gray-300 mt-2">{translate('home.timeline.vsTraditional')}</p>
+			</div>
 		</div>
 	</div>
 </section>
@@ -1165,10 +1167,10 @@
 </section>
 
 <!-- Testimonial Section -->
-<section class="section gradient-bg text-white relative overflow-hidden">
+<section class="relative py-16 md:py-24 gradient-bg text-white overflow-hidden">
 	<div class="absolute top-5 right-5 w-36 h-36 md:top-10 md:right-10 md:w-72 md:h-72 bg-[#FB7185] rounded-full mix-blend-multiply filter blur-3xl opacity-20 animate-pulse-slow"></div>
 	<div class="absolute bottom-5 left-5 w-36 h-36 md:bottom-10 md:left-10 md:w-72 md:h-72 bg-[#10B981] rounded-full mix-blend-multiply filter blur-3xl opacity-20 animate-pulse-slow" style="animation-delay: 1.5s;"></div>
-	<div class="max-w-4xl mx-auto text-center observe relative z-10">
+	<div class="max-w-4xl mx-auto px-4 md:px-6 lg:px-12 text-center observe relative z-10">
 		<div class="mb-12">
 			<svg class="w-16 h-16 mx-auto text-[#FB7185] opacity-70" fill="currentColor" viewBox="0 0 24 24">
 				<path d="M14.017 21v-7.391c0-5.704 3.731-9.57 8.983-10.609l.995 2.151c-2.432.917-3.995 3.638-3.995 5.849h4v10h-9.983zm-14.017 0v-7.391c0-5.704 3.748-9.57 9-10.609l.996 2.151c-2.433.917-3.996 3.638-3.996 5.849h3.983v10h-9.983z"/>
