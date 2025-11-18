@@ -104,8 +104,8 @@
 			alt="O mnie background"
 			class="w-full h-full object-cover"
 		/>
-		<!-- Dark overlay for text readability -->
-		<div class="absolute inset-0 bg-gradient-to-r from-black/60 via-black/40 to-transparent"></div>
+		<!-- Primary color overlay for text readability -->
+		<div class="absolute inset-0" style="background-color: {colorPalette.primary}80;"></div>
 	</div>
 
 	<div class="section relative z-10">
@@ -145,7 +145,7 @@
 			<div>
 				<h2 class="text-3xl md:text-4xl lg:text-5xl font-black mb-6 leading-tight" style="font-family: 'Playfair Display', serif;">
 					{translate('about.experience.heading')}<br>
-					<span style="color: #00D4FF;">{translate('about.experience.headingAccent')}</span>
+					<span style="color: {colorPalette.secondary};">{translate('about.experience.headingAccent')}</span>
 				</h2>
 				<div class="space-y-6 text-gray-600 leading-relaxed text-lg">
 					<p>
