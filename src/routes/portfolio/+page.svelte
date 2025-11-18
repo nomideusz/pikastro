@@ -122,9 +122,11 @@
 
 				const maxScroll = container.scrollWidth - container.clientWidth;
 				const currentScroll = container.scrollLeft;
+				// Reset at halfway point (after first set of duplicated images)
+				const resetPoint = maxScroll / 2;
 
-				if (currentScroll >= maxScroll - 1) {
-					// Reset to beginning instantly to avoid conflict
+				if (currentScroll >= resetPoint) {
+					// Reset to beginning instantly (seamless due to duplicated images)
 					isResetting = true;
 					container.scrollLeft = 0;
 					// Small delay before resuming to ensure reset is complete
@@ -254,14 +256,14 @@
 					style="padding-left: max(1rem, calc((100vw - 80rem) / 2)); padding-right: max(1rem, calc((100vw - 80rem) / 2));"
 				>
 					<div class="flex gap-6 md:gap-8">
-						{#each section.images as image, imgIndex}
+						{#each [...section.images, ...section.images] as image, imgIndex}
 							<div
 								class="flex-shrink-0 group relative rounded-2xl overflow-hidden shadow-xl hover:shadow-2xl transition-all duration-500 hover:scale-105 border-2"
 								style="width: 400px; height: 500px; border-color: {colors.accent}40; box-shadow: 0 10px 30px rgba(243, 42, 97, 0.3);"
 							>
 								<img
 									src={image}
-									alt="{section.title} - obraz {imgIndex + 1}"
+									alt="{section.title} - obraz {(imgIndex % section.images.length) + 1}"
 									class="w-full h-full object-cover"
 								/>
 								<div
@@ -271,7 +273,7 @@
 								<div
 									class="absolute bottom-0 left-0 right-0 p-6 text-white transform translate-y-full group-hover:translate-y-0 transition-transform duration-300"
 								>
-									<p class="text-lg font-bold" style="color: {colors.accent};">{section.title} #{imgIndex + 1}</p>
+									<p class="text-lg font-bold" style="color: {colors.accent};">{section.title} #{(imgIndex % section.images.length) + 1}</p>
 								</div>
 							</div>
 						{/each}
