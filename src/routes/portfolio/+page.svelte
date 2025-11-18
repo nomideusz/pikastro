@@ -65,6 +65,7 @@
 
 	let activeSection = $state('wnetrza');
 	let scrollContainers = $state<{[key: string]: HTMLElement}>({});
+	let autoScrollIntervals = $state<{[key: string]: number}>({});
 
 	function scrollToSection(sectionId: string) {
 		const element = document.getElementById(sectionId);
@@ -105,6 +106,61 @@
 		});
 
 		return () => observer.disconnect();
+	});
+
+	// Auto-scroll effect for carousels
+	$effect(() => {
+		if (typeof window === 'undefined') return;
+
+		const startAutoScroll = (container: HTMLElement, sectionId: string) => {
+			if (!container) return;
+
+			const scroll = () => {
+				const maxScroll = container.scrollWidth - container.clientWidth;
+				const currentScroll = container.scrollLeft;
+
+				if (currentScroll >= maxScroll - 1) {
+					// Reset to beginning
+					container.scrollTo({ left: 0, behavior: 'smooth' });
+				} else {
+					// Scroll forward by 1 pixel
+					container.scrollBy({ left: 1, behavior: 'auto' });
+				}
+			};
+
+			// Start auto-scroll interval (60fps for smooth scrolling)
+			const intervalId = window.setInterval(scroll, 16);
+			autoScrollIntervals[sectionId] = intervalId;
+
+			// Pause on hover
+			container.addEventListener('mouseenter', () => {
+				if (autoScrollIntervals[sectionId]) {
+					clearInterval(autoScrollIntervals[sectionId]);
+				}
+			});
+
+			// Resume on mouse leave
+			container.addEventListener('mouseleave', () => {
+				autoScrollIntervals[sectionId] = window.setInterval(scroll, 16);
+			});
+		};
+
+		// Wait for DOM to be ready
+		setTimeout(() => {
+			portfolioSections.forEach((section) => {
+				const container = scrollContainers[section.id];
+				if (container && section.images.length > 0) {
+					startAutoScroll(container, section.id);
+				}
+			});
+		}, 100);
+
+		// Cleanup intervals on unmount
+		return () => {
+			Object.values(autoScrollIntervals).forEach((intervalId) => {
+				if (intervalId) clearInterval(intervalId);
+			});
+		};
 	});
 </script>
 
