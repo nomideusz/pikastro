@@ -8,6 +8,7 @@
 	import { extractColorsFromImage, assignColorRoles, type ColorPalette } from '$lib/utils/colorExtractor';
 	import colorsImg from '$lib/assets/images/colors.jpeg';
 	import magdaPhoto from '$lib/assets/images/magda.jpg';
+	import oMnieBg from '$lib/assets/images/o-mnie-bg.png';
 
 	// Color palette extracted from colors image - Eclectic Maximalism
 	let colorPalette = $state<ColorPalette>({
@@ -95,22 +96,17 @@
 </svelte:head>
 
 <!-- Hero Section -->
-<section class="relative min-h-[70vh] flex items-center gradient-bg text-white overflow-hidden">
-	<!-- Animated AI Network Background -->
+<section class="relative min-h-[70vh] flex items-center text-white overflow-hidden">
+	<!-- Background Image -->
 	<div class="absolute inset-0">
-		<!-- AI Neural Network Lines -->
-		<svg class="absolute inset-0 w-full h-full opacity-20" xmlns="http://www.w3.org/2000/svg">
-			<!-- Animated connecting lines -->
-			<line x1="10%" y1="20%" x2="30%" y2="40%" stroke={colorPalette.accent} stroke-width="2" class="animate-pulse-slow" />
-			<line x1="30%" y1="40%" x2="50%" y2="30%" stroke={colorPalette.secondary} stroke-width="2" class="animate-pulse-slow" style="animation-delay: 0.5s" />
-			<line x1="50%" y1="30%" x2="70%" y2="50%" stroke={colorPalette.primary} stroke-width="2" class="animate-pulse-slow" style="animation-delay: 1s" />
-			<line x1="70%" y1="50%" x2="90%" y2="35%" stroke={colorPalette.accent} stroke-width="2" class="animate-pulse-slow" style="animation-delay: 1.5s" />
-		</svg>
+		<img
+			src={oMnieBg}
+			alt="O mnie background"
+			class="w-full h-full object-cover"
+		/>
+		<!-- Dark overlay for text readability -->
+		<div class="absolute inset-0 bg-gradient-to-r from-black/60 via-black/40 to-transparent"></div>
 	</div>
-
-	<!-- Floating gradient blobs -->
-	<div class="absolute top-20 right-20 w-72 h-72 rounded-full mix-blend-multiply filter blur-3xl opacity-30 animate-pulse-slow" style="background-color: {colorPalette.accent}"></div>
-	<div class="absolute bottom-20 left-20 w-96 h-96 rounded-full mix-blend-multiply filter blur-3xl opacity-30 animate-pulse-slow" style="background-color: {colorPalette.primary}; animation-delay: 1s;"></div>
 
 	<div class="section relative z-10">
 		<div class="max-w-4xl">
