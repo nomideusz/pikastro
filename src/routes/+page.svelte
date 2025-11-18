@@ -433,6 +433,16 @@
 					translate('services.aiTechnology.feature3'),
 					translate('services.aiTechnology.feature4')
 				]
+			},
+			{
+				title: translate('services.developerServices.title'),
+				description: translate('services.developerServices.description'),
+				icon: '◇',
+				features: [
+					translate('services.developerServices.feature1'),
+					translate('services.developerServices.feature2'),
+					translate('services.developerServices.feature3')
+				]
 			}
 		];
 	});
@@ -856,7 +866,7 @@
 		</p>
 	</div>
 
-	<div class="grid md:grid-cols-3 gap-10 md:gap-8 lg:gap-12 relative z-10">
+	<div class="grid md:grid-cols-2 lg:grid-cols-4 gap-10 md:gap-8 lg:gap-12 relative z-10">
 		{#each services as service, i}
 			<div role="article" class="bg-white p-10 lg:p-12 hover-lift observe group border-2 border-blue-100 rounded-2xl hover:shadow-2xl transition-all duration-500" style="animation-delay: {i * 100}ms; border-color: rgb(243, 244, 246);" onmouseenter={(e) => { e.currentTarget.style.borderColor = colorPalette.accent; e.currentTarget.style.boxShadow = `0 25px 50px -12px rgba(var(--color-accent-rgb, 251, 113, 133), 0.2)`; }} onmouseleave={(e) => { e.currentTarget.style.borderColor = 'rgb(243, 244, 246)'; e.currentTarget.style.boxShadow = '0 20px 25px -5px rgba(0, 0, 0, 0.1)'; }}>
 				<div class="mb-8">

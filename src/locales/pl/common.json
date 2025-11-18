@@ -294,6 +294,13 @@
       "feature2": "Optymalizacja kosztów projektu",
       "feature3": "Automatyczne generowanie wariantów",
       "feature4": "Efektywność czasowa i budżetowa"
+    },
+    "developerServices": {
+      "title": "Dla Developerów i Biur Nieruchomości",
+      "description": "Usługi graficzno projektowe których celem jest uatrakcyjnienie ofert sprzedaży mieszkań i domów:",
+      "feature1": "Tworzenie kolorowych umeblowanych rzutów mieszkań - propozycji aranżacji przestrzeni dla nowych inwestycji",
+      "feature2": "Tworzenie wizualizacji/projektów wnętrz 'pod klucz'",
+      "feature3": "Tworzenie wariantów - propozycji zmiany układu pomieszczeń i aranżacji dla ofert sprzedaży mieszkań z 1 lub 2 obiegu na rynku nieruchomości"
     }
   },
   "process": {
