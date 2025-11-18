@@ -115,13 +115,22 @@
 		const startAutoScroll = (container: HTMLElement, sectionId: string) => {
 			if (!container) return;
 
+			let isResetting = false;
+
 			const scroll = () => {
+				if (isResetting) return;
+
 				const maxScroll = container.scrollWidth - container.clientWidth;
 				const currentScroll = container.scrollLeft;
 
 				if (currentScroll >= maxScroll - 1) {
-					// Reset to beginning
-					container.scrollTo({ left: 0, behavior: 'smooth' });
+					// Reset to beginning instantly to avoid conflict
+					isResetting = true;
+					container.scrollLeft = 0;
+					// Small delay before resuming to ensure reset is complete
+					setTimeout(() => {
+						isResetting = false;
+					}, 50);
 				} else {
 					// Scroll forward by 1 pixel
 					container.scrollBy({ left: 1, behavior: 'auto' });
@@ -133,33 +142,46 @@
 			autoScrollIntervals[sectionId] = intervalId;
 
 			// Pause on hover
-			container.addEventListener('mouseenter', () => {
+			const handleMouseEnter = () => {
 				if (autoScrollIntervals[sectionId]) {
 					clearInterval(autoScrollIntervals[sectionId]);
 				}
-			});
+			};
 
 			// Resume on mouse leave
-			container.addEventListener('mouseleave', () => {
+			const handleMouseLeave = () => {
 				autoScrollIntervals[sectionId] = window.setInterval(scroll, 16);
-			});
+			};
+
+			container.addEventListener('mouseenter', handleMouseEnter);
+			container.addEventListener('mouseleave', handleMouseLeave);
+
+			// Store cleanup function for this container
+			return () => {
+				container.removeEventListener('mouseenter', handleMouseEnter);
+				container.removeEventListener('mouseleave', handleMouseLeave);
+			};
 		};
 
 		// Wait for DOM to be ready
+		const cleanupFunctions: (() => void)[] = [];
+
 		setTimeout(() => {
 			portfolioSections.forEach((section) => {
 				const container = scrollContainers[section.id];
 				if (container && section.images.length > 0) {
-					startAutoScroll(container, section.id);
+					const cleanup = startAutoScroll(container, section.id);
+					if (cleanup) cleanupFunctions.push(cleanup);
 				}
 			});
 		}, 100);
 
-		// Cleanup intervals on unmount
+		// Cleanup intervals and event listeners on unmount
 		return () => {
 			Object.values(autoScrollIntervals).forEach((intervalId) => {
 				if (intervalId) clearInterval(intervalId);
 			});
+			cleanupFunctions.forEach((cleanup) => cleanup());
 		};
 	});
 </script>
