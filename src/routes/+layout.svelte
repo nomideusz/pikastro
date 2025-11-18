@@ -99,7 +99,7 @@
 					{translate('nav.pricing')}
 					<span class="absolute bottom-0 left-0 w-0 h-0.5 transition-all duration-300 group-hover:w-full" style="background-color: var(--color-accent);"></span>
 				</a>
-				<a href={getNavLink('#portfolio')} class="text-[#27275b] transition-colors font-bold text-sm tracking-wide uppercase relative group hover:text-[var(--color-primary)]">
+				<a href="/portfolio" class="text-[#27275b] transition-colors font-bold text-sm tracking-wide uppercase relative group hover:text-[var(--color-primary)]">
 					{translate('nav.portfolio')}
 					<span class="absolute bottom-0 left-0 w-0 h-0.5 transition-all duration-300 group-hover:w-full" style="background-color: var(--color-accent);"></span>
 				</a>
@@ -142,7 +142,7 @@
 						<a href="/ceny" onclick={() => isMenuOpen = false} class="block px-4 py-3 text-[#27275b] transition-all duration-300 font-bold text-sm tracking-wide uppercase rounded-lg hover:bg-gray-50 hover:text-[var(--color-primary)] transform hover:translate-x-1">
 							{translate('nav.pricing')}
 						</a>
-						<a href={getNavLink('#portfolio')} onclick={() => isMenuOpen = false} class="block px-4 py-3 text-[#27275b] transition-all duration-300 font-bold text-sm tracking-wide uppercase rounded-lg hover:bg-gray-50 hover:text-[var(--color-primary)] transform hover:translate-x-1">
+						<a href="/portfolio" onclick={() => isMenuOpen = false} class="block px-4 py-3 text-[#27275b] transition-all duration-300 font-bold text-sm tracking-wide uppercase rounded-lg hover:bg-gray-50 hover:text-[var(--color-primary)] transform hover:translate-x-1">
 							{translate('nav.portfolio')}
 						</a>
 					</div>
