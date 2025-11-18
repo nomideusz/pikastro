@@ -1173,6 +1173,20 @@
 			</div>
 		{/each}
 	</div>
+
+	<!-- View Full Portfolio Button -->
+	<div class="text-center mt-16 observe relative z-10">
+		<a
+			href="/portfolio"
+			class="inline-block px-10 py-4 text-lg font-bold rounded-xl shadow-xl transition-all duration-300 hover:shadow-2xl hover:scale-105 transform"
+			style="background-color: {colorPalette.accent}; color: white;"
+		>
+			{translate('home.portfolio.viewFullPortfolio')}
+			<svg class="inline-block w-5 h-5 ml-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+				<path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 7l5 5m0 0l-5 5m5-5H6"></path>
+			</svg>
+		</a>
+	</div>
 </section>
 
 <!-- Testimonial Section -->
