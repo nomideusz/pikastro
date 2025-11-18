@@ -710,8 +710,11 @@
 	</div>
 </section>
 
+<!-- Full-width border separator -->
+<div class="w-full h-2" style="background-color: {colorPalette.success};"></div>
+
 <!-- Before/After Showcase Section - Maximalism -->
-<section id="beforeafter" class="section bg-white relative overflow-hidden border-t-8" style="border-top-color: {colorPalette.success};">
+<section id="beforeafter" class="section bg-white relative overflow-hidden">
 	<div class="absolute top-0 right-0 w-48 h-48 md:w-96 md:h-96 rounded-full filter blur-3xl opacity-25" style="background-color: {colorPalette.tertiary};"></div>
 	<div class="absolute bottom-0 left-0 w-40 h-40 md:w-80 md:h-80 rounded-full filter blur-3xl opacity-25" style="background-color: {colorPalette.accent};"></div>
 	<div class="text-center mb-8 md:mb-12 observe">
@@ -992,8 +995,11 @@
 	</div>
 </section>
 
+<!-- Full-width border separator -->
+<div class="w-full h-2" style="background-color: {colorPalette.primary};"></div>
+
 <!-- Manifesto / Why Section - Maximalism -->
-<section class="section bg-white relative overflow-hidden border-y-8" style="border-top-color: {colorPalette.primary}; border-bottom-color: {colorPalette.success};">
+<section class="section bg-white relative overflow-hidden">
 	<div class="absolute top-0 right-0 w-48 h-48 md:w-96 md:h-96 rounded-full filter blur-3xl opacity-20" style="background-color: {colorPalette.secondary};"></div>
 	<div class="absolute bottom-0 left-0 w-40 h-40 md:w-80 md:h-80 rounded-full filter blur-3xl opacity-20" style="background-color: {colorPalette.accent};"></div>
 	<div class="max-w-4xl mx-auto relative z-10">
@@ -1073,8 +1079,11 @@
 	</div>
 </section>
 
+<!-- Full-width border separator -->
+<div class="w-full h-2" style="background-color: {colorPalette.accent};"></div>
+
 <!-- Portfolio Section - Maximalism -->
-<section id="portfolio" class="section bg-white relative overflow-hidden border-t-8" style="border-top-color: {colorPalette.accent};">
+<section id="portfolio" class="section bg-white relative overflow-hidden">
 	<div class="absolute top-0 left-1/2 w-48 h-48 md:w-96 md:h-96 rounded-full filter blur-3xl opacity-25" style="background-color: {colorPalette.tertiary};"></div>
 	<div class="absolute bottom-0 right-1/4 w-40 h-40 md:w-80 md:h-80 rounded-full filter blur-3xl opacity-20" style="background-color: {colorPalette.secondary};"></div>
 		<div class="text-center mb-20 observe relative z-10">
@@ -1187,8 +1196,11 @@
 	</div>
 </section>
 
+<!-- Full-width border separator -->
+<div class="w-full h-2" style="background-color: {colorPalette.tertiary};"></div>
+
 <!-- Contact Section - Maximalism -->
-<section id="kontakt" class="section bg-white relative overflow-hidden border-t-8 border-b-8" style="border-top-color: {colorPalette.tertiary}; border-bottom-color: {colorPalette.primary};">
+<section id="kontakt" class="section bg-white relative overflow-hidden">
 	<div class="absolute top-0 right-0 w-48 h-48 md:w-96 md:h-96 rounded-full filter blur-3xl opacity-25" style="background-color: {colorPalette.secondary};"></div>
 	<div class="absolute bottom-0 left-0 w-40 h-40 md:w-80 md:h-80 rounded-full filter blur-3xl opacity-25" style="background-color: {colorPalette.success};"></div>
 		<div class="grid lg:grid-cols-2 gap-16 lg:gap-24 relative z-10">
@@ -1386,4 +1398,7 @@
 		</div>
 	</div>
 </section>
+
+<!-- Full-width border separator -->
+<div class="w-full h-2" style="background-color: {colorPalette.primary};"></div>
 
