@@ -66,6 +66,7 @@
 	let activeSection = $state('wnetrza');
 	let scrollContainers = $state<{[key: string]: HTMLElement}>({});
 	let autoScrollIntervals = $state<{[key: string]: number}>({});
+	let eventCleanupFunctions = $state<{[key: string]: () => void}>({});
 
 	function scrollToSection(sectionId: string) {
 		const element = document.getElementById(sectionId);
@@ -115,80 +116,98 @@
 		const startAutoScroll = (container: HTMLElement, sectionId: string) => {
 			if (!container) return;
 
-			// Initialize carousel at middle position (1/3 of total width)
-			// This gives us buffer to loop in both directions
-			const maxScroll = container.scrollWidth - container.clientWidth;
-			const middlePosition = maxScroll / 3;
-			container.scrollLeft = middlePosition;
+			// Wait for images to load and get actual dimensions
+			setTimeout(() => {
+				const firstChild = container.firstElementChild as HTMLElement;
+				if (!firstChild) return;
 
-			let isResetting = false;
+				// Calculate width of one complete set of images
+				// Each image is 400px + gap (24px on desktop, 32px with margin)
+				const images = firstChild.children;
+				const imageCount = images.length / 3; // We have 3x duplicated images
+				let singleSetWidth = 0;
 
-			const scroll = () => {
-				if (isResetting) return;
-
-				const currentScroll = container.scrollLeft;
-				// Reset at 2/3 point (after second set completes)
-				const resetPoint = (maxScroll / 3) * 2;
-
-				if (currentScroll >= resetPoint) {
-					// Reset back to middle position (1/3 point) - seamless due to duplicated images
-					isResetting = true;
-					container.scrollLeft = middlePosition;
-					// Small delay before resuming to ensure reset is complete
-					setTimeout(() => {
-						isResetting = false;
-					}, 50);
-				} else {
-					// Scroll forward by 1 pixel
-					container.scrollBy({ left: 1, behavior: 'auto' });
+				for (let i = 0; i < imageCount; i++) {
+					const img = images[i] as HTMLElement;
+					singleSetWidth += img.offsetWidth;
+					// Add gap except for last image in set
+					if (i < imageCount - 1) {
+						const gap = parseInt(window.getComputedStyle(firstChild).gap) || 24;
+						singleSetWidth += gap;
+					}
 				}
-			};
 
-			// Start auto-scroll interval (60fps for smooth scrolling)
-			const intervalId = window.setInterval(scroll, 16);
-			autoScrollIntervals[sectionId] = intervalId;
+				// Start at beginning of second set
+				container.scrollLeft = singleSetWidth;
 
-			// Pause on hover
-			const handleMouseEnter = () => {
-				if (autoScrollIntervals[sectionId]) {
-					clearInterval(autoScrollIntervals[sectionId]);
-				}
-			};
+				let isResetting = false;
 
-			// Resume on mouse leave
-			const handleMouseLeave = () => {
-				autoScrollIntervals[sectionId] = window.setInterval(scroll, 16);
-			};
+				const scroll = () => {
+					if (isResetting) return;
 
-			container.addEventListener('mouseenter', handleMouseEnter);
-			container.addEventListener('mouseleave', handleMouseLeave);
+					const currentScroll = container.scrollLeft;
+					// Reset when we reach the beginning of the third set
+					const resetPoint = singleSetWidth * 2;
 
-			// Store cleanup function for this container
-			return () => {
-				container.removeEventListener('mouseenter', handleMouseEnter);
-				container.removeEventListener('mouseleave', handleMouseLeave);
-			};
+					if (currentScroll >= resetPoint - 1) {
+						// Reset back to beginning of second set - seamless!
+						isResetting = true;
+						container.scrollLeft = singleSetWidth;
+						// Small delay before resuming
+						setTimeout(() => {
+							isResetting = false;
+						}, 50);
+					} else {
+						// Scroll forward by 1 pixel
+						container.scrollBy({ left: 1, behavior: 'auto' });
+					}
+				};
+
+				// Start auto-scroll interval (60fps for smooth scrolling)
+				const intervalId = window.setInterval(scroll, 16);
+				autoScrollIntervals[sectionId] = intervalId;
+
+				// Pause on hover
+				const handleMouseEnter = () => {
+					if (autoScrollIntervals[sectionId]) {
+						clearInterval(autoScrollIntervals[sectionId]);
+					}
+				};
+
+				// Resume on mouse leave
+				const handleMouseLeave = () => {
+					autoScrollIntervals[sectionId] = window.setInterval(scroll, 16);
+				};
+
+				container.addEventListener('mouseenter', handleMouseEnter);
+				container.addEventListener('mouseleave', handleMouseLeave);
+
+				// Store cleanup function for this container
+				eventCleanupFunctions[sectionId] = () => {
+					container.removeEventListener('mouseenter', handleMouseEnter);
+					container.removeEventListener('mouseleave', handleMouseLeave);
+				};
+			}, 200); // Wait for layout to settle
 		};
 
-		// Wait for DOM to be ready
-		const cleanupFunctions: (() => void)[] = [];
-
+		// Wait for DOM to be ready and images to load
 		setTimeout(() => {
 			portfolioSections.forEach((section) => {
 				const container = scrollContainers[section.id];
 				if (container && section.images.length > 0) {
-					const cleanup = startAutoScroll(container, section.id);
-					if (cleanup) cleanupFunctions.push(cleanup);
+					startAutoScroll(container, section.id);
 				}
 			});
-		}, 100);
+		}, 300);
 
 		// Cleanup intervals and event listeners on unmount
 		return () => {
 			Object.values(autoScrollIntervals).forEach((intervalId) => {
 				if (intervalId) clearInterval(intervalId);
 			});
-			cleanupFunctions.forEach((cleanup) => cleanup());
+			Object.values(eventCleanupFunctions).forEach((cleanup) => {
+				if (cleanup) cleanup();
+			});
 		};
 	});
 </script>
