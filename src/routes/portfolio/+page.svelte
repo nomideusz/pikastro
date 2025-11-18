@@ -115,20 +115,25 @@
 		const startAutoScroll = (container: HTMLElement, sectionId: string) => {
 			if (!container) return;
 
+			// Initialize carousel at middle position (1/3 of total width)
+			// This gives us buffer to loop in both directions
+			const maxScroll = container.scrollWidth - container.clientWidth;
+			const middlePosition = maxScroll / 3;
+			container.scrollLeft = middlePosition;
+
 			let isResetting = false;
 
 			const scroll = () => {
 				if (isResetting) return;
 
-				const maxScroll = container.scrollWidth - container.clientWidth;
 				const currentScroll = container.scrollLeft;
-				// Reset at halfway point (after first set of duplicated images)
-				const resetPoint = maxScroll / 2;
+				// Reset at 2/3 point (after second set completes)
+				const resetPoint = (maxScroll / 3) * 2;
 
 				if (currentScroll >= resetPoint) {
-					// Reset to beginning instantly (seamless due to duplicated images)
+					// Reset back to middle position (1/3 point) - seamless due to duplicated images
 					isResetting = true;
-					container.scrollLeft = 0;
+					container.scrollLeft = middlePosition;
 					// Small delay before resuming to ensure reset is complete
 					setTimeout(() => {
 						isResetting = false;
@@ -256,7 +261,7 @@
 					style="padding-left: max(1rem, calc((100vw - 80rem) / 2)); padding-right: max(1rem, calc((100vw - 80rem) / 2));"
 				>
 					<div class="flex gap-6 md:gap-8">
-						{#each [...section.images, ...section.images] as image, imgIndex}
+						{#each [...section.images, ...section.images, ...section.images] as image, imgIndex}
 							<div
 								class="flex-shrink-0 group relative rounded-2xl overflow-hidden shadow-xl hover:shadow-2xl transition-all duration-500 hover:scale-105 border-2"
 								style="width: 400px; height: 500px; border-color: {colors.accent}40; box-shadow: 0 10px 30px rgba(243, 42, 97, 0.3);"
