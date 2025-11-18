@@ -294,6 +294,14 @@
       "feature2": "Optymalizacja kosztów projektu",
       "feature3": "Automatyczne generowanie wariantów",
       "feature4": "Efektywność czasowa i budżetowa"
+    },
+    "developersRealEstate": {
+      "title": "Dla Developerów i Biur Nieruchomości",
+      "description": "Specjalistyczne rozwiązania dla branży deweloperskiej i nieruchomości - wizualizacje i projekty sprzedażowe.",
+      "feature1": "Wizualizacje mieszkań modelowych",
+      "feature2": "Projekty showroomów i mieszkań pokazowych",
+      "feature3": "Materiały marketingowe dla inwestycji",
+      "feature4": "Wirtualne staging i prezentacje 3D"
     }
   },
   "process": {
