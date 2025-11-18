@@ -173,8 +173,8 @@
 	<div class="max-w-7xl mx-auto relative z-10">
 		<div class="grid md:grid-cols-4 gap-12 mb-12">
 			<div>
-				<div class="bg-white/95 backdrop-blur-sm rounded-xl p-3 inline-block mb-4">
-					<img src="/logo.png" alt="Pikastro Logo" class="h-10 w-auto" />
+				<div class="inline-block mb-4">
+					<img src="/logo_teal.png" alt="Pikastro Logo" class="h-10 w-auto" />
 				</div>
 				<p class="text-gray-200 leading-relaxed">
 					{translate('footer.description')}
@@ -205,10 +205,6 @@
 				<ul class="space-y-2 text-gray-200 font-medium">
 					<li>kontakt@pikastro.eu</li>
 					<li>{translate('footer.location')}</li>
-					<li class="pt-2">
-						<a href="/o-mnie" class="text-[#FB7185] hover:text-white transition-colors">{translate('nav.about')}</a> •
-						<a href="/#oferta" class="text-[#FB7185] hover:text-white transition-colors">{translate('nav.offer')}</a>
-					</li>
 				</ul>
 			</div>
 		</div>

@@ -110,6 +110,32 @@
 		}
 	});
 
+	// Handle video playback when scrolling back to video
+	$effect(() => {
+		if (typeof window !== 'undefined' && vid02Element) {
+			const observer = new IntersectionObserver(
+				(entries) => {
+					entries.forEach((entry) => {
+						if (entry.isIntersecting && vid02Element && vid02Element.paused) {
+							// Video is in view and paused, try to resume
+							vid02Element.play().catch(error => {
+								console.warn('Video resume failed:', error);
+							});
+						}
+					});
+				},
+				{
+					threshold: 0.1, // Trigger when at least 10% of video is visible
+					rootMargin: '50px' // Start observing 50px before video enters viewport
+				}
+			);
+
+			observer.observe(vid02Element);
+
+			return () => observer.disconnect();
+		}
+	});
+
 	// Contact form state - use default value, will be updated reactively
 	let defaultProjectType = 'Projektowanie wnętrz'; // Default fallback
 	let formData = $state({
@@ -616,7 +642,7 @@
 				<p class="font-bold tracking-[0.15em] md:tracking-[0.3em] uppercase text-sm mb-6 animate-pulse-slow neon-text" style="color: {colorPalette.accent}">{translate('home.hero.label')}</p>
 				<h1 class="text-5xl md:text-7xl lg:text-8xl font-black mb-6 leading-[1.05]" style="font-family: 'Playfair Display', serif;">
 					<span class="block">{translate('home.hero.heading1')}</span>
-					<span class="block">{translate('home.hero.heading2')}{#if translate('home.hero.heading2Accent')}<span style="color: #F5848E">{translate('home.hero.heading2Accent')}</span>{/if}</span>
+					<span class="block">{#if currentLocale === 'en'}Time for <span style="color: #F5848E">color!</span>{:else}Czas na <span style="color: #F5848E">{translate('home.hero.heading2Accent')}</span>{/if}</span>
 				</h1>
 				<p class="text-2xl md:text-3xl font-bold mb-4 leading-tight" style="color: #27275B;">
 					{translate('home.hero.tagline')}
@@ -808,7 +834,7 @@
 		<p class="text-lg md:text-xl text-gray-200 mb-8 max-w-2xl mx-auto">
 			{translate('home.ctaBanner.description')}
 		</p>
-		<a href="#kontakt" class="inline-block px-8 py-4 text-lg font-bold rounded-xl shadow-xl transition-all duration-300 hover:shadow-2xl hover:scale-105 transform animate-pulse-subtle" style="background-color: {colorPalette.secondary}; color: {colorPalette.primary};">
+		<a href="#kontakt" class="inline-block px-8 py-4 text-lg font-bold rounded-xl shadow-xl transition-all duration-300 hover:shadow-2xl hover:scale-105 transform animate-pulse-subtle" style="background-color: {colorPalette.secondary}; color: rgba(255, 255, 255, 0.9);">
 			{translate('home.ctaBanner.button')}
 		</a>
 	</div>
@@ -822,7 +848,7 @@
 	<div class="grid md:grid-cols-2 gap-16 lg:gap-24 items-center relative z-10">
 		<div class="observe">
 			<h2 class="text-4xl md:text-5xl lg:text-6xl font-black mb-8 leading-tight" style="font-family: 'Playfair Display', serif;">
-				{translate('home.aboutHome.heading')} <span class="italic" style="color: {colorPalette.primary}">{translate('home.aboutHome.headingAccent')}</span>
+				<span style="color: {colorPalette.primary}">{translate('home.aboutHome.heading')}</span> <span class="italic">{translate('home.aboutHome.headingAccent')}</span>
 			</h2>
 			<div class="space-y-6 text-[#27275b]/80 leading-relaxed text-lg">
 				<p>
@@ -833,9 +859,6 @@
 				</p>
 				<p>
 					{translate('home.aboutHome.paragraph3')}
-				</p>
-				<p class="quote-block">
-					„{translate('home.aboutHome.quote')}"
 				</p>
 			</div>
 		</div>
@@ -866,7 +889,7 @@
 		<div class="text-center mb-20 observe relative z-10">
 		<p class="font-black tracking-[0.15em] md:tracking-[0.3em] uppercase text-sm mb-4" style="color: {colorPalette.primary}">{translate('home.services.label')}</p>
 		<h2 class="text-4xl md:text-5xl lg:text-6xl font-black mb-6 leading-tight" style="font-family: 'Playfair Display', serif;">
-			{translate('home.services.heading')}<br><span style="color: {colorPalette.primary}">{translate('home.services.headingAccent')}</span>
+			<span style="color: {colorPalette.primary}">{translate('home.services.heading')}</span><br>{translate('home.services.headingAccent')}
 		</h2>
 		<p class="text-lg md:text-xl text-[#27275b]/80 max-w-2xl mx-auto leading-relaxed">
 			{translate('home.services.description')}
@@ -1169,9 +1192,8 @@
 		<div class="grid lg:grid-cols-2 gap-16 lg:gap-24 relative z-10">
 		<div class="observe">
 			<p class="font-black tracking-[0.15em] md:tracking-[0.3em] uppercase text-sm mb-4" style="color: {colorPalette.primary}">{translate('home.contact.label')}</p>
-			<h2 class="text-4xl md:text-5xl lg:text-6xl font-black mb-8 leading-tight" style="font-family: 'Playfair Display', serif; color: #27275b;">
-				{translate('home.contact.heading')}<br>
-				<span class="italic" style="color: #27275b">{translate('home.contact.headingAccent')}</span>
+			<h2 class="text-4xl md:text-5xl lg:text-6xl font-black mb-8 leading-tight" style="font-family: 'Playfair Display', serif;">
+				<span style="color: {colorPalette.secondary};">Rozpocznijmy</span> <span class="italic" style="color: {colorPalette.primary};">współpracę</span>
 			</h2>
 			<p class="text-lg md:text-xl text-[#27275b]/80 mb-12 leading-relaxed">
 				{translate('home.contact.description')}
