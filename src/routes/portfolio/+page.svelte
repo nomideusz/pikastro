@@ -63,13 +63,88 @@
 		tertiary: '#F5848E'
 	};
 
+	let activeSection = $state('wnetrza');
 	let scrollContainers = $state<{[key: string]: HTMLElement}>({});
+
+	function scrollToSection(sectionId: string) {
+		const element = document.getElementById(sectionId);
+		if (element) {
+			const navHeight = 168; // Height of main layout navigation + portfolio navigation
+			const elementPosition = element.getBoundingClientRect().top;
+			const offsetPosition = elementPosition + window.pageYOffset - navHeight;
+
+			window.scrollTo({
+				top: offsetPosition,
+				behavior: 'smooth'
+			});
+		}
+	}
+
+	$effect(() => {
+		if (typeof window === 'undefined') return;
+
+		// Set up intersection observer for active section tracking
+		const observer = new IntersectionObserver(
+			(entries) => {
+				entries.forEach((entry) => {
+					if (entry.isIntersecting) {
+						activeSection = entry.target.id;
+					}
+				});
+			},
+			{
+				rootMargin: '-100px 0px -50% 0px'
+			}
+		);
+
+		portfolioSections.forEach((section) => {
+			const element = document.getElementById(section.id);
+			if (element) {
+				observer.observe(element);
+			}
+		});
+
+		return () => observer.disconnect();
+	});
 </script>
 
 <svelte:head>
 	<title>Portfolio - Pikastro</title>
 	<meta name="description" content="Pełne portfolio projektów Pikastro - wnętrza, branding, grafika i więcej" />
 </svelte:head>
+
+<!-- Sticky Navigation -->
+<nav class="sticky top-[80px] z-40 shadow-lg border-b-4" style="background: linear-gradient(135deg, {colors.primary} 0%, #1a1a3e 100%); border-bottom-color: {colors.accent}; backdrop-filter: blur(12px);">
+	<div class="max-w-7xl mx-auto px-4 md:px-6 py-4">
+		<div class="flex items-center justify-center gap-2 overflow-x-auto scrollbar-hide">
+			<div class="flex gap-2 md:gap-3 overflow-x-auto scrollbar-hide">
+				{#each portfolioSections as section}
+					<button
+						onclick={() => scrollToSection(section.id)}
+						class="px-4 py-2 text-xs md:text-sm font-bold uppercase tracking-wider rounded-lg whitespace-nowrap transition-all duration-300 {activeSection === section.id ? 'text-white shadow-lg' : 'text-gray-300 hover:text-white'}"
+						style={activeSection === section.id
+							? `background-color: ${colors.accent};`
+							: `background-color: transparent; border: 2px solid ${colors.accent}40;`}
+						onmouseenter={(e) => {
+							if (activeSection !== section.id) {
+								e.currentTarget.style.backgroundColor = `${colors.accent}80`;
+								e.currentTarget.style.color = 'white';
+							}
+						}}
+						onmouseleave={(e) => {
+							if (activeSection !== section.id) {
+								e.currentTarget.style.backgroundColor = 'transparent';
+								e.currentTarget.style.color = 'rgb(209, 213, 219)';
+							}
+						}}
+					>
+						{section.title}
+					</button>
+				{/each}
+			</div>
+		</div>
+	</div>
+</nav>
 
 <!-- Portfolio Sections -->
 <main style="background: linear-gradient(180deg, {colors.primary} 0%, #1a1a3e 50%, {colors.primary} 100%);">
@@ -198,6 +273,15 @@
 
 	.horizontal-scroll-container::-webkit-scrollbar-thumb:hover {
 		background: linear-gradient(90deg, #1DA898 0%, #F5848E 100%);
+	}
+
+	.scrollbar-hide {
+		-ms-overflow-style: none;
+		scrollbar-width: none;
+	}
+
+	.scrollbar-hide::-webkit-scrollbar {
+		display: none;
 	}
 
 	@media (max-width: 768px) {
