@@ -403,7 +403,7 @@
 			{
 				title: translate('services.interiorDesign.title'),
 				description: translate('services.interiorDesign.description'),
-				icon: '',
+				icon: '◼',
 				features: [
 					translate('services.interiorDesign.feature1'),
 					translate('services.interiorDesign.feature2'),
@@ -868,23 +868,23 @@
 
 	<div class="grid md:grid-cols-2 lg:grid-cols-4 gap-10 md:gap-8 lg:gap-12 relative z-10">
 		{#each services as service, i}
-			<div role="article" class="bg-white p-10 lg:p-12 hover-lift observe group border-2 border-blue-100 rounded-2xl hover:shadow-2xl transition-all duration-500" style="animation-delay: {i * 100}ms; border-color: rgb(243, 244, 246);" onmouseenter={(e) => { e.currentTarget.style.borderColor = colorPalette.accent; e.currentTarget.style.boxShadow = `0 25px 50px -12px rgba(var(--color-accent-rgb, 251, 113, 133), 0.2)`; }} onmouseleave={(e) => { e.currentTarget.style.borderColor = 'rgb(243, 244, 246)'; e.currentTarget.style.boxShadow = '0 20px 25px -5px rgba(0, 0, 0, 0.1)'; }}>
-				<div class="mb-8">
-					<div class="text-6xl font-light transition-all duration-500 transform group-hover:scale-110 group-hover:rotate-12" style="font-family: 'Playfair Display', serif; color: {colorPalette.primary}">
+			<div role="article" class="bg-white p-6 md:p-8 lg:p-6 xl:p-8 hover-lift observe group border-2 border-blue-100 rounded-2xl hover:shadow-2xl transition-all duration-500" style="animation-delay: {i * 100}ms; border-color: rgb(243, 244, 246);" onmouseenter={(e) => { e.currentTarget.style.borderColor = colorPalette.accent; e.currentTarget.style.boxShadow = `0 25px 50px -12px rgba(var(--color-accent-rgb, 251, 113, 133), 0.2)`; }} onmouseleave={(e) => { e.currentTarget.style.borderColor = 'rgb(243, 244, 246)'; e.currentTarget.style.boxShadow = '0 20px 25px -5px rgba(0, 0, 0, 0.1)'; }}>
+				<div class="mb-6">
+					<div class="text-5xl font-light transition-all duration-500 transform group-hover:scale-110 group-hover:rotate-12" style="font-family: 'Playfair Display', serif; color: {colorPalette.primary}">
 						{service.icon}
 					</div>
 				</div>
-				<h3 class="text-3xl lg:text-4xl font-black mb-4 text-[#27275b] transition-colors" style="font-family: 'Playfair Display', serif;" onmouseenter={(e) => e.currentTarget.style.color = colorPalette.primary} onmouseleave={(e) => e.currentTarget.style.color = '#27275b'}>
+				<h3 class="text-2xl lg:text-2xl xl:text-3xl font-black mb-3 text-[#27275b] transition-colors break-words" style="font-family: 'Playfair Display', serif;" onmouseenter={(e) => e.currentTarget.style.color = colorPalette.primary} onmouseleave={(e) => e.currentTarget.style.color = '#27275b'}>
 					{service.title}
 				</h3>
-				<p class="text-[#27275b]/80 mb-8 leading-relaxed">
+				<p class="text-[#27275b]/80 mb-6 leading-relaxed text-sm break-words">
 					{service.description}
 				</p>
-				<ul class="space-y-3">
+				<ul class="space-y-2">
 					{#each service.features as feature}
 						<li class="flex items-start text-[#27275b]/90">
-							<span class="w-1.5 h-1.5 bg-[#10B981] mt-2.5 mr-3 flex-shrink-0"></span>
-							<span class="text-sm">{feature}</span>
+							<span class="w-1.5 h-1.5 bg-[#10B981] mt-2 mr-2 flex-shrink-0"></span>
+							<span class="text-xs leading-snug break-words">{feature}</span>
 						</li>
 					{/each}
 				</ul>
