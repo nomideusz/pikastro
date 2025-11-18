@@ -113,30 +113,30 @@
 </svelte:head>
 
 <!-- Sticky Navigation -->
-<nav class="sticky top-0 z-50 bg-white shadow-lg border-b-4" style="border-bottom-color: {colors.accent};">
+<nav class="sticky top-0 z-50 shadow-lg border-b-4" style="background: linear-gradient(135deg, {colors.primary} 0%, #1a1a3e 100%); border-bottom-color: {colors.accent}; backdrop-filter: blur(12px);">
 	<div class="max-w-7xl mx-auto px-4 md:px-6 py-4">
 		<div class="flex items-center justify-between gap-2 overflow-x-auto scrollbar-hide">
-			<a href="/" class="text-xl font-black whitespace-nowrap mr-4" style="color: {colors.primary}; font-family: 'Playfair Display', serif;">
+			<a href="/" class="text-xl font-black whitespace-nowrap mr-4 text-white" style="font-family: 'Playfair Display', serif;">
 				Portfolio
 			</a>
 			<div class="flex gap-2 md:gap-3 overflow-x-auto scrollbar-hide">
 				{#each portfolioSections as section}
 					<button
 						onclick={() => scrollToSection(section.id)}
-						class="px-4 py-2 text-xs md:text-sm font-bold uppercase tracking-wider rounded-lg whitespace-nowrap transition-all duration-300 {activeSection === section.id ? 'text-white shadow-lg' : 'text-gray-600 hover:text-white'}"
+						class="px-4 py-2 text-xs md:text-sm font-bold uppercase tracking-wider rounded-lg whitespace-nowrap transition-all duration-300 {activeSection === section.id ? 'text-white shadow-lg' : 'text-gray-300 hover:text-white'}"
 						style={activeSection === section.id
-							? `background-color: ${colors.primary};`
-							: `background-color: transparent; border: 2px solid ${colors.primary}20;`}
+							? `background-color: ${colors.accent};`
+							: `background-color: transparent; border: 2px solid ${colors.accent}40;`}
 						onmouseenter={(e) => {
 							if (activeSection !== section.id) {
-								e.currentTarget.style.backgroundColor = colors.primary;
+								e.currentTarget.style.backgroundColor = `${colors.accent}80`;
 								e.currentTarget.style.color = 'white';
 							}
 						}}
 						onmouseleave={(e) => {
 							if (activeSection !== section.id) {
 								e.currentTarget.style.backgroundColor = 'transparent';
-								e.currentTarget.style.color = 'rgb(75, 85, 99)';
+								e.currentTarget.style.color = 'rgb(209, 213, 219)';
 							}
 						}}
 					>
@@ -149,22 +149,27 @@
 </nav>
 
 <!-- Portfolio Sections -->
-<main class="bg-white">
+<main style="background: linear-gradient(180deg, {colors.primary} 0%, #1a1a3e 50%, {colors.primary} 100%);">
 	{#each portfolioSections as section, index}
 		<section
 			id={section.id}
 			class="relative py-12 md:py-16 overflow-hidden"
-			style="background: {index % 2 === 0 ? '#ffffff' : '#f9fafb'};"
+			style="background: linear-gradient(135deg,
+				{index % 4 === 0 ? `${colors.primary}E6` :
+				 index % 4 === 1 ? `${colors.secondary}20` :
+				 index % 4 === 2 ? `${colors.accent}20` :
+				 `${colors.tertiary}20`} 0%,
+				transparent 100%);"
 		>
 			<!-- Section Header -->
 			<div class="max-w-7xl mx-auto px-4 md:px-6 mb-8">
 				<h2
-					class="text-4xl md:text-5xl lg:text-6xl font-black"
-					style="font-family: 'Playfair Display', serif; color: {colors.primary};"
+					class="text-4xl md:text-5xl lg:text-6xl font-black text-white"
+					style="font-family: 'Playfair Display', serif; text-shadow: 0 0 30px rgba(243, 42, 97, 0.5);"
 				>
 					{section.title}
 				</h2>
-				<div class="h-1 w-24 mt-4 rounded-full" style="background-color: {colors.accent};"></div>
+				<div class="h-1 w-24 mt-4 rounded-full" style="background: linear-gradient(90deg, {colors.accent} 0%, {colors.secondary} 100%);"></div>
 			</div>
 
 			<!-- Horizontal Scrolling Carousel -->
@@ -177,8 +182,8 @@
 					<div class="flex gap-6 md:gap-8">
 						{#each section.images as image, imgIndex}
 							<div
-								class="flex-shrink-0 group relative rounded-2xl overflow-hidden shadow-xl hover:shadow-2xl transition-all duration-500 hover:scale-105"
-								style="width: 400px; height: 500px;"
+								class="flex-shrink-0 group relative rounded-2xl overflow-hidden shadow-xl hover:shadow-2xl transition-all duration-500 hover:scale-105 border-2"
+								style="width: 400px; height: 500px; border-color: {colors.accent}40; box-shadow: 0 10px 30px rgba(243, 42, 97, 0.3);"
 							>
 								<img
 									src={image}
@@ -186,12 +191,13 @@
 									class="w-full h-full object-cover"
 								/>
 								<div
-									class="absolute inset-0 bg-gradient-to-t from-black/60 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300"
+									class="absolute inset-0 opacity-0 group-hover:opacity-100 transition-opacity duration-300"
+									style="background: linear-gradient(180deg, transparent 0%, {colors.primary}E6 100%);"
 								></div>
 								<div
 									class="absolute bottom-0 left-0 right-0 p-6 text-white transform translate-y-full group-hover:translate-y-0 transition-transform duration-300"
 								>
-									<p class="text-lg font-bold">{section.title} #{imgIndex + 1}</p>
+									<p class="text-lg font-bold" style="color: {colors.accent};">{section.title} #{imgIndex + 1}</p>
 								</div>
 							</div>
 						{/each}
@@ -200,14 +206,14 @@
 			{:else}
 				<div class="max-w-7xl mx-auto px-4 md:px-6">
 					<div
-						class="border-4 border-dashed rounded-2xl p-12 text-center"
-						style="border-color: {colors.primary}40;"
+						class="border-4 border-dashed rounded-2xl p-12 text-center backdrop-blur-sm"
+						style="border-color: {colors.accent}60; background: rgba(39, 39, 91, 0.3);"
 					>
-						<p class="text-xl text-gray-500 mb-4">
+						<p class="text-xl text-white mb-4 font-bold">
 							Sekcja w przygotowaniu
 						</p>
-						<p class="text-sm text-gray-400">
-							Dodaj obrazy do folderu <code class="bg-gray-100 px-2 py-1 rounded">src/lib/assets/images/{section.id}/</code>
+						<p class="text-sm" style="color: {colors.tertiary};">
+							Dodaj obrazy do folderu <code class="px-2 py-1 rounded" style="background-color: {colors.primary}; color: {colors.accent};">src/lib/assets/images/{section.id}/</code>
 						</p>
 					</div>
 				</div>
@@ -215,14 +221,18 @@
 
 			<!-- Decorative elements -->
 			<div
-				class="absolute -top-10 -right-10 w-40 h-40 rounded-full filter blur-3xl opacity-20 pointer-events-none"
+				class="absolute -top-10 -right-10 w-40 h-40 rounded-full filter blur-3xl opacity-30 pointer-events-none animate-pulse-slow"
 				style="background-color: {index % 3 === 0 ? colors.accent : index % 3 === 1 ? colors.secondary : colors.tertiary};"
+			></div>
+			<div
+				class="absolute -bottom-10 -left-10 w-60 h-60 rounded-full filter blur-3xl opacity-20 pointer-events-none animate-pulse-slow"
+				style="background-color: {index % 3 === 0 ? colors.secondary : index % 3 === 1 ? colors.tertiary : colors.accent}; animation-delay: 1.5s;"
 			></div>
 		</section>
 
 		<!-- Section Separator -->
 		{#if index < portfolioSections.length - 1}
-			<div class="w-full h-1" style="background: linear-gradient(to right, {colors.accent}, {colors.secondary}, {colors.tertiary});"></div>
+			<div class="w-full h-0.5" style="background: linear-gradient(90deg, {colors.accent} 0%, {colors.secondary} 50%, {colors.tertiary} 100%); opacity: 0.5;"></div>
 		{/if}
 	{/each}
 </main>
@@ -230,8 +240,8 @@
 <!-- Back to Top Button -->
 <button
 	onclick={() => window.scrollTo({ top: 0, behavior: 'smooth' })}
-	class="fixed bottom-8 right-8 w-14 h-14 rounded-full shadow-2xl flex items-center justify-center text-white transition-all duration-300 hover:scale-110 z-40"
-	style="background-color: {colors.primary};"
+	class="fixed bottom-8 right-8 w-14 h-14 rounded-full flex items-center justify-center text-white transition-all duration-300 hover:scale-110 z-40 border-2"
+	style="background: linear-gradient(135deg, {colors.accent} 0%, {colors.primary} 100%); border-color: {colors.secondary}; box-shadow: 0 10px 30px rgba(243, 42, 97, 0.5);"
 	aria-label="Powrót na górę"
 >
 	<svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
@@ -245,25 +255,26 @@
 		overflow-y: hidden;
 		-webkit-overflow-scrolling: touch;
 		scrollbar-width: thin;
-		scrollbar-color: #F32A61 #f3f4f6;
+		scrollbar-color: #F32A61 rgba(39, 39, 91, 0.5);
 	}
 
 	.horizontal-scroll-container::-webkit-scrollbar {
-		height: 8px;
+		height: 10px;
 	}
 
 	.horizontal-scroll-container::-webkit-scrollbar-track {
-		background: #f3f4f6;
-		border-radius: 4px;
+		background: rgba(39, 39, 91, 0.5);
+		border-radius: 5px;
 	}
 
 	.horizontal-scroll-container::-webkit-scrollbar-thumb {
-		background: #F32A61;
-		border-radius: 4px;
+		background: linear-gradient(90deg, #F32A61 0%, #1DA898 100%);
+		border-radius: 5px;
+		border: 2px solid rgba(39, 39, 91, 0.5);
 	}
 
 	.horizontal-scroll-container::-webkit-scrollbar-thumb:hover {
-		background: #27275B;
+		background: linear-gradient(90deg, #1DA898 0%, #F5848E 100%);
 	}
 
 	.scrollbar-hide {
@@ -280,5 +291,20 @@
 			padding-left: 1rem !important;
 			padding-right: 1rem !important;
 		}
+	}
+
+	@keyframes pulse-slow {
+		0%, 100% {
+			opacity: 0.3;
+			transform: scale(1);
+		}
+		50% {
+			opacity: 0.5;
+			transform: scale(1.05);
+		}
+	}
+
+	.animate-pulse-slow {
+		animation: pulse-slow 4s cubic-bezier(0.4, 0, 0.6, 1) infinite;
 	}
 </style>
