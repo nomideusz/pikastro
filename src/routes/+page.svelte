@@ -403,7 +403,7 @@
 			{
 				title: translate('services.interiorDesign.title'),
 				description: translate('services.interiorDesign.description'),
-				icon: '',
+				icon: '■',
 				features: [
 					translate('services.interiorDesign.feature1'),
 					translate('services.interiorDesign.feature2'),
