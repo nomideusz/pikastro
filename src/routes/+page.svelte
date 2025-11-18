@@ -700,7 +700,7 @@
 				<span style="color: #FF6B9D;">{translate('home.video.headingAccent')}</span>
 				<span class="flex items-center gap-3 md:gap-4">
 					<span style="color: #ffffff;">{translate('home.video.headingEnd').split(' ')[0]}</span>
-					<img src="/logo.png" alt="Pikastro" class="h-12 md:h-20 lg:h-24 w-auto inline-block" style="filter: drop-shadow(0 0 20px rgba(0, 0, 0, 0.8)) drop-shadow(0 0 40px rgba(0, 0, 0, 0.6));" />
+					<img src="/logo.png" alt="Pikastro" class="h-12 md:h-20 lg:h-24 w-auto inline-block" style="filter: drop-shadow(0 0 20px rgba(0, 0, 0, 0.8)) drop-shadow(0 0 40px rgba(0, 0, 0, 0.6)); padding: 17px 0 0 5px;" />
 				</span>
 			</h2>
 			<p class="text-lg md:text-2xl text-gray-200 font-light" style="text-shadow: 0 0 15px rgba(0, 0, 0, 0.8), 0 0 30px rgba(0, 0, 0, 0.6);">
