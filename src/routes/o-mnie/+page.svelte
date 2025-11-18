@@ -145,7 +145,7 @@
 			<div>
 				<h2 class="text-3xl md:text-4xl lg:text-5xl font-black mb-6 leading-tight" style="font-family: 'Playfair Display', serif;">
 					{translate('about.experience.heading')}<br>
-					<span style="color: #00D4FF;">{translate('about.experience.headingAccent')}</span>
+					<span style="color: {colorPalette.secondary};">{translate('about.experience.headingAccent')}</span>
 				</h2>
 				<div class="space-y-6 text-gray-600 leading-relaxed text-lg">
 					<p>
