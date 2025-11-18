@@ -104,8 +104,8 @@
 			alt="O mnie background"
 			class="w-full h-full object-cover"
 		/>
-		<!-- Primary color overlay for text readability -->
-		<div class="absolute inset-0" style="background-color: {colorPalette.primary}80;"></div>
+		<!-- Dark overlay for text readability -->
+		<div class="absolute inset-0 bg-gradient-to-r from-black/60 via-black/40 to-transparent"></div>
 	</div>
 
 	<div class="section relative z-10">
