@@ -692,9 +692,6 @@
 		<source src={vid02} type="video/mp4" />
 	</video>
 
-	<!-- Overlay for better text readability -->
-	<div class="absolute inset-0 bg-black/40"></div>
-
 	<!-- Centered Text Content -->
 	<div class="relative z-10 flex items-center justify-center h-full">
 		<div class="text-center text-white px-6 max-w-4xl">
