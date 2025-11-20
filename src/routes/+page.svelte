@@ -651,20 +651,20 @@
 		<div class="max-w-5xl">
 			<div class="mb-8 md:mb-8 observe animate-fade-in-up">
 				<p class="font-bold tracking-[0.15em] md:tracking-[0.3em] uppercase text-sm mb-6 animate-pulse-slow neon-text" style="color: {colorPalette.accent}">
-					<EditableText key="home.hero.label" fallback="Projektowanie Wnętrz z AI" />
+					<EditableText key="home.hero.label" />
 				</p>
 				<h1 class="text-5xl md:text-7xl lg:text-8xl font-black mb-6 leading-[1.05]" style="font-family: 'Playfair Display', serif;">
 					<span class="block">
-						<EditableText key="home.hero.heading1" tag="span" fallback="Przestrzenie, które inspirują" />
+						<EditableText key="home.hero.heading1" tag="span" />
 					</span>
-					<span class="block">{#if currentLocale === 'en'}Time for <span style="color: #F5848E">color!</span>{:else}Czas na <span style="color: #F5848E"><EditableText key="home.hero.heading2Accent" tag="span" fallback="kolor!" /></span>{/if}</span>
+					<span class="block">{#if currentLocale === 'en'}Time for <span style="color: #F5848E">color!</span>{:else}Czas na <span style="color: #F5848E"><EditableText key="home.hero.heading2Accent" tag="span" /></span>{/if}</span>
 				</h1>
 				<p class="text-2xl md:text-3xl font-bold mb-4 leading-tight" style="color: #27275B;">
-					<EditableText key="home.hero.tagline" fallback="Bo życie to nie beże i szarości" />
+					<EditableText key="home.hero.tagline" />
 				</p>
 			</div>
 				<p class="text-lg md:text-2xl mb-8 max-w-3xl leading-relaxed text-gray-100 observe animate-fade-in-up" style="animation-delay: 0.2s; font-weight: 400;">
-				<EditableText key="home.hero.description" fallback="Przekształcamy Twoje wnętrza w kolorowe oazy pełne życia i energii. Specjalizujemy się w aranżacjach mieszkań dla młodych ludzi (20-30 lat), którzy nie boją się odważnych wyborów i szukają czegoś więcej niż kolejne beżowo-szare pudełko." />
+				<EditableText key="home.hero.description" />
 			</p>
 
 			<!-- Value Props -->

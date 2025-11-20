@@ -157,7 +157,7 @@
 			<textarea
 				bind:value={editValue}
 				onkeydown={handleKeydown}
-				class="w-full px-3 py-2 border-2 border-purple-500 rounded-lg focus:outline-none focus:ring-2 focus:ring-purple-600 bg-white shadow-lg"
+				class="w-full px-3 py-2 border-2 border-purple-500 rounded-lg focus:outline-none focus:ring-2 focus:ring-purple-600 bg-white text-gray-900 shadow-lg"
 				rows="4"
 			></textarea>
 		{:else}
@@ -165,7 +165,7 @@
 				type="text"
 				bind:value={editValue}
 				onkeydown={handleKeydown}
-				class="w-full px-3 py-2 border-2 border-purple-500 rounded-lg focus:outline-none focus:ring-2 focus:ring-purple-600 bg-white shadow-lg"
+				class="w-full px-3 py-2 border-2 border-purple-500 rounded-lg focus:outline-none focus:ring-2 focus:ring-purple-600 bg-white text-gray-900 shadow-lg"
 			/>
 		{/if}
 
