@@ -739,9 +739,9 @@
 
 		<!-- Description moved here -->
 		<div class="text-[#27275b]/80 mb-8 space-y-6 max-w-4xl mx-auto">
-			{#each beforeAfterProjects[activeBeforeAfter].description.split('\n\n') as paragraph}
-				<p class="leading-relaxed text-lg md:text-xl">{@html processMarkdown(paragraph.replace(/\n/g, ' '))}</p>
-			{/each}
+			<div class="leading-relaxed text-lg md:text-xl">
+				<EditableText key="home.beforeAfter.description" multiline={true} />
+			</div>
 		</div>
 	</div>
 

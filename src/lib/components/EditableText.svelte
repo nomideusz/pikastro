@@ -36,6 +36,17 @@
 	let element: HTMLElement | null = $state(null);
 	let currentLocale = $state(getLocale());
 	let translationsVer = $state(0);
+	let textareaElement: HTMLTextAreaElement | null = $state(null);
+
+	// Auto-calculate rows for textarea based on content length
+	let textareaRows = $derived.by(() => {
+		if (!multiline) return 4;
+		const length = editValue.length;
+		if (length < 100) return 4;
+		if (length < 300) return 8;
+		if (length < 600) return 12;
+		return 16;
+	});
 
 	// Subscribe to locale and translations version changes to trigger re-rendering
 	$effect(() => {
@@ -59,6 +70,19 @@
 		// If translation not found, t() returns the key itself, so use fallback instead
 		return (translated === contentKey) ? fallback : translated;
 	});
+
+	/**
+	 * Process markdown for display (supports bold text and line breaks)
+	 */
+	function processMarkdown(text: string): string {
+		return text
+			// Bold: **text** → <strong>text</strong>
+			.replace(/\*\*(.+?)\*\*/g, '<strong>$1</strong>')
+			// Line breaks: preserve \n\n as paragraph breaks
+			.split('\n\n')
+			.map(para => `<p class="mb-4">${para.replace(/\n/g, '<br>')}</p>`)
+			.join('');
+	}
 
 	// Determine if this element is editable (only in edit mode and authenticated)
 	let isEditable = $derived(editModeStore.isEditMode && editModeStore.isAuthenticated);
@@ -155,10 +179,12 @@
 	<div bind:this={element} class="editable-text-editing relative {className}">
 		{#if multiline}
 			<textarea
+				bind:this={textareaElement}
 				bind:value={editValue}
 				onkeydown={handleKeydown}
-				class="w-full px-3 py-2 border-2 border-purple-500 rounded-lg focus:outline-none focus:ring-2 focus:ring-purple-600 bg-white text-gray-900 shadow-lg"
-				rows="4"
+				class="w-full px-4 py-3 border-2 border-purple-500 rounded-lg focus:outline-none focus:ring-2 focus:ring-purple-600 bg-white text-gray-900 shadow-lg text-base font-normal"
+				rows={textareaRows}
+				style="min-height: 200px; resize: vertical;"
 			></textarea>
 		{:else}
 			<input
@@ -198,17 +224,40 @@
 	</div>
 {:else}
 	<!-- Display Mode -->
-	<svelte:element
-		this={tag}
-		bind:this={element}
-		class="{className} {isEditable ? 'editable-text cursor-pointer hover:bg-purple-50 hover:outline hover:outline-2 hover:outline-purple-300 transition-all rounded px-1' : ''}"
-		onclick={isEditable ? startEdit : undefined}
-		role={isEditable ? 'button' : undefined}
-		tabindex={isEditable ? 0 : undefined}
-		{...restProps}
-	>
-		{currentText}
-	</svelte:element>
+	{#if multiline}
+		{#if isEditable}
+			<div
+				bind:this={element}
+				class="{className} editable-text cursor-pointer hover:bg-purple-50 hover:outline hover:outline-2 hover:outline-purple-300 transition-all rounded px-1"
+				onclick={startEdit}
+				role="button"
+				tabindex="0"
+				{...restProps}
+			>
+				{@html processMarkdown(currentText)}
+			</div>
+		{:else}
+			<div
+				bind:this={element}
+				class={className}
+				{...restProps}
+			>
+				{@html processMarkdown(currentText)}
+			</div>
+		{/if}
+	{:else}
+		<svelte:element
+			this={tag}
+			bind:this={element}
+			class="{className} {isEditable ? 'editable-text cursor-pointer hover:bg-purple-50 hover:outline hover:outline-2 hover:outline-purple-300 transition-all rounded px-1' : ''}"
+			onclick={isEditable ? startEdit : undefined}
+			role={isEditable ? 'button' : undefined}
+			tabindex={isEditable ? 0 : undefined}
+			{...restProps}
+		>
+			{currentText}
+		</svelte:element>
+	{/if}
 {/if}
 
 <style>
@@ -232,7 +281,8 @@
 	}
 
 	.editable-text-editing {
-		display: inline-block;
-		min-width: 200px;
+		display: block;
+		min-width: 300px;
+		max-width: 100%;
 	}
 </style>
