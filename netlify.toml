@@ -4,4 +4,5 @@
 
 [build.environment]
   NODE_VERSION = "20"
-  PNPM_FLAGS = "--no-frozen-lockfile"
+  # Force npm instead of pnpm to avoid platform-specific dependency issues
+  NPM_CONFIG_PACKAGE_LOCK_ONLY = "false"
