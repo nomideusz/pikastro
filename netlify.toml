@@ -1,8 +1,6 @@
 [build]
-  command = "npm run build"
+  command = "npm ci --ignore-scripts && npm run build"
   publish = ".svelte-kit/netlify"
 
 [build.environment]
   NODE_VERSION = "20"
-  # Force npm instead of pnpm to avoid platform-specific dependency issues
-  NPM_CONFIG_PACKAGE_LOCK_ONLY = "false"

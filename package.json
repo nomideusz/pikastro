@@ -7,7 +7,7 @@
 		"dev": "vite dev",
 		"build": "vite build",
 		"preview": "vite preview",
-		"prepare": "svelte-kit sync || echo ''",
+		"prepare": "svelte-kit sync 2>/dev/null || true",
 		"check": "svelte-kit sync && svelte-check --tsconfig ./tsconfig.json",
 		"check:watch": "svelte-kit sync && svelte-check --tsconfig ./tsconfig.json --watch",
 		"seed": "node --loader ts-node/esm scripts/seed-database.ts",
@@ -34,7 +34,6 @@
 		"vite": "^7.1.10"
 	},
 	"dependencies": {
-		"@rollup/rollup-win32-x64-msvc": "^4.53.3",
 		"bcryptjs": "^3.0.3",
 		"dotenv": "^17.2.3",
 		"jsonwebtoken": "^9.0.2",
