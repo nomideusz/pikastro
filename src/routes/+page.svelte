@@ -915,29 +915,141 @@
 	</div>
 
 	<div class="grid md:grid-cols-2 gap-10 md:gap-8 lg:gap-12 relative z-10">
-		{#each services as service, i}
-			<div role="article" class="bg-white p-10 lg:p-12 hover-lift observe group border-2 border-blue-100 rounded-2xl hover:shadow-2xl transition-all duration-500" style="animation-delay: {i * 100}ms; border-color: rgb(243, 244, 246);" onmouseenter={(e) => { e.currentTarget.style.borderColor = colorPalette.accent; e.currentTarget.style.boxShadow = `0 25px 50px -12px rgba(var(--color-accent-rgb, 251, 113, 133), 0.2)`; }} onmouseleave={(e) => { e.currentTarget.style.borderColor = 'rgb(243, 244, 246)'; e.currentTarget.style.boxShadow = '0 20px 25px -5px rgba(0, 0, 0, 0.1)'; }}>
-				<div class="mb-8">
-					<div class="text-6xl font-light transition-all duration-500 transform group-hover:scale-110 group-hover:rotate-12" style="font-family: 'Playfair Display', serif; color: {colorPalette.primary}">
-						{service.icon}
-					</div>
+		<!-- Interior Design Service -->
+		<div role="article" class="bg-white p-10 lg:p-12 hover-lift observe group border-2 border-blue-100 rounded-2xl hover:shadow-2xl transition-all duration-500" style="animation-delay: 0ms; border-color: rgb(243, 244, 246);" onmouseenter={(e) => { e.currentTarget.style.borderColor = colorPalette.accent; e.currentTarget.style.boxShadow = `0 25px 50px -12px rgba(var(--color-accent-rgb, 251, 113, 133), 0.2)`; }} onmouseleave={(e) => { e.currentTarget.style.borderColor = 'rgb(243, 244, 246)'; e.currentTarget.style.boxShadow = '0 20px 25px -5px rgba(0, 0, 0, 0.1)'; }}>
+			<div class="mb-8">
+				<div class="text-6xl font-light transition-all duration-500 transform group-hover:scale-110 group-hover:rotate-12" style="font-family: 'Playfair Display', serif; color: {colorPalette.primary}">
+					■
 				</div>
-				<h3 class="text-3xl lg:text-4xl font-black mb-4 text-[#27275b] transition-colors" style="font-family: 'Playfair Display', serif;" onmouseenter={(e) => e.currentTarget.style.color = colorPalette.primary} onmouseleave={(e) => e.currentTarget.style.color = '#27275b'}>
-					{service.title}
-				</h3>
-				<p class="text-[#27275b]/80 mb-8 leading-relaxed">
-					{service.description}
-				</p>
-				<ul class="space-y-3">
-					{#each service.features as feature}
-						<li class="flex items-start text-[#27275b]/90">
-							<span class="w-1.5 h-1.5 bg-[#10B981] mt-2.5 mr-3 flex-shrink-0"></span>
-							<span class="text-sm">{feature}</span>
-						</li>
-					{/each}
-				</ul>
 			</div>
-		{/each}
+			<h3 class="text-3xl lg:text-4xl font-black mb-4 text-[#27275b] transition-colors" style="font-family: 'Playfair Display', serif;" onmouseenter={(e) => e.currentTarget.style.color = colorPalette.primary} onmouseleave={(e) => e.currentTarget.style.color = "#27275b"}>
+				<EditableText key="services.interiorDesign.title" tag="span" />
+			</h3>
+			<p class="text-[#27275b]/80 mb-8 leading-relaxed">
+				<EditableText key="services.interiorDesign.description" />
+			</p>
+			<ul class="space-y-3">
+				<li class="flex items-start text-[#27275b]/90">
+					<span class="w-1.5 h-1.5 bg-[#10B981] mt-2.5 mr-3 flex-shrink-0"></span>
+					<span class="text-sm"><EditableText key="services.interiorDesign.feature1" tag="span" /></span>
+				</li>
+				<li class="flex items-start text-[#27275b]/90">
+					<span class="w-1.5 h-1.5 bg-[#10B981] mt-2.5 mr-3 flex-shrink-0"></span>
+					<span class="text-sm"><EditableText key="services.interiorDesign.feature2" tag="span" /></span>
+				</li>
+				<li class="flex items-start text-[#27275b]/90">
+					<span class="w-1.5 h-1.5 bg-[#10B981] mt-2.5 mr-3 flex-shrink-0"></span>
+					<span class="text-sm"><EditableText key="services.interiorDesign.feature3" tag="span" /></span>
+				</li>
+				<li class="flex items-start text-[#27275b]/90">
+					<span class="w-1.5 h-1.5 bg-[#10B981] mt-2.5 mr-3 flex-shrink-0"></span>
+					<span class="text-sm"><EditableText key="services.interiorDesign.feature4" tag="span" /></span>
+				</li>
+				<li class="flex items-start text-[#27275b]/90">
+					<span class="w-1.5 h-1.5 bg-[#10B981] mt-2.5 mr-3 flex-shrink-0"></span>
+					<span class="text-sm"><EditableText key="services.interiorDesign.feature5" tag="span" /></span>
+				</li>
+			</ul>
+		</div>
+
+		<!-- Graphic Design Service -->
+		<div role="article" class="bg-white p-10 lg:p-12 hover-lift observe group border-2 border-blue-100 rounded-2xl hover:shadow-2xl transition-all duration-500" style="animation-delay: 100ms; border-color: rgb(243, 244, 246);" onmouseenter={(e) => { e.currentTarget.style.borderColor = colorPalette.accent; e.currentTarget.style.boxShadow = `0 25px 50px -12px rgba(var(--color-accent-rgb, 251, 113, 133), 0.2)`; }} onmouseleave={(e) => { e.currentTarget.style.borderColor = 'rgb(243, 244, 246)'; e.currentTarget.style.boxShadow = '0 20px 25px -5px rgba(0, 0, 0, 0.1)'; }}>
+			<div class="mb-8">
+				<div class="text-6xl font-light transition-all duration-500 transform group-hover:scale-110 group-hover:rotate-12" style="font-family: 'Playfair Display', serif; color: {colorPalette.primary}">
+					○
+				</div>
+			</div>
+			<h3 class="text-3xl lg:text-4xl font-black mb-4 text-[#27275b] transition-colors" style="font-family: 'Playfair Display', serif;" onmouseenter={(e) => e.currentTarget.style.color = colorPalette.primary} onmouseleave={(e) => e.currentTarget.style.color = "#27275b"}>
+				<EditableText key="services.graphicDesign.title" tag="span" />
+			</h3>
+			<p class="text-[#27275b]/80 mb-8 leading-relaxed">
+				<EditableText key="services.graphicDesign.description" />
+			</p>
+			<ul class="space-y-3">
+				<li class="flex items-start text-[#27275b]/90">
+					<span class="w-1.5 h-1.5 bg-[#10B981] mt-2.5 mr-3 flex-shrink-0"></span>
+					<span class="text-sm"><EditableText key="services.graphicDesign.feature1" tag="span" /></span>
+				</li>
+				<li class="flex items-start text-[#27275b]/90">
+					<span class="w-1.5 h-1.5 bg-[#10B981] mt-2.5 mr-3 flex-shrink-0"></span>
+					<span class="text-sm"><EditableText key="services.graphicDesign.feature2" tag="span" /></span>
+				</li>
+				<li class="flex items-start text-[#27275b]/90">
+					<span class="w-1.5 h-1.5 bg-[#10B981] mt-2.5 mr-3 flex-shrink-0"></span>
+					<span class="text-sm"><EditableText key="services.graphicDesign.feature3" tag="span" /></span>
+				</li>
+				<li class="flex items-start text-[#27275b]/90">
+					<span class="w-1.5 h-1.5 bg-[#10B981] mt-2.5 mr-3 flex-shrink-0"></span>
+					<span class="text-sm"><EditableText key="services.graphicDesign.feature4" tag="span" /></span>
+				</li>
+			</ul>
+		</div>
+
+		<!-- AI Technology Service -->
+		<div role="article" class="bg-white p-10 lg:p-12 hover-lift observe group border-2 border-blue-100 rounded-2xl hover:shadow-2xl transition-all duration-500" style="animation-delay: 200ms; border-color: rgb(243, 244, 246);" onmouseenter={(e) => { e.currentTarget.style.borderColor = colorPalette.accent; e.currentTarget.style.boxShadow = `0 25px 50px -12px rgba(var(--color-accent-rgb, 251, 113, 133), 0.2)`; }} onmouseleave={(e) => { e.currentTarget.style.borderColor = 'rgb(243, 244, 246)'; e.currentTarget.style.boxShadow = '0 20px 25px -5px rgba(0, 0, 0, 0.1)'; }}>
+			<div class="mb-8">
+				<div class="text-6xl font-light transition-all duration-500 transform group-hover:scale-110 group-hover:rotate-12" style="font-family: 'Playfair Display', serif; color: {colorPalette.primary}">
+					△
+				</div>
+			</div>
+			<h3 class="text-3xl lg:text-4xl font-black mb-4 text-[#27275b] transition-colors" style="font-family: 'Playfair Display', serif;" onmouseenter={(e) => e.currentTarget.style.color = colorPalette.primary} onmouseleave={(e) => e.currentTarget.style.color = "#27275b"}>
+				<EditableText key="services.aiTechnology.title" tag="span" />
+			</h3>
+			<p class="text-[#27275b]/80 mb-8 leading-relaxed">
+				<EditableText key="services.aiTechnology.description" />
+			</p>
+			<ul class="space-y-3">
+				<li class="flex items-start text-[#27275b]/90">
+					<span class="w-1.5 h-1.5 bg-[#10B981] mt-2.5 mr-3 flex-shrink-0"></span>
+					<span class="text-sm"><EditableText key="services.aiTechnology.feature1" tag="span" /></span>
+				</li>
+				<li class="flex items-start text-[#27275b]/90">
+					<span class="w-1.5 h-1.5 bg-[#10B981] mt-2.5 mr-3 flex-shrink-0"></span>
+					<span class="text-sm"><EditableText key="services.aiTechnology.feature2" tag="span" /></span>
+				</li>
+				<li class="flex items-start text-[#27275b]/90">
+					<span class="w-1.5 h-1.5 bg-[#10B981] mt-2.5 mr-3 flex-shrink-0"></span>
+					<span class="text-sm"><EditableText key="services.aiTechnology.feature3" tag="span" /></span>
+				</li>
+				<li class="flex items-start text-[#27275b]/90">
+					<span class="w-1.5 h-1.5 bg-[#10B981] mt-2.5 mr-3 flex-shrink-0"></span>
+					<span class="text-sm"><EditableText key="services.aiTechnology.feature4" tag="span" /></span>
+				</li>
+			</ul>
+		</div>
+
+		<!-- Developers/Real Estate Service -->
+		<div role="article" class="bg-white p-10 lg:p-12 hover-lift observe group border-2 border-blue-100 rounded-2xl hover:shadow-2xl transition-all duration-500" style="animation-delay: 300ms; border-color: rgb(243, 244, 246);" onmouseenter={(e) => { e.currentTarget.style.borderColor = colorPalette.accent; e.currentTarget.style.boxShadow = `0 25px 50px -12px rgba(var(--color-accent-rgb, 251, 113, 133), 0.2)`; }} onmouseleave={(e) => { e.currentTarget.style.borderColor = 'rgb(243, 244, 246)'; e.currentTarget.style.boxShadow = '0 20px 25px -5px rgba(0, 0, 0, 0.1)'; }}>
+			<div class="mb-8">
+				<div class="text-6xl font-light transition-all duration-500 transform group-hover:scale-110 group-hover:rotate-12" style="font-family: 'Playfair Display', serif; color: {colorPalette.primary}">
+					◆
+				</div>
+			</div>
+			<h3 class="text-3xl lg:text-4xl font-black mb-4 text-[#27275b] transition-colors" style="font-family: 'Playfair Display', serif;" onmouseenter={(e) => e.currentTarget.style.color = colorPalette.primary} onmouseleave={(e) => e.currentTarget.style.color = "#27275b"}>
+				<EditableText key="services.developersRealEstate.title" tag="span" />
+			</h3>
+			<p class="text-[#27275b]/80 mb-8 leading-relaxed">
+				<EditableText key="services.developersRealEstate.description" />
+			</p>
+			<ul class="space-y-3">
+				<li class="flex items-start text-[#27275b]/90">
+					<span class="w-1.5 h-1.5 bg-[#10B981] mt-2.5 mr-3 flex-shrink-0"></span>
+					<span class="text-sm"><EditableText key="services.developersRealEstate.feature1" tag="span" /></span>
+				</li>
+				<li class="flex items-start text-[#27275b]/90">
+					<span class="w-1.5 h-1.5 bg-[#10B981] mt-2.5 mr-3 flex-shrink-0"></span>
+					<span class="text-sm"><EditableText key="services.developersRealEstate.feature2" tag="span" /></span>
+				</li>
+				<li class="flex items-start text-[#27275b]/90">
+					<span class="w-1.5 h-1.5 bg-[#10B981] mt-2.5 mr-3 flex-shrink-0"></span>
+					<span class="text-sm"><EditableText key="services.developersRealEstate.feature3" tag="span" /></span>
+				</li>
+				<li class="flex items-start text-[#27275b]/90">
+					<span class="w-1.5 h-1.5 bg-[#10B981] mt-2.5 mr-3 flex-shrink-0"></span>
+					<span class="text-sm"><EditableText key="services.developersRealEstate.feature4" tag="span" /></span>
+				</li>
+			</ul>
+		</div>
 	</div>
 </section>
 
@@ -959,44 +1071,122 @@
 		</div>
 
 		<div class="grid md:grid-cols-2 lg:grid-cols-4 gap-8 relative z-10 items-stretch">
-		{#each processSteps as step, i}
-			<div class="observe group h-full flex flex-col" style="animation-delay: {i * 150}ms">
-				<div role="article" class="bg-white/10 backdrop-blur-sm p-8 rounded-2xl border-2 border-white/20 transition-all duration-300 hover:shadow-2xl hover:scale-105 flex flex-col flex-grow" onmouseenter={(e) => { e.currentTarget.style.borderColor = colorPalette.accent; e.currentTarget.style.boxShadow = `0 25px 50px -12px rgba(var(--color-accent-rgb, 251, 113, 133), 0.3)`; }} onmouseleave={(e) => { e.currentTarget.style.borderColor = 'rgba(255, 255, 255, 0.2)'; e.currentTarget.style.boxShadow = '0 20px 25px -5px rgba(0, 0, 0, 0.1)'; }}>
-					<!-- Step Number -->
-					<div class="mb-6">
-						<div class="text-8xl font-black opacity-20 leading-none text-white" style="font-family: 'Playfair Display', serif;">
-							{step.number}
-						</div>
-						<div class="text-5xl -mt-8 mb-4">{step.icon}</div>
+		<!-- Step 1: Consultation -->
+		<div class="observe group h-full flex flex-col" style="animation-delay: 0ms">
+			<div role="article" class="bg-white/10 backdrop-blur-sm p-8 rounded-2xl border-2 border-white/20 transition-all duration-300 hover:shadow-2xl hover:scale-105 flex flex-col flex-grow" onmouseenter={(e) => { e.currentTarget.style.borderColor = colorPalette.accent; e.currentTarget.style.boxShadow = `0 25px 50px -12px rgba(var(--color-accent-rgb, 251, 113, 133), 0.3)`; }} onmouseleave={(e) => { e.currentTarget.style.borderColor = 'rgba(255, 255, 255, 0.2)'; e.currentTarget.style.boxShadow = '0 20px 25px -5px rgba(0, 0, 0, 0.1)'; }}>
+				<div class="mb-6">
+					<div class="text-8xl font-black opacity-20 leading-none text-white" style="font-family: 'Playfair Display', serif;">
+						01
 					</div>
-
-					<!-- Step Content -->
-					<h3 class="text-2xl font-black mb-3 text-white transition-colors" style="font-family: 'Playfair Display', serif;" onmouseenter={(e) => e.currentTarget.style.color = colorPalette.accent} onmouseleave={(e) => e.currentTarget.style.color = 'white'}>
-						{step.title}
-					</h3>
-					<p class="text-gray-200 mb-4 leading-relaxed">
-						{step.description}
-					</p>
-					<div class="flex items-center gap-2 font-bold text-sm text-white">
-						<svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-							<path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z"></path>
-						</svg>
-						{step.duration}
-					</div>
+					<div class="text-5xl -mt-8 mb-4">🎤</div>
 				</div>
-
-				<!-- Connecting Arrow (except for last item) -->
-				{#if i < processSteps.length - 1}
-					<div class="hidden lg:block absolute top-1/2 -right-4 z-20 transform -translate-y-1/2">
-						<div class="flex items-center justify-center w-12 h-12 bg-white/5 backdrop-blur-sm border border-white/10 rounded-full shadow-sm transition-all duration-300 hover:bg-white/10 hover:border-white/20 hover:shadow-md" style="border-color: {colorPalette.accent}30;">
-							<svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24" style="color: {colorPalette.accent};">
-								<path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"/>
-							</svg>
-						</div>
-					</div>
-				{/if}
+				<h3 class="text-2xl font-black mb-3 text-white transition-colors" style="font-family: 'Playfair Display', serif;" onmouseenter={(e) => e.currentTarget.style.color = colorPalette.accent} onmouseleave={(e) => e.currentTarget.style.color = "white"}>
+					<EditableText key="process.consultation.title" tag="span" />
+				</h3>
+				<p class="text-gray-200 mb-4 leading-relaxed">
+					<EditableText key="process.consultation.description" />
+				</p>
+				<div class="flex items-center gap-2 font-bold text-sm text-white">
+					<svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+						<path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z"></path>
+					</svg>
+					<EditableText key="process.consultation.duration" tag="span" />
+				</div>
 			</div>
-		{/each}
+			<div class="hidden lg:block absolute top-1/2 -right-4 z-20 transform -translate-y-1/2">
+				<div class="flex items-center justify-center w-12 h-12 bg-white/5 backdrop-blur-sm border border-white/10 rounded-full shadow-sm transition-all duration-300 hover:bg-white/10 hover:border-white/20 hover:shadow-md" style="border-color: {colorPalette.accent}30;">
+					<svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24" style="color: {colorPalette.accent};">
+						<path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"/>
+					</svg>
+				</div>
+			</div>
+		</div>
+
+		<!-- Step 2: Prototyping -->
+		<div class="observe group h-full flex flex-col" style="animation-delay: 150ms">
+			<div role="article" class="bg-white/10 backdrop-blur-sm p-8 rounded-2xl border-2 border-white/20 transition-all duration-300 hover:shadow-2xl hover:scale-105 flex flex-col flex-grow" onmouseenter={(e) => { e.currentTarget.style.borderColor = colorPalette.accent; e.currentTarget.style.boxShadow = `0 25px 50px -12px rgba(var(--color-accent-rgb, 251, 113, 133), 0.3)`; }} onmouseleave={(e) => { e.currentTarget.style.borderColor = 'rgba(255, 255, 255, 0.2)'; e.currentTarget.style.boxShadow = '0 20px 25px -5px rgba(0, 0, 0, 0.1)'; }}>
+				<div class="mb-6">
+					<div class="text-8xl font-black opacity-20 leading-none text-white" style="font-family: 'Playfair Display', serif;">
+						02
+					</div>
+					<div class="text-5xl -mt-8 mb-4">🎨</div>
+				</div>
+				<h3 class="text-2xl font-black mb-3 text-white transition-colors" style="font-family: 'Playfair Display', serif;" onmouseenter={(e) => e.currentTarget.style.color = colorPalette.accent} onmouseleave={(e) => e.currentTarget.style.color = "white"}>
+					<EditableText key="process.prototyping.title" tag="span" />
+				</h3>
+				<p class="text-gray-200 mb-4 leading-relaxed">
+					<EditableText key="process.prototyping.description" />
+				</p>
+				<div class="flex items-center gap-2 font-bold text-sm text-white">
+					<svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+						<path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z"></path>
+					</svg>
+					<EditableText key="process.prototyping.duration" tag="span" />
+				</div>
+			</div>
+			<div class="hidden lg:block absolute top-1/2 -right-4 z-20 transform -translate-y-1/2">
+				<div class="flex items-center justify-center w-12 h-12 bg-white/5 backdrop-blur-sm border border-white/10 rounded-full shadow-sm transition-all duration-300 hover:bg-white/10 hover:border-white/20 hover:shadow-md" style="border-color: {colorPalette.accent}30;">
+					<svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24" style="color: {colorPalette.accent};">
+						<path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"/>
+					</svg>
+				</div>
+			</div>
+		</div>
+
+		<!-- Step 3: Refinement -->
+		<div class="observe group h-full flex flex-col" style="animation-delay: 300ms">
+			<div role="article" class="bg-white/10 backdrop-blur-sm p-8 rounded-2xl border-2 border-white/20 transition-all duration-300 hover:shadow-2xl hover:scale-105 flex flex-col flex-grow" onmouseenter={(e) => { e.currentTarget.style.borderColor = colorPalette.accent; e.currentTarget.style.boxShadow = `0 25px 50px -12px rgba(var(--color-accent-rgb, 251, 113, 133), 0.3)`; }} onmouseleave={(e) => { e.currentTarget.style.borderColor = 'rgba(255, 255, 255, 0.2)'; e.currentTarget.style.boxShadow = '0 20px 25px -5px rgba(0, 0, 0, 0.1)'; }}>
+				<div class="mb-6">
+					<div class="text-8xl font-black opacity-20 leading-none text-white" style="font-family: 'Playfair Display', serif;">
+						03
+					</div>
+					<div class="text-5xl -mt-8 mb-4">✨</div>
+				</div>
+				<h3 class="text-2xl font-black mb-3 text-white transition-colors" style="font-family: 'Playfair Display', serif;" onmouseenter={(e) => e.currentTarget.style.color = colorPalette.accent} onmouseleave={(e) => e.currentTarget.style.color = "white"}>
+					<EditableText key="process.refinement.title" tag="span" />
+				</h3>
+				<p class="text-gray-200 mb-4 leading-relaxed">
+					<EditableText key="process.refinement.description" />
+				</p>
+				<div class="flex items-center gap-2 font-bold text-sm text-white">
+					<svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+						<path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z"></path>
+					</svg>
+					<EditableText key="process.refinement.duration" tag="span" />
+				</div>
+			</div>
+			<div class="hidden lg:block absolute top-1/2 -right-4 z-20 transform -translate-y-1/2">
+				<div class="flex items-center justify-center w-12 h-12 bg-white/5 backdrop-blur-sm border border-white/10 rounded-full shadow-sm transition-all duration-300 hover:bg-white/10 hover:border-white/20 hover:shadow-md" style="border-color: {colorPalette.accent}30;">
+					<svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24" style="color: {colorPalette.accent};">
+						<path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"/>
+					</svg>
+				</div>
+			</div>
+		</div>
+
+		<!-- Step 4: Documentation -->
+		<div class="observe group h-full flex flex-col" style="animation-delay: 450ms">
+			<div role="article" class="bg-white/10 backdrop-blur-sm p-8 rounded-2xl border-2 border-white/20 transition-all duration-300 hover:shadow-2xl hover:scale-105 flex flex-col flex-grow" onmouseenter={(e) => { e.currentTarget.style.borderColor = colorPalette.accent; e.currentTarget.style.boxShadow = `0 25px 50px -12px rgba(var(--color-accent-rgb, 251, 113, 133), 0.3)`; }} onmouseleave={(e) => { e.currentTarget.style.borderColor = 'rgba(255, 255, 255, 0.2)'; e.currentTarget.style.boxShadow = '0 20px 25px -5px rgba(0, 0, 0, 0.1)'; }}>
+				<div class="mb-6">
+					<div class="text-8xl font-black opacity-20 leading-none text-white" style="font-family: 'Playfair Display', serif;">
+						04
+					</div>
+					<div class="text-5xl -mt-8 mb-4">📐</div>
+				</div>
+				<h3 class="text-2xl font-black mb-3 text-white transition-colors" style="font-family: 'Playfair Display', serif;" onmouseenter={(e) => e.currentTarget.style.color = colorPalette.accent} onmouseleave={(e) => e.currentTarget.style.color = "white"}>
+					<EditableText key="process.documentation.title" tag="span" />
+				</h3>
+				<p class="text-gray-200 mb-4 leading-relaxed">
+					<EditableText key="process.documentation.description" />
+				</p>
+				<div class="flex items-center gap-2 font-bold text-sm text-white">
+					<svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+						<path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z"></path>
+					</svg>
+					<EditableText key="process.documentation.duration" tag="span" />
+				</div>
+			</div>
+		</div>
 		</div>
 
 		<!-- Total Time Banner -->
@@ -1171,7 +1361,7 @@
 							{getProjectCategoryText(project.category)}
 						</span>
 					</div>
-					<h3 class="text-2xl font-black text-[#27275b] transition-colors" style="font-family: 'Playfair Display', serif;" onmouseenter={(e) => e.currentTarget.style.color = colorPalette.primary} onmouseleave={(e) => e.currentTarget.style.color = '#27275b'}>
+					<h3 class="text-2xl font-black text-[#27275b] transition-colors" style="font-family: 'Playfair Display', serif;" onmouseenter={(e) => e.currentTarget.style.color = colorPalette.primary} onmouseleave={(e) => e.currentTarget.style.color = "#27275b"}>
 						{project.title}
 					</h3>
 					<p class="text-[#27275b]/80 leading-relaxed">
