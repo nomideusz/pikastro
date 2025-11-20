@@ -18,7 +18,10 @@
 	import vid02 from '$lib/assets/videos/vid02.mp4';
 
 	// Import i18n
-	import { t, localeStore, getLocale } from '$lib/i18n';
+	import { t, localeStore, getLocale, translationsVersion } from '$lib/i18n';
+
+	// Import CMS components
+	import EditableText from '$lib/components/EditableText.svelte';
 
 	// Import color extraction utilities
 	import { extractColorsFromImage, assignColorRoles, type ColorPalette } from '$lib/utils/colorExtractor';
@@ -35,18 +38,26 @@
 
 	// Reactive translation function
 	let currentLocale = $state(getLocale());
+	let translationsVer = $state(0);
 
-	// Subscribe to locale changes
+	// Subscribe to locale and translations version changes
 	$effect(() => {
-		const unsubscribe = localeStore.subscribe(() => {
+		const unsubscribeLocale = localeStore.subscribe(() => {
 			currentLocale = getLocale();
 		});
-		return unsubscribe;
+		const unsubscribeVersion = translationsVersion.subscribe((v) => {
+			translationsVer = v;
+		});
+		return () => {
+			unsubscribeLocale();
+			unsubscribeVersion();
+		};
 	});
 
-	// Translate function that reacts to locale changes
+	// Translate function that reacts to locale and translations version changes
 	function translate(key: string): string {
 		void currentLocale; // Access to create reactive dependency
+		void translationsVer; // Also depend on translations version
 		return t(key);
 	}
 
@@ -639,17 +650,21 @@
 	<div class="relative z-20 px-4 md:px-6 lg:px-12 py-8 md:py-24 max-w-7xl mx-auto">
 		<div class="max-w-5xl">
 			<div class="mb-8 md:mb-8 observe animate-fade-in-up">
-				<p class="font-bold tracking-[0.15em] md:tracking-[0.3em] uppercase text-sm mb-6 animate-pulse-slow neon-text" style="color: {colorPalette.accent}">{translate('home.hero.label')}</p>
+				<p class="font-bold tracking-[0.15em] md:tracking-[0.3em] uppercase text-sm mb-6 animate-pulse-slow neon-text" style="color: {colorPalette.accent}">
+					<EditableText key="home.hero.label" fallback="Projektowanie Wnętrz z AI" />
+				</p>
 				<h1 class="text-5xl md:text-7xl lg:text-8xl font-black mb-6 leading-[1.05]" style="font-family: 'Playfair Display', serif;">
-					<span class="block">{translate('home.hero.heading1')}</span>
-					<span class="block">{#if currentLocale === 'en'}Time for <span style="color: #F5848E">color!</span>{:else}Czas na <span style="color: #F5848E">{translate('home.hero.heading2Accent')}</span>{/if}</span>
+					<span class="block">
+						<EditableText key="home.hero.heading1" tag="span" fallback="Przestrzenie, które inspirują" />
+					</span>
+					<span class="block">{#if currentLocale === 'en'}Time for <span style="color: #F5848E">color!</span>{:else}Czas na <span style="color: #F5848E"><EditableText key="home.hero.heading2Accent" tag="span" fallback="kolor!" /></span>{/if}</span>
 				</h1>
 				<p class="text-2xl md:text-3xl font-bold mb-4 leading-tight" style="color: #27275B;">
-					{translate('home.hero.tagline')}
+					<EditableText key="home.hero.tagline" fallback="Bo życie to nie beże i szarości" />
 				</p>
 			</div>
 				<p class="text-lg md:text-2xl mb-8 max-w-3xl leading-relaxed text-gray-100 observe animate-fade-in-up" style="animation-delay: 0.2s; font-weight: 400;">
-				{translate('home.hero.description')}
+				<EditableText key="home.hero.description" fallback="Przekształcamy Twoje wnętrza w kolorowe oazy pełne życia i energii. Specjalizujemy się w aranżacjach mieszkań dla młodych ludzi (20-30 lat), którzy nie boją się odważnych wyborów i szukają czegoś więcej niż kolejne beżowo-szare pudełko." />
 			</p>
 
 			<!-- Value Props -->

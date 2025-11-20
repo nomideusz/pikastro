@@ -13,12 +13,13 @@ CREATE TABLE IF NOT EXISTS admin_users (
 -- Content table (stores all editable text by translation key)
 CREATE TABLE IF NOT EXISTS content (
   id SERIAL PRIMARY KEY,
-  key VARCHAR(255) UNIQUE NOT NULL,  -- e.g., "home.hero.heading1"
+  key VARCHAR(255) NOT NULL,  -- e.g., "home.hero.heading1"
   value TEXT NOT NULL,
   locale VARCHAR(10) DEFAULT 'pl',   -- language code
   category VARCHAR(100),              -- e.g., "home", "portfolio", "services"
   created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
-  updated_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP
+  updated_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
+  UNIQUE(key, locale)  -- Key must be unique per locale
 );
 
 -- Content history (audit log of all changes)

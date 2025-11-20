@@ -1,6 +1,6 @@
 <script lang="ts">
-	import { isEditMode, isAuthenticated } from '$lib/stores/editMode.svelte';
-	import { t, getLocale } from '$lib/i18n';
+	import { editModeStore } from '$lib/stores/editMode.svelte';
+	import { t, getLocale, localeStore, translationsVersion } from '$lib/i18n';
 
 	interface Props {
 		/** Translation key (e.g., "home.hero.heading1") */
@@ -34,12 +34,34 @@
 	let isSaving = $state(false);
 	let saveError = $state('');
 	let element: HTMLElement | null = $state(null);
+	let currentLocale = $state(getLocale());
+	let translationsVer = $state(0);
 
-	// Get current text from translation
-	let currentText = $derived(t(contentKey) || fallback);
+	// Subscribe to locale and translations version changes to trigger re-rendering
+	$effect(() => {
+		const unsubscribeLocale = localeStore.subscribe(() => {
+			currentLocale = getLocale();
+		});
+		const unsubscribeVersion = translationsVersion.subscribe((v) => {
+			translationsVer = v;
+		});
+		return () => {
+			unsubscribeLocale();
+			unsubscribeVersion();
+		};
+	});
+
+	// Get current text from translation (reactive to locale and version changes)
+	let currentText = $derived.by(() => {
+		void currentLocale; // Create dependency on locale
+		void translationsVer; // Create dependency on translations version
+		const translated = t(contentKey);
+		// If translation not found, t() returns the key itself, so use fallback instead
+		return (translated === contentKey) ? fallback : translated;
+	});
 
 	// Determine if this element is editable (only in edit mode and authenticated)
-	let isEditable = $derived(isEditMode && isAuthenticated);
+	let isEditable = $derived(editModeStore.isEditMode && editModeStore.isAuthenticated);
 
 	/**
 	 * Start editing
