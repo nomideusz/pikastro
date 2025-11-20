@@ -5,6 +5,7 @@
 	import colorsImg from '$lib/assets/images/colors.jpeg';
 	import { t, localeStore, getLocale } from '$lib/i18n';
 	import LanguageToggle from '$lib/components/LanguageToggle.svelte';
+	import EditModeToggle from '$lib/components/EditModeToggle.svelte';
 
 	// Color palette extracted from colors image - Eclectic Maximalism
 	let colorPalette = $state<ColorPalette>({
@@ -165,6 +166,9 @@
 </nav>
 
 {@render children()}
+
+<!-- Edit Mode Toggle (only visible when authenticated) -->
+<EditModeToggle />
 
 <!-- Footer -->
 <footer class="gradient-bg text-white py-16 px-6 md:px-12 relative overflow-hidden">

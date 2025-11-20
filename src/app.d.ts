@@ -9,6 +9,8 @@ declare global {
 		// interface Platform {}
 		interface PrivateEnv {
 			RESEND_API_KEY: string;
+			DATABASE_URL: string;
+			JWT_SECRET: string;
 		}
 	}
 }
