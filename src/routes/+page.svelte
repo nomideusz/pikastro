@@ -390,6 +390,8 @@
 		void currentLocale;
 		return [
 			{
+				titleKey: 'portfolio.scandinavianApartment.title',
+				descriptionKey: 'portfolio.scandinavianApartment.description',
 				title: translate('portfolio.scandinavianApartment.title'),
 				description: translate('portfolio.scandinavianApartment.description'),
 				technologies: ['AutoCAD', 'SketchUp', 'V-Ray', '3ds Max'],
@@ -398,6 +400,8 @@
 				year: '2024'
 			},
 			{
+				titleKey: 'portfolio.studioIdentity.title',
+				descriptionKey: 'portfolio.studioIdentity.description',
 				title: translate('portfolio.studioIdentity.title'),
 				description: translate('portfolio.studioIdentity.description'),
 				technologies: ['Adobe Creative Suite', 'Brand Strategy', 'Print Design'],
@@ -406,6 +410,8 @@
 				year: '2024'
 			},
 			{
+				titleKey: 'portfolio.coworkingSpace.title',
+				descriptionKey: 'portfolio.coworkingSpace.description',
 				title: translate('portfolio.coworkingSpace.title'),
 				description: translate('portfolio.coworkingSpace.description'),
 				technologies: ['3D Modeling', 'Space Planning', 'Smart Solutions'],
@@ -414,6 +420,8 @@
 				year: '2023'
 			},
 			{
+				titleKey: 'portfolio.modernHouse.title',
+				descriptionKey: 'portfolio.modernHouse.description',
 				title: translate('portfolio.modernHouse.title'),
 				description: translate('portfolio.modernHouse.description'),
 				technologies: ['ArchiCAD', 'Lumion', 'Sustainable Design'],
@@ -422,6 +430,8 @@
 				year: '2023'
 			},
 			{
+				titleKey: 'portfolio.cafeConcept.title',
+				descriptionKey: 'portfolio.cafeConcept.description',
 				title: translate('portfolio.cafeConcept.title'),
 				description: translate('portfolio.cafeConcept.description'),
 				technologies: ['Interior Design', 'Branding', 'Visual Identity'],
@@ -430,6 +440,8 @@
 				year: '2024'
 			},
 			{
+				titleKey: 'portfolio.industrialLoft.title',
+				descriptionKey: 'portfolio.industrialLoft.description',
 				title: translate('portfolio.industrialLoft.title'),
 				description: translate('portfolio.industrialLoft.description'),
 				technologies: ['Adaptive Reuse', 'Industrial Design', 'BIM'],
@@ -657,7 +669,7 @@
 					<span class="block">
 						<EditableText key="home.hero.heading1" tag="span" />
 					</span>
-					<span class="block">{#if currentLocale === 'en'}Time for <span style="color: #F5848E">color!</span>{:else}Czas na <span style="color: #F5848E"><EditableText key="home.hero.heading2Accent" tag="span" /></span>{/if}</span>
+					<span class="block">{#if currentLocale === 'en'}<EditableText key="home.hero.heading2" tag="span" />{:else}<EditableText key="home.hero.heading2" tag="span" /><span style="color: #F5848E"><EditableText key="home.hero.heading2Accent" tag="span" /></span>{/if}</span>
 				</h1>
 				<p class="text-2xl md:text-3xl font-bold mb-4 leading-tight" style="color: #27275B;">
 					<EditableText key="home.hero.tagline" />
@@ -829,11 +841,11 @@
 				>
 					<img
 						src={project.after}
-						alt={project.title}
+						alt=<EditableText key={project.titleKey} tag="span" />
 						class="w-full h-full object-cover"
 					/>
 					<div class="absolute inset-0 transition-all duration-300 flex items-center justify-center" style="background-color: {colorPalette.primary}; opacity: 0.4;" role="presentation" onmouseenter={(e) => e.currentTarget.style.opacity = '0.2'} onmouseleave={(e) => e.currentTarget.style.opacity = '0.4'}>
-						<p class="text-sm font-bold text-white px-4 text-center">{project.title}</p>
+						<p class="text-sm font-bold text-white px-4 text-center"><EditableText key={project.titleKey} tag="span" /></p>
 					</div>
 				</button>
 			{/each}
@@ -1255,28 +1267,28 @@
 				<div class="border-l-4 pl-6" style="border-color: {colorPalette.accent}">
 					<p class="font-bold text-xl mb-2 neon-text" style="color: {colorPalette.accent}"><EditableText key="home.faq.question1.q" tag="span" /></p>
 					<p class="text-gray-200 leading-relaxed">
-						{@html translate('home.faq.question1.a')}
+						<EditableText key="home.faq.question1.a" multiline={true} />
 					</p>
 				</div>
 
 				<div class="border-l-4 pl-6" style="border-color: {colorPalette.secondary}">
 					<p class="font-bold text-xl mb-2 text-white"><EditableText key="home.faq.question2.q" tag="span" /></p>
 					<p class="text-gray-200 leading-relaxed">
-						{@html translate('home.faq.question2.a')}
+						<EditableText key="home.faq.question2.a" multiline={true} />
 					</p>
 				</div>
 
 				<div class="border-l-4 pl-6" style="border-color: {colorPalette.accent}">
 					<p class="font-bold text-xl mb-2 neon-text" style="color: {colorPalette.accent}"><EditableText key="home.faq.question3.q" tag="span" /></p>
 					<p class="text-gray-200 leading-relaxed">
-						{@html translate('home.faq.question3.a')}
+						<EditableText key="home.faq.question3.a" multiline={true} />
 					</p>
 				</div>
 
 				<div class="border-l-4 pl-6" style="border-color: {colorPalette.secondary}">
 					<p class="font-bold text-xl mb-2 text-white"><EditableText key="home.faq.question4.q" tag="span" /></p>
 					<p class="text-gray-200 leading-relaxed">
-						{@html translate('home.faq.question4.a')}
+						<EditableText key="home.faq.question4.a" multiline={true} />
 					</p>
 				</div>
 			</div>
@@ -1362,10 +1374,10 @@
 						</span>
 					</div>
 					<h3 class="text-2xl font-black text-[#27275b] transition-colors" style="font-family: 'Playfair Display', serif;" onmouseenter={(e) => e.currentTarget.style.color = colorPalette.primary} onmouseleave={(e) => e.currentTarget.style.color = "#27275b"}>
-						{project.title}
+						<EditableText key={project.titleKey} tag="span" />
 					</h3>
 					<p class="text-[#27275b]/80 leading-relaxed">
-						{project.description}
+						<EditableText key={project.descriptionKey} tag="span" />
 					</p>
 					<div class="flex flex-wrap gap-2 pt-2">
 						{#each project.technologies.slice(0, 3) as tech}
@@ -1405,12 +1417,11 @@
 			</svg>
 		</div>
 		<blockquote class="text-2xl md:text-3xl lg:text-4xl font-light mb-8 leading-relaxed" style="font-family: 'Playfair Display', serif;">
-			Współpraca z Pikastro to była <span class="text-[#FB7185] font-bold neon-text">czysta przyjemność</span>. Profesjonalizm, kreatywność i perfekcyjne
-			wyczucie naszych potrzeb zaowocowały przestrzenią, która <span class="text-[#10B981] font-bold">przekroczyła nasze oczekiwania</span>.
+			<EditableText key="home.testimonial.quote" multiline={true} />
 		</blockquote>
 		<div class="text-[#FB7185] font-bold">
-			<p class="mb-1 text-lg">Anna Kowalska</p>
-			<p class="text-sm text-gray-300">CEO, TechStart Solutions</p>
+			<p class="mb-1 text-lg"><EditableText key="home.testimonial.author" tag="span" /></p>
+			<p class="text-sm text-gray-300"><EditableText key="home.testimonial.authorTitle" tag="span" /></p>
 		</div>
 	</div>
 </section>
@@ -1426,7 +1437,7 @@
 		<div class="observe">
 			<p class="font-black tracking-[0.15em] md:tracking-[0.3em] uppercase text-sm mb-4" style="color: {colorPalette.primary}"><EditableText key="home.contact.label" tag="span" /></p>
 			<h2 class="text-4xl md:text-5xl lg:text-6xl font-black mb-8 leading-tight" style="font-family: 'Playfair Display', serif;">
-				<span style="color: {colorPalette.secondary};">Rozpocznijmy</span> <span class="italic" style="color: {colorPalette.primary};">współpracę</span>
+				<span style="color: {colorPalette.secondary};"><EditableText key="home.contact.heading" tag="span" /></span> <span class="italic" style="color: {colorPalette.primary};"><EditableText key="home.contact.headingAccent" tag="span" /></span>
 			</h2>
 			<p class="text-lg md:text-xl text-[#27275b]/80 mb-12 leading-relaxed">
 				<EditableText key="home.contact.description" tag="span" />
@@ -1440,9 +1451,9 @@
 						</svg>
 					</div>
 					<div>
-						<p class="text-sm uppercase tracking-wider text-[#27275b]/70 mb-1">Email</p>
+						<p class="text-sm uppercase tracking-wider text-[#27275b]/70 mb-1"><EditableText key="home.contact.emailLabel" tag="span" /></p>
 						<a href="mailto:kontakt@pikastro.eu" class="text-lg text-[#27275b] hover:text-[#FB7185] transition-colors">
-							kontakt@pikastro.eu
+							<EditableText key="home.contact.email" tag="span" />
 						</a>
 					</div>
 				</div>
@@ -1455,7 +1466,7 @@
 						</svg>
 					</div>
 					<div>
-						<p class="text-sm uppercase tracking-wider text-[#27275b]/70 mb-1">Lokalizacja</p>
+						<p class="text-sm uppercase tracking-wider text-[#27275b]/70 mb-1"><EditableText key="home.contact.locationLabel" tag="span" /></p>
 						<p class="text-lg text-[#27275b]"><EditableText key="home.contact.location" tag="span" /></p>
 						<p class="text-sm text-[#27275b]/70"><EditableText key="home.contact.locationDesc" tag="span" /></p>
 					</div>
@@ -1468,7 +1479,7 @@
 						</svg>
 					</div>
 					<div>
-						<p class="text-sm uppercase tracking-wider text-[#27275b]/70 mb-1">Dostępność</p>
+						<p class="text-sm uppercase tracking-wider text-[#27275b]/70 mb-1"><EditableText key="home.contact.availabilityLabel" tag="span" /></p>
 						<p class="text-lg text-[#27275b]"><EditableText key="home.contact.availability" tag="span" /></p>
 					</div>
 				</div>

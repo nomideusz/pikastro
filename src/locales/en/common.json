@@ -121,9 +121,22 @@
         "a": "For those buying their first apartment and want space for remote work, smart home, colorful arrangements - instead of beige-gray interiors straight from the showroom."
       }
     },
+    "testimonial": {
+      "quote": "Working with Pikastro was a **pure pleasure**. Professionalism, creativity, and perfect understanding of our needs resulted in a space that **exceeded our expectations**.",
+      "author": "Anna Kowalska",
+      "authorTitle": "CEO, TechStart Solutions"
+    },
     "contact": {
+      "label": "Contact",
+      "heading": "Let's start",
+      "headingAccent": "collaboration",
+      "description": "Write to me and let's talk about your project. I'll respond within 24 hours.",
+      "emailLabel": "Email",
+      "email": "kontakt@pikastro.eu",
+      "locationLabel": "Location",
       "location": "Kraków, Poland",
       "locationDesc": "Remote collaboration across Poland",
+      "availabilityLabel": "Availability",
       "availability": "Mon - Fri, 9:00 AM - 5:00 PM"
     },
     "video": {

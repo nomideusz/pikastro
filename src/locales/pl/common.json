@@ -121,13 +121,22 @@
         "a": "Dla którzy kupują pierwsze mieszkanie i chcą przestrzeń do pracy zdalnej, smart home, kolorowe aranżacje - zamiast beżowo-szarych wnętrz rodem z showroomu."
       }
     },
+    "testimonial": {
+      "quote": "Współpraca z Pikastro to była **czysta przyjemność**. Profesjonalizm, kreatywność i perfekcyjne wyczucie naszych potrzeb zaowocowały przestrzenią, która **przekroczyła nasze oczekiwania**.",
+      "author": "Anna Kowalska",
+      "authorTitle": "CEO, TechStart Solutions"
+    },
     "contact": {
       "label": "Kontakt",
-      "heading": "Gotowy na",
-      "headingAccent": "kolorową metamorfozę?",
+      "heading": "Rozpocznijmy",
+      "headingAccent": "współpracę",
       "description": "Napisz do mnie i porozmawiajmy o Twoim projekcie. Odpowiem w ciągu 24 godzin.",
+      "emailLabel": "Email",
+      "email": "kontakt@pikastro.eu",
+      "locationLabel": "Lokalizacja",
       "location": "Kraków, Polska",
       "locationDesc": "Współpraca zdalna w całej Polsce",
+      "availabilityLabel": "Dostępność",
       "availability": "Pn - Pt, 9:00 - 17:00"
     },
     "video": {

@@ -3,6 +3,7 @@
 
 	// Import i18n
 	import { t, localeStore, getLocale } from '$lib/i18n';
+	import EditableText from '$lib/components/EditableText.svelte';
 
 	// Import color extraction utilities
 	import { extractColorsFromImage, assignColorRoles, type ColorPalette } from '$lib/utils/colorExtractor';
@@ -111,16 +112,16 @@
 	<div class="section relative z-10">
 		<div class="max-w-4xl">
 			<div class="mb-8 observe">
-				<p class="font-bold tracking-[0.3em] uppercase text-sm mb-6 animate-pulse-slow neon-text" style="color: {colorPalette.accent}">{translate('about.hero.label')}</p>
+				<p class="font-bold tracking-[0.3em] uppercase text-sm mb-6 animate-pulse-slow neon-text" style="color: {colorPalette.accent}"><EditableText key="about.hero.label" tag="span" /></p>
 				<h1 class="text-4xl md:text-6xl lg:text-7xl font-black mb-6 leading-tight" style="font-family: 'Playfair Display', serif;">
-					{translate('about.hero.name')}<br>
-					<span style="color: #FF6B9D;">{translate('about.hero.surname')}</span>
+					<EditableText key="about.hero.name" tag="span" /><br>
+					<span style="color: #FF6B9D;"><EditableText key="about.hero.surname" tag="span" /></span>
 				</h1>
 				<p class="text-xl md:text-2xl font-bold mb-4 text-white/90 leading-tight">
-					{translate('about.hero.title')}
+					<EditableText key="about.hero.title" tag="span" />
 				</p>
 				<p class="text-lg md:text-xl mb-8 max-w-2xl leading-relaxed text-gray-100">
-					{translate('about.hero.description')}
+					<EditableText key="about.hero.description" tag="span" />
 				</p>
 			</div>
 		</div>
@@ -144,18 +145,18 @@
 		<div class="space-y-8 observe">
 			<div>
 				<h2 class="text-3xl md:text-4xl lg:text-5xl font-black mb-6 leading-tight" style="font-family: 'Playfair Display', serif;">
-					{translate('about.experience.heading')}<br>
-					<span style="color: #00D4FF;">{translate('about.experience.headingAccent')}</span>
+					<EditableText key="about.experience.heading" tag="span" /><br>
+					<span style="color: #00D4FF;"><EditableText key="about.experience.headingAccent" tag="span" /></span>
 				</h2>
 				<div class="space-y-6 text-gray-600 leading-relaxed text-lg">
 					<p>
-						{translate('about.experience.paragraph1')}
+						<EditableText key="about.experience.paragraph1" tag="span" />
 					</p>
 					<p>
-						{translate('about.experience.paragraph2')}
+						<EditableText key="about.experience.paragraph2" tag="span" />
 					</p>
 					<p>
-						<strong style="color: {colorPalette.primary}">{translate('about.experience.paragraph3')}</strong> {translate('about.experience.skills')}
+						<strong style="color: {colorPalette.primary}"><EditableText key="about.experience.paragraph3" tag="span" /></strong> <EditableText key="about.experience.skills" tag="span" />
 					</p>
 				</div>
 			</div>
@@ -166,47 +167,47 @@
 <!-- Skills & Expertise -->
 <section class="section bg-blue-50 border-t-4" style="border-top-color: {colorPalette.accent};">
 	<div class="text-center mb-16 observe">
-		<p class="font-black tracking-[0.3em] uppercase text-sm mb-4" style="color: {colorPalette.primary}">{translate('about.skills.label')}</p>
+		<p class="font-black tracking-[0.3em] uppercase text-sm mb-4" style="color: {colorPalette.primary}"><EditableText key="about.skills.label" tag="span" /></p>
 		<h2 class="text-3xl md:text-4xl lg:text-5xl font-black mb-6 leading-tight" style="font-family: 'Playfair Display', serif;">
-			{translate('about.skills.heading')}<br>
-			<span style="color: {colorPalette.primary}">{translate('about.skills.headingAccent')}</span>
+			<EditableText key="about.skills.heading" tag="span" /><br>
+			<span style="color: {colorPalette.primary}"><EditableText key="about.skills.headingAccent" tag="span" /></span>
 		</h2>
 	</div>
 
 	<div class="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
 		<div class="bg-white p-8 rounded-2xl border-2 border-blue-100 hover:border-blue-300 transition-all duration-300 observe group">
-			<h3 class="text-xl font-black mb-3" style="font-family: 'Playfair Display', serif; color: {colorPalette.primary}">{translate('about.skills.architecture.title')}</h3>
+			<h3 class="text-xl font-black mb-3" style="font-family: 'Playfair Display', serif; color: {colorPalette.primary}"><EditableText key="about.skills.architecture.title" tag="span" /></h3>
 			<p class="text-gray-600 leading-relaxed">
-				{translate('about.skills.architecture.description')}
+				<EditableText key="about.skills.architecture.description" tag="span" />
 			</p>
 			<ul class="mt-4 space-y-2 text-sm text-gray-600">
-				<li>• {translate('about.skills.architecture.skill1')}</li>
-				<li>• {translate('about.skills.architecture.skill2')}</li>
-				<li>• {translate('about.skills.architecture.skill3')}</li>
+				<li>• <EditableText key="about.skills.architecture.skill1" tag="span" /></li>
+				<li>• <EditableText key="about.skills.architecture.skill2" tag="span" /></li>
+				<li>• <EditableText key="about.skills.architecture.skill3" tag="span" /></li>
 			</ul>
 		</div>
 
 		<div class="bg-white p-8 rounded-2xl border-2 border-blue-100 hover:border-blue-300 transition-all duration-300 observe group">
-			<h3 class="text-xl font-black mb-3" style="font-family: 'Playfair Display', serif; color: {colorPalette.primary}">{translate('about.skills.graphics.title')}</h3>
+			<h3 class="text-xl font-black mb-3" style="font-family: 'Playfair Display', serif; color: {colorPalette.primary}"><EditableText key="about.skills.graphics.title" tag="span" /></h3>
 			<p class="text-gray-600 leading-relaxed">
-				{translate('about.skills.graphics.description')}
+				<EditableText key="about.skills.graphics.description" tag="span" />
 			</p>
 			<ul class="mt-4 space-y-2 text-sm text-gray-600">
-				<li>• {translate('about.skills.graphics.skill1')}</li>
-				<li>• {translate('about.skills.graphics.skill2')}</li>
-				<li>• {translate('about.skills.graphics.skill3')}</li>
+				<li>• <EditableText key="about.skills.graphics.skill1" tag="span" /></li>
+				<li>• <EditableText key="about.skills.graphics.skill2" tag="span" /></li>
+				<li>• <EditableText key="about.skills.graphics.skill3" tag="span" /></li>
 			</ul>
 		</div>
 
 		<div class="bg-white p-8 rounded-2xl border-2 border-blue-100 hover:border-blue-300 transition-all duration-300 observe group">
-			<h3 class="text-xl font-black mb-3" style="font-family: 'Playfair Display', serif; color: {colorPalette.primary}">{translate('about.skills.ai.title')}</h3>
+			<h3 class="text-xl font-black mb-3" style="font-family: 'Playfair Display', serif; color: {colorPalette.primary}"><EditableText key="about.skills.ai.title" tag="span" /></h3>
 			<p class="text-gray-600 leading-relaxed">
-				{translate('about.skills.ai.description')}
+				<EditableText key="about.skills.ai.description" tag="span" />
 			</p>
 			<ul class="mt-4 space-y-2 text-sm text-gray-600">
-				<li>• {translate('about.skills.ai.skill1')}</li>
-				<li>• {translate('about.skills.ai.skill2')}</li>
-				<li>• {translate('about.skills.ai.skill3')}</li>
+				<li>• <EditableText key="about.skills.ai.skill1" tag="span" /></li>
+				<li>• <EditableText key="about.skills.ai.skill2" tag="span" /></li>
+				<li>• <EditableText key="about.skills.ai.skill3" tag="span" /></li>
 			</ul>
 		</div>
 	</div>
@@ -219,44 +220,44 @@
 
 	<div class="max-w-4xl mx-auto text-center observe relative z-10">
 		<h2 class="text-3xl md:text-4xl lg:text-5xl font-black mb-8 leading-tight" style="font-family: 'Playfair Display', serif;">
-			<span style="color: #FF6B9D;">{translate('about.philosophy.heading')}</span> {translate('about.philosophy.headingAccent')}
+			<span style="color: #FF6B9D;"><EditableText key="about.philosophy.heading" tag="span" /></span> <EditableText key="about.philosophy.headingAccent" tag="span" />
 		</h2>
 
 		<div class="grid md:grid-cols-2 gap-8 mb-12">
 			<div class="bg-white/10 backdrop-blur-sm p-8 rounded-2xl border border-white/20">
-				<h3 class="text-xl font-black mb-3" style="font-family: 'Playfair Display', serif;">{translate('about.philosophy.functionality.title')}</h3>
+				<h3 class="text-xl font-black mb-3" style="font-family: 'Playfair Display', serif;"><EditableText key="about.philosophy.functionality.title" tag="span" /></h3>
 				<p class="text-gray-200 leading-relaxed">
-					{translate('about.philosophy.functionality.description')}
+					<EditableText key="about.philosophy.functionality.description" tag="span" />
 				</p>
 			</div>
 
 			<div class="bg-white/10 backdrop-blur-sm p-8 rounded-2xl border border-white/20">
-				<h3 class="text-xl font-black mb-3" style="font-family: 'Playfair Display', serif;">{translate('about.philosophy.personality.title')}</h3>
+				<h3 class="text-xl font-black mb-3" style="font-family: 'Playfair Display', serif;"><EditableText key="about.philosophy.personality.title" tag="span" /></h3>
 				<p class="text-gray-200 leading-relaxed">
-					{translate('about.philosophy.personality.description')}
+					<EditableText key="about.philosophy.personality.description" tag="span" />
 				</p>
 			</div>
 
 			<div class="bg-white/10 backdrop-blur-sm p-8 rounded-2xl border border-white/20">
-				<h3 class="text-xl font-black mb-3" style="font-family: 'Playfair Display', serif;">{translate('about.philosophy.innovation.title')}</h3>
+				<h3 class="text-xl font-black mb-3" style="font-family: 'Playfair Display', serif;"><EditableText key="about.philosophy.innovation.title" tag="span" /></h3>
 				<p class="text-gray-200 leading-relaxed">
-					{translate('about.philosophy.innovation.description')}
+					<EditableText key="about.philosophy.innovation.description" tag="span" />
 				</p>
 			</div>
 
 			<div class="bg-white/10 backdrop-blur-sm p-8 rounded-2xl border border-white/20">
-				<h3 class="text-xl font-black mb-3" style="font-family: 'Playfair Display', serif;">{translate('about.philosophy.partnership.title')}</h3>
+				<h3 class="text-xl font-black mb-3" style="font-family: 'Playfair Display', serif;"><EditableText key="about.philosophy.partnership.title" tag="span" /></h3>
 				<p class="text-gray-200 leading-relaxed">
-					{translate('about.philosophy.partnership.description')}
+					<EditableText key="about.philosophy.partnership.description" tag="span" />
 				</p>
 			</div>
 		</div>
 
 		<div class="bg-white/10 backdrop-blur-sm p-8 rounded-2xl border border-white/20 max-w-2xl mx-auto">
 			<blockquote class="text-xl md:text-2xl font-light italic mb-4" style="font-family: 'Playfair Display', serif;">
-				"{translate('about.philosophy.quote')}"
+				"<EditableText key="about.philosophy.quote" tag="span" />"
 			</blockquote>
-			<p class="font-bold" style="color: #00D4FF;">— {translate('about.hero.name')} {translate('about.hero.surname')}</p>
+			<p class="font-bold" style="color: #00D4FF;">— <EditableText key="about.hero.name" tag="span" /> <EditableText key="about.hero.surname" tag="span" /></p>
 		</div>
 	</div>
 </section>
@@ -265,18 +266,18 @@
 <section class="section bg-blue-50 border-t-4" style="border-top-color: {colorPalette.accent};">
 	<div class="max-w-4xl mx-auto text-center observe">
 		<h2 class="text-3xl md:text-4xl lg:text-5xl font-black mb-6 leading-tight" style="font-family: 'Playfair Display', serif;">
-			{translate('about.cta.heading')}<br>
-			<span style="color: #FF6B9D;">{translate('about.cta.headingAccent')}</span>
+			<EditableText key="about.cta.heading" tag="span" /><br>
+			<span style="color: #FF6B9D;"><EditableText key="about.cta.headingAccent" tag="span" /></span>
 		</h2>
 		<p class="text-xl text-gray-600 mb-8 max-w-2xl mx-auto leading-relaxed">
-			{translate('about.cta.description')}
+			<EditableText key="about.cta.description" tag="span" />
 		</p>
 		<div class="flex flex-col sm:flex-row gap-4 justify-center">
 			<a href="/#kontakt" class="btn">
-				{translate('about.cta.button1')}
+				<EditableText key="about.cta.button1" tag="span" />
 			</a>
 			<a href="/#portfolio" class="btn-secondary">
-				{translate('about.cta.button2')}
+				<EditableText key="about.cta.button2" tag="span" />
 			</a>
 		</div>
 	</div>
