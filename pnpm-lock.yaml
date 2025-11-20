@@ -8,6 +8,9 @@ importers:
 
   .:
     dependencies:
+      '@rollup/rollup-win32-x64-msvc':
+        specifier: ^4.53.3
+        version: 4.53.3
       bcryptjs:
         specifier: ^3.0.3
         version: 3.0.3
@@ -394,6 +397,11 @@ packages:
 
   '@rollup/rollup-win32-x64-msvc@4.53.2':
     resolution: {integrity: sha512-k+/Rkcyx//P6fetPoLMb8pBeqJBNGx81uuf7iljX9++yNBVRDQgD04L+SVXmXmh5ZP4/WOp4mWF0kmi06PW2tA==}
+    cpu: [x64]
+    os: [win32]
+
+  '@rollup/rollup-win32-x64-msvc@4.53.3':
+    resolution: {integrity: sha512-UhTd8u31dXadv0MopwGgNOBpUVROFKWVQgAg5N1ESyCz8AuBcMqm4AuTjrwgQKGDfoFuz02EuMRHQIw/frmYKQ==}
     cpu: [x64]
     os: [win32]
 
@@ -1557,6 +1565,8 @@ snapshots:
 
   '@rollup/rollup-win32-x64-msvc@4.53.2':
     optional: true
+
+  '@rollup/rollup-win32-x64-msvc@4.53.3': {}
 
   '@stablelib/base64@1.0.1': {}
 
