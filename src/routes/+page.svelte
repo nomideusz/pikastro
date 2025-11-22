@@ -727,7 +727,7 @@
 				<span style="color: #FF6B9D;"><EditableText key="home.video.headingAccent" tag="span" /></span>
 				<span class="flex items-center gap-3 md:gap-4">
 					<span style="color: #ffffff;"><EditableText key="home.video.headingEnd" tag="span" /></span>
-					<img src="/logo.png" alt="Pikastro" class="h-12 md:h-20 lg:h-32 w-auto inline-block" style="padding: 8px 0 0 0; padding-left: 0px; margin-top: -8px; margin-left: -8px;" />
+					<img src="/logo.png" alt="Pikastro" class="hero-logo w-auto inline-block" />
 				</span>
 			</h2>
 			<p class="text-xl md:text-3xl text-gray-200" style="text-shadow: 0 0 15px rgba(39, 39, 91, 0.8), 0 0 30px rgba(39, 39, 91, 0.6);">
@@ -1617,4 +1617,31 @@
 
 <!-- Full-width border separator -->
 <div class="w-full h-2" style="background-color: {colorPalette.primary};"></div>
+
+<style>
+	/* Hero logo responsive sizing and positioning */
+	.hero-logo {
+		height: 2.6rem;
+		padding: 13px 0 0 0;
+		padding-left: 0px;
+		margin-top: -8px;
+		margin-left: -4px;
+	}
+
+	@media (min-width: 768px) {
+		.hero-logo {
+			height: 5.4rem;
+			padding: 22px 0 0 0;
+			margin-left: 0px;
+		}
+	}
+
+	@media (min-width: 1024px) {
+		.hero-logo {
+			height: 7.7rem;
+			padding: 32px 0 0 0;
+			margin-left: 5px;
+		}
+	}
+</style>
 
