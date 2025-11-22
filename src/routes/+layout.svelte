@@ -6,6 +6,7 @@
 	import { t, localeStore, getLocale } from '$lib/i18n';
 	import LanguageToggle from '$lib/components/LanguageToggle.svelte';
 	import EditModeToggle from '$lib/components/EditModeToggle.svelte';
+	import EditableText from '$lib/components/EditableText.svelte';
 
 	// Color palette extracted from colors image - Eclectic Maximalism
 	let colorPalette = $state<ColorPalette>({
@@ -181,39 +182,39 @@
 					<img src="/logo_teal.png" alt="Pikastro Logo" class="h-10 w-auto" />
 				</div>
 				<p class="text-gray-200 leading-relaxed">
-					{translate('footer.description')}
+					<EditableText key="footer.description" tag="span" />
 				</p>
 			</div>
 			<div>
-				<h4 class="text-sm uppercase tracking-wider mb-4 font-bold text-[#FB7185]">{translate('footer.offer')}</h4>
+				<h4 class="text-sm uppercase tracking-wider mb-4 font-bold text-[#FB7185]"><EditableText key="footer.offer" tag="span" /></h4>
 				<ul class="space-y-2 text-gray-200 text-sm">
-					<li>• {translate('footer.services.interior_design')}</li>
-					<li>• {translate('footer.services.space_arrangement')}</li>
-					<li>• {translate('footer.services.visual_identity')}</li>
-					<li>• {translate('footer.services.computer_graphics')}</li>
-					<li>• {translate('footer.services.ai_technology')}</li>
+					<li>• <EditableText key="footer.services.interior_design" tag="span" /></li>
+					<li>• <EditableText key="footer.services.space_arrangement" tag="span" /></li>
+					<li>• <EditableText key="footer.services.visual_identity" tag="span" /></li>
+					<li>• <EditableText key="footer.services.computer_graphics" tag="span" /></li>
+					<li>• <EditableText key="footer.services.ai_technology" tag="span" /></li>
 				</ul>
 			</div>
 			<div>
-				<h4 class="text-sm uppercase tracking-wider mb-4 font-bold text-[#FB7185]">{translate('footer.clients')}</h4>
+				<h4 class="text-sm uppercase tracking-wider mb-4 font-bold text-[#FB7185]"><EditableText key="footer.clients" tag="span" /></h4>
 				<ul class="space-y-2 text-gray-200 text-sm">
-					<li>• {translate('footer.clientTypes.apartment_buyers')}</li>
-					<li>• {translate('footer.clientTypes.developers')}</li>
-					<li>• {translate('footer.clientTypes.real_estate')}</li>
-					<li>• {translate('footer.clientTypes.startups')}</li>
-					<li>• {translate('footer.clientTypes.commercial')}</li>
+					<li>• <EditableText key="footer.clientTypes.apartment_buyers" tag="span" /></li>
+					<li>• <EditableText key="footer.clientTypes.developers" tag="span" /></li>
+					<li>• <EditableText key="footer.clientTypes.real_estate" tag="span" /></li>
+					<li>• <EditableText key="footer.clientTypes.startups" tag="span" /></li>
+					<li>• <EditableText key="footer.clientTypes.commercial" tag="span" /></li>
 				</ul>
 			</div>
 			<div>
-				<h4 class="text-sm uppercase tracking-wider mb-4 font-bold text-[#FB7185]">{translate('footer.contact')}</h4>
+				<h4 class="text-sm uppercase tracking-wider mb-4 font-bold text-[#FB7185]"><EditableText key="footer.contact" tag="span" /></h4>
 				<ul class="space-y-2 text-gray-200 font-medium">
 					<li>kontakt@pikastro.eu</li>
-					<li>{translate('footer.location')}</li>
+					<li><EditableText key="footer.location" tag="span" /></li>
 				</ul>
 			</div>
 		</div>
 		<div class="pt-8 border-t border-white/20 text-center text-sm text-gray-300">
-			<p class="font-medium">&copy; 2025 Pikastro. {translate('footer.copyright')}</p>
+			<p class="font-medium">&copy; 2025 Pikastro. <EditableText key="footer.copyright" tag="span" /></p>
 		</div>
 	</div>
 </footer>
