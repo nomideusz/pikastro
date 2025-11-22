@@ -153,7 +153,7 @@
 </svelte:head>
 
 <!-- Sticky Navigation -->
-<nav class="sticky top-0 z-50 shadow-lg border-b-4" style="background: linear-gradient(135deg, {colors.primary} 0%, #1a1a3e 100%); border-bottom-color: {colors.accent}; backdrop-filter: blur(12px);">
+<nav class="sticky top-20 z-40 shadow-lg border-b-4" style="background: linear-gradient(135deg, {colors.primary} 0%, #1a1a3e 100%); border-bottom-color: {colors.accent}; backdrop-filter: blur(12px);">
 	<div class="max-w-7xl mx-auto px-4 md:px-6 py-4">
 		<div class="flex items-center justify-center w-full">
 			<div class="flex gap-2 md:gap-3 overflow-x-auto scrollbar-hide py-2 px-4 max-w-full">
