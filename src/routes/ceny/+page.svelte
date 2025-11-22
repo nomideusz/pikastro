@@ -152,11 +152,11 @@
 							<div class="flex flex-col lg:flex-row lg:items-center lg:justify-between gap-8">
 								<div class="flex-1">
 									<h3 class="text-3xl lg:text-4xl font-black mb-2" style="font-family: 'Playfair Display', serif; color: {journey.highlight ? colorPalette.primary : '#27275b'}">
-										{translate(journey.titleKey)}
+										<EditableText key={journey.titleKey} tag="span" />
 									</h3>
-									<p class="text-lg font-medium mb-3 text-[#27275b]/80">{translate(journey.subtitleKey)}</p>
+									<p class="text-lg font-medium mb-3 text-[#27275b]/80"><EditableText key={journey.subtitleKey} tag="span" /></p>
 									<p class="text-[#27275b]/90 leading-relaxed max-w-2xl">
-										{translate(journey.descriptionKey)}
+										<EditableText key={journey.descriptionKey} tag="span" />
 									</p>
 								</div>
 
@@ -164,7 +164,7 @@
 								<div class="lg:text-right">
 									<div class="inline-block p-6 bg-[#27275b]/5 rounded-2xl border border-[#27275b]/10">
 										<div class="text-sm uppercase tracking-wider text-[#27275b]/70 mb-1 font-bold"><EditableText key="pricing.page.investmentLabel" tag="span" /></div>
-										<div class="text-2xl font-black mb-2" style="color: {colorPalette.primary}">{translate(journey.investmentKey)}</div>
+										<div class="text-2xl font-black mb-2" style="color: {colorPalette.primary}"><EditableText key={journey.investmentKey} tag="span" /></div>
 										<div class="text-sm text-[#27275b]/80">{translate(journey.titleKey + 'Duration') || journey.duration}</div>
 									</div>
 								</div>
@@ -182,7 +182,7 @@
 										<div class="flex-shrink-0 w-8 h-8 rounded-full flex items-center justify-center text-sm font-bold" style="background-color: {colorPalette.primary}; color: white;">
 											{stepIndex + 1}
 										</div>
-										<p class="text-[#27275b]/90 leading-relaxed">{translate(processKey)}</p>
+										<p class="text-[#27275b]/90 leading-relaxed"><EditableText key={processKey} tag="span" /></p>
 									</div>
 								{/each}
 							</div>
