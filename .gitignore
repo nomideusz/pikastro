@@ -46,4 +46,4 @@ coverage/
 
 # Editor directories and files
 !.vscode/extensions.json
-.history/*
+.history/*.env

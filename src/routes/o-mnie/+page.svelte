@@ -9,7 +9,7 @@
 	import { extractColorsFromImage, assignColorRoles, type ColorPalette } from '$lib/utils/colorExtractor';
 	import colorsImg from '$lib/assets/images/colors.jpeg';
 	import magdaPhoto from '$lib/assets/images/magda.jpg';
-	import oMnieBg from '$lib/assets/images/o-mnie-bg.png';
+	import oMnieBg from '$lib/assets/images/o-mnie-bg.webp';
 
 	// Color palette extracted from colors image - Eclectic Maximalism
 	let colorPalette = $state<ColorPalette>({
