@@ -155,32 +155,30 @@
 <!-- Sticky Navigation -->
 <nav class="sticky top-20 z-40 shadow-lg border-b-4" style="background: linear-gradient(135deg, {colors.primary} 0%, #1a1a3e 100%); border-bottom-color: {colors.accent}; backdrop-filter: blur(12px);">
 	<div class="max-w-7xl mx-auto px-4 md:px-6 py-4">
-		<div class="flex items-center justify-center w-full">
-			<div class="flex gap-2 md:gap-3 overflow-x-auto scrollbar-hide py-2 px-4 max-w-full">
-				{#each portfolioSections as section}
-					<button
-						onclick={() => scrollToSection(section.id)}
-						class="px-4 py-2 text-xs md:text-sm font-bold uppercase tracking-wider rounded-lg whitespace-nowrap transition-all duration-300 flex-shrink-0 {activeSection === section.id ? 'text-white shadow-lg' : 'text-gray-300 hover:text-white'}"
-						style={activeSection === section.id
-							? `background-color: ${colors.accent};`
-							: `background-color: transparent; border: 2px solid ${colors.accent}40;`}
-						onmouseenter={(e) => {
-							if (activeSection !== section.id) {
-								e.currentTarget.style.backgroundColor = `${colors.accent}80`;
-								e.currentTarget.style.color = 'white';
-							}
-						}}
-						onmouseleave={(e) => {
-							if (activeSection !== section.id) {
-								e.currentTarget.style.backgroundColor = 'transparent';
-								e.currentTarget.style.color = 'rgb(209, 213, 219)';
-							}
-						}}
-					>
-						{section.title}
-					</button>
-				{/each}
-			</div>
+		<div class="flex gap-2 md:gap-3 overflow-x-auto scrollbar-hide py-2">
+			{#each portfolioSections as section}
+				<button
+					onclick={() => scrollToSection(section.id)}
+					class="px-4 py-2 text-xs md:text-sm font-bold uppercase tracking-wider rounded-lg whitespace-nowrap transition-all duration-300 flex-shrink-0 {activeSection === section.id ? 'text-white shadow-lg' : 'text-gray-300 hover:text-white'}"
+					style={activeSection === section.id
+						? `background-color: ${colors.accent};`
+						: `background-color: transparent; border: 2px solid ${colors.accent}40;`}
+					onmouseenter={(e) => {
+						if (activeSection !== section.id) {
+							e.currentTarget.style.backgroundColor = `${colors.accent}80`;
+							e.currentTarget.style.color = 'white';
+						}
+					}}
+					onmouseleave={(e) => {
+						if (activeSection !== section.id) {
+							e.currentTarget.style.backgroundColor = 'transparent';
+							e.currentTarget.style.color = 'rgb(209, 213, 219)';
+						}
+					}}
+				>
+					{section.title}
+				</button>
+			{/each}
 		</div>
 	</div>
 </nav>
