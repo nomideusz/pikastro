@@ -727,7 +727,7 @@
 				<span style="color: #FF6B9D;"><EditableText key="home.video.headingAccent" tag="span" /></span>
 				<span class="flex items-center gap-3 md:gap-4">
 					<span style="color: #ffffff;"><EditableText key="home.video.headingEnd" tag="span" /></span>
-					<img src="/logo.png" alt="Pikastro" class="h-12 md:h-20 lg:h-24 w-auto inline-block" style="padding: 17px 0 0 5px;" />
+					<img src="/logo.png" alt="Pikastro" class="hero-logo w-auto inline-block" />
 				</span>
 			</h2>
 			<p class="text-xl md:text-3xl text-gray-200" style="text-shadow: 0 0 15px rgba(39, 39, 91, 0.8), 0 0 30px rgba(39, 39, 91, 0.6);">
@@ -850,7 +850,7 @@
 		<p class="text-lg md:text-xl text-gray-200 mb-8 max-w-2xl mx-auto">
 			<EditableText key="home.ctaBanner.description" tag="span" />
 		</p>
-		<a href="#kontakt" class="inline-block px-8 py-4 text-lg font-bold rounded-xl shadow-xl transition-all duration-300 hover:shadow-2xl hover:scale-105 transform animate-pulse-subtle" style="background-color: {colorPalette.secondary}; color: rgba(255, 255, 255, 0.9);">
+		<a href="#kontakt" class="inline-block px-6 py-2.5 text-sm tracking-wide uppercase font-bold rounded-lg shadow-md transition-all duration-300 hover:shadow-lg transform hover:scale-105" style="background-color: {colorPalette.secondary}; color: {colorPalette.primary};">
 			<EditableText key="home.ctaBanner.button" tag="span" />
 		</a>
 	</div>
@@ -1617,4 +1617,31 @@
 
 <!-- Full-width border separator -->
 <div class="w-full h-2" style="background-color: {colorPalette.primary};"></div>
+
+<style>
+	/* Hero logo responsive sizing and positioning */
+	.hero-logo {
+		height: 2.6rem;
+		padding: 13px 0 0 0;
+		padding-left: 0px;
+		margin-top: -8px;
+		margin-left: -4px;
+	}
+
+	@media (min-width: 768px) {
+		.hero-logo {
+			height: 5.4rem;
+			padding: 22px 0 0 0;
+			margin-left: 0px;
+		}
+	}
+
+	@media (min-width: 1024px) {
+		.hero-logo {
+			height: 7.7rem;
+			padding: 32px 0 0 0;
+			margin-left: 5px;
+		}
+	}
+</style>
 
