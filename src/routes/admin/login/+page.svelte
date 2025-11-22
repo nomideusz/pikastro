@@ -1,5 +1,5 @@
 <script lang="ts">
-	import { goto } from '$app/navigation';
+	import { goto, invalidateAll } from '$app/navigation';
 
 	let email = $state('');
 	let password = $state('');
@@ -23,8 +23,12 @@
 			const data = await response.json();
 
 			if (data.success) {
+				// Invalidate all data to trigger re-checks
+				await invalidateAll();
 				// Redirect to home page after successful login
-				goto('/');
+				await goto('/', { replaceState: true });
+				// Force reload to ensure edit mode appears
+				window.location.reload();
 			} else {
 				error = data.error || 'Login failed';
 			}
