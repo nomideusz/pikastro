@@ -154,8 +154,8 @@
 
 <!-- Sticky Navigation -->
 <nav class="sticky top-20 z-40 shadow-lg border-b-4" style="background: linear-gradient(135deg, {colors.primary} 0%, #1a1a3e 100%); border-bottom-color: {colors.accent}; backdrop-filter: blur(12px);">
-	<div class="max-w-7xl mx-auto px-4 md:px-6 py-4">
-		<div class="flex gap-2 md:gap-3 overflow-x-auto scrollbar-hide py-2 pr-4 md:pr-6">
+	<div class="max-w-7xl mx-auto">
+		<div class="flex gap-2 md:gap-3 overflow-x-auto scrollbar-hide py-4" style="scroll-padding-right: 1.5rem;">
 			{#each portfolioSections as section}
 				<button
 					onclick={() => scrollToSection(section.id)}
@@ -197,7 +197,7 @@
 				transparent 100%);"
 		>
 			<!-- Section Header -->
-			<div class="max-w-7xl mx-auto px-4 md:px-6 mb-8">
+			<div class="max-w-7xl mx-auto px-2 md:px-4 mb-8">
 				<h2
 					class="text-4xl md:text-5xl lg:text-6xl font-black text-white"
 					style="font-family: 'Playfair Display', serif; text-shadow: 0 0 30px rgba(243, 42, 97, 0.5);"
@@ -241,7 +241,7 @@
 					</div>
 				</div>
 			{:else}
-				<div class="max-w-7xl mx-auto px-4 md:px-6">
+				<div class="max-w-7xl mx-auto px-2 md:px-4">
 					<div
 						class="border-4 border-dashed rounded-2xl p-12 text-center backdrop-blur-sm"
 						style="border-color: {colors.accent}60; background: rgba(39, 39, 91, 0.3);"
