@@ -3,10 +3,22 @@
  * Manages global edit mode state and authentication status
  */
 
+const EDIT_MODE_KEY = 'pikastro_edit_mode';
+
 class EditModeStore {
 	isEditMode = $state(false);
 	isAuthenticated = $state(false);
 	isCheckingAuth = $state(true);
+
+	constructor() {
+		// Restore edit mode state from localStorage on initialization
+		if (typeof window !== 'undefined') {
+			const savedMode = localStorage.getItem(EDIT_MODE_KEY);
+			if (savedMode === 'true') {
+				this.isEditMode = true;
+			}
+		}
+	}
 
 	/**
 	 * Toggle edit mode on/off
@@ -14,6 +26,7 @@ class EditModeStore {
 	toggleEditMode() {
 		if (this.isAuthenticated) {
 			this.isEditMode = !this.isEditMode;
+			this.saveEditModeState();
 		}
 	}
 
@@ -23,6 +36,7 @@ class EditModeStore {
 	enableEditMode() {
 		if (this.isAuthenticated) {
 			this.isEditMode = true;
+			this.saveEditModeState();
 		}
 	}
 
@@ -31,6 +45,16 @@ class EditModeStore {
 	 */
 	disableEditMode() {
 		this.isEditMode = false;
+		this.saveEditModeState();
+	}
+
+	/**
+	 * Save edit mode state to localStorage
+	 */
+	private saveEditModeState() {
+		if (typeof window !== 'undefined') {
+			localStorage.setItem(EDIT_MODE_KEY, this.isEditMode.toString());
+		}
 	}
 
 	/**
@@ -46,12 +70,22 @@ class EditModeStore {
 			if (response.ok) {
 				const data = await response.json();
 				this.isAuthenticated = data.authenticated;
+
+				// If not authenticated, disable edit mode
+				if (!this.isAuthenticated) {
+					this.isEditMode = false;
+					this.saveEditModeState();
+				}
 			} else {
 				this.isAuthenticated = false;
+				this.isEditMode = false;
+				this.saveEditModeState();
 			}
 		} catch (error) {
 			console.error('Error checking auth:', error);
 			this.isAuthenticated = false;
+			this.isEditMode = false;
+			this.saveEditModeState();
 		} finally {
 			this.isCheckingAuth = false;
 		}
@@ -68,6 +102,7 @@ class EditModeStore {
 			});
 			this.isAuthenticated = false;
 			this.isEditMode = false;
+			this.saveEditModeState();
 		} catch (error) {
 			console.error('Error logging out:', error);
 		}
