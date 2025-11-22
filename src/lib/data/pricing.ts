@@ -9,7 +9,7 @@ export interface PricingTier {
 	subtitleKey: string;
 	descriptionKey: string;
 	processKeys: string[]; // Array of translation keys
-	duration: string;
+	durationKey: string;
 	investmentKey: string;
 	image: string;
 	highlight: boolean;
@@ -29,7 +29,7 @@ export const pricingTiers: PricingTier[] = [
 			'pricing.singleRoom.process5',
 			'pricing.singleRoom.process6'
 		],
-		duration: '2-3 tygodnie',
+		durationKey: 'pricing.singleRoom.duration',
 		investmentKey: 'pricing.singleRoom.investment',
 		image: '',
 		highlight: false
@@ -47,7 +47,7 @@ export const pricingTiers: PricingTier[] = [
 			'pricing.fullApartment.process5',
 			'pricing.fullApartment.process6'
 		],
-		duration: '6-8 tygodni',
+		durationKey: 'pricing.fullApartment.duration',
 		investmentKey: 'pricing.fullApartment.investment',
 		image: '🏡',
 		highlight: true
@@ -65,7 +65,7 @@ export const pricingTiers: PricingTier[] = [
 			'pricing.businessSpaces.process5',
 			'pricing.businessSpaces.process6'
 		],
-		duration: '8-12 tygodni',
+		durationKey: 'pricing.businessSpaces.duration',
 		investmentKey: 'pricing.businessSpaces.investment',
 		image: '🏢',
 		highlight: false
