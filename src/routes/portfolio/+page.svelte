@@ -1,5 +1,5 @@
 <script lang="ts">
-	import { onMount } from 'svelte';
+	import { onMount, onDestroy } from 'svelte';
 	import img07 from '$lib/assets/images/07.jpeg';
 	import img08 from '$lib/assets/images/08.jpeg';
 	import img09 from '$lib/assets/images/09.jpeg';
@@ -66,6 +66,41 @@
 
 	let activeSection = $state('wnetrza');
 	let scrollContainers = $state<{[key: string]: HTMLElement}>({});
+	let pausedContainers = new Set<string>();
+	let scrollPositions: {[key: string]: number} = {};
+	let animationFrameId: number;
+
+	function startAutoScroll() {
+		const speed = 0.5;
+		
+		function animate() {
+			Object.entries(scrollContainers).forEach(([id, container]) => {
+				if (!container) return;
+				
+				// Initialize position if needed
+				if (typeof scrollPositions[id] === 'undefined') {
+					scrollPositions[id] = container.scrollLeft;
+				}
+				
+				if (!pausedContainers.has(id)) {
+					scrollPositions[id] += speed;
+					
+					// Check if we reached the end
+					if (scrollPositions[id] >= container.scrollWidth - container.clientWidth) {
+						 scrollPositions[id] = 0;
+					}
+					
+					container.scrollLeft = scrollPositions[id];
+				} else {
+					// Sync position in case user scrolled manually while paused
+					scrollPositions[id] = container.scrollLeft;
+				}
+			});
+			animationFrameId = requestAnimationFrame(animate);
+		}
+		
+		animationFrameId = requestAnimationFrame(animate);
+	}
 
 	function scrollToSection(sectionId: string) {
 		const element = document.getElementById(sectionId);
@@ -103,7 +138,12 @@
 			}
 		});
 
-		return () => observer.disconnect();
+		startAutoScroll();
+
+		return () => {
+			observer.disconnect();
+			cancelAnimationFrame(animationFrameId);
+		};
 	});
 </script>
 
@@ -115,15 +155,12 @@
 <!-- Sticky Navigation -->
 <nav class="sticky top-0 z-50 shadow-lg border-b-4" style="background: linear-gradient(135deg, {colors.primary} 0%, #1a1a3e 100%); border-bottom-color: {colors.accent}; backdrop-filter: blur(12px);">
 	<div class="max-w-7xl mx-auto px-4 md:px-6 py-4">
-		<div class="flex items-center justify-between gap-2 overflow-x-auto scrollbar-hide">
-			<a href="/" class="text-xl font-black whitespace-nowrap mr-4 text-white" style="font-family: 'Playfair Display', serif;">
-				Portfolio
-			</a>
-			<div class="flex gap-2 md:gap-3 overflow-x-auto scrollbar-hide">
+		<div class="flex items-center justify-center w-full">
+			<div class="flex gap-2 md:gap-3 overflow-x-auto scrollbar-hide py-2 px-4 max-w-full">
 				{#each portfolioSections as section}
 					<button
 						onclick={() => scrollToSection(section.id)}
-						class="px-4 py-2 text-xs md:text-sm font-bold uppercase tracking-wider rounded-lg whitespace-nowrap transition-all duration-300 {activeSection === section.id ? 'text-white shadow-lg' : 'text-gray-300 hover:text-white'}"
+						class="px-4 py-2 text-xs md:text-sm font-bold uppercase tracking-wider rounded-lg whitespace-nowrap transition-all duration-300 flex-shrink-0 {activeSection === section.id ? 'text-white shadow-lg' : 'text-gray-300 hover:text-white'}"
 						style={activeSection === section.id
 							? `background-color: ${colors.accent};`
 							: `background-color: transparent; border: 2px solid ${colors.accent}40;`}
@@ -178,6 +215,8 @@
 					bind:this={scrollContainers[section.id]}
 					class="horizontal-scroll-container pb-4"
 					style="padding-left: max(1rem, calc((100vw - 80rem) / 2)); padding-right: max(1rem, calc((100vw - 80rem) / 2));"
+					onmouseenter={() => pausedContainers.add(section.id)}
+					onmouseleave={() => pausedContainers.delete(section.id)}
 				>
 					<div class="flex gap-6 md:gap-8">
 						{#each section.images as image, imgIndex}
