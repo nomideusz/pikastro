@@ -686,7 +686,7 @@
 					<div class="text-white/80 text-sm"><EditableText key="home.hero.valueProps.timeVs" tag="span" /></div>
 				</div>
 				<div class="bg-white/10 backdrop-blur-sm px-4 py-3 rounded-lg border border-white/20">
-					<div class="font-black text-lg neon-text" style="color: {colorPalette.accent}"><EditableText key="home.hero.valueProps.variants" tag="span" /></div>
+					<div class="font-black text-lg text-white"><EditableText key="home.hero.valueProps.variants" tag="span" /></div>
 					<div class="text-white/80 text-sm"><EditableText key="home.hero.valueProps.variantsDesc" tag="span" /></div>
 				</div>
 				<div class="bg-white/10 backdrop-blur-sm px-4 py-3 rounded-lg border border-white/20">
