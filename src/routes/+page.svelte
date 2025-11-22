@@ -850,7 +850,7 @@
 		<p class="text-lg md:text-xl text-gray-200 mb-8 max-w-2xl mx-auto">
 			<EditableText key="home.ctaBanner.description" tag="span" />
 		</p>
-		<a href="#kontakt" class="inline-block px-8 py-4 text-lg font-bold rounded-xl shadow-xl transition-all duration-300 hover:shadow-2xl hover:scale-105 transform animate-pulse-subtle" style="background-color: {colorPalette.secondary}; color: rgba(255, 255, 255, 0.9);">
+		<a href="#kontakt" class="inline-block px-6 py-2.5 text-sm tracking-wide uppercase font-bold rounded-lg shadow-md transition-all duration-300 hover:shadow-lg transform hover:scale-105" style="background-color: {colorPalette.secondary}; color: {colorPalette.primary};">
 			<EditableText key="home.ctaBanner.button" tag="span" />
 		</a>
 	</div>
