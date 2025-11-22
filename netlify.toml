@@ -1,5 +1,5 @@
 [build]
-  command = "npm ci --ignore-scripts && npm run build"
+  command = "pnpm install && pnpm run build"
   publish = ".svelte-kit/netlify"
 
 [build.environment]
