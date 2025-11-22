@@ -165,7 +165,7 @@
 									<div class="inline-block p-6 bg-[#27275b]/5 rounded-2xl border border-[#27275b]/10">
 										<div class="text-sm uppercase tracking-wider text-[#27275b]/70 mb-1 font-bold"><EditableText key="pricing.page.investmentLabel" tag="span" /></div>
 										<div class="text-2xl font-black mb-2" style="color: {colorPalette.primary}"><EditableText key={journey.investmentKey} tag="span" /></div>
-										<div class="text-sm text-[#27275b]/80">{translate(journey.titleKey + 'Duration') || journey.duration}</div>
+										<div class="text-sm text-[#27275b]/80"><EditableText key={journey.durationKey} tag="span" /></div>
 									</div>
 								</div>
 							</div>
