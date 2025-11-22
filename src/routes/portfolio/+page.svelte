@@ -72,24 +72,27 @@
 
 	function startAutoScroll() {
 		const speed = 0.5;
-		
+
 		function animate() {
 			Object.entries(scrollContainers).forEach(([id, container]) => {
 				if (!container) return;
-				
+
 				// Initialize position if needed
 				if (typeof scrollPositions[id] === 'undefined') {
 					scrollPositions[id] = container.scrollLeft;
 				}
-				
+
 				if (!pausedContainers.has(id)) {
 					scrollPositions[id] += speed;
-					
-					// Check if we reached the end
-					if (scrollPositions[id] >= container.scrollWidth - container.clientWidth) {
-						 scrollPositions[id] = 0;
+
+					// Get the scroll width of a single set (half of total since we duplicate)
+					const singleSetWidth = container.scrollWidth / 2;
+
+					// When we've scrolled past the first set, seamlessly reset to the start
+					if (scrollPositions[id] >= singleSetWidth) {
+						scrollPositions[id] = 0;
 					}
-					
+
 					container.scrollLeft = scrollPositions[id];
 				} else {
 					// Sync position in case user scrolled manually while paused
@@ -98,7 +101,7 @@
 			});
 			animationFrameId = requestAnimationFrame(animate);
 		}
-		
+
 		animationFrameId = requestAnimationFrame(animate);
 	}
 
@@ -215,12 +218,38 @@
 					style="padding-left: max(1rem, calc((100vw - 80rem) / 2)); padding-right: max(1rem, calc((100vw - 80rem) / 2));"
 					onmouseenter={() => pausedContainers.add(section.id)}
 					onmouseleave={() => pausedContainers.delete(section.id)}
+					role="region"
+					aria-label="Galeria zdjęć {section.title}"
 				>
 					<div class="flex gap-6 md:gap-8">
+						<!-- First set of images -->
 						{#each section.images as image, imgIndex}
 							<div
 								class="flex-shrink-0 group relative rounded-2xl overflow-hidden shadow-xl hover:shadow-2xl transition-all duration-500 hover:scale-105 border-2"
 								style="width: 400px; height: 500px; border-color: {colors.accent}40; box-shadow: 0 10px 30px rgba(243, 42, 97, 0.3);"
+							>
+								<img
+									src={image}
+									alt="{section.title} - obraz {imgIndex + 1}"
+									class="w-full h-full object-cover"
+								/>
+								<div
+									class="absolute inset-0 opacity-0 group-hover:opacity-100 transition-opacity duration-300"
+									style="background: linear-gradient(180deg, transparent 0%, {colors.primary}E6 100%);"
+								></div>
+								<div
+									class="absolute bottom-0 left-0 right-0 p-6 text-white transform translate-y-full group-hover:translate-y-0 transition-transform duration-300"
+								>
+									<p class="text-lg font-bold" style="color: {colors.accent};">{section.title} #{imgIndex + 1}</p>
+								</div>
+							</div>
+						{/each}
+						<!-- Duplicate set for seamless loop -->
+						{#each section.images as image, imgIndex}
+							<div
+								class="flex-shrink-0 group relative rounded-2xl overflow-hidden shadow-xl hover:shadow-2xl transition-all duration-500 hover:scale-105 border-2"
+								style="width: 400px; height: 500px; border-color: {colors.accent}40; box-shadow: 0 10px 30px rgba(243, 42, 97, 0.3);"
+								aria-hidden="true"
 							>
 								<img
 									src={image}
@@ -291,27 +320,14 @@
 		overflow-x: auto;
 		overflow-y: hidden;
 		-webkit-overflow-scrolling: touch;
-		scrollbar-width: thin;
-		scrollbar-color: #F32A61 rgba(39, 39, 91, 0.5);
+		/* Hide scrollbar completely */
+		scrollbar-width: none;
+		-ms-overflow-style: none;
 	}
 
+	/* Hide scrollbar for Chrome, Safari and Opera */
 	.horizontal-scroll-container::-webkit-scrollbar {
-		height: 10px;
-	}
-
-	.horizontal-scroll-container::-webkit-scrollbar-track {
-		background: rgba(39, 39, 91, 0.5);
-		border-radius: 5px;
-	}
-
-	.horizontal-scroll-container::-webkit-scrollbar-thumb {
-		background: linear-gradient(90deg, #F32A61 0%, #1DA898 100%);
-		border-radius: 5px;
-		border: 2px solid rgba(39, 39, 91, 0.5);
-	}
-
-	.horizontal-scroll-container::-webkit-scrollbar-thumb:hover {
-		background: linear-gradient(90deg, #1DA898 0%, #F5848E 100%);
+		display: none;
 	}
 
 	.scrollbar-hide {
