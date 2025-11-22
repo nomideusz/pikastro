@@ -326,8 +326,8 @@
 		return [
 			{
 				title: '',
-				before: przedImg,
-				after: poImg,
+				before: poImg,
+				after: przedImg,
 				description: translate('home.beforeAfter.description'),
 				aiFeatures: ['Kociostrada']
 			},
@@ -809,12 +809,7 @@
 				</div>
 
 				<!-- Labels -->
-				<div class="absolute bottom-4 left-4 bg-black/70 text-white px-3 py-1.5 rounded-lg text-sm font-bold pointer-events-none">
-					<EditableText key="home.slider.before" tag="span" />
-				</div>
-				<div class="absolute bottom-4 right-4 bg-black/70 text-white px-3 py-1.5 rounded-lg text-sm font-bold pointer-events-none">
-					<EditableText key="home.slider.after" tag="span" />
-				</div>
+
 			</div>
 
 			<!-- Kociostrada Button -->
