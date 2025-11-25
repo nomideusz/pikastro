@@ -106,7 +106,7 @@
 					<span class="absolute bottom-0 left-0 w-0 h-0.5 transition-all duration-300 group-hover:w-full" style="background-color: var(--color-accent);"></span>
 				</a>
 				<LanguageToggle />
-				<a href={getNavLink('#kontakt')} class="px-6 py-2.5 transition-all duration-300 text-sm tracking-wide uppercase font-bold rounded-lg shadow-md hover:shadow-lg transform hover:scale-105" style="background-color: var(--color-secondary); color: var(--color-primary);">
+				<a href={getNavLink('#kontakt')} class="px-6 py-3 text-white transition-all duration-300 text-sm tracking-wide uppercase font-bold rounded-xl border-2 transform hover:scale-110" style="background: linear-gradient(135deg, var(--color-secondary) 0%, var(--color-primary) 100%); border-color: var(--color-accent); box-shadow: 0 10px 30px rgba(29, 168, 152, 0.5);">
 					{translate('nav.contact')}
 				</a>
 			</div>
@@ -156,7 +156,7 @@
 
 					<!-- CTA Button -->
 					<div class="pt-3 border-t border-gray-100">
-						<a href={getNavLink('#kontakt')} onclick={() => isMenuOpen = false} class="block px-4 py-3 text-[#27275b] transition-all duration-300 text-sm tracking-wide uppercase font-bold rounded-lg hover:bg-gray-50 hover:text-[var(--color-primary)] transform hover:translate-x-1">
+						<a href={getNavLink('#kontakt')} onclick={() => isMenuOpen = false} class="block px-4 py-3 text-center text-white transition-all duration-300 text-sm tracking-wide uppercase font-bold rounded-xl border-2 transform hover:scale-105" style="background: linear-gradient(135deg, var(--color-secondary) 0%, var(--color-primary) 100%); border-color: var(--color-accent); box-shadow: 0 10px 30px rgba(29, 168, 152, 0.5);">
 							{translate('nav.contact')}
 						</a>
 					</div>

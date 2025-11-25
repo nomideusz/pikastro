@@ -99,7 +99,8 @@
 				<button
 					type="submit"
 					disabled={loading}
-					class="w-full bg-gradient-to-r from-purple-600 to-indigo-600 text-white font-semibold py-3 px-6 rounded-lg hover:from-purple-700 hover:to-indigo-700 focus:outline-none focus:ring-2 focus:ring-purple-500 focus:ring-offset-2 transition disabled:opacity-50 disabled:cursor-not-allowed"
+					class="w-full text-white font-bold py-4 px-8 rounded-xl border-2 focus:outline-none transition-all duration-300 disabled:opacity-50 disabled:cursor-not-allowed hover:scale-105"
+					style="background: linear-gradient(135deg, #9333ea 0%, #4f46e5 100%); border-color: #ec4899; box-shadow: 0 10px 30px rgba(147, 51, 234, 0.5);"
 				>
 					{loading ? 'Logowanie...' : 'Zaloguj się'}
 				</button>

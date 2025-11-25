@@ -191,7 +191,7 @@
 						<!-- CTA -->
 						<div class="mt-8 pt-8 border-t border-[#27275b]/10 text-center">
 							<p class="text-sm text-[#27275b]/70 mb-4"><EditableText key="pricing.page.ctaQuestion" tag="span" /></p>
-							<a href="/#kontakt" class="inline-flex items-center gap-3 px-8 py-4 rounded-xl hover:shadow-xl transition-all duration-300 font-bold text-sm group" style="background-color: {colorPalette.secondary}; color: {colorPalette.primary};">
+							<a href="/#kontakt" class="inline-flex items-center gap-3 px-8 py-4 rounded-xl border-2 text-white transition-all duration-300 font-bold text-sm group transform hover:scale-110" style="background: linear-gradient(135deg, {colorPalette.secondary} 0%, {colorPalette.primary} 100%); border-color: {colorPalette.accent}; box-shadow: 0 10px 30px rgba(29, 168, 152, 0.5);">
 								<span><EditableText key="pricing.page.ctaButton" tag="span" /> {translate(journey.titleKey).toLowerCase()}</span>
 								<svg class="w-4 h-4 transform group-hover:translate-x-1 transition-transform" fill="none" stroke="currentColor" viewBox="0 0 24 24">
 									<path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 7l5 5m0 0l-5 5m5-5H6"/>
@@ -214,7 +214,7 @@
 				<EditableText key="pricing.page.everyProjectDescription" tag="span" />
 			</p>
 			<div class="flex flex-col sm:flex-row gap-4 justify-center items-center">
-				<a href="/#kontakt" class="inline-flex items-center gap-3 px-8 py-4 rounded-xl hover:shadow-xl transition-all duration-300 font-bold text-sm" style="background-color: {colorPalette.secondary}; color: {colorPalette.primary};">
+				<a href="/#kontakt" class="inline-flex items-center gap-3 px-8 py-4 rounded-xl border-2 text-white transition-all duration-300 font-bold text-sm transform hover:scale-110" style="background: linear-gradient(135deg, {colorPalette.secondary} 0%, {colorPalette.primary} 100%); border-color: {colorPalette.accent}; box-shadow: 0 10px 30px rgba(29, 168, 152, 0.5);">
 					<span><EditableText key="pricing.page.ctaConsultation" tag="span" /></span>
 					<svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
 						<path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8 12h.01M12 12h.01M16 12h.01M21 12c0 4.418-4.03 8-9 8a9.863 9.863 0 01-4.255-.949L3 20l1.395-3.72C3.512 15.042 3 13.574 3 12c0-4.418 4.03-8 9-8s9 3.582 9 8z"/>

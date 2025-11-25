@@ -6,52 +6,54 @@
 	import img10 from '$lib/assets/images/10.jpeg';
 	import img11 from '$lib/assets/images/11.jpeg';
 	import colorsImg from '$lib/assets/images/colors.jpeg';
+	import EditableText from '$lib/components/EditableText.svelte';
+	import { t } from '$lib/i18n';
 
 	// Portfolio sections with images
 	const portfolioSections = [
 		{
 			id: 'wnetrza',
-			title: 'Wnętrza',
+			titleKey: 'portfolio.sections.interiors',
 			images: [img07, img08, img09, img10, img11]
 		},
 		{
 			id: 'oferty-mieszkan',
-			title: 'Oferty Mieszkań',
+			titleKey: 'portfolio.sections.apartmentOffers',
 			images: [] // To be added later
 		},
 		{
 			id: 'branding',
-			title: 'Branding',
+			titleKey: 'portfolio.sections.branding',
 			images: [colorsImg] // To be expanded
 		},
 		{
 			id: 'plakaty',
-			title: 'Plakaty',
+			titleKey: 'portfolio.sections.posters',
 			images: [] // To be added later
 		},
 		{
 			id: 'wzory',
-			title: 'Wzory',
+			titleKey: 'portfolio.sections.patterns',
 			images: [] // To be added later
 		},
 		{
 			id: 'postacie',
-			title: 'Postacie',
+			titleKey: 'portfolio.sections.characters',
 			images: [] // To be added later
 		},
 		{
 			id: 'rysunek',
-			title: 'Rysunek',
+			titleKey: 'portfolio.sections.drawing',
 			images: [] // To be added later
 		},
 		{
 			id: 'fotografia',
-			title: 'Fotografia',
+			titleKey: 'portfolio.sections.photography',
 			images: [] // To be added later
 		},
 		{
 			id: 'grafika-koncepcyjna',
-			title: 'Grafika Koncepcyjna',
+			titleKey: 'portfolio.sections.conceptArt',
 			images: [] // To be added later
 		}
 	];
@@ -162,24 +164,24 @@
 			{#each portfolioSections as section}
 				<button
 					onclick={() => scrollToSection(section.id)}
-					class="px-4 py-2 text-xs md:text-sm font-bold uppercase tracking-wider rounded-lg whitespace-nowrap transition-all duration-300 flex-shrink-0 {activeSection === section.id ? 'text-white shadow-lg' : 'text-gray-300 hover:text-white'}"
+					class="px-4 py-2 text-xs md:text-sm font-bold uppercase tracking-wider rounded-xl whitespace-nowrap transition-all duration-300 flex-shrink-0 border-2 {activeSection === section.id ? 'text-white' : 'text-gray-300 hover:text-white'}"
 					style={activeSection === section.id
-						? `background-color: ${colors.accent};`
-						: `background-color: transparent; border: 2px solid ${colors.accent}40;`}
+						? `background: linear-gradient(135deg, ${colors.accent} 0%, ${colors.primary} 100%); border-color: ${colors.secondary}; box-shadow: 0 10px 30px rgba(243, 42, 97, 0.5);`
+						: `background-color: transparent; border-color: ${colors.accent}40;`}
 					onmouseenter={(e) => {
 						if (activeSection !== section.id) {
-							e.currentTarget.style.backgroundColor = `${colors.accent}80`;
-							e.currentTarget.style.color = 'white';
+							e.currentTarget.style.transform = 'scale(1.05)';
+							e.currentTarget.style.borderColor = colors.accent;
 						}
 					}}
 					onmouseleave={(e) => {
 						if (activeSection !== section.id) {
-							e.currentTarget.style.backgroundColor = 'transparent';
-							e.currentTarget.style.color = 'rgb(209, 213, 219)';
+							e.currentTarget.style.transform = 'scale(1)';
+							e.currentTarget.style.borderColor = `${colors.accent}40`;
 						}
 					}}
 				>
-					{section.title}
+					<EditableText key={section.titleKey} tag="span" />
 				</button>
 			{/each}
 		</div>
@@ -205,7 +207,7 @@
 					class="text-4xl md:text-5xl lg:text-6xl font-black text-white"
 					style="font-family: 'Playfair Display', serif; text-shadow: 0 0 30px rgba(243, 42, 97, 0.5);"
 				>
-					{section.title}
+					<EditableText key={section.titleKey} tag="span" />
 				</h2>
 				<div class="h-1 w-24 mt-4 rounded-full" style="background: linear-gradient(90deg, {colors.accent} 0%, {colors.secondary} 100%);"></div>
 			</div>
@@ -219,7 +221,7 @@
 					onmouseenter={() => pausedContainers.add(section.id)}
 					onmouseleave={() => pausedContainers.delete(section.id)}
 					role="region"
-					aria-label="Galeria zdjęć {section.title}"
+					aria-label="Galeria zdjęć {t(section.titleKey)}"
 				>
 					<div class="flex gap-6 md:gap-8">
 						<!-- First set of images -->
@@ -230,7 +232,7 @@
 							>
 								<img
 									src={image}
-									alt="{section.title} - obraz {imgIndex + 1}"
+									alt="{t(section.titleKey)} - obraz {imgIndex + 1}"
 									class="w-full h-full object-cover"
 								/>
 								<div
@@ -240,7 +242,7 @@
 								<div
 									class="absolute bottom-0 left-0 right-0 p-6 text-white transform translate-y-full group-hover:translate-y-0 transition-transform duration-300"
 								>
-									<p class="text-lg font-bold" style="color: {colors.accent};">{section.title} #{imgIndex + 1}</p>
+									<p class="text-lg font-bold" style="color: {colors.accent};"><EditableText key={section.titleKey} tag="span" /> #{imgIndex + 1}</p>
 								</div>
 							</div>
 						{/each}
@@ -253,7 +255,7 @@
 							>
 								<img
 									src={image}
-									alt="{section.title} - obraz {imgIndex + 1}"
+									alt="{t(section.titleKey)} - obraz {imgIndex + 1}"
 									class="w-full h-full object-cover"
 								/>
 								<div
@@ -263,7 +265,7 @@
 								<div
 									class="absolute bottom-0 left-0 right-0 p-6 text-white transform translate-y-full group-hover:translate-y-0 transition-transform duration-300"
 								>
-									<p class="text-lg font-bold" style="color: {colors.accent};">{section.title} #{imgIndex + 1}</p>
+									<p class="text-lg font-bold" style="color: {colors.accent};"><EditableText key={section.titleKey} tag="span" /> #{imgIndex + 1}</p>
 								</div>
 							</div>
 						{/each}
@@ -276,10 +278,10 @@
 						style="border-color: {colors.accent}60; background: rgba(39, 39, 91, 0.3);"
 					>
 						<p class="text-xl text-white mb-4 font-bold">
-							Sekcja w przygotowaniu
+							<EditableText key="portfolio.sectionInProgress" tag="span" />
 						</p>
 						<p class="text-sm" style="color: {colors.tertiary};">
-							Dodaj obrazy do folderu <code class="px-2 py-1 rounded" style="background-color: {colors.primary}; color: {colors.accent};">src/lib/assets/images/{section.id}/</code>
+							<EditableText key="portfolio.addImagesInstruction" tag="span" /> <code class="px-2 py-1 rounded" style="background-color: {colors.primary}; color: {colors.accent};">src/lib/assets/images/{section.id}/</code>
 						</p>
 					</div>
 				</div>

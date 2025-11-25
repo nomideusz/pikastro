@@ -430,6 +430,19 @@
     "industrialLoft": {
       "title": "Industrial Loft",
       "description": "Adaptation of post-industrial space into modern apartment with open plan."
-    }
+    },
+    "sections": {
+      "interiors": "Interiors",
+      "apartmentOffers": "Apartment Offers",
+      "branding": "Branding",
+      "posters": "Posters",
+      "patterns": "Patterns",
+      "characters": "Characters",
+      "drawing": "Drawing",
+      "photography": "Photography",
+      "conceptArt": "Concept Art"
+    },
+    "sectionInProgress": "Section in progress",
+    "addImagesInstruction": "Add images to folder"
   }
 }

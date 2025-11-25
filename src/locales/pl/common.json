@@ -438,6 +438,19 @@
     "industrialLoft": {
       "title": "Loft Industrialny",
       "description": "Adaptacja przestrzeni poprzemysłowej na nowoczesne mieszkanie z otwartym planem."
-    }
+    },
+    "sections": {
+      "interiors": "Wnętrza",
+      "apartmentOffers": "Oferty Mieszkań",
+      "branding": "Branding",
+      "posters": "Plakaty",
+      "patterns": "Wzory",
+      "characters": "Postacie",
+      "drawing": "Rysunek",
+      "photography": "Fotografia",
+      "conceptArt": "Grafika Koncepcyjna"
+    },
+    "sectionInProgress": "Sekcja w przygotowaniu",
+    "addImagesInstruction": "Dodaj obrazy do folderu"
   }
 }

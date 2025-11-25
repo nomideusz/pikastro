@@ -850,7 +850,7 @@
 		<p class="text-lg md:text-xl text-gray-200 mb-8 max-w-2xl mx-auto">
 			<EditableText key="home.ctaBanner.description" tag="span" />
 		</p>
-		<a href="#kontakt" class="inline-block px-6 py-2.5 text-sm tracking-wide uppercase font-bold rounded-lg shadow-md transition-all duration-300 hover:shadow-lg transform hover:scale-105" style="background-color: {colorPalette.secondary}; color: {colorPalette.primary};">
+		<a href="#kontakt" class="inline-block px-8 py-4 text-sm tracking-wide uppercase font-bold rounded-xl border-2 transition-all duration-300 transform hover:scale-110" style="background: linear-gradient(135deg, {colorPalette.secondary} 0%, {colorPalette.primary} 100%); border-color: {colorPalette.accent}; box-shadow: 0 10px 30px rgba(29, 168, 152, 0.5); color: white;">
 			<EditableText key="home.ctaBanner.button" tag="span" />
 		</a>
 	</div>
@@ -1073,10 +1073,9 @@
 		<div class="observe group h-full flex flex-col" style="animation-delay: 0ms">
 			<div role="article" class="bg-white/10 backdrop-blur-sm p-8 rounded-2xl border-2 border-white/20 transition-all duration-300 hover:shadow-2xl hover:scale-105 flex flex-col flex-grow" onmouseenter={(e) => { e.currentTarget.style.borderColor = colorPalette.accent; e.currentTarget.style.boxShadow = `0 25px 50px -12px rgba(var(--color-accent-rgb, 251, 113, 133), 0.3)`; }} onmouseleave={(e) => { e.currentTarget.style.borderColor = 'rgba(255, 255, 255, 0.2)'; e.currentTarget.style.boxShadow = '0 20px 25px -5px rgba(0, 0, 0, 0.1)'; }}>
 				<div class="mb-6">
-					<div class="text-8xl font-black opacity-20 leading-none text-white" style="font-family: 'Playfair Display', serif;">
+					<div class="text-8xl font-black opacity-20 leading-none text-white mb-4" style="font-family: 'Playfair Display', serif;">
 						01
 					</div>
-					<div class="text-5xl -mt-8 mb-4">🎤</div>
 				</div>
 				<h3 class="text-2xl font-black mb-3 text-white transition-colors" style="font-family: 'Playfair Display', serif;" onmouseenter={(e) => e.currentTarget.style.color = colorPalette.accent} onmouseleave={(e) => e.currentTarget.style.color = "white"}>
 					<EditableText key="process.consultation.title" tag="span" />
@@ -1104,10 +1103,9 @@
 		<div class="observe group h-full flex flex-col" style="animation-delay: 150ms">
 			<div role="article" class="bg-white/10 backdrop-blur-sm p-8 rounded-2xl border-2 border-white/20 transition-all duration-300 hover:shadow-2xl hover:scale-105 flex flex-col flex-grow" onmouseenter={(e) => { e.currentTarget.style.borderColor = colorPalette.accent; e.currentTarget.style.boxShadow = `0 25px 50px -12px rgba(var(--color-accent-rgb, 251, 113, 133), 0.3)`; }} onmouseleave={(e) => { e.currentTarget.style.borderColor = 'rgba(255, 255, 255, 0.2)'; e.currentTarget.style.boxShadow = '0 20px 25px -5px rgba(0, 0, 0, 0.1)'; }}>
 				<div class="mb-6">
-					<div class="text-8xl font-black opacity-20 leading-none text-white" style="font-family: 'Playfair Display', serif;">
+					<div class="text-8xl font-black opacity-20 leading-none text-white mb-4" style="font-family: 'Playfair Display', serif;">
 						02
 					</div>
-					<div class="text-5xl -mt-8 mb-4">🎨</div>
 				</div>
 				<h3 class="text-2xl font-black mb-3 text-white transition-colors" style="font-family: 'Playfair Display', serif;" onmouseenter={(e) => e.currentTarget.style.color = colorPalette.accent} onmouseleave={(e) => e.currentTarget.style.color = "white"}>
 					<EditableText key="process.prototyping.title" tag="span" />
@@ -1135,10 +1133,9 @@
 		<div class="observe group h-full flex flex-col" style="animation-delay: 300ms">
 			<div role="article" class="bg-white/10 backdrop-blur-sm p-8 rounded-2xl border-2 border-white/20 transition-all duration-300 hover:shadow-2xl hover:scale-105 flex flex-col flex-grow" onmouseenter={(e) => { e.currentTarget.style.borderColor = colorPalette.accent; e.currentTarget.style.boxShadow = `0 25px 50px -12px rgba(var(--color-accent-rgb, 251, 113, 133), 0.3)`; }} onmouseleave={(e) => { e.currentTarget.style.borderColor = 'rgba(255, 255, 255, 0.2)'; e.currentTarget.style.boxShadow = '0 20px 25px -5px rgba(0, 0, 0, 0.1)'; }}>
 				<div class="mb-6">
-					<div class="text-8xl font-black opacity-20 leading-none text-white" style="font-family: 'Playfair Display', serif;">
+					<div class="text-8xl font-black opacity-20 leading-none text-white mb-4" style="font-family: 'Playfair Display', serif;">
 						03
 					</div>
-					<div class="text-5xl -mt-8 mb-4">✨</div>
 				</div>
 				<h3 class="text-2xl font-black mb-3 text-white transition-colors" style="font-family: 'Playfair Display', serif;" onmouseenter={(e) => e.currentTarget.style.color = colorPalette.accent} onmouseleave={(e) => e.currentTarget.style.color = "white"}>
 					<EditableText key="process.refinement.title" tag="span" />
@@ -1166,10 +1163,9 @@
 		<div class="observe group h-full flex flex-col" style="animation-delay: 450ms">
 			<div role="article" class="bg-white/10 backdrop-blur-sm p-8 rounded-2xl border-2 border-white/20 transition-all duration-300 hover:shadow-2xl hover:scale-105 flex flex-col flex-grow" onmouseenter={(e) => { e.currentTarget.style.borderColor = colorPalette.accent; e.currentTarget.style.boxShadow = `0 25px 50px -12px rgba(var(--color-accent-rgb, 251, 113, 133), 0.3)`; }} onmouseleave={(e) => { e.currentTarget.style.borderColor = 'rgba(255, 255, 255, 0.2)'; e.currentTarget.style.boxShadow = '0 20px 25px -5px rgba(0, 0, 0, 0.1)'; }}>
 				<div class="mb-6">
-					<div class="text-8xl font-black opacity-20 leading-none text-white" style="font-family: 'Playfair Display', serif;">
+					<div class="text-8xl font-black opacity-20 leading-none text-white mb-4" style="font-family: 'Playfair Display', serif;">
 						04
 					</div>
-					<div class="text-5xl -mt-8 mb-4">📐</div>
 				</div>
 				<h3 class="text-2xl font-black mb-3 text-white transition-colors" style="font-family: 'Playfair Display', serif;" onmouseenter={(e) => e.currentTarget.style.color = colorPalette.accent} onmouseleave={(e) => e.currentTarget.style.color = "white"}>
 					<EditableText key="process.documentation.title" tag="span" />
@@ -1191,7 +1187,7 @@
 		<div class="mt-16 text-center observe animate-fade-in-up" style="animation-delay: 0.3s;">
 			<div class="inline-block bg-white/10 backdrop-blur-sm px-6 md:px-12 py-6 rounded-2xl border-2 border-white/20 transition-all duration-500 hover:border-white/40 hover:bg-white/15">
 				<p class="text-sm uppercase tracking-wider text-gray-300 mb-2"><EditableText key="home.timeline.totalTime" tag="span" /></p>
-				<p class="text-4xl font-black transition-colors duration-300" style="font-family: 'Playfair Display', serif; color: {colorPalette.secondary};"><EditableText key="home.timeline.workingDays" tag="span" /></p>
+				<p class="text-4xl font-black" style="font-family: 'Playfair Display', serif; color: {colorPalette.secondary}; text-shadow: 0 0 20px {colorPalette.secondary}80, 0 0 40px {colorPalette.secondary}40;"><EditableText key="home.timeline.workingDays" tag="span" /></p>
 				<p class="text-sm text-gray-300 mt-2"><EditableText key="home.timeline.vsTraditional" tag="span" /></p>
 			</div>
 		</div>
@@ -1250,29 +1246,29 @@
 			</h3>
 
 			<div class="space-y-6">
-				<div class="border-l-4 pl-6" style="border-color: {colorPalette.accent}">
-					<p class="font-bold text-xl mb-2 neon-text" style="color: {colorPalette.accent}"><EditableText key="home.faq.question1.q" tag="span" /></p>
+				<div class="border-l-4 pl-6" style="border-color: {colorPalette.secondary}">
+					<p class="font-black text-xl mb-2" style="color: {colorPalette.secondary}; text-shadow: 0 0 20px {colorPalette.secondary}80, 0 0 40px {colorPalette.secondary}40;"><EditableText key="home.faq.question1.q" tag="span" /></p>
 					<p class="text-gray-200 leading-relaxed">
 						<EditableText key="home.faq.question1.a" multiline={true} />
 					</p>
 				</div>
 
 				<div class="border-l-4 pl-6" style="border-color: {colorPalette.secondary}">
-					<p class="font-bold text-xl mb-2 text-white"><EditableText key="home.faq.question2.q" tag="span" /></p>
+					<p class="font-black text-xl mb-2" style="color: {colorPalette.secondary}; text-shadow: 0 0 20px {colorPalette.secondary}80, 0 0 40px {colorPalette.secondary}40;"><EditableText key="home.faq.question2.q" tag="span" /></p>
 					<p class="text-gray-200 leading-relaxed">
 						<EditableText key="home.faq.question2.a" multiline={true} />
 					</p>
 				</div>
 
-				<div class="border-l-4 pl-6" style="border-color: {colorPalette.accent}">
-					<p class="font-bold text-xl mb-2 neon-text" style="color: {colorPalette.accent}"><EditableText key="home.faq.question3.q" tag="span" /></p>
+				<div class="border-l-4 pl-6" style="border-color: {colorPalette.secondary}">
+					<p class="font-black text-xl mb-2" style="color: {colorPalette.secondary}; text-shadow: 0 0 20px {colorPalette.secondary}80, 0 0 40px {colorPalette.secondary}40;"><EditableText key="home.faq.question3.q" tag="span" /></p>
 					<p class="text-gray-200 leading-relaxed">
 						<EditableText key="home.faq.question3.a" multiline={true} />
 					</p>
 				</div>
 
 				<div class="border-l-4 pl-6" style="border-color: {colorPalette.secondary}">
-					<p class="font-bold text-xl mb-2 text-white"><EditableText key="home.faq.question4.q" tag="span" /></p>
+					<p class="font-black text-xl mb-2" style="color: {colorPalette.secondary}; text-shadow: 0 0 20px {colorPalette.secondary}80, 0 0 40px {colorPalette.secondary}40;"><EditableText key="home.faq.question4.q" tag="span" /></p>
 					<p class="text-gray-200 leading-relaxed">
 						<EditableText key="home.faq.question4.a" multiline={true} />
 					</p>
@@ -1302,28 +1298,28 @@
 		<div class="flex justify-center gap-4 flex-wrap">
 			<button
 				onclick={() => activeFilter = 'wszystkie'}
-				class="px-8 py-3 text-sm uppercase tracking-wider font-bold transition-all duration-300 rounded-lg {activeFilter === 'wszystkie' ? 'text-white shadow-lg' : 'bg-transparent text-[#27275b]/80 border-2 border-[#27275b]/20'}"
-				style={activeFilter === 'wszystkie' ? `background-color: ${colorPalette.primary}; border-color: ${colorPalette.primary};` : `border-color: rgb(229, 231, 235);`}
-				onmouseenter={(e) => { if (activeFilter !== 'wszystkie') { e.currentTarget.style.color = colorPalette.primary; e.currentTarget.style.borderColor = colorPalette.primary; } }}
-				onmouseleave={(e) => { if (activeFilter !== 'wszystkie') { e.currentTarget.style.color = 'rgb(75, 85, 99)'; e.currentTarget.style.borderColor = 'rgb(229, 231, 235)'; } }}
+				class="px-8 py-3 text-sm uppercase tracking-wider font-bold transition-all duration-300 rounded-xl border-2 {activeFilter === 'wszystkie' ? 'text-white' : 'text-[#27275b]/80'}"
+				style={activeFilter === 'wszystkie' ? `background: linear-gradient(135deg, ${colorPalette.primary} 0%, ${colorPalette.accent} 100%); border-color: ${colorPalette.secondary}; box-shadow: 0 10px 30px rgba(39, 39, 91, 0.4);` : `background: transparent; border-color: ${colorPalette.primary}40;`}
+				onmouseenter={(e) => { if (activeFilter !== 'wszystkie') { e.currentTarget.style.transform = 'scale(1.05)'; e.currentTarget.style.borderColor = colorPalette.primary; } }}
+				onmouseleave={(e) => { if (activeFilter !== 'wszystkie') { e.currentTarget.style.transform = 'scale(1)'; e.currentTarget.style.borderColor = `${colorPalette.primary}40`; } }}
 			>
 				<EditableText key="home.portfolio.filterAll" tag="span" />
 			</button>
 			<button
 				onclick={() => activeFilter = 'wnętrza'}
-				class="px-8 py-3 text-sm uppercase tracking-wider font-bold transition-all duration-300 rounded-lg {activeFilter === 'wnętrza' ? 'text-white shadow-lg' : 'bg-transparent text-[#27275b]/80 border-2 border-[#27275b]/20'}"
-				style={activeFilter === 'wnętrza' ? `background-color: ${colorPalette.accent}; border-color: ${colorPalette.accent};` : `border-color: rgb(229, 231, 235);`}
-				onmouseenter={(e) => { if (activeFilter !== 'wnętrza') { e.currentTarget.style.color = colorPalette.primary; e.currentTarget.style.borderColor = colorPalette.primary; } }}
-				onmouseleave={(e) => { if (activeFilter !== 'wnętrza') { e.currentTarget.style.color = 'rgb(75, 85, 99)'; e.currentTarget.style.borderColor = 'rgb(229, 231, 235)'; } }}
+				class="px-8 py-3 text-sm uppercase tracking-wider font-bold transition-all duration-300 rounded-xl border-2 {activeFilter === 'wnętrza' ? 'text-white' : 'text-[#27275b]/80'}"
+				style={activeFilter === 'wnętrza' ? `background: linear-gradient(135deg, ${colorPalette.accent} 0%, ${colorPalette.tertiary} 100%); border-color: ${colorPalette.secondary}; box-shadow: 0 10px 30px rgba(243, 42, 97, 0.4);` : `background: transparent; border-color: ${colorPalette.accent}40;`}
+				onmouseenter={(e) => { if (activeFilter !== 'wnętrza') { e.currentTarget.style.transform = 'scale(1.05)'; e.currentTarget.style.borderColor = colorPalette.accent; } }}
+				onmouseleave={(e) => { if (activeFilter !== 'wnętrza') { e.currentTarget.style.transform = 'scale(1)'; e.currentTarget.style.borderColor = `${colorPalette.accent}40`; } }}
 			>
 				<EditableText key="home.portfolio.filterInteriors" tag="span" />
 			</button>
 			<button
 				onclick={() => activeFilter = 'grafika'}
-				class="px-8 py-3 text-sm uppercase tracking-wider font-bold transition-all duration-300 rounded-lg {activeFilter === 'grafika' ? 'text-white shadow-lg' : 'bg-transparent text-[#27275b]/80 border-2 border-[#27275b]/20'}"
-				style={activeFilter === 'grafika' ? `background-color: ${colorPalette.secondary}; border-color: ${colorPalette.secondary};` : `border-color: rgb(229, 231, 235);`}
-				onmouseenter={(e) => { if (activeFilter !== 'grafika') { e.currentTarget.style.color = colorPalette.primary; e.currentTarget.style.borderColor = colorPalette.primary; } }}
-				onmouseleave={(e) => { if (activeFilter !== 'grafika') { e.currentTarget.style.color = 'rgb(75, 85, 99)'; e.currentTarget.style.borderColor = 'rgb(229, 231, 235)'; } }}
+				class="px-8 py-3 text-sm uppercase tracking-wider font-bold transition-all duration-300 rounded-xl border-2 {activeFilter === 'grafika' ? 'text-white' : 'text-[#27275b]/80'}"
+				style={activeFilter === 'grafika' ? `background: linear-gradient(135deg, ${colorPalette.secondary} 0%, ${colorPalette.primary} 100%); border-color: ${colorPalette.accent}; box-shadow: 0 10px 30px rgba(29, 168, 152, 0.4);` : `background: transparent; border-color: ${colorPalette.secondary}40;`}
+				onmouseenter={(e) => { if (activeFilter !== 'grafika') { e.currentTarget.style.transform = 'scale(1.05)'; e.currentTarget.style.borderColor = colorPalette.secondary; } }}
+				onmouseleave={(e) => { if (activeFilter !== 'grafika') { e.currentTarget.style.transform = 'scale(1)'; e.currentTarget.style.borderColor = `${colorPalette.secondary}40`; } }}
 			>
 				<EditableText key="home.portfolio.filterGraphics" tag="span" />
 			</button>
@@ -1381,11 +1377,11 @@
 	<div class="text-center mt-16 observe relative z-10">
 		<a
 			href="/portfolio"
-			class="inline-block px-10 py-4 text-lg font-bold rounded-xl shadow-xl transition-all duration-300 hover:shadow-2xl hover:scale-105 transform"
-			style="background-color: {colorPalette.accent}; color: white;"
+			class="inline-flex items-center gap-3 px-10 py-4 text-lg font-bold rounded-xl border-2 transition-all duration-300 transform hover:scale-110"
+			style="background: linear-gradient(135deg, {colorPalette.accent} 0%, {colorPalette.primary} 100%); border-color: {colorPalette.secondary}; box-shadow: 0 10px 30px rgba(243, 42, 97, 0.5); color: white;"
 		>
 			<EditableText key="home.portfolio.viewFullPortfolio" tag="span" />
-			<svg class="inline-block w-5 h-5 ml-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+			<svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
 				<path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 7l5 5m0 0l-5 5m5-5H6"></path>
 			</svg>
 		</a>
@@ -1606,7 +1602,8 @@
 				<button
 					type="submit"
 					disabled={formStatus === 'submitting' || !validationErrors.isFormValid}
-					class="w-full btn disabled:opacity-50 disabled:cursor-not-allowed {!validationErrors.isFormValid && (touchedFields.name || touchedFields.email || touchedFields.message) ? 'opacity-60 cursor-not-allowed' : ''}"
+					class="w-full px-8 py-4 text-lg font-bold rounded-xl border-2 text-white transition-all duration-300 disabled:opacity-50 disabled:cursor-not-allowed {!validationErrors.isFormValid && (touchedFields.name || touchedFields.email || touchedFields.message) ? 'opacity-60 cursor-not-allowed' : 'hover:scale-105'}"
+					style="background: linear-gradient(135deg, {colorPalette.accent} 0%, {colorPalette.primary} 100%); border-color: {colorPalette.secondary}; box-shadow: 0 10px 30px rgba(243, 42, 97, 0.5);"
 				>
 					{submitButtonText}
 				</button>
