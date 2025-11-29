@@ -132,6 +132,11 @@
 
 <!-- Design Journeys Section - Maximalism -->
 <section class="section bg-white relative overflow-hidden">
+	<!-- Colorful background elements - Maximalism -->
+	<div class="absolute top-0 right-0 w-48 h-48 md:w-96 md:h-96 rounded-full filter blur-3xl opacity-20" style="background-color: {colorPalette.tertiary}"></div>
+	<div class="absolute bottom-0 left-0 w-48 h-48 md:w-96 md:h-96 rounded-full filter blur-3xl opacity-20" style="background-color: {colorPalette.secondary}"></div>
+	<div class="absolute top-1/2 right-1/3 w-40 h-40 md:w-80 md:h-80 rounded-full filter blur-3xl opacity-15" style="background-color: {colorPalette.success}"></div>
+
 	<div class="space-y-16 relative z-10 max-w-7xl mx-auto">
 		{#each pricingTiers as journey, i}
 			<div class="observe" style="animation-delay: {i * 200}ms">
@@ -157,7 +162,7 @@
 
 								<!-- Investment & Duration -->
 								<div class="lg:text-right">
-									<div class="inline-block p-6 rounded-2xl border-2" style="background-color: #D9F0ED; border-color: {colorPalette.primary}; -webkit-font-smoothing: subpixel-antialiased; -moz-osx-font-smoothing: auto;">
+									<div class="inline-block p-6 rounded-2xl border-2" style="background-color: #D9F0ED; border-color: {colorPalette.primary}; isolation: isolate;">
 										<div class="text-sm uppercase tracking-wider mb-1 font-bold" style="color: {colorPalette.primary};"><EditableText key="pricing.page.investmentLabel" tag="span" /></div>
 										<div class="text-2xl font-black mb-2" style="color: {colorPalette.primary}"><EditableText key={journey.investmentKey} tag="span" /></div>
 										<div class="text-sm font-medium" style="color: {colorPalette.primary};"><EditableText key={journey.durationKey} tag="span" /></div>
