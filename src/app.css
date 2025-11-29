@@ -42,7 +42,6 @@
     font-family: 'Montserrat', sans-serif;
     background: linear-gradient(135deg, #1DA898 0%, #27275B 100%);
     border-color: #F32A61;
-    box-shadow: 0 10px 30px rgba(29, 168, 152, 0.5);
   }
 
   .btn-secondary {
@@ -50,7 +49,6 @@
     font-family: 'Montserrat', sans-serif;
     background: linear-gradient(135deg, #F32A61 0%, #27275B 100%);
     border-color: #1DA898;
-    box-shadow: 0 10px 30px rgba(243, 42, 97, 0.5);
   }
 
   .section {

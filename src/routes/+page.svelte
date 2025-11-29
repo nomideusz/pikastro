@@ -850,7 +850,7 @@
 		<p class="text-lg md:text-xl text-gray-200 mb-8 max-w-2xl mx-auto">
 			<EditableText key="home.ctaBanner.description" tag="span" />
 		</p>
-		<a href="#kontakt" class="inline-block px-8 py-4 text-sm tracking-wide uppercase font-bold rounded-xl border-2 transition-all duration-300 transform hover:scale-110" style="background: linear-gradient(135deg, {colorPalette.secondary} 0%, {colorPalette.primary} 100%); border-color: {colorPalette.accent}; box-shadow: 0 10px 30px rgba(29, 168, 152, 0.5); color: white;">
+		<a href="#kontakt" class="inline-block px-8 py-4 text-sm tracking-wide uppercase font-bold rounded-xl border-2 transition-all duration-300 transform hover:scale-110" style="background: linear-gradient(135deg, {colorPalette.secondary} 0%, {colorPalette.primary} 100%); border-color: {colorPalette.accent}; color: white;">
 			<EditableText key="home.ctaBanner.button" tag="span" />
 		</a>
 	</div>
@@ -1299,7 +1299,7 @@
 			<button
 				onclick={() => activeFilter = 'wszystkie'}
 				class="px-8 py-3 text-sm uppercase tracking-wider font-bold transition-all duration-300 rounded-xl border-2 {activeFilter === 'wszystkie' ? 'text-white' : 'text-[#27275b]/80'}"
-				style={activeFilter === 'wszystkie' ? `background: linear-gradient(135deg, ${colorPalette.primary} 0%, ${colorPalette.accent} 100%); border-color: ${colorPalette.secondary}; box-shadow: 0 10px 30px rgba(39, 39, 91, 0.4);` : `background: transparent; border-color: ${colorPalette.primary}40;`}
+				style={activeFilter === 'wszystkie' ? `background: linear-gradient(135deg, ${colorPalette.secondary} 0%, ${colorPalette.primary} 100%); border-color: ${colorPalette.accent};` : `background: transparent; border-color: ${colorPalette.primary}40;`}
 				onmouseenter={(e) => { if (activeFilter !== 'wszystkie') { e.currentTarget.style.transform = 'scale(1.05)'; e.currentTarget.style.borderColor = colorPalette.primary; } }}
 				onmouseleave={(e) => { if (activeFilter !== 'wszystkie') { e.currentTarget.style.transform = 'scale(1)'; e.currentTarget.style.borderColor = `${colorPalette.primary}40`; } }}
 			>
@@ -1308,7 +1308,7 @@
 			<button
 				onclick={() => activeFilter = 'wnętrza'}
 				class="px-8 py-3 text-sm uppercase tracking-wider font-bold transition-all duration-300 rounded-xl border-2 {activeFilter === 'wnętrza' ? 'text-white' : 'text-[#27275b]/80'}"
-				style={activeFilter === 'wnętrza' ? `background: linear-gradient(135deg, ${colorPalette.accent} 0%, ${colorPalette.tertiary} 100%); border-color: ${colorPalette.secondary}; box-shadow: 0 10px 30px rgba(243, 42, 97, 0.4);` : `background: transparent; border-color: ${colorPalette.accent}40;`}
+				style={activeFilter === 'wnętrza' ? `background: linear-gradient(135deg, ${colorPalette.secondary} 0%, ${colorPalette.primary} 100%); border-color: ${colorPalette.accent};` : `background: transparent; border-color: ${colorPalette.accent}40;`}
 				onmouseenter={(e) => { if (activeFilter !== 'wnętrza') { e.currentTarget.style.transform = 'scale(1.05)'; e.currentTarget.style.borderColor = colorPalette.accent; } }}
 				onmouseleave={(e) => { if (activeFilter !== 'wnętrza') { e.currentTarget.style.transform = 'scale(1)'; e.currentTarget.style.borderColor = `${colorPalette.accent}40`; } }}
 			>
@@ -1317,7 +1317,7 @@
 			<button
 				onclick={() => activeFilter = 'grafika'}
 				class="px-8 py-3 text-sm uppercase tracking-wider font-bold transition-all duration-300 rounded-xl border-2 {activeFilter === 'grafika' ? 'text-white' : 'text-[#27275b]/80'}"
-				style={activeFilter === 'grafika' ? `background: linear-gradient(135deg, ${colorPalette.secondary} 0%, ${colorPalette.primary} 100%); border-color: ${colorPalette.accent}; box-shadow: 0 10px 30px rgba(29, 168, 152, 0.4);` : `background: transparent; border-color: ${colorPalette.secondary}40;`}
+				style={activeFilter === 'grafika' ? `background: linear-gradient(135deg, ${colorPalette.secondary} 0%, ${colorPalette.primary} 100%); border-color: ${colorPalette.accent};` : `background: transparent; border-color: ${colorPalette.secondary}40;`}
 				onmouseenter={(e) => { if (activeFilter !== 'grafika') { e.currentTarget.style.transform = 'scale(1.05)'; e.currentTarget.style.borderColor = colorPalette.secondary; } }}
 				onmouseleave={(e) => { if (activeFilter !== 'grafika') { e.currentTarget.style.transform = 'scale(1)'; e.currentTarget.style.borderColor = `${colorPalette.secondary}40`; } }}
 			>
@@ -1378,7 +1378,7 @@
 		<a
 			href="/portfolio"
 			class="inline-flex items-center gap-3 px-10 py-4 text-lg font-bold rounded-xl border-2 transition-all duration-300 transform hover:scale-110"
-			style="background: linear-gradient(135deg, {colorPalette.accent} 0%, {colorPalette.primary} 100%); border-color: {colorPalette.secondary}; box-shadow: 0 10px 30px rgba(243, 42, 97, 0.5); color: white;"
+			style="background: linear-gradient(135deg, {colorPalette.secondary} 0%, {colorPalette.primary} 100%); border-color: {colorPalette.accent}; color: white;"
 		>
 			<EditableText key="home.portfolio.viewFullPortfolio" tag="span" />
 			<svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
@@ -1468,13 +1468,13 @@
 			</div>
 
 			<div class="flex space-x-4 mt-12">
-				<a href="https://linkedin.com" class="w-14 h-14 border-2 border-blue-200 rounded-lg flex items-center justify-center hover:text-white hover:border-transparent transition-all duration-300 hover:scale-110 hover:shadow-lg neon-glow" onmouseenter={(e) => e.currentTarget.style.backgroundColor = colorPalette.primary} onmouseleave={(e) => e.currentTarget.style.backgroundColor = 'transparent'}>
+				<a href="https://linkedin.com" class="w-14 h-14 border-2 border-blue-200 rounded-lg flex items-center justify-center hover:text-white hover:border-transparent transition-all duration-300 hover:scale-110 hover:shadow-lg" onmouseenter={(e) => e.currentTarget.style.backgroundColor = colorPalette.primary} onmouseleave={(e) => e.currentTarget.style.backgroundColor = 'transparent'}>
 					<span class="text-sm font-bold">in</span>
 				</a>
-				<a href="https://behance.net" class="w-14 h-14 border-2 border-blue-200 rounded-lg flex items-center justify-center hover:text-white hover:border-transparent transition-all duration-300 hover:scale-110 hover:shadow-lg neon-glow" onmouseenter={(e) => e.currentTarget.style.backgroundColor = colorPalette.accent} onmouseleave={(e) => e.currentTarget.style.backgroundColor = 'transparent'}>
+				<a href="https://behance.net" class="w-14 h-14 border-2 border-blue-200 rounded-lg flex items-center justify-center hover:text-white hover:border-transparent transition-all duration-300 hover:scale-110 hover:shadow-lg" onmouseenter={(e) => e.currentTarget.style.backgroundColor = colorPalette.accent} onmouseleave={(e) => e.currentTarget.style.backgroundColor = 'transparent'}>
 					<span class="text-sm font-bold">be</span>
 				</a>
-				<a href="https://instagram.com" class="w-14 h-14 border-2 border-blue-200 rounded-lg flex items-center justify-center hover:text-white hover:border-transparent transition-all duration-300 hover:scale-110 hover:shadow-lg neon-glow" onmouseenter={(e) => e.currentTarget.style.backgroundColor = colorPalette.secondary} onmouseleave={(e) => e.currentTarget.style.backgroundColor = 'transparent'}>
+				<a href="https://instagram.com" class="w-14 h-14 border-2 border-blue-200 rounded-lg flex items-center justify-center hover:text-white hover:border-transparent transition-all duration-300 hover:scale-110 hover:shadow-lg" onmouseenter={(e) => e.currentTarget.style.backgroundColor = colorPalette.secondary} onmouseleave={(e) => e.currentTarget.style.backgroundColor = 'transparent'}>
 					<span class="text-sm font-bold">ig</span>
 				</a>
 			</div>
@@ -1603,7 +1603,7 @@
 					type="submit"
 					disabled={formStatus === 'submitting' || !validationErrors.isFormValid}
 					class="w-full px-8 py-4 text-lg font-bold rounded-xl border-2 text-white transition-all duration-300 disabled:opacity-50 disabled:cursor-not-allowed {!validationErrors.isFormValid && (touchedFields.name || touchedFields.email || touchedFields.message) ? 'opacity-60 cursor-not-allowed' : 'hover:scale-105'}"
-					style="background: linear-gradient(135deg, {colorPalette.accent} 0%, {colorPalette.primary} 100%); border-color: {colorPalette.secondary}; box-shadow: 0 10px 30px rgba(243, 42, 97, 0.5);"
+					style="background: linear-gradient(135deg, {colorPalette.secondary} 0%, {colorPalette.primary} 100%); border-color: {colorPalette.accent};"
 				>
 					{submitButtonText}
 				</button>
