@@ -162,7 +162,7 @@
 
 								<!-- Investment & Duration -->
 								<div class="lg:text-right">
-									<div class="inline-block p-6 rounded-2xl border-2" style="background-color: #D9F0ED; border-color: {colorPalette.primary}; -webkit-font-smoothing: subpixel-antialiased; -moz-osx-font-smoothing: auto;">
+									<div class="inline-block p-6 rounded-2xl border-2" style="background-color: #D9F0ED; border-color: {colorPalette.primary}; isolation: isolate;">
 										<div class="text-sm uppercase tracking-wider mb-1 font-bold" style="color: {colorPalette.primary};"><EditableText key="pricing.page.investmentLabel" tag="span" /></div>
 										<div class="text-2xl font-black mb-2" style="color: {colorPalette.primary}"><EditableText key={journey.investmentKey} tag="span" /></div>
 										<div class="text-sm font-medium" style="color: {colorPalette.primary};"><EditableText key={journey.durationKey} tag="span" /></div>
