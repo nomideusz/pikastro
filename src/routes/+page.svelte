@@ -1254,35 +1254,35 @@
 		</div>
 
 		<!-- FAQ Quick Hits -->
-		<div class="p-10 lg:p-12 rounded-2xl text-white observe" style="background-color: {colorPalette.secondary}">
+		<div class="p-10 lg:p-12 rounded-2xl text-white observe" style="background-color: {colorPalette.primary}">
 			<h3 class="text-3xl font-black mb-8 text-center" style="font-family: 'Playfair Display', serif;">
 				<EditableText key="home.faq.heading" tag="span" />
 			</h3>
 
 			<div class="space-y-6">
-				<div class="border-l-4 pl-6" style="border-color: {colorPalette.primary}">
-					<p class="font-black text-xl mb-2" style="color: {colorPalette.primary};"><EditableText key="home.faq.question1.q" tag="span" /></p>
+				<div class="border-l-4 pl-6" style="border-color: {colorPalette.secondary}">
+					<p class="font-black text-xl mb-2" style="color: {colorPalette.secondary};"><EditableText key="home.faq.question1.q" tag="span" /></p>
 					<p class="text-gray-200 leading-relaxed">
 						<EditableText key="home.faq.question1.a" multiline={true} />
 					</p>
 				</div>
 
-				<div class="border-l-4 pl-6" style="border-color: {colorPalette.primary}">
-					<p class="font-black text-xl mb-2" style="color: {colorPalette.primary};"><EditableText key="home.faq.question2.q" tag="span" /></p>
+				<div class="border-l-4 pl-6" style="border-color: {colorPalette.secondary}">
+					<p class="font-black text-xl mb-2" style="color: {colorPalette.secondary};"><EditableText key="home.faq.question2.q" tag="span" /></p>
 					<p class="text-gray-200 leading-relaxed">
 						<EditableText key="home.faq.question2.a" multiline={true} />
 					</p>
 				</div>
 
-				<div class="border-l-4 pl-6" style="border-color: {colorPalette.primary}">
-					<p class="font-black text-xl mb-2" style="color: {colorPalette.primary};"><EditableText key="home.faq.question3.q" tag="span" /></p>
+				<div class="border-l-4 pl-6" style="border-color: {colorPalette.secondary}">
+					<p class="font-black text-xl mb-2" style="color: {colorPalette.secondary};"><EditableText key="home.faq.question3.q" tag="span" /></p>
 					<p class="text-gray-200 leading-relaxed">
 						<EditableText key="home.faq.question3.a" multiline={true} />
 					</p>
 				</div>
 
-				<div class="border-l-4 pl-6" style="border-color: {colorPalette.primary}">
-					<p class="font-black text-xl mb-2" style="color: {colorPalette.primary};"><EditableText key="home.faq.question4.q" tag="span" /></p>
+				<div class="border-l-4 pl-6" style="border-color: {colorPalette.secondary}">
+					<p class="font-black text-xl mb-2" style="color: {colorPalette.secondary};"><EditableText key="home.faq.question4.q" tag="span" /></p>
 					<p class="text-gray-200 leading-relaxed">
 						<EditableText key="home.faq.question4.a" multiline={true} />
 					</p>
