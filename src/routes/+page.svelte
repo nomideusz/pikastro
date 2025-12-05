@@ -616,80 +616,57 @@
 	<meta name="description" content="Projektowanie wnętrz i grafika z AI dla młodych (20-30 lat). Odważne, kolorowe aranżacje mieszkań zamiast beżowo-szarych. Kompleksowa obsługa w Krakowie - szybko i w atrakcyjnych cenach." />
 </svelte:head>
 
-<!-- Hero Section with AI Visualization - Eclectic Maximalism -->
-<section class="relative flex items-center text-white overflow-hidden min-h-screen md:h-screen" style="background-color: {colorPalette.primary};">
-	<!-- Background Video -->
-	<div class="absolute inset-0 z-[1]">
+<!-- Hero Section - Clean with Video -->
+<section class="hero-section relative flex items-center text-white overflow-hidden min-h-screen md:h-screen">
+	<!-- Turquoise/Teal Background - always visible (hardcoded to ensure consistency) -->
+	<div class="absolute inset-0 z-[0]" style="background-color: #1DA898;"></div>
+	
+	<!-- Background Video - fades in after initial load -->
+	<div class="absolute inset-0 z-[1] hero-video-container">
 		<video
 			autoplay
 			loop
 			muted
 			playsinline
-			class="w-full h-full object-cover opacity-20"
+			class="w-full h-full object-cover opacity-30"
 		>
 			<source src={heroVideo} type="video/mp4" />
 		</video>
-		<div class="absolute inset-0 opacity-20 transition-all duration-1000" style="background-color: {colorPalette.primary}"></div>
+		<!-- Turquoise-tinted overlay for consistent look -->
+		<div class="absolute inset-0" style="background: linear-gradient(135deg, #1DA89885 0%, #1DA89870 50%, #27275B60 100%);"></div>
 	</div>
-		<!-- Animated AI Network Background -->
-		<div class="absolute inset-0 z-[2]">
-		<!-- AI Neural Network Lines -->
-		<svg class="absolute inset-0 w-full h-full opacity-20 transition-all duration-1000" xmlns="http://www.w3.org/2000/svg">
-			<!-- Animated connecting lines -->
-			<line x1="10%" y1="20%" x2="30%" y2="40%" stroke={colorPalette.accent} stroke-width="2" class="animate-pulse-slow transition-all duration-1000" />
-			<line x1="30%" y1="40%" x2="50%" y2="30%" stroke={colorPalette.secondary} stroke-width="2" class="animate-pulse-slow transition-all duration-1000" style="animation-delay: 0.5s" />
-			<line x1="50%" y1="30%" x2="70%" y2="50%" stroke={colorPalette.primary} stroke-width="2" class="animate-pulse-slow transition-all duration-1000" style="animation-delay: 1s" />
-			<line x1="70%" y1="50%" x2="90%" y2="35%" stroke={colorPalette.accent} stroke-width="2" class="animate-pulse-slow transition-all duration-1000" style="animation-delay: 1.5s" />
-			<line x1="20%" y1="70%" x2="40%" y2="85%" stroke={colorPalette.secondary} stroke-width="2" class="animate-pulse-slow transition-all duration-1000" style="animation-delay: 2s" />
-			<line x1="60%" y1="75%" x2="80%" y2="80%" stroke={colorPalette.primary} stroke-width="2" class="animate-pulse-slow transition-all duration-1000" style="animation-delay: 2.5s" />
-			<!-- AI Nodes -->
-			<circle cx="10%" cy="20%" r="8" fill={colorPalette.accent} class="animate-pulse-slow transition-all duration-1000" />
-			<circle cx="30%" cy="40%" r="6" fill={colorPalette.secondary} class="animate-pulse-slow transition-all duration-1000" style="animation-delay: 0.3s" />
-			<circle cx="50%" cy="30%" r="10" fill={colorPalette.primary} class="animate-pulse-slow neon-glow transition-all duration-1000" style="animation-delay: 0.6s" />
-			<circle cx="70%" cy="50%" r="7" fill={colorPalette.accent} class="animate-pulse-slow transition-all duration-1000" style="animation-delay: 0.9s" />
-			<circle cx="90%" cy="35%" r="5" fill={colorPalette.secondary} class="animate-pulse-slow transition-all duration-1000" style="animation-delay: 1.2s" />
-			<circle cx="20%" cy="70%" r="6" fill={colorPalette.primary} class="animate-pulse-slow transition-all duration-1000" style="animation-delay: 1.5s" />
-			<circle cx="80%" cy="80%" r="8" fill={colorPalette.accent} class="animate-pulse-slow transition-all duration-1000" style="animation-delay: 1.8s" />
-		</svg>
-	</div>
-
-	<!-- Floating color blobs - Maximalism -->
-	<div class="absolute top-10 right-5 w-48 h-48 md:top-20 md:right-20 md:w-72 md:h-72 rounded-full mix-blend-multiply filter blur-3xl opacity-40 animate-pulse-slow transition-all duration-1000" style="background-color: {colorPalette.accent}"></div>
-	<div class="absolute bottom-10 left-5 w-56 h-56 md:bottom-20 md:left-20 md:w-96 md:h-96 rounded-full mix-blend-multiply filter blur-3xl opacity-40 animate-pulse-slow transition-all duration-1000" style="background-color: {colorPalette.success}; animation-delay: 1s;"></div>
-	<div class="absolute top-1/2 left-1/2 w-48 h-48 md:w-80 md:h-80 rounded-full mix-blend-multiply filter blur-3xl opacity-40 animate-pulse-slow transition-all duration-1000" style="background-color: {colorPalette.secondary}; animation-delay: 2s;"></div>
-	<div class="absolute top-20 left-1/4 w-40 h-40 md:top-40 md:w-64 md:h-64 rounded-full mix-blend-multiply filter blur-3xl opacity-35 animate-pulse-slow transition-all duration-1000" style="background-color: {colorPalette.tertiary}; animation-delay: 0.5s;"></div>
 
 	<div class="relative z-20 px-4 md:px-6 lg:px-12 py-8 md:py-24 max-w-7xl mx-auto">
 		<div class="max-w-5xl">
-			<div class="mb-8 md:mb-8 observe animate-fade-in-up">
-				<p class="font-bold tracking-[0.15em] md:tracking-[0.3em] uppercase text-sm mb-6 animate-pulse-slow neon-text" style="color: {colorPalette.accent}">
+			<div class="mb-8 md:mb-8">
+				<p class="hero-text-animate font-bold tracking-[0.15em] md:tracking-[0.3em] uppercase text-sm mb-6" style="color: {colorPalette.accent}; animation-delay: 0.3s;">
 					<EditableText key="home.hero.label" />
 				</p>
 				<h1 class="text-5xl md:text-7xl lg:text-8xl font-black mb-6 leading-[1.05]" style="font-family: 'Playfair Display', serif;">
-					<span class="block">
+					<span class="hero-text-animate block" style="animation-delay: 0.5s;">
 						<EditableText key="home.hero.heading1" tag="span" />
 					</span>
-					<span class="block">{#if currentLocale === 'en'}<EditableText key="home.hero.heading2" tag="span" />{:else}<EditableText key="home.hero.heading2" tag="span" /><span style="color: #F5848E"><EditableText key="home.hero.heading2Accent" tag="span" /></span>{/if}</span>
+					<span class="hero-text-animate block" style="animation-delay: 0.7s;">{#if currentLocale === 'en'}<EditableText key="home.hero.heading2" tag="span" />{:else}<EditableText key="home.hero.heading2" tag="span" /><span style="color: #F5848E"><EditableText key="home.hero.heading2Accent" tag="span" /></span>{/if}</span>
 				</h1>
-				<p class="text-2xl md:text-3xl font-bold mb-4 leading-tight" style="color: #27275B;">
+				<p class="hero-text-animate text-2xl md:text-3xl font-bold mb-4 leading-tight" style="color: #27275B; animation-delay: 0.9s;">
 					<EditableText key="home.hero.tagline" />
 				</p>
 			</div>
-				<p class="text-lg md:text-2xl mb-8 max-w-3xl leading-relaxed text-gray-100 observe animate-fade-in-up" style="animation-delay: 0.2s; font-weight: 400;">
+			<p class="hero-text-animate text-lg md:text-2xl mb-8 max-w-3xl leading-relaxed text-gray-100" style="animation-delay: 1.1s; font-weight: 400;">
 				<EditableText key="home.hero.description" />
 			</p>
 
 			<!-- Value Props -->
-			<div class="grid grid-cols-1 sm:grid-cols-3 gap-4 mb-12 observe animate-fade-in-up max-w-3xl" style="animation-delay: 0.4s;">
-				<div class="bg-white/10 backdrop-blur-sm px-4 py-3 rounded-lg border border-white/20">
+			<div class="grid grid-cols-1 sm:grid-cols-3 gap-4 mb-12 max-w-3xl">
+				<div class="hero-text-animate bg-white/10 backdrop-blur-sm px-4 py-3 rounded-lg border border-white/20" style="animation-delay: 1.3s;">
 					<div class="font-black text-lg text-white"><EditableText key="home.hero.valueProps.time" tag="span" /></div>
 					<div class="text-white/80 text-sm"><EditableText key="home.hero.valueProps.timeVs" tag="span" /></div>
 				</div>
-				<div class="bg-white/10 backdrop-blur-sm px-4 py-3 rounded-lg border border-white/20">
+				<div class="hero-text-animate bg-white/10 backdrop-blur-sm px-4 py-3 rounded-lg border border-white/20" style="animation-delay: 1.5s;">
 					<div class="font-black text-lg text-white"><EditableText key="home.hero.valueProps.variants" tag="span" /></div>
 					<div class="text-white/80 text-sm"><EditableText key="home.hero.valueProps.variantsDesc" tag="span" /></div>
 				</div>
-				<div class="bg-white/10 backdrop-blur-sm px-4 py-3 rounded-lg border border-white/20">
+				<div class="hero-text-animate bg-white/10 backdrop-blur-sm px-4 py-3 rounded-lg border border-white/20" style="animation-delay: 1.7s;">
 					<div class="font-black text-lg text-white"><EditableText key="home.hero.valueProps.price" tag="span" /></div>
 					<div class="text-white/80 text-sm"><EditableText key="home.hero.valueProps.priceDesc" tag="span" /></div>
 				</div>
@@ -697,7 +674,7 @@
 
 		</div>
 	</div>
-	<div class="absolute bottom-6 md:bottom-12 left-1/2 -translate-x-1/2 animate-bounce">
+	<div class="hero-text-animate absolute bottom-6 md:bottom-12 left-1/2 -translate-x-1/2 animate-bounce" style="animation-delay: 2s;">
 		<svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24" style="color: {colorPalette.accent}">
 			<path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 14l-7 7m0 0l-7-7m7 7V3"></path>
 		</svg>
@@ -853,23 +830,6 @@
 	</div>
 </section>
 
-<!-- CTA Banner -->
-<section class="relative py-12 md:py-16 overflow-hidden border-t-4" style="background-color: {colorPalette.primary}; border-top-color: {colorPalette.accent};">
-	<div class="absolute top-0 right-0 w-48 h-48 md:w-96 md:h-96 rounded-full filter blur-3xl opacity-20" style="background-color: {colorPalette.accent};"></div>
-	<div class="absolute bottom-0 left-0 w-48 h-48 md:w-96 md:h-96 rounded-full filter blur-3xl opacity-20" style="background-color: {colorPalette.secondary};"></div>
-	<div class="max-w-5xl mx-auto px-6 text-center relative z-10">
-		<h2 class="text-3xl md:text-4xl lg:text-5xl font-black mb-6 text-white leading-tight" style="font-family: 'Playfair Display', serif;">
-			<EditableText key="home.ctaBanner.heading" tag="span" />
-		</h2>
-		<p class="text-lg md:text-xl text-gray-200 mb-8 max-w-2xl mx-auto">
-			<EditableText key="home.ctaBanner.description" tag="span" />
-		</p>
-		<a href="#kontakt" class="inline-block px-8 py-4 text-sm tracking-wide uppercase font-bold rounded-xl border-2 transition-all duration-300 transform hover:scale-110" style="background: linear-gradient(135deg, {colorPalette.secondary} 0%, {colorPalette.primary} 100%); border-color: {colorPalette.accent}; color: white;">
-			<EditableText key="home.ctaBanner.button" tag="span" />
-		</a>
-	</div>
-</section>
-
 <!-- About Section - Maximalism -->
 <section id="omnie" class="section bg-white relative overflow-hidden">
 	<div class="absolute top-0 right-0 w-48 h-48 md:w-96 md:h-96 rounded-full filter blur-3xl opacity-20" style="background-color: {colorPalette.secondary};"></div>
@@ -912,8 +872,31 @@
 	</div>
 </section>
 
+<!-- Full-width border separator -->
+<div class="w-full h-2" style="background-color: {colorPalette.accent};"></div>
+
+<!-- CTA Banner -->
+<section class="relative py-12 md:py-16 overflow-hidden" style="background-color: {colorPalette.primary};">
+	<div class="absolute top-0 right-0 w-48 h-48 md:w-96 md:h-96 rounded-full filter blur-3xl opacity-20" style="background-color: {colorPalette.accent};"></div>
+	<div class="absolute bottom-0 left-0 w-48 h-48 md:w-96 md:h-96 rounded-full filter blur-3xl opacity-20" style="background-color: {colorPalette.secondary};"></div>
+	<div class="max-w-5xl mx-auto px-6 text-center relative z-10">
+		<h2 class="text-3xl md:text-4xl lg:text-5xl font-black mb-6 text-white leading-tight" style="font-family: 'Playfair Display', serif;">
+			<EditableText key="home.ctaBanner.heading" tag="span" />
+		</h2>
+		<p class="text-lg md:text-xl text-gray-200 mb-8 max-w-2xl mx-auto">
+			<EditableText key="home.ctaBanner.description" tag="span" />
+		</p>
+		<a href="#kontakt" class="inline-block px-8 py-4 text-sm tracking-wide uppercase font-bold rounded-xl border-2 transition-all duration-300 transform hover:scale-110" style="background: linear-gradient(135deg, {colorPalette.secondary} 0%, {colorPalette.primary} 100%); border-color: {colorPalette.accent}; color: white;">
+			<EditableText key="home.ctaBanner.button" tag="span" />
+		</a>
+	</div>
+</section>
+
+<!-- Full-width border separator -->
+<div class="w-full h-2" style="background-color: {colorPalette.accent};"></div>
+
 <!-- Services Section - Maximalism -->
-<section id="oferta" class="section bg-white relative overflow-hidden border-t-8" style="border-top-color: {colorPalette.secondary};">
+<section id="oferta" class="section bg-white relative overflow-hidden">
 	<div class="absolute top-10 left-5 w-32 h-32 md:top-20 md:left-20 md:w-64 md:h-64 rounded-full filter blur-3xl opacity-25 animate-pulse-slow" style="background-color: {colorPalette.secondary};"></div>
 	<div class="absolute bottom-10 right-5 w-36 h-36 md:bottom-20 md:right-20 md:w-72 md:h-72 rounded-full filter blur-3xl opacity-20 animate-pulse-slow" style="background-color: {colorPalette.success}; animation-delay: 1s;"></div>
 		<div class="text-center mb-20 observe relative z-10">

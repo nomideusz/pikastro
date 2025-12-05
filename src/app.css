@@ -190,4 +190,41 @@
   .animate-pulse-subtle {
     animation: pulse-subtle 2s cubic-bezier(0.4, 0, 0.6, 1) infinite;
   }
+
+  /* Hero section smooth loading animations */
+  @keyframes heroMaterialize {
+    0% {
+      opacity: 0;
+      transform: translateY(20px);
+      filter: blur(8px);
+    }
+    100% {
+      opacity: 1;
+      transform: translateY(0);
+      filter: blur(0);
+    }
+  }
+
+  @keyframes heroVideoFadeIn {
+    0% {
+      opacity: 0;
+    }
+    100% {
+      opacity: 1;
+    }
+  }
+
+  .hero-section {
+    /* Start with turquoise background visible immediately */
+  }
+
+  .hero-video-container {
+    animation: heroVideoFadeIn 1.5s ease-out 0.2s forwards;
+    opacity: 0;
+  }
+
+  .hero-text-animate {
+    opacity: 0;
+    animation: heroMaterialize 0.8s cubic-bezier(0.22, 1, 0.36, 1) forwards;
+  }
 }
