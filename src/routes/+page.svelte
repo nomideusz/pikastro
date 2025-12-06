@@ -585,7 +585,7 @@
 	});
 
 	$effect(() => {
-		// Add scroll animations
+		// Add scroll animations with optimized mobile settings
 		const observer = new IntersectionObserver(
 			(entries) => {
 				entries.forEach((entry) => {
@@ -594,7 +594,10 @@
 					}
 				});
 			},
-			{ threshold: 0.1 }
+			{
+				threshold: 0.15,
+				rootMargin: '0px 0px -50px 0px' // Start animation 50px before element enters viewport
+			}
 		);
 
 		// Immediately animate elements already in view
