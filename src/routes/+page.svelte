@@ -101,6 +101,19 @@
 			});
 	});
 
+	// Scroll to top on page load/refresh (unless there's a hash)
+	$effect(() => {
+		if (typeof window !== 'undefined') {
+			// Use requestAnimationFrame to ensure DOM is ready
+			requestAnimationFrame(() => {
+				// Only scroll to top if there's no hash in the URL
+				if (!window.location.hash || window.location.hash === '#') {
+					window.scrollTo({ top: 0, behavior: 'instant' });
+				}
+			});
+		}
+	});
+
 	// Ensure videos play properly
 	$effect(() => {
 		if (typeof window !== 'undefined' && vid02Element) {
