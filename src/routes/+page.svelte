@@ -585,24 +585,38 @@
 	});
 
 	$effect(() => {
-		// Add scroll animations
+		// Add scroll animations with mobile-optimized settings
+		const isMobile = window.innerWidth < 768;
+
 		const observer = new IntersectionObserver(
 			(entries) => {
 				entries.forEach((entry) => {
 					if (entry.isIntersecting && !entry.target.classList.contains('animate-fade-in-up')) {
-						entry.target.classList.add('animate-fade-in-up');
+						// Add mobile-specific class for stronger animation
+						if (isMobile) {
+							entry.target.classList.add('animate-fade-in-up-mobile');
+						} else {
+							entry.target.classList.add('animate-fade-in-up');
+						}
 					}
 				});
 			},
-			{ threshold: 0.1 }
+			{
+				threshold: isMobile ? 0.05 : 0.1,
+				rootMargin: isMobile ? '0px 0px -80px 0px' : '0px 0px -100px 0px'
+			}
 		);
 
 		// Immediately animate elements already in view
 		document.querySelectorAll('.observe').forEach((el) => {
 			const rect = el.getBoundingClientRect();
 			const isInView = rect.top < window.innerHeight && rect.bottom > 0;
-			if (isInView && !el.classList.contains('animate-fade-in-up')) {
-				el.classList.add('animate-fade-in-up');
+			if (isInView) {
+				if (isMobile && !el.classList.contains('animate-fade-in-up-mobile')) {
+					el.classList.add('animate-fade-in-up-mobile');
+				} else if (!isMobile && !el.classList.contains('animate-fade-in-up')) {
+					el.classList.add('animate-fade-in-up');
+				}
 			}
 			observer.observe(el);
 		});
