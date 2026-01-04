@@ -91,14 +91,16 @@
 </script>
 
 <div
-    class="flex-shrink-0 group relative rounded-2xl overflow-hidden shadow-xl hover:shadow-2xl transition-all duration-500 hover:scale-105 border-2 carousel-image-container {containerClass} bg-gray-100 min-w-[300px]"
+    class="flex-shrink-0 group relative rounded-2xl overflow-hidden shadow-xl hover:shadow-2xl transition-all duration-500 hover:scale-105 border-2 carousel-image-container {containerClass} bg-gray-100"
     {style}
     role="group"
     aria-label="Portfolio item"
 >
     <!-- Image (Always rendered, opacity transition happens on Skeleton instead) -->
     {#if isFileKit && token}
-        <div class="w-full h-full relative z-0">
+        <div
+            class="w-full h-full relative z-0 flex items-center justify-center"
+        >
             <Image
                 reference={imgSrc}
                 {token}
@@ -110,7 +112,9 @@
         </div>
     {:else if !isFileKit}
         <!-- svelte-ignore a11y_missing_attribute -->
-        <div class="w-full h-full relative z-0">
+        <div
+            class="w-full h-full relative z-0 flex items-center justify-center"
+        >
             <img
                 src={imgSrc}
                 alt={altText}
