@@ -40,7 +40,7 @@
         typeof item === "string" ? "" : item.description || "",
     );
     let isFileKit = $derived(
-        imgSrc && !imgSrc.startsWith("/") && !imgSrc.startsWith("http"),
+        imgSrc && !imgSrc.includes("/") && !imgSrc.startsWith("http"),
     );
 
     // Editing description state
