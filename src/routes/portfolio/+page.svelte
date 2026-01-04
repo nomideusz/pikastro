@@ -30,15 +30,26 @@
 	import img_w_06 from "$lib/assets/images/wnetrza/06.jpeg";
 	import colorsImg from "$lib/assets/images/colors.jpeg";
 	import EditableText from "$lib/components/EditableText.svelte";
-	import EditableImage from "$lib/components/EditableImage.svelte";
+	import PortfolioCard from "$lib/components/PortfolioCard.svelte";
 	import ImagePicker from "$lib/components/ImagePicker.svelte";
 	import { editModeStore } from "$lib/stores/editMode.svelte";
 	import { t } from "$lib/i18n";
-	import { Image } from "filekit-svelte";
 	import { filekitToken } from "$lib/stores/filekit.svelte";
 
 	// Portfolio sections with images
-	let portfolioSections = $state([
+	// Data structure: strings (legacy/static) OR objects { reference, description }
+	interface ImageObject {
+		reference: string;
+		description?: string;
+	}
+
+	let portfolioSections = $state<
+		{
+			id: string;
+			titleKey: string;
+			images: (string | ImageObject)[];
+		}[]
+	>([
 		{
 			id: "grafika",
 			titleKey: "portfolio.sections.graphics",
@@ -176,12 +187,19 @@
 		);
 		if (!section) return;
 
+		// New image object structure. Logic to preserve description if updating.
+		let newImageObj = { reference: url, description: "" };
+
 		if (editingImageIndex !== null) {
 			// Replace existing
-			section.images[editingImageIndex] = url;
+			const existing = section.images[editingImageIndex];
+			if (typeof existing === "object" && existing !== null) {
+				newImageObj.description = existing.description || "";
+			}
+			section.images[editingImageIndex] = newImageObj;
 		} else {
 			// Add new
-			section.images.push(url);
+			section.images.push(newImageObj);
 		}
 		saveSectionImages(editingSectionId);
 	}
@@ -193,6 +211,27 @@
 		if (!section) return;
 
 		section.images.splice(index, 1);
+		saveSectionImages(sectionId);
+	}
+
+	function handleDescriptionUpdate(
+		sectionId: string,
+		index: number,
+		description: string,
+	) {
+		if (!checkEditAuth()) return;
+		const section = portfolioSections.find((s) => s.id === sectionId);
+		if (!section) return;
+
+		const item = section.images[index];
+		if (typeof item === "string") {
+			// Convert to object
+			section.images[index] = { reference: item, description };
+		} else if (typeof item === "object") {
+			// Update object
+			item.description = description;
+		}
+
 		saveSectionImages(sectionId);
 	}
 
@@ -489,152 +528,51 @@
 						<div class="flex gap-6 md:gap-8 items-center py-4">
 							<!-- First set of images -->
 							{#each section.images as image, imgIndex}
-								<div
-									class="flex-shrink-0 group relative rounded-2xl overflow-hidden shadow-xl hover:shadow-2xl transition-all duration-500 hover:scale-105 border-2 carousel-image-container"
+								<PortfolioCard
+									item={image}
+									index={imgIndex}
+									token={$filekitToken}
+									isEditable={!!checkEditAuth()}
+									altText="{t(
+										section.titleKey,
+									)} - img {imgIndex + 1}"
+									imageClass="h-full w-auto object-contain"
 									style="height: 400px; border-color: {colors.accent}40; box-shadow: 0 10px 30px rgba(243, 42, 97, 0.3);"
-								>
-									<!-- svelte-ignore a11y_missing_attribute -->
-									{#if image && !image.startsWith("/") && !image.startsWith("http") && $filekitToken}
-										<Image
-											reference={image}
-											token={$filekitToken}
-											alt="{t(
-												section.titleKey,
-											)} - obraz {imgIndex + 1}"
-											class="h-full w-auto object-contain"
-											draggable="false"
-										/>
-									{:else}
-										<img
-											src={image}
-											alt="{t(
-												section.titleKey,
-											)} - obraz {imgIndex + 1}"
-											class="h-full w-auto object-contain"
-											draggable="false"
-										/>
-									{/if}
-
-									{#if checkEditAuth()}
-										<div
-											class="absolute inset-0 bg-black/50 opacity-0 group-hover:opacity-100 transition-opacity flex items-center justify-center gap-2 pointer-events-auto"
-										>
-											<button
-												onclick={() =>
-													openEditImage(
-														section.id,
-														imgIndex,
-													)}
-												class="bg-white text-purple-600 px-4 py-2 rounded-lg font-bold hover:bg-gray-100"
-											>
-												Zmień
-											</button>
-											<button
-												onclick={() =>
-													handleDeleteImage(
-														section.id,
-														imgIndex,
-													)}
-												class="bg-red-600 text-white px-4 py-2 rounded-lg font-bold hover:bg-red-700"
-											>
-												Usuń
-											</button>
-										</div>
-									{/if}
-
-									<div
-										class="absolute inset-0 opacity-0 group-hover:opacity-100 transition-opacity duration-300 pointer-events-none"
-										style="background: linear-gradient(180deg, transparent 0%, {colors.primary}E6 100%);"
-									></div>
-									<div
-										class="absolute bottom-0 left-0 right-0 p-6 text-white transform translate-y-full group-hover:translate-y-0 transition-transform duration-300 pointer-events-none"
-									>
-										<p
-											class="text-lg font-bold"
-											style="color: {colors.accent};"
-										>
-											<EditableText
-												key={section.titleKey}
-												tag="span"
-											/> #{imgIndex + 1}
-										</p>
-									</div>
-								</div>
+									onEditImage={(idx) =>
+										openEditImage(section.id, idx)}
+									onDeleteImage={(idx) =>
+										handleDeleteImage(section.id, idx)}
+									onUpdateDescription={(idx, desc) =>
+										handleDescriptionUpdate(
+											section.id,
+											idx,
+											desc,
+										)}
+								/>
 							{/each}
 							<!-- Duplicate set for seamless loop -->
 							{#each section.images as image, imgIndex}
-								<div
-									class="flex-shrink-0 group relative rounded-2xl overflow-hidden shadow-xl hover:shadow-2xl transition-all duration-500 hover:scale-105 border-2 carousel-image-container"
+								<PortfolioCard
+									item={image}
+									index={imgIndex}
+									token={$filekitToken}
+									isEditable={!!checkEditAuth()}
+									altText="{t(
+										section.titleKey,
+									)} - img {imgIndex + 1} (dup)"
+									imageClass="h-full w-auto object-contain"
 									style="height: 400px; border-color: {colors.accent}40; box-shadow: 0 10px 30px rgba(243, 42, 97, 0.3);"
-									aria-hidden="true"
-								>
-									<!-- svelte-ignore a11y_missing_attribute -->
-									{#if image && !image.startsWith("/") && !image.startsWith("http") && $filekitToken}
-										<Image
-											reference={image}
-											token={$filekitToken}
-											alt="{t(
-												section.titleKey,
-											)} - obraz {imgIndex + 1}"
-											class="h-full w-auto object-contain"
-											draggable="false"
-										/>
-									{:else}
-										<img
-											src={image}
-											alt="{t(
-												section.titleKey,
-											)} - obraz {imgIndex + 1}"
-											class="h-full w-auto object-contain"
-											draggable="false"
-										/>
-									{/if}
-
-									{#if checkEditAuth()}
-										<div
-											class="absolute inset-0 bg-black/50 opacity-0 group-hover:opacity-100 transition-opacity flex items-center justify-center gap-2 pointer-events-auto"
-										>
-											<button
-												onclick={() =>
-													openEditImage(
-														section.id,
-														imgIndex,
-													)}
-												class="bg-white text-purple-600 px-4 py-2 rounded-lg font-bold hover:bg-gray-100"
-											>
-												Zmień
-											</button>
-											<button
-												onclick={() =>
-													handleDeleteImage(
-														section.id,
-														imgIndex,
-													)}
-												class="bg-red-600 text-white px-4 py-2 rounded-lg font-bold hover:bg-red-700"
-											>
-												Usuń
-											</button>
-										</div>
-									{/if}
-
-									<div
-										class="absolute inset-0 opacity-0 group-hover:opacity-100 transition-opacity duration-300 pointer-events-none"
-										style="background: linear-gradient(180deg, transparent 0%, {colors.primary}E6 100%);"
-									></div>
-									<div
-										class="absolute bottom-0 left-0 right-0 p-6 text-white transform translate-y-full group-hover:translate-y-0 transition-transform duration-300 pointer-events-none"
-									>
-										<p
-											class="text-lg font-bold"
-											style="color: {colors.accent};"
-										>
-											<EditableText
-												key={section.titleKey}
-												tag="span"
-											/> #{imgIndex + 1}
-										</p>
-									</div>
-								</div>
+									onEditImage={(idx) =>
+										openEditImage(section.id, idx)}
+									onDeleteImage={(idx) =>
+										handleDeleteImage(section.id, idx)}
+									onUpdateDescription={(idx, desc) =>
+										handleDescriptionUpdate(
+											section.id,
+											idx,
+											desc,
+										)}
+								/>
 							{/each}
 						</div>
 					</div>

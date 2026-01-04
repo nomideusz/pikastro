@@ -12,8 +12,9 @@
 
     let { isOpen = $bindable(false), onSelect, onClose }: Props = $props();
 
-    let isUploading = $state(false);
+    let uploadProgress = $state(0);
     let uploadError = $state("");
+
     // Previously we had a list of uploaded images. FileKit doesn't easily expose a "list all" API for public consumption
     // without a backend proxy. For now, we will focus on *uploading new* images or *selecting* based on what we might have stored locally
     // (though we wiped the local registry).
@@ -33,6 +34,7 @@
     function close() {
         isOpen = false;
         uploadError = "";
+        uploadProgress = 0;
         onClose?.();
     }
 
@@ -44,6 +46,11 @@
     function handleUploadError(data: { error: string }) {
         console.error("Upload error:", data.error);
         uploadError = data.error;
+        uploadProgress = 0;
+    }
+
+    function handleProgress(data: { percentage: number }) {
+        uploadProgress = data.percentage;
     }
 </script>
 
@@ -89,14 +96,36 @@
             <div class="p-6 overflow-y-auto max-h-[calc(90vh-120px)]">
                 {#if $filekitToken}
                     <div
-                        class="flex flex-col items-center justify-center p-8 border-2 border-dashed border-gray-300 rounded-xl bg-gray-50"
+                        class="flex flex-col items-center justify-center p-8 border-2 border-dashed border-gray-300 rounded-xl bg-gray-50 relative overflow-hidden"
                     >
+                        {#if uploadProgress > 0 && uploadProgress < 100}
+                            <div
+                                class="absolute inset-0 bg-white/80 z-10 flex flex-col items-center justify-center p-8 space-y-4"
+                            >
+                                <div
+                                    class="w-full h-4 bg-gray-200 rounded-full overflow-hidden"
+                                >
+                                    <div
+                                        class="h-full bg-purple-600 transition-all duration-300 ease-out"
+                                        style="width: {uploadProgress}%"
+                                    ></div>
+                                </div>
+                                <span class="text-purple-700 font-bold text-lg"
+                                    >{Math.round(uploadProgress)}%</span
+                                >
+                                <span class="text-gray-500 text-sm"
+                                    >Wysyłanie pliku...</span
+                                >
+                            </div>
+                        {/if}
+
                         <Uploader
                             token={$filekitToken}
                             accept="image/*"
                             maxFileSize={10 * 1024 * 1024}
                             onUpload={handleUploadSuccess}
                             onError={handleUploadError}
+                            onProgress={handleProgress}
                             class="px-6 py-3 bg-purple-600 text-white font-semibold rounded-lg hover:bg-purple-700 transition cursor-pointer shadow-md"
                             btnTxt="Wybierz lub przeciągnij plik"
                         />
