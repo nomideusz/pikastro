@@ -489,7 +489,7 @@
 	{#each portfolioSections as section, index}
 		<section
 			id={section.id}
-			class="relative pt-4 md:pt-6 pb-8 md:pb-10 overflow-hidden"
+			class="relative pt-8 md:pt-12 pb-8 md:pb-10 overflow-hidden"
 			style="background: linear-gradient(135deg,
 				{index % 4 === 0
 				? `${colors.primary}E6`
@@ -504,7 +504,7 @@
 			<div class="max-w-7xl mx-auto mb-4">
 				<h2
 					class="text-2xl md:text-3xl lg:text-4xl font-black flex items-center gap-4"
-					style="font-family: 'Playfair Display', serif; text-shadow: 0 0 30px rgba(243, 42, 97, 0.5); letter-spacing: 0.1em; color: {colors.accent};"
+					style="font-family: 'Playfair Display', serif; text-shadow: 0 0 30px rgba(243, 42, 97, 0.5); letter-spacing: 0.08em; color: {colors.accent};"
 				>
 					<EditableText key={section.titleKey} tag="span" />
 					{#if checkEditAuth()}

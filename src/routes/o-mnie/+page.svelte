@@ -170,69 +170,73 @@
 </section>
 
 <!-- About Content -->
-<section class="section bg-white">
-	<div class="grid lg:grid-cols-2 gap-16 lg:gap-24 items-center">
-		<div class="observe">
-			<div
-				class="aspect-[3/4] bg-blue-100 relative overflow-hidden rounded-2xl shadow-2xl group"
-			>
-				<EditableImage
-					imageKey="about.profile.photo"
-					src={magdaPhoto}
-					alt="{translate('about.hero.name')} {translate(
-						'about.hero.surname',
-					)} - {translate('about.hero.title')}"
-					class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
-				/>
+<section class="bg-white">
+	<div class="section">
+		<div class="grid lg:grid-cols-2 gap-16 lg:gap-24 items-center">
+			<div class="observe">
 				<div
-					class="absolute inset-0 opacity-0 group-hover:opacity-100 transition-opacity duration-300"
-					style="background-color: rgba(39, 39, 91, 0.15);"
-				></div>
-			</div>
-		</div>
-
-		<div class="space-y-8 observe">
-			<div>
-				<h2
-					class="text-3xl md:text-4xl lg:text-5xl font-black mb-6 leading-tight"
-					style="font-family: 'Playfair Display', serif;"
+					class="aspect-[3/4] bg-blue-100 relative overflow-hidden rounded-2xl shadow-2xl group"
 				>
-					<EditableText
-						key="about.experience.heading"
-						tag="span"
-					/><br />
-					<span style="color: #1DA898;"
-						><EditableText
-							key="about.experience.headingAccent"
-							tag="span"
-						/></span
+					<EditableImage
+						imageKey="about.profile.photo"
+						src={magdaPhoto}
+						alt="{translate('about.hero.name')} {translate(
+							'about.hero.surname',
+						)} - {translate('about.hero.title')}"
+						class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
+					/>
+					<div
+						class="absolute inset-0 opacity-0 group-hover:opacity-100 transition-opacity duration-300"
+						style="background-color: rgba(39, 39, 91, 0.15);"
+					></div>
+				</div>
+			</div>
+
+			<div class="space-y-8 observe">
+				<div>
+					<h2
+						class="text-3xl md:text-4xl lg:text-5xl font-black mb-6 leading-tight"
+						style="font-family: 'Playfair Display', serif;"
 					>
-				</h2>
-				<div class="space-y-6 text-gray-600 leading-relaxed text-lg">
-					<p>
 						<EditableText
-							key="about.experience.paragraph1"
+							key="about.experience.heading"
 							tag="span"
-						/>
-					</p>
-					<p>
-						<EditableText
-							key="about.experience.paragraph2"
-							tag="span"
-						/>
-					</p>
-					<p>
-						<strong style="color: {colorPalette.primary}"
+						/><br />
+						<span style="color: #1DA898;"
 							><EditableText
-								key="about.experience.paragraph3"
+								key="about.experience.headingAccent"
 								tag="span"
-							/></strong
+							/></span
 						>
-						<EditableText
-							key="about.experience.skills"
-							tag="span"
-						/>
-					</p>
+					</h2>
+					<div
+						class="space-y-6 text-gray-600 leading-relaxed text-lg"
+					>
+						<p>
+							<EditableText
+								key="about.experience.paragraph1"
+								tag="span"
+							/>
+						</p>
+						<p>
+							<EditableText
+								key="about.experience.paragraph2"
+								tag="span"
+							/>
+						</p>
+						<p>
+							<strong style="color: {colorPalette.primary}"
+								><EditableText
+									key="about.experience.paragraph3"
+									tag="span"
+								/></strong
+							>
+							<EditableText
+								key="about.experience.skills"
+								tag="span"
+							/>
+						</p>
+					</div>
 				</div>
 			</div>
 		</div>
@@ -241,287 +245,313 @@
 
 <!-- Skills & Expertise -->
 <section
-	class="section bg-blue-50 border-t-4"
+	class="bg-blue-50 border-t-4"
 	style="border-top-color: {colorPalette.accent};"
 >
-	<div class="text-center mb-16 observe">
-		<p
-			class="font-black tracking-[0.3em] uppercase text-sm mb-4"
-			style="color: {colorPalette.primary}"
-		>
-			<EditableText key="about.skills.label" tag="span" />
-		</p>
-		<h2
-			class="text-3xl md:text-4xl lg:text-5xl font-black mb-6 leading-tight"
-			style="font-family: 'Playfair Display', serif;"
-		>
-			<EditableText key="about.skills.heading" tag="span" /><br />
-			<span style="color: {colorPalette.primary}"
-				><EditableText
-					key="about.skills.headingAccent"
-					tag="span"
-				/></span
+	<div class="section">
+		<div class="text-center mb-16 observe">
+			<p
+				class="font-black tracking-[0.3em] uppercase text-sm mb-4"
+				style="color: {colorPalette.primary}"
 			>
-		</h2>
-	</div>
-
-	<div class="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
-		<div
-			class="bg-white p-8 rounded-2xl border-2 border-blue-100 hover:border-blue-300 transition-all duration-300 observe group"
-		>
-			<h3
-				class="text-xl font-black mb-3"
-				style="font-family: 'Playfair Display', serif; color: {colorPalette.primary}"
-			>
-				<EditableText
-					key="about.skills.architecture.title"
-					tag="span"
-				/>
-			</h3>
-			<p class="text-gray-600 leading-relaxed">
-				<EditableText
-					key="about.skills.architecture.description"
-					tag="span"
-				/>
+				<EditableText key="about.skills.label" tag="span" />
 			</p>
-			<ul class="mt-4 space-y-2 text-sm text-gray-600">
-				<li>
-					• <EditableText
-						key="about.skills.architecture.skill1"
+			<h2
+				class="text-3xl md:text-4xl lg:text-5xl font-black mb-6 leading-tight"
+				style="font-family: 'Playfair Display', serif;"
+			>
+				<EditableText key="about.skills.heading" tag="span" /><br />
+				<span style="color: {colorPalette.primary}"
+					><EditableText
+						key="about.skills.headingAccent"
 						tag="span"
-					/>
-				</li>
-				<li>
-					• <EditableText
-						key="about.skills.architecture.skill2"
-						tag="span"
-					/>
-				</li>
-				<li>
-					• <EditableText
-						key="about.skills.architecture.skill3"
-						tag="span"
-					/>
-				</li>
-			</ul>
+					/></span
+				>
+			</h2>
 		</div>
 
-		<div
-			class="bg-white p-8 rounded-2xl border-2 border-blue-100 hover:border-blue-300 transition-all duration-300 observe group"
-		>
-			<h3
-				class="text-xl font-black mb-3"
-				style="font-family: 'Playfair Display', serif; color: {colorPalette.primary}"
+		<div class="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
+			<div
+				class="bg-white p-8 rounded-2xl border-2 border-blue-100 hover:border-blue-300 transition-all duration-300 observe group"
 			>
-				<EditableText key="about.skills.graphics.title" tag="span" />
-			</h3>
-			<p class="text-gray-600 leading-relaxed">
-				<EditableText
-					key="about.skills.graphics.description"
-					tag="span"
-				/>
-			</p>
-			<ul class="mt-4 space-y-2 text-sm text-gray-600">
-				<li>
-					• <EditableText
-						key="about.skills.graphics.skill1"
+				<h3
+					class="text-xl font-black mb-3"
+					style="font-family: 'Playfair Display', serif; color: {colorPalette.primary}"
+				>
+					<EditableText
+						key="about.skills.architecture.title"
 						tag="span"
 					/>
-				</li>
-				<li>
-					• <EditableText
-						key="about.skills.graphics.skill2"
+				</h3>
+				<p class="text-gray-600 leading-relaxed">
+					<EditableText
+						key="about.skills.architecture.description"
 						tag="span"
 					/>
-				</li>
-				<li>
-					• <EditableText
-						key="about.skills.graphics.skill3"
-						tag="span"
-					/>
-				</li>
-			</ul>
-		</div>
+				</p>
+				<ul class="mt-4 space-y-2 text-sm text-gray-600">
+					<li>
+						• <EditableText
+							key="about.skills.architecture.skill1"
+							tag="span"
+						/>
+					</li>
+					<li>
+						• <EditableText
+							key="about.skills.architecture.skill2"
+							tag="span"
+						/>
+					</li>
+					<li>
+						• <EditableText
+							key="about.skills.architecture.skill3"
+							tag="span"
+						/>
+					</li>
+				</ul>
+			</div>
 
-		<div
-			class="bg-white p-8 rounded-2xl border-2 border-blue-100 hover:border-blue-300 transition-all duration-300 observe group"
-		>
-			<h3
-				class="text-xl font-black mb-3"
-				style="font-family: 'Playfair Display', serif; color: {colorPalette.primary}"
+			<div
+				class="bg-white p-8 rounded-2xl border-2 border-blue-100 hover:border-blue-300 transition-all duration-300 observe group"
 			>
-				<EditableText key="about.skills.ai.title" tag="span" />
-			</h3>
-			<p class="text-gray-600 leading-relaxed">
-				<EditableText key="about.skills.ai.description" tag="span" />
-			</p>
-			<ul class="mt-4 space-y-2 text-sm text-gray-600">
-				<li>
-					• <EditableText key="about.skills.ai.skill1" tag="span" />
-				</li>
-				<li>
-					• <EditableText key="about.skills.ai.skill2" tag="span" />
-				</li>
-				<li>
-					• <EditableText key="about.skills.ai.skill3" tag="span" />
-				</li>
-			</ul>
+				<h3
+					class="text-xl font-black mb-3"
+					style="font-family: 'Playfair Display', serif; color: {colorPalette.primary}"
+				>
+					<EditableText
+						key="about.skills.graphics.title"
+						tag="span"
+					/>
+				</h3>
+				<p class="text-gray-600 leading-relaxed">
+					<EditableText
+						key="about.skills.graphics.description"
+						tag="span"
+					/>
+				</p>
+				<ul class="mt-4 space-y-2 text-sm text-gray-600">
+					<li>
+						• <EditableText
+							key="about.skills.graphics.skill1"
+							tag="span"
+						/>
+					</li>
+					<li>
+						• <EditableText
+							key="about.skills.graphics.skill2"
+							tag="span"
+						/>
+					</li>
+					<li>
+						• <EditableText
+							key="about.skills.graphics.skill3"
+							tag="span"
+						/>
+					</li>
+				</ul>
+			</div>
+
+			<div
+				class="bg-white p-8 rounded-2xl border-2 border-blue-100 hover:border-blue-300 transition-all duration-300 observe group"
+			>
+				<h3
+					class="text-xl font-black mb-3"
+					style="font-family: 'Playfair Display', serif; color: {colorPalette.primary}"
+				>
+					<EditableText key="about.skills.ai.title" tag="span" />
+				</h3>
+				<p class="text-gray-600 leading-relaxed">
+					<EditableText
+						key="about.skills.ai.description"
+						tag="span"
+					/>
+				</p>
+				<ul class="mt-4 space-y-2 text-sm text-gray-600">
+					<li>
+						• <EditableText
+							key="about.skills.ai.skill1"
+							tag="span"
+						/>
+					</li>
+					<li>
+						• <EditableText
+							key="about.skills.ai.skill2"
+							tag="span"
+						/>
+					</li>
+					<li>
+						• <EditableText
+							key="about.skills.ai.skill3"
+							tag="span"
+						/>
+					</li>
+				</ul>
+			</div>
 		</div>
 	</div>
 </section>
 
 <!-- Philosophy & Approach -->
 <section
-	class="section gradient-bg text-white relative overflow-hidden border-t-4"
+	class="gradient-bg text-white relative overflow-hidden border-t-4"
 	style="border-top-color: {colorPalette.accent};"
 >
-	<div
-		class="absolute top-10 right-10 w-72 h-72 rounded-full mix-blend-multiply filter blur-3xl opacity-20 animate-pulse-slow"
-		style="background-color: {colorPalette.accent}"
-	></div>
-	<div
-		class="absolute bottom-10 left-10 w-96 h-96 rounded-full mix-blend-multiply filter blur-3xl opacity-20 animate-pulse-slow"
-		style="background-color: {colorPalette.secondary}; animation-delay: 1.5s;"
-	></div>
-
-	<div class="max-w-4xl mx-auto text-center observe relative z-10">
-		<h2
-			class="text-3xl md:text-4xl lg:text-5xl font-black mb-8 leading-tight"
-			style="font-family: 'Playfair Display', serif;"
-		>
-			<span style="color: #FF6B9D;"
-				><EditableText
-					key="about.philosophy.heading"
-					tag="span"
-				/></span
-			>
-			<EditableText key="about.philosophy.headingAccent" tag="span" />
-		</h2>
-
-		<div class="grid md:grid-cols-2 gap-8 mb-12">
-			<div
-				class="bg-white/10 backdrop-blur-sm p-8 rounded-2xl border border-white/20"
-			>
-				<h3
-					class="text-xl font-black mb-3"
-					style="font-family: 'Playfair Display', serif;"
-				>
-					<EditableText
-						key="about.philosophy.functionality.title"
-						tag="span"
-					/>
-				</h3>
-				<p class="text-gray-200 leading-relaxed">
-					<EditableText
-						key="about.philosophy.functionality.description"
-						tag="span"
-					/>
-				</p>
-			</div>
-
-			<div
-				class="bg-white/10 backdrop-blur-sm p-8 rounded-2xl border border-white/20"
-			>
-				<h3
-					class="text-xl font-black mb-3"
-					style="font-family: 'Playfair Display', serif;"
-				>
-					<EditableText
-						key="about.philosophy.personality.title"
-						tag="span"
-					/>
-				</h3>
-				<p class="text-gray-200 leading-relaxed">
-					<EditableText
-						key="about.philosophy.personality.description"
-						tag="span"
-					/>
-				</p>
-			</div>
-
-			<div
-				class="bg-white/10 backdrop-blur-sm p-8 rounded-2xl border border-white/20"
-			>
-				<h3
-					class="text-xl font-black mb-3"
-					style="font-family: 'Playfair Display', serif;"
-				>
-					<EditableText
-						key="about.philosophy.innovation.title"
-						tag="span"
-					/>
-				</h3>
-				<p class="text-gray-200 leading-relaxed">
-					<EditableText
-						key="about.philosophy.innovation.description"
-						tag="span"
-					/>
-				</p>
-			</div>
-
-			<div
-				class="bg-white/10 backdrop-blur-sm p-8 rounded-2xl border border-white/20"
-			>
-				<h3
-					class="text-xl font-black mb-3"
-					style="font-family: 'Playfair Display', serif;"
-				>
-					<EditableText
-						key="about.philosophy.partnership.title"
-						tag="span"
-					/>
-				</h3>
-				<p class="text-gray-200 leading-relaxed">
-					<EditableText
-						key="about.philosophy.partnership.description"
-						tag="span"
-					/>
-				</p>
-			</div>
-		</div>
-
+	<div class="section">
 		<div
-			class="bg-white/10 backdrop-blur-sm p-8 rounded-2xl border border-white/20 max-w-2xl mx-auto"
-		>
-			<blockquote
-				class="text-xl md:text-2xl font-light italic mb-4"
+			class="absolute top-10 right-10 w-72 h-72 rounded-full mix-blend-multiply filter blur-3xl opacity-20 animate-pulse-slow"
+			style="background-color: {colorPalette.accent}"
+		></div>
+		<div
+			class="absolute bottom-10 left-10 w-96 h-96 rounded-full mix-blend-multiply filter blur-3xl opacity-20 animate-pulse-slow"
+			style="background-color: {colorPalette.secondary}; animation-delay: 1.5s;"
+		></div>
+
+		<div class="max-w-4xl mx-auto text-center observe relative z-10">
+			<h2
+				class="text-3xl md:text-4xl lg:text-5xl font-black mb-8 leading-tight"
 				style="font-family: 'Playfair Display', serif;"
 			>
-				"<EditableText key="about.philosophy.quote" tag="span" />"
-			</blockquote>
-			<p class="font-bold" style="color: #00D4FF;">
-				— <EditableText key="about.hero.name" tag="span" />
-				<EditableText key="about.hero.surname" tag="span" />
-			</p>
+				<span style="color: #FF6B9D;"
+					><EditableText
+						key="about.philosophy.heading"
+						tag="span"
+					/></span
+				>
+				<EditableText key="about.philosophy.headingAccent" tag="span" />
+			</h2>
+
+			<div class="grid md:grid-cols-2 gap-8 mb-12">
+				<div
+					class="bg-white/10 backdrop-blur-sm p-8 rounded-2xl border border-white/20"
+				>
+					<h3
+						class="text-xl font-black mb-3"
+						style="font-family: 'Playfair Display', serif;"
+					>
+						<EditableText
+							key="about.philosophy.functionality.title"
+							tag="span"
+						/>
+					</h3>
+					<p class="text-gray-200 leading-relaxed">
+						<EditableText
+							key="about.philosophy.functionality.description"
+							tag="span"
+						/>
+					</p>
+				</div>
+
+				<div
+					class="bg-white/10 backdrop-blur-sm p-8 rounded-2xl border border-white/20"
+				>
+					<h3
+						class="text-xl font-black mb-3"
+						style="font-family: 'Playfair Display', serif;"
+					>
+						<EditableText
+							key="about.philosophy.personality.title"
+							tag="span"
+						/>
+					</h3>
+					<p class="text-gray-200 leading-relaxed">
+						<EditableText
+							key="about.philosophy.personality.description"
+							tag="span"
+						/>
+					</p>
+				</div>
+
+				<div
+					class="bg-white/10 backdrop-blur-sm p-8 rounded-2xl border border-white/20"
+				>
+					<h3
+						class="text-xl font-black mb-3"
+						style="font-family: 'Playfair Display', serif;"
+					>
+						<EditableText
+							key="about.philosophy.innovation.title"
+							tag="span"
+						/>
+					</h3>
+					<p class="text-gray-200 leading-relaxed">
+						<EditableText
+							key="about.philosophy.innovation.description"
+							tag="span"
+						/>
+					</p>
+				</div>
+
+				<div
+					class="bg-white/10 backdrop-blur-sm p-8 rounded-2xl border border-white/20"
+				>
+					<h3
+						class="text-xl font-black mb-3"
+						style="font-family: 'Playfair Display', serif;"
+					>
+						<EditableText
+							key="about.philosophy.partnership.title"
+							tag="span"
+						/>
+					</h3>
+					<p class="text-gray-200 leading-relaxed">
+						<EditableText
+							key="about.philosophy.partnership.description"
+							tag="span"
+						/>
+					</p>
+				</div>
+			</div>
+
+			<div
+				class="bg-white/10 backdrop-blur-sm p-8 rounded-2xl border border-white/20 max-w-2xl mx-auto"
+			>
+				<blockquote
+					class="text-xl md:text-2xl font-light italic mb-4"
+					style="font-family: 'Playfair Display', serif;"
+				>
+					"<EditableText key="about.philosophy.quote" tag="span" />"
+				</blockquote>
+				<p class="font-bold" style="color: #00D4FF;">
+					— <EditableText key="about.hero.name" tag="span" />
+					<EditableText key="about.hero.surname" tag="span" />
+				</p>
+			</div>
 		</div>
 	</div>
 </section>
 
 <!-- CTA Section -->
 <section
-	class="section bg-blue-50 border-t-4"
+	class="bg-blue-50 border-t-4"
 	style="border-top-color: {colorPalette.accent};"
 >
-	<div class="max-w-4xl mx-auto text-center observe">
-		<h2
-			class="text-3xl md:text-4xl lg:text-5xl font-black mb-6 leading-tight"
-			style="font-family: 'Playfair Display', serif;"
-		>
-			<EditableText key="about.cta.heading" tag="span" /><br />
-			<span style="color: #FF6B9D;"
-				><EditableText key="about.cta.headingAccent" tag="span" /></span
+	<div class="section">
+		<div class="max-w-4xl mx-auto text-center observe">
+			<h2
+				class="text-3xl md:text-4xl lg:text-5xl font-black mb-6 leading-tight"
+				style="font-family: 'Playfair Display', serif;"
 			>
-		</h2>
-		<p class="text-xl text-gray-600 mb-8 max-w-2xl mx-auto leading-relaxed">
-			<EditableText key="about.cta.description" tag="span" />
-		</p>
-		<div class="flex flex-col sm:flex-row gap-4 justify-center">
-			<a href="/#kontakt" class="btn">
-				<EditableText key="about.cta.button1" tag="span" />
-			</a>
-			<a href="/#portfolio" class="btn-secondary">
-				<EditableText key="about.cta.button2" tag="span" />
-			</a>
+				<EditableText key="about.cta.heading" tag="span" /><br />
+				<span style="color: #FF6B9D;"
+					><EditableText
+						key="about.cta.headingAccent"
+						tag="span"
+					/></span
+				>
+			</h2>
+			<p
+				class="text-xl text-gray-600 mb-8 max-w-2xl mx-auto leading-relaxed"
+			>
+				<EditableText key="about.cta.description" tag="span" />
+			</p>
+			<div class="flex flex-col sm:flex-row gap-4 justify-center">
+				<a href="/#kontakt" class="btn">
+					<EditableText key="about.cta.button1" tag="span" />
+				</a>
+				<a href="/#portfolio" class="btn-secondary">
+					<EditableText key="about.cta.button2" tag="span" />
+				</a>
+			</div>
 		</div>
 	</div>
 </section>
