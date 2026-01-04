@@ -1,0 +1,457 @@
+{
+  "nav": {
+    "about": "O mnie",
+    "offer": "Oferta",
+    "pricing": "Ceny",
+    "portfolio": "Portfolio",
+    "contact": "Kontakt"
+  },
+  "meta": {
+    "home": {
+      "title": "Pikastro | Projektowanie Wnętrz | Grafika | AI",
+      "description": "Projektowanie wnętrz i grafika z AI dla młodych (20-30 lat). Odważne, kolorowe aranżacje mieszkań zamiast beżowo-szarych. Kompleksowa obsługa w Krakowie - szybko i w atrakcyjnych cenach."
+    },
+    "about": {
+      "title": "O mnie - Magda Makaruk | Projektantka Wnętrz i Grafiki | Kraków",
+      "description": "Poznaj Magdę Makaruk - doświadczoną projektantkę wnętrz i grafiki komputerowej. Łączę wiedzę architektoniczną z kreatywnością plastyczną i technologią AI. Kraków."
+    },
+    "pricing": {
+      "title": "Ceny - Magda Makaruk | Projektantka Wnętrz i Grafiki | Kraków",
+      "description": "Cennik usług projektowania wnętrz i grafiki komputerowej. Pojedyncze przestrzenie od 3.500 zł, pełne mieszkanie od 12.000 zł. Profesjonalne projekty z technologią AI."
+    }
+  },
+  "footer": {
+    "description": "Projektowanie wnętrz i grafika z AI. Odważne, kolorowe aranżacje zamiast beżowo-szarych.",
+    "offer": "Oferta",
+    "clients": "Klienci",
+    "contact": "Kontakt",
+    "services": {
+      "interior_design": "Projektowanie wnętrz",
+      "space_arrangement": "Aranżacja przestrzeni",
+      "visual_identity": "Identyfikacja wizualna",
+      "computer_graphics": "Grafika komputerowa",
+      "ai_technology": "Technologia AI"
+    },
+    "clientTypes": {
+      "apartment_buyers": "Nabywcy mieszkań",
+      "developers": "Deweloperzy",
+      "real_estate": "Biura nieruchomości",
+      "startups": "Startupy i firmy",
+      "commercial": "Lokale komercyjne"
+    },
+    "location": "Kraków, Polska",
+    "copyright": "Wszystkie prawa zastrzeżone."
+  },
+  "home": {
+    "hero": {
+      "label": "AI × Architektura × Grafika",
+      "heading1": "Dość beżu.",
+      "heading2": "Czas na ",
+      "heading2Accent": "kolor!",
+      "tagline": "AI × Design = Twoje wymarzone wnętrze",
+      "description": "Zobacz 10 wersji swojego wnętrza zanim zdecydujesz. Prototypowanie w godziny, nie tygodnie. Szybciej. Odważniej. Taniej.",
+      "valueProps": {
+        "time": "10-27 dni",
+        "timeVs": "vs. 4-6 tygodni",
+        "variants": "5-10 wariantów",
+        "variantsDesc": "do wyboru z AI",
+        "price": "Od 1,500 zł",
+        "priceDesc": "jeden pokój"
+      }
+    },
+    "slider": {
+      "before": "PRZED",
+      "after": "PO"
+    },
+    "portfolio": {
+      "label": "Portfolio",
+      "heading": "Nasze",
+      "headingEnd": "realizacje",
+      "description": "Zobacz przykłady naszych projektów wnętrz i grafiki. Każdy projekt to unikalna historia i indywidualne podejście do potrzeb klienta.",
+      "filterAll": "Wszystkie",
+      "filterInteriors": "Wnętrza",
+      "filterGraphics": "Grafika",
+      "viewProject": "Zobacz projekt",
+      "categoryInteriors": "Wnętrza",
+      "categoryGraphics": "Grafika",
+      "viewFullPortfolio": "Zobacz pełne portfolio"
+    },
+    "timeline": {
+      "totalTime": "Całkowity czas realizacji",
+      "workingDays": "10-27 dni roboczych",
+      "vsTraditional": "vs. tradycyjne 4-6 tygodni"
+    },
+    "philosophy": {
+      "label": "Nasza Filozofia",
+      "heading": "Wierzymy",
+      "headingEnd": ", że design może być...",
+      "fastAndRefined": {
+        "title": "Szybki I Dopracowany",
+        "description": "Technologia AI pozwala nam pokazać Ci kilkanaście wariantów projektowych w kilka dni zamiast tygodni. Następnie wybrane rozwiązanie dopracowujemy ręcznie w każdym szczególe."
+      },
+      "colorfulAndProfessional": {
+        "title": "Kolorowy I Profesjonalny",
+        "description": "Żadnych beżowo-szarych przestrzeni. Tworzymy wnętrza z charakterem, w których kolory są starannie dobrane i przemyślane - odważne, ale harmonijne."
+      },
+      "boldAndFunctional": {
+        "title": "Odważny I Funkcjonalny",
+        "description": "Projektujemy tak, żeby przestrzeń nie tylko pięknie wyglądała, ale przede wszystkim - służyła Ci każdego dnia. Estetyka idzie w parze z funkcjonalnością."
+      },
+      "accessibleAndQuality": {
+        "title": "Dostępny I Wysokiej Jakości",
+        "description": "Dzięki technologii AI skracamy czas pracy nad koncepcją, co przekłada się na atrakcyjne ceny. Wysoka jakość designu w przystępnej cenie."
+      }
+    },
+    "faq": {
+      "heading": "Najczęstsze pytania",
+      "question1": {
+        "q": "\"Czy AI to nie tandetnie?\"",
+        "a": "Nie, jeśli ma <strong>inżyniera i designera przy sterach</strong>. AI to narzędzie - jak pędzel dla malarza. W moich rękach generuje propozycje, ale każdy projekt przechodzi przez ludzką kurację i dopracowanie."
+      },
+      "question2": {
+        "q": "\"Ile to kosztuje?\"",
+        "a": "<strong>Mniej niż myślisz.</strong> Bo AI oszczędza nam czas, a Tobie pieniądze. Jeden pokój od 1,500 zł, mieszkanie 2-3 pokoje od 3,500 zł. Zero ukrytych kosztów."
+      },
+      "question3": {
+        "q": "\"Czy to naprawdę działa?\"",
+        "a": "<strong>50+ zrealizowanych projektów mówi samo za siebie.</strong> Pierwsze studio w Krakowie, które połączyło architekturę × grafikę × AI. Sprawdź metamorfozy poniżej."
+      },
+      "question4": {
+        "q": "\"Dla kogo to jest?\"",
+        "a": "Dla którzy kupują pierwsze mieszkanie i chcą przestrzeń do pracy zdalnej, smart home, kolorowe aranżacje - zamiast beżowo-szarych wnętrz rodem z showroomu."
+      }
+    },
+    "testimonial": {
+      "quote": "Współpraca z Pikastro to była **czysta przyjemność**. Profesjonalizm, kreatywność i perfekcyjne wyczucie naszych potrzeb zaowocowały przestrzenią, która **przekroczyła nasze oczekiwania**.",
+      "author": "Anna Kowalska",
+      "authorTitle": "CEO, TechStart Solutions"
+    },
+    "contact": {
+      "label": "Kontakt",
+      "heading": "Rozpocznijmy",
+      "headingAccent": "współpracę",
+      "description": "Napisz do mnie i porozmawiajmy o Twoim projekcie. Odpowiem w ciągu 24 godzin.",
+      "emailLabel": "Email",
+      "email": "kontakt@pikastro.eu",
+      "locationLabel": "Lokalizacja",
+      "location": "Kraków, Polska",
+      "locationDesc": "Współpraca zdalna w całej Polsce",
+      "availabilityLabel": "Dostępność",
+      "availability": "Pn - Pt, 9:00 - 17:00"
+    },
+    "video": {
+      "heading": "Odmień swoją",
+      "headingAccent": "przestrzeń",
+      "headingEnd": "z Pikastro",
+      "description": "Twórz wyjątkowe wnętrza, które odzwierciedlają Twoją osobowość"
+    },
+    "beforeAfter": {
+      "heading": "30m2 M1 w Krakowie",
+      "headingAccent": "Case Study Metamorfozy",
+      "description": "Kompleksowy projekt remontu mieszkania w bloku z lat 80tych obejmujący **zmiane układu pomieszczeń**,\nw tym wyburzenie ścian, projekt **nowej kuchni**, wydzielenie **aneksu sypialnianego** oraz wnęk gospodarczych.\n\nWybrana została **odważna paleta kolorystyczna** z dominującym kolorem morskim oraz różem dopełniona\nintensywnymi ciepłymi odcieniami.\n\nMeble i inne elementy wystroju zostały dobrane tak aby **maksymalnie wykorzystać niewielką powierzchnię**\n**mieszkania**, tworząc spójną komfortową i funkcjonalną całość, przeznaczoną dla 1 osoby.\n\nDodatkowo zaprojektowano **'kociostradę'** - układ elementów mocowanych do ścian, przeznaczonych do\nużytku przez kotka klientki, oraz **aranżację balkonu**."
+    },
+    "ctaBanner": {
+      "heading": "Gotowy na kolorową metamorfozę?",
+      "description": "Bezpłatna 30-minutowa konsultacja. Porozmawiajmy o Twoim projekcie.",
+      "button": "UMÓW BEZPŁATNĄ KONSULTACJĘ"
+    },
+    "aboutHome": {
+      "heading": "Projektowanie przyszłości.",
+      "headingAccent": "Dziś.",
+      "paragraph1": "Jestem projektantką wnętrz i graficzką z wykształceniem architektonicznym. Łączę inżynierską wiedzę techniczną z umiejętnościami graficznymi i plastycznymi, wykorzystując zaawansowane narzędzia oparte na sztucznej inteligencji.",
+      "paragraph2Title": "Moja przewaga konkurencyjna:",
+      "paragraph2": "Unikalne połączenie trzech kompetencji - podejścia inżynierskiego, talentu plastycznego i technologii AI. To pozwala mi tworzyć funkcjonalne, estetyczne rozwiązania szybciej i w atrakcyjnych cenach.",
+      "paragraph3": "Specjalizuję się w projektach dla - odważnych nabywców pierwszych mieszkań, którzy cenią kolorowe aranżacje, przestrzenie do pracy zdalnej i rozwiązania smart home, zamiast stonowanych beżowo-szarych wnętrz.",
+      "quote": "Połączenie wiedzy technicznej, kreatywności i AI tworzy nową jakość projektowania.",
+      "imageCaption": "Dla Klientów",
+      "imageSubCaption": "Indywidualnych • Deweloperów • Startupów"
+    },
+    "services": {
+      "label": "Oferta",
+      "heading": "Od pomysłu",
+      "headingAccent": "do realizacji",
+      "description": "Od koncepcji po realizację - pełne wsparcie w procesie projektowania wnętrz i tworzenia identyfikacji wizualnej."
+    },
+    "process": {
+      "label": "Jak to działa",
+      "heading": "Proces Projektowania",
+      "headingAccent": "z Wykorzystaniem AI",
+      "description": "Połączenie ludzkiej kreatywności i mocy AI dla najlepszych rezultatów w najkrótszym czasie"
+    },
+    "form": {
+      "error": "Proszę poprawić błędy w formularzu przed wysłaniem.",
+      "success": "Dziękuję! Twoja wiadomość została wysłana. Odpowiem wkrótce!",
+      "errorGeneric": "Wystąpił błąd podczas wysyłania wiadomości",
+      "errorNetwork": "Wystąpił błąd podczas wysyłania wiadomości. Spróbuj ponownie.",
+      "projectType": "Projektowanie wnętrz",
+      "nameLabel": "Imię i nazwisko",
+      "namePlaceholder": "Jan Kowalski",
+      "emailLabel": "Email",
+      "emailPlaceholder": "jan@example.com",
+      "projectLabel": "Typ projektu",
+      "projectOptions": {
+        "interiorDesign": "Projektowanie wnętrz",
+        "visualIdentity": "Identyfikacja wizualna",
+        "consultations": "Konsultacje",
+        "other": "Inne"
+      },
+      "messageLabel": "Wiadomość",
+      "messagePlaceholder": "Opowiedz o swoim projekcie...",
+      "validation": {
+        "looksGood": "Wygląda dobrze!"
+      },
+      "submit": {
+        "sending": "Wysyłanie...",
+        "fixErrors": "Popraw błędy przed wysłaniem",
+        "send": "Wyślij wiadomość"
+      }
+    }
+  },
+  "about": {
+    "hero": {
+      "label": "O mnie",
+      "name": "Magda",
+      "surname": "Makaruk",
+      "title": "Projektantka Wnętrz & Grafiki Komputerowej",
+      "description": "Łączę wiedzę architektoniczną z kreatywnością plastyczną i najnowszymi technologiami AI, tworząc funkcjonalne przestrzenie i unikalne identyfikacje wizualne."
+    },
+    "experience": {
+      "heading": "Doświadczenie",
+      "headingAccent": "i Pasja",
+      "paragraph1": "Jestem projektantką wnętrz i graficzką komputerową z wieloletnim doświadczeniem w branży kreatywnej. Moje podejście łączy solidne podstawy architektoniczne z nowoczesnymi technologiami i głębokim zrozumieniem potrzeb klientów.",
+      "paragraph2": "Specjalizuję się w projektowaniu przestrzeni mieszkalnych i komercyjnych, tworząc rozwiązania funkcjonalne i estetyczne. Moja praca graficzna obejmuje kompleksowe identyfikacje wizualne, materiały reklamowe i projekty specjalizowane.",
+      "paragraph3": "Kluczowe kompetencje:",
+      "skills": "AutoCAD, SketchUp, Adobe Creative Suite, 3ds Max, V-Ray, Lumion. Doświadczenie w BIM, projektowaniu zrównoważonym i technologii AI wspomagającej proces kreatywny."
+    },
+    "skills": {
+      "label": "Umiejętności",
+      "heading": "Kompetencje",
+      "headingAccent": "Techniczne",
+      "architecture": {
+        "title": "Projektowanie Architektury",
+        "description": "Kompleksowe projekty architektoniczne od koncepcji po dokumentację wykonawczą. Doświadczenie w projektach mieszkalnych, komercyjnych i publicznych.",
+        "skill1": "AutoCAD & ArchiCAD",
+        "skill2": "SketchUp & 3ds Max",
+        "skill3": "BIM & dokumentacja"
+      },
+      "graphics": {
+        "title": "Grafika Komputerowa",
+        "description": "Identyfikacje wizualne, materiały reklamowe, ilustracje i projekty specjalizowane. Ponad 50 zrealizowanych projektów brandingowych.",
+        "skill1": "Adobe Creative Suite",
+        "skill2": "Branding & Visual Identity",
+        "skill3": "Print & Digital Design"
+      },
+      "ai": {
+        "title": "Technologia AI",
+        "description": "Wykorzystanie sztucznej inteligencji do przyspieszenia procesów projektowych i generowania innowacyjnych rozwiązań. Optymalizacja kosztów i czasu realizacji.",
+        "skill1": "AI-assisted design",
+        "skill2": "Generative workflows",
+        "skill3": "Process optimization"
+      }
+    },
+    "philosophy": {
+      "heading": "Filozofia",
+      "headingAccent": "Projektowania",
+      "functionality": {
+        "title": "Funkcjonalność przede wszystkim",
+        "description": "Piękno bez funkcjonalności to tylko dekoracja. Każdy projekt musi przede wszystkim działać dla swoich użytkowników - być wygodny, praktyczny i bezpieczny."
+      },
+      "personality": {
+        "title": "Osobowość przestrzeni",
+        "description": "Każda przestrzeń powinna odzwierciedlać charakter swojego właściciela. Tworzę miejsca, które opowiadają historię i wyrażają indywidualność."
+      },
+      "innovation": {
+        "title": "Innowacja technologiczna",
+        "description": "Wykorzystuję najnowsze technologie, w tym AI, aby przyspieszyć procesy projektowe i osiągnąć lepsze rezultaty w krótszym czasie."
+      },
+      "partnership": {
+        "title": "Partnerstwo z klientem",
+        "description": "Projekt to wspólna podróż. Słucham, doradzam i wspólnie tworzymy rozwiązanie doskonale dopasowane do potrzeb i marzeń klienta."
+      },
+      "quote": "Dobry design to nie tylko piękne formy, ale przede wszystkim rozwiązania problemów."
+    },
+    "cta": {
+      "heading": "Zacznijmy",
+      "headingAccent": "współpracę!",
+      "description": "Masz pomysł na projekt? Chcesz stworzyć wyjątkową przestrzeń lub odświeżyć identyfikację wizualną? Skontaktuj się ze mną - razem stworzymy coś niesamowitego.",
+      "button1": "Umów Konsultację",
+      "button2": "Zobacz Portfolio"
+    }
+  },
+  "services": {
+    "interiorDesign": {
+      "title": "Projektowanie Wnętrz",
+      "description": "Kompleksowe projektowanie i aranżacja przestrzeni mieszkalnych i komercyjnych z wykorzystaniem AI.",
+      "feature1": "Projektowanie układu pomieszczeń",
+      "feature2": "Optymalizacja ergonomii i funkcjonalności",
+      "feature3": "Aranżacja mieszkań, domów i apartamentów",
+      "feature4": "Przestrzenie komercyjne (biura, hotele)",
+      "feature5": "Graficzne dekoracje wnętrz"
+    },
+    "graphicDesign": {
+      "title": "Grafika Komputerowa",
+      "description": "Pełen zakres usług graficznych - od identyfikacji wizualnej po materiały marketingowe.",
+      "feature1": "Identyfikacja wizualna dla firm",
+      "feature2": "Grafiki na produkty tekstylne",
+      "feature3": "Materiały reklamowe i digital marketing",
+      "feature4": "Plakaty i dekoracje spersonalizowane"
+    },
+    "aiTechnology": {
+      "title": "Technologia AI",
+      "description": "Innowacyjne wykorzystanie sztucznej inteligencji w procesie projektowym dla szybszych rezultatów.",
+      "feature1": "Szybkie prototypowanie koncepcji",
+      "feature2": "Optymalizacja kosztów projektu",
+      "feature3": "Automatyczne generowanie wariantów",
+      "feature4": "Efektywność czasowa i budżetowa"
+    },
+    "developersRealEstate": {
+      "title": "Rynek nieruchomości",
+      "description": "Specjalistyczne rozwiązania dla branży deweloperskiej i nieruchomości - wizualizacje i projekty sprzedażowe.",
+      "feature1": "Wizualizacje mieszkań modelowych",
+      "feature2": "Projekty showroomów i mieszkań pokazowych",
+      "feature3": "Materiały marketingowe dla inwestycji",
+      "feature4": "Wirtualne staging i prezentacje 3D"
+    }
+  },
+  "process": {
+    "consultation": {
+      "title": "Konsultacja & Brief",
+      "description": "Zbieramy informacje o Twoich potrzebach, stylu życia i budżecie. AI analizuje podobne projekty.",
+      "duration": "1-7 dni"
+    },
+    "prototyping": {
+      "title": "AI Prototyping",
+      "description": "Generujemy 5-10 wariantów aranżacji z wykorzystaniem AI. Szybka iteracja koncepcji.",
+      "duration": "2-3 dni"
+    },
+    "refinement": {
+      "title": "Refinement",
+      "description": "Wybierasz ulubiony wariant. Dopracowujemy detale, materiały, kolory według Twoich preferencji.",
+      "duration": "3-10 dni"
+    },
+    "documentation": {
+      "title": "Dokumentacja",
+      "description": "Otrzymujesz pełną dokumentację projektową, wizualizacje 3D, listę zakupów i kontakty do podwykonawców. Projekt w wersji gotowej do druku / na stronę.",
+      "duration": "1-7 dni"
+    }
+  },
+  "pricing": {
+    "page": {
+      "label": "Proces Projektowy",
+      "heading": "Podróż do",
+      "headingAccent": "Doskonałej Przestrzeni",
+      "tagline": "Każdy projekt to unikalna historia",
+      "description": "Wybierz ścieżkę, która najlepiej odzwierciedla Twoją wizję i potrzeby. Profesjonalne projektowanie z wykorzystaniem technologii AI.",
+      "processLabel": "Jak wygląda współpraca:",
+      "investmentLabel": "Inwestycja",
+      "ctaQuestion": "Gotowy na transformację swojej przestrzeni?",
+      "ctaButton": "Rozpocznij",
+      "everyProjectHeading": "Każdy Projekt Jest Inny",
+      "everyProjectDescription": "Masz unikalną wizję lub nietypową przestrzeń? Niezależnie od skali projektu, każda współpraca jest tworzona indywidualnie. Podziel się swoimi marzeniami - razem stworzymy coś wyjątkowego.",
+      "ctaConsultation": "Umów Bezpłatną Konsultację",
+      "consultationDetails": "💡 Bez zobowiązań • 30 minut • Online lub stacjonarnie"
+    },
+    "singleRoom": {
+      "title": "Pojedyncze Przestrzenie",
+      "subtitle": "Sypialnia • Salon • Kuchnia • Biuro",
+      "description": "Intymna współpraca nad jednym pomieszczeniem. Odkryjemy jego potencjał i stworzymy przestrzeń, która odzwierciedla Twój styl życia.",
+      "process1": "Rozmowa o Twoich potrzebach i marzeniach",
+      "process2": "Wizyta na miejscu i analiza przestrzeni",
+      "process3": "3-10 koncepcji projektowych z AI",
+      "process4": "Wizualizacje 3D i dokumentacja techniczna",
+      "process5": "Lista zakupów z rekomendacjami",
+      "process6": "Wsparcie podczas realizacji",
+      "investment": "Od 3.500 zł",
+      "duration": "2-3 tygodnie"
+    },
+    "fullApartment": {
+      "title": "Pełne Mieszkanie",
+      "subtitle": "Kompleksowa metamorfoza",
+      "description": "Całkowita transformacja mieszkania. Od pierwszego szkicu po klucz w drzwiach - stworzymy przestrzeń, która będzie Twoim domem na lata.",
+      "process1": "Głęboka analiza stylu życia i potrzeb",
+      "process2": "Kompletny projekt wszystkich pomieszczeń",
+      "process3": "Wizualizacje 3D wszystkich przestrzeni",
+      "process4": "Koordynacja wykonawców i dostawców",
+      "process5": "Nadzór autorski nad realizacją",
+      "process6": "Finalne dopracowanie detali",
+      "investment": "Od 12.000 zł",
+      "duration": "6-8 tygodni"
+    },
+    "businessSpaces": {
+      "title": "Przestrzenie Biznesowe",
+      "subtitle": "Biura • Kawiarnie • Sklepy • Restauracje",
+      "description": "Profesjonalne projekty komercyjne łączące ergonomię, branding i funkcjonalność. Tworzymy przestrzenie, które przyciągają klientów i wspierają biznes.",
+      "process1": "Analiza biznesowa i brief strategiczny",
+      "process2": "Projekt funkcjonalny i ergonomiczny",
+      "process3": "Identyfikacja wizualna przestrzeni",
+      "process4": "Wizualizacje i animacje 3D",
+      "process5": "Dokumentacja wykonawcza",
+      "process6": "Współpraca z wykonawcami",
+      "investment": "Od 18.000 zł",
+      "duration": "8-12 tygodni"
+    }
+  },
+  "beforeAfter": {
+    "project1": {
+      "title": "Salon z Kuchnią - Metamorfoza AI",
+      "description": "Transformacja beżowego salonu w kolorową, funkcjonalną przestrzeń z AI",
+      "feature1": "Optymalizacja układu",
+      "feature2": "Dobór kolorystyki",
+      "feature3": "Smart storage"
+    },
+    "project2": {
+      "title": "Sypialnia Młodych Profesjonalistów",
+      "description": "Z pustego pokoju w nowoczesną sypialnię z home office",
+      "feature1": "Zarządzanie przestrzenią",
+      "feature2": "Wielofunkcyjność",
+      "feature3": "Oświetlenie mood"
+    },
+    "project3": {
+      "title": "Biuro Home Office",
+      "description": "Kreacja przestrzeni do pracy zdalnej",
+      "feature1": "Ergonomia",
+      "feature2": "Akustyka",
+      "feature3": "Smart tech integration"
+    }
+  },
+  "portfolio": {
+    "scandinavianApartment": {
+      "title": "Apartament w Stylu Skandynawskim",
+      "description": "Minimalistyczna elegancja połączona z funkcjonalnością. Projekt 85m² mieszkania dla młodej rodziny w sercu Krakowa."
+    },
+    "studioIdentity": {
+      "title": "Identyfikacja Wizualna Studia",
+      "description": "Kompleksowy branding dla studia architektury - od logo po materiały firmowe i przestrzeń biurową."
+    },
+    "coworkingSpace": {
+      "title": "Przestrzeń Coworkingowa",
+      "description": "Nowoczesne biuro kolaboracyjne dla startupów technologicznych. 300m² przestrzeni kreatywnej."
+    },
+    "modernHouse": {
+      "title": "Dom Jednorodzinny Modern",
+      "description": "Projekt domu o powierzchni 180m² łączący nowoczesną architekturę z naturalnymi materiałami."
+    },
+    "cafeConcept": {
+      "title": "Kawiarnia Concept Store",
+      "description": "Design wnętrza i identyfikacja wizualna autorskiej kawiarni z galerią sztuki."
+    },
+    "industrialLoft": {
+      "title": "Loft Industrialny",
+      "description": "Adaptacja przestrzeni poprzemysłowej na nowoczesne mieszkanie z otwartym planem."
+    },
+    "sections": {
+      "graphics": "Grafika",
+      "interiors": "Wnętrza",
+      "apartmentOffers": "Oferty Mieszkań",
+      "branding": "Branding",
+      "posters": "Plakaty",
+      "patterns": "Wzory",
+      "characters": "Postacie",
+      "drawing": "Rysunek",
+      "photography": "Fotografia",
+      "conceptArt": "Grafika Koncepcyjna"
+    },
+    "sectionInProgress": "Sekcja w przygotowaniu",
+    "addImagesInstruction": "Dodaj obrazy do folderu"
+  }
+}

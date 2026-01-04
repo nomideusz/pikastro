@@ -1,0 +1,49 @@
+# Dependencies
+node_modules/
+.pnpm-debug.log*
+
+# IDE
+.vscode/
+.idea/
+*.swp
+*.swo
+
+# OS
+.DS_Store
+Thumbs.db
+
+# Logs
+*.log
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+
+# Build outputs
+.svelte-kit/
+build/
+dist/
+.netlify/
+
+# Environment variables
+.env
+.env.local
+.env.production
+.env.development
+
+# Temporary files
+*.tmp
+*.temp
+
+# SvelteKit
+.svelte-kit/
+
+# Vite
+.vite/
+
+# Testing
+coverage/
+.nyc_output/
+
+# Editor directories and files
+!.vscode/extensions.json
+.history/*.env
