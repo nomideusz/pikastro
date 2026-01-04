@@ -254,6 +254,14 @@
     </div>
 </div>
 
+<!-- DEBUG OVERLAY: TEMPORARY Remove after fixing visibility -->
+<div
+    class="absolute top-0 left-0 bg-black/80 text-white text-[10px] p-1 z-50 pointer-events-none max-w-full overflow-hidden"
+>
+    FK: {isFileKit} | Token: {!!token} | Loaded: {isLoaded} <br />
+    Src: {imgSrc}
+</div>
+
 <style>
     /* Ensure content is visible on touch devices if no hover mechanism */
     @media (hover: none) {
