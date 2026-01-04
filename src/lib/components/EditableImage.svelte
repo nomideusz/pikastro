@@ -1,4 +1,5 @@
 <script lang="ts">
+    import { portal } from "$lib/actions/portal";
     import { editModeStore } from "$lib/stores/editMode.svelte";
 
     interface Props {
@@ -256,7 +257,8 @@
 <!-- Image Picker Modal -->
 {#if isModalOpen}
     <div
-        class="fixed inset-0 bg-black/60 z-50 flex items-center justify-center p-4"
+        use:portal
+        class="fixed inset-0 bg-black/60 z-50 flex items-center justify-center p-4 pointer-events-auto"
         onclick={closeModal}
         role="dialog"
         aria-modal="true"
