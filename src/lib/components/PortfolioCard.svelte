@@ -74,26 +74,66 @@
             cancelEditing();
         }
     }
+    // Loading state
+    let isLoaded = $state(false);
+
+    function handleLoad() {
+        isLoaded = true;
+    }
+
+    // If token changes (e.g. init), we might need to reset loaded state if the src changes?
+    // Actually, simply checking if (isFileKit && !token) covers the "waiting for auth" state.
+    // The image itself will fire onload.
 </script>
 
 <div
-    class="flex-shrink-0 group relative rounded-2xl overflow-hidden shadow-xl hover:shadow-2xl transition-all duration-500 hover:scale-105 border-2 carousel-image-container {containerClass}"
+    class="flex-shrink-0 group relative rounded-2xl overflow-hidden shadow-xl hover:shadow-2xl transition-all duration-500 hover:scale-105 border-2 carousel-image-container {containerClass} bg-gray-100"
     {style}
     role="group"
     aria-label="Portfolio item"
 >
+    <!-- Skeleton / Loading State -->
+    {#if !isLoaded || (isFileKit && !token)}
+        <div
+            class="absolute inset-0 z-10 flex items-center justify-center bg-gray-200 animate-pulse"
+        >
+            <div
+                class="w-10 h-10 border-4 border-gray-300 border-t-purple-500 rounded-full animate-spin"
+            ></div>
+        </div>
+    {/if}
+
     <!-- Image -->
     {#if isFileKit && token}
-        <Image
-            reference={imgSrc}
-            {token}
-            alt={altText}
-            class={imageClass}
-            draggable="false"
-        />
-    {:else}
+        <div
+            class="w-full h-full transition-opacity duration-500 {isLoaded
+                ? 'opacity-100'
+                : 'opacity-0'}"
+        >
+            <Image
+                reference={imgSrc}
+                {token}
+                alt={altText}
+                class={imageClass}
+                draggable="false"
+                onload={handleLoad}
+            />
+        </div>
+    {:else if !isFileKit}
         <!-- svelte-ignore a11y_missing_attribute -->
-        <img src={imgSrc} alt={altText} class={imageClass} draggable="false" />
+        <div
+            class="w-full h-full transition-opacity duration-500 {isLoaded
+                ? 'opacity-100'
+                : 'opacity-0'}"
+        >
+            <img
+                src={imgSrc}
+                alt={altText}
+                class={imageClass}
+                draggable="false"
+                onload={handleLoad}
+            />
+        </div>
     {/if}
 
     <!-- Edit/Delete Operations Overlay -->
@@ -182,7 +222,7 @@
             >
                 {#if description}
                     <p
-                        class="text-white font-medium text-lg leading-tight backdrop-blur-sm relative"
+                        class="text-white font-medium text-lg leading-tight relative"
                     >
                         {description}
                         {#if isEditable}
