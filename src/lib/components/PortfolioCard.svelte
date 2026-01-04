@@ -81,35 +81,24 @@
         isLoaded = true;
     }
 
-    // If token changes (e.g. init), we might need to reset loaded state if the src changes?
-    // Actually, simply checking if (isFileKit && !token) covers the "waiting for auth" state.
-    // The image itself will fire onload.
+    // Safety timeout to ensure image doesn't stay hidden forever if onload misses
+    $effect(() => {
+        const timer = setTimeout(() => {
+            isLoaded = true;
+        }, 2000);
+        return () => clearTimeout(timer);
+    });
 </script>
 
 <div
-    class="flex-shrink-0 group relative rounded-2xl overflow-hidden shadow-xl hover:shadow-2xl transition-all duration-500 hover:scale-105 border-2 carousel-image-container {containerClass} bg-gray-100"
+    class="flex-shrink-0 group relative rounded-2xl overflow-hidden shadow-xl hover:shadow-2xl transition-all duration-500 hover:scale-105 border-2 carousel-image-container {containerClass} bg-gray-100 min-w-[300px]"
     {style}
     role="group"
     aria-label="Portfolio item"
 >
-    <!-- Skeleton / Loading State -->
-    {#if !isLoaded || (isFileKit && !token)}
-        <div
-            class="absolute inset-0 z-10 flex items-center justify-center bg-gray-200 animate-pulse"
-        >
-            <div
-                class="w-10 h-10 border-4 border-gray-300 border-t-purple-500 rounded-full animate-spin"
-            ></div>
-        </div>
-    {/if}
-
-    <!-- Image -->
+    <!-- Image (Always rendered, opacity transition happens on Skeleton instead) -->
     {#if isFileKit && token}
-        <div
-            class="w-full h-full transition-opacity duration-500 {isLoaded
-                ? 'opacity-100'
-                : 'opacity-0'}"
-        >
+        <div class="w-full h-full relative z-0">
             <Image
                 reference={imgSrc}
                 {token}
@@ -121,11 +110,7 @@
         </div>
     {:else if !isFileKit}
         <!-- svelte-ignore a11y_missing_attribute -->
-        <div
-            class="w-full h-full transition-opacity duration-500 {isLoaded
-                ? 'opacity-100'
-                : 'opacity-0'}"
-        >
+        <div class="w-full h-full relative z-0">
             <img
                 src={imgSrc}
                 alt={altText}
@@ -133,6 +118,19 @@
                 draggable="false"
                 onload={handleLoad}
             />
+        </div>
+    {/if}
+
+    <!-- Skeleton Overlay (Fades out when loaded) -->
+    {#if !isLoaded || (isFileKit && !token)}
+        <div
+            class="absolute inset-0 z-10 flex items-center justify-center bg-gray-200 transition-opacity duration-500 pointer-events-none"
+            class:opacity-0={isLoaded && (!isFileKit || token)}
+            class:opacity-100={!isLoaded}
+        >
+            <div
+                class="w-10 h-10 border-4 border-gray-300 border-t-purple-500 rounded-full animate-spin"
+            ></div>
         </div>
     {/if}
 
