@@ -451,10 +451,7 @@
 	style="background: linear-gradient(135deg, {colors.primary} 0%, #1a1a3e 100%); border-bottom-color: {colors.accent}; backdrop-filter: blur(12px);"
 >
 	<div class="overflow-x-auto scrollbar-hide">
-		<div
-			class="flex gap-2 md:gap-3 py-4 px-4 md:px-6 lg:px-12 min-w-max mx-auto"
-			style="max-width: calc(80rem + 6rem);"
-		>
+		<div class="max-w-7xl mx-auto flex gap-2 md:gap-3 py-4">
 			{#each portfolioSections as section}
 				<button
 					onclick={() => scrollToSection(section.id)}
@@ -492,7 +489,7 @@
 	{#each portfolioSections as section, index}
 		<section
 			id={section.id}
-			class="relative py-12 md:py-16 overflow-hidden"
+			class="relative pt-4 md:pt-6 pb-8 md:pb-10 overflow-hidden"
 			style="background: linear-gradient(135deg,
 				{index % 4 === 0
 				? `${colors.primary}E6`
@@ -504,10 +501,10 @@
 				transparent 100%);"
 		>
 			<!-- Section Header -->
-			<div class="max-w-7xl mx-auto px-2 md:px-4 mb-8">
+			<div class="max-w-7xl mx-auto mb-4">
 				<h2
-					class="text-4xl md:text-5xl lg:text-6xl font-black text-white flex items-center gap-4"
-					style="font-family: 'Playfair Display', serif; text-shadow: 0 0 30px rgba(243, 42, 97, 0.5);"
+					class="text-2xl md:text-3xl lg:text-4xl font-black flex items-center gap-4"
+					style="font-family: 'Playfair Display', serif; text-shadow: 0 0 30px rgba(243, 42, 97, 0.5); letter-spacing: 0.1em; color: {colors.accent};"
 				>
 					<EditableText key={section.titleKey} tag="span" />
 					{#if checkEditAuth()}
@@ -528,12 +525,12 @@
 
 			<!-- Horizontal Scrolling Carousel -->
 			{#if section.images.length > 0}
-				<div class="carousel-wrapper max-w-7xl mx-auto px-2 md:px-4">
+				<div class="carousel-wrapper w-full">
 					<!-- Carousel Container with drag support -->
 					<div
 						bind:this={scrollContainers[section.id]}
-						class="horizontal-scroll-container py-6 cursor-grab select-none"
-						style="padding-left: max(1rem, calc((100vw - 80rem) / 2)); padding-right: max(1rem, calc((100vw - 80rem) / 2));"
+						class="horizontal-scroll-container py-2 cursor-grab select-none"
+						style="padding-left: 1rem; padding-right: 1rem;"
 						onmouseenter={() => pausedContainers.add(section.id)}
 						onmouseleave={() => {
 							pausedContainers.delete(section.id);
@@ -548,7 +545,7 @@
 						role="region"
 						aria-label="Galeria zdjęć {t(section.titleKey)}"
 					>
-						<div class="flex gap-6 md:gap-8 items-center py-4">
+						<div class="flex gap-6 md:gap-8 items-center pt-2 pb-8">
 							<!-- First set of images -->
 							{#each section.images as image, imgIndex}
 								<PortfolioCard
@@ -560,7 +557,7 @@
 										section.titleKey,
 									)} - img {imgIndex + 1}"
 									imageClass="h-full w-auto object-contain"
-									style="height: 400px; border-color: {colors.accent}40; box-shadow: 0 10px 30px rgba(243, 42, 97, 0.3);"
+									style="height: 550px; border-color: {colors.accent}40; box-shadow: 0 10px 30px rgba(243, 42, 97, 0.3);"
 									onEditImage={(idx) =>
 										openEditImage(section.id, idx)}
 									onDeleteImage={(idx) =>
@@ -585,7 +582,7 @@
 											section.titleKey,
 										)} - img {imgIndex + 1} (dup)"
 										imageClass="h-full w-auto object-contain"
-										style="height: 400px; border-color: {colors.accent}40; box-shadow: 0 10px 30px rgba(243, 42, 97, 0.3);"
+										style="height: 550px; border-color: {colors.accent}40; box-shadow: 0 10px 30px rgba(243, 42, 97, 0.3);"
 										onEditImage={(idx) =>
 											openEditImage(section.id, idx)}
 										onDeleteImage={(idx) =>
@@ -634,7 +631,7 @@
 					{/if}
 				</div>
 			{:else}
-				<div class="max-w-7xl mx-auto px-2 md:px-4">
+				<div class="px-4 md:px-8 lg:px-12">
 					<div
 						class="border-4 border-dashed rounded-2xl p-12 text-center backdrop-blur-sm"
 						style="border-color: {colors.accent}60; background: rgba(39, 39, 91, 0.3);"
