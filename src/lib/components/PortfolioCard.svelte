@@ -97,15 +97,22 @@
     aria-label="Portfolio item"
 >
     <!-- Image (Always rendered, opacity transition happens on Skeleton instead) -->
-    {#if isFileKit && token}
+    <!-- If waiting for token, render a placeholder to prevent width collapse -->
+    {#if isFileKit && !token}
+        <div class="h-full w-[300px]"></div>
+    {:else if isFileKit && token}
+        <!-- Wrapper: Use inline-block/flex to wrap image tight. 
+              min-w-[300px] prevents collapse while loading, removed after load to fit image. 
+         -->
         <div
-            class="w-full h-full relative z-0 flex items-center justify-center"
+            class="h-full w-auto relative z-0 flex items-center justify-center transition-all duration-500"
+            class:min-w-[300px]={!isLoaded}
         >
             <Image
                 reference={imgSrc}
                 {token}
                 alt={altText}
-                class={imageClass}
+                class="h-full w-auto object-contain block"
                 draggable="false"
                 onload={handleLoad}
             />
@@ -113,12 +120,13 @@
     {:else if !isFileKit}
         <!-- svelte-ignore a11y_missing_attribute -->
         <div
-            class="w-full h-full relative z-0 flex items-center justify-center"
+            class="h-full w-auto relative z-0 flex items-center justify-center transition-all duration-500"
+            class:min-w-[300px]={!isLoaded}
         >
             <img
                 src={imgSrc}
                 alt={altText}
-                class={imageClass}
+                class="h-full w-auto object-contain block"
                 draggable="false"
                 onload={handleLoad}
             />
