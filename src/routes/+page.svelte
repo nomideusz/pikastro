@@ -22,6 +22,8 @@
 
 	// Import CMS components
 	import EditableText from "$lib/components/EditableText.svelte";
+	import EditableImage from "$lib/components/EditableImage.svelte";
+	import { editModeStore } from "$lib/stores/editMode.svelte";
 
 	// Import color extraction utilities
 	import {
@@ -2254,7 +2256,9 @@
 					href={project.articleUrl}
 					target="_blank"
 					rel="noopener noreferrer"
-					class="aspect-[4/5] bg-blue-100 relative overflow-hidden mb-8 rounded-2xl border-2 border-blue-100 transition-all duration-300 block"
+					class="aspect-[4/5] bg-blue-100 relative overflow-hidden mb-8 rounded-2xl border-2 border-blue-100 transition-all duration-300 block {editModeStore.isEditMode
+						? 'pointer-events-none'
+						: ''}"
 					onmouseenter={(e) =>
 						(e.currentTarget.style.borderColor =
 							colorPalette.accent)}
@@ -2262,7 +2266,8 @@
 						(e.currentTarget.style.borderColor =
 							"rgb(243, 244, 246)")}
 				>
-					<img
+					<EditableImage
+						imageKey={project.titleKey.replace("title", "image")}
 						src={project.image}
 						alt={project.title}
 						class="w-full h-full object-cover"

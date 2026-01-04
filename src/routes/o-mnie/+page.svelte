@@ -4,6 +4,7 @@
 	// Import i18n
 	import { t, localeStore, getLocale } from "$lib/i18n";
 	import EditableText from "$lib/components/EditableText.svelte";
+	import EditableImage from "$lib/components/EditableImage.svelte";
 
 	// Import color extraction utilities
 	import {
@@ -120,7 +121,8 @@
 >
 	<!-- Background Image -->
 	<div class="absolute inset-0">
-		<img
+		<EditableImage
+			imageKey="about.hero.background"
 			src={oMnieBg}
 			alt="O mnie background"
 			class="w-full h-full object-cover"
@@ -174,7 +176,8 @@
 			<div
 				class="aspect-[3/4] bg-blue-100 relative overflow-hidden rounded-2xl shadow-2xl group"
 			>
-				<img
+				<EditableImage
+					imageKey="about.profile.photo"
 					src={magdaPhoto}
 					alt="{translate('about.hero.name')} {translate(
 						'about.hero.surname',

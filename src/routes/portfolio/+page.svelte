@@ -30,6 +30,7 @@
 	import img_w_06 from "$lib/assets/images/wnetrza/06.jpeg";
 	import colorsImg from "$lib/assets/images/colors.jpeg";
 	import EditableText from "$lib/components/EditableText.svelte";
+	import EditableImage from "$lib/components/EditableImage.svelte";
 	import { t } from "$lib/i18n";
 
 	// Portfolio sections with images
@@ -368,12 +369,13 @@
 									class="flex-shrink-0 group relative rounded-2xl overflow-hidden shadow-xl hover:shadow-2xl transition-all duration-500 hover:scale-105 border-2 carousel-image-container"
 									style="height: 400px; border-color: {colors.accent}40; box-shadow: 0 10px 30px rgba(243, 42, 97, 0.3);"
 								>
-									<img
+									<EditableImage
+										imageKey={`portfolio.${section.id}.image${imgIndex + 1}`}
 										src={image}
 										alt="{t(
 											section.titleKey,
 										)} - obraz {imgIndex + 1}"
-										class="h-full w-auto object-contain pointer-events-none"
+										class="h-full w-auto object-contain"
 										draggable="false"
 									/>
 									<div
@@ -402,12 +404,13 @@
 									style="height: 400px; border-color: {colors.accent}40; box-shadow: 0 10px 30px rgba(243, 42, 97, 0.3);"
 									aria-hidden="true"
 								>
-									<img
+									<EditableImage
+										imageKey={`portfolio.${section.id}.image${imgIndex + 1}`}
 										src={image}
 										alt="{t(
 											section.titleKey,
 										)} - obraz {imgIndex + 1}"
-										class="h-full w-auto object-contain pointer-events-none"
+										class="h-full w-auto object-contain"
 										draggable="false"
 									/>
 									<div
