@@ -204,11 +204,34 @@
 		saveSectionImages(editingSectionId);
 	}
 
-	function handleDeleteImage(sectionId: string, index: number) {
+	async function handleDeleteImage(sectionId: string, index: number) {
 		if (!checkEditAuth() || !confirm("Czy na pewno usunąć to zdjęcie?"))
 			return;
 		const section = portfolioSections.find((s) => s.id === sectionId);
 		if (!section) return;
+
+		const item = section.images[index];
+		const imgSrc = typeof item === "string" ? item : item.reference;
+		// Check if it's a FileKit image (UUID, no slashes or http)
+		const isFileKit =
+			imgSrc && !imgSrc.includes("/") && !imgSrc.startsWith("http");
+
+		if (isFileKit) {
+			try {
+				const res = await fetch("/api/filekit/delete", {
+					method: "DELETE",
+					headers: { "Content-Type": "application/json" },
+					body: JSON.stringify({ fileId: imgSrc }),
+				});
+				if (!res.ok) {
+					console.warn(
+						"Failed to delete from FileKit, but removing from portfolio.",
+					);
+				}
+			} catch (e) {
+				console.error("Error deleting from FileKit", e);
+			}
+		}
 
 		section.images.splice(index, 1);
 		saveSectionImages(sectionId);
