@@ -31,10 +31,12 @@
 	import colorsImg from "$lib/assets/images/colors.jpeg";
 	import EditableText from "$lib/components/EditableText.svelte";
 	import EditableImage from "$lib/components/EditableImage.svelte";
+	import ImagePicker from "$lib/components/ImagePicker.svelte";
+	import { editModeStore } from "$lib/stores/editMode.svelte";
 	import { t } from "$lib/i18n";
 
 	// Portfolio sections with images
-	const portfolioSections = [
+	let portfolioSections = $state([
 		{
 			id: "grafika",
 			titleKey: "portfolio.sections.graphics",
@@ -85,7 +87,112 @@
 			titleKey: "portfolio.sections.drawing",
 			images: [], // To be added later
 		},
-	];
+	]);
+
+	// Edit state
+	let pickerOpen = $state(false);
+	let editingSectionId = $state<string | null>(null);
+	let editingImageIndex = $state<number | null>(null); // null means adding new
+
+	async function loadPortfolioContent() {
+		try {
+			const response = await fetch("/api/content?category=portfolio");
+			if (response.ok) {
+				const result = await response.json();
+				if (result.success && Array.isArray(result.data)) {
+					result.data.forEach((item: any) => {
+						// Key format: "portfolio.{sectionId}.images"
+						const match = item.key.match(
+							/^portfolio\.(\w+)\.images$/,
+						);
+						if (match) {
+							const sectionId = match[1];
+							const section = portfolioSections.find(
+								(s) => s.id === sectionId,
+							);
+							if (section) {
+								try {
+									section.images = JSON.parse(item.value);
+								} catch (e) {
+									console.error(
+										"Failed to parse images for",
+										sectionId,
+										e,
+									);
+								}
+							}
+						}
+					});
+				}
+			}
+		} catch (error) {
+			console.error("Error loading portfolio content", error);
+		}
+	}
+
+	async function saveSectionImages(sectionId: string) {
+		const section = portfolioSections.find((s) => s.id === sectionId);
+		if (!section) return;
+
+		try {
+			await fetch("/api/content", {
+				method: "PUT",
+				headers: { "Content-Type": "application/json" },
+				body: JSON.stringify({
+					key: `portfolio.${sectionId}.images`,
+					value: JSON.stringify(section.images),
+					category: "portfolio",
+				}),
+			});
+		} catch (error) {
+			console.error("Error saving portfolio content", error);
+		}
+	}
+
+	function checkEditAuth() {
+		return editModeStore.isEditMode && editModeStore.isAuthenticated;
+	}
+
+	function openAddImage(sectionId: string) {
+		if (!checkEditAuth()) return;
+		editingSectionId = sectionId;
+		editingImageIndex = null;
+		pickerOpen = true;
+	}
+
+	function openEditImage(sectionId: string, index: number) {
+		if (!checkEditAuth()) return;
+		editingSectionId = sectionId;
+		editingImageIndex = index;
+		pickerOpen = true;
+	}
+
+	function handleImageSelected(url: string) {
+		if (!editingSectionId) return;
+		const section = portfolioSections.find(
+			(s) => s.id === editingSectionId,
+		);
+		if (!section) return;
+
+		if (editingImageIndex !== null) {
+			// Replace existing
+			section.images[editingImageIndex] = url;
+		} else {
+			// Add new
+			section.images.push(url);
+		}
+		saveSectionImages(editingSectionId);
+	}
+
+	function handleDeleteImage(sectionId: string, index: number) {
+		if (!checkEditAuth() || !confirm("Czy na pewno usunąć to zdjęcie?"))
+			return;
+		const section = portfolioSections.find((s) => s.id === sectionId);
+		if (!section) return;
+
+		section.images.splice(index, 1);
+		saveSectionImages(sectionId);
+	}
 
 	// Colors
 	const colors = {
@@ -251,6 +358,7 @@
 			}
 		});
 
+		loadPortfolioContent();
 		startAutoScroll();
 
 		return () => {
@@ -329,10 +437,19 @@
 			<!-- Section Header -->
 			<div class="max-w-7xl mx-auto px-2 md:px-4 mb-8">
 				<h2
-					class="text-4xl md:text-5xl lg:text-6xl font-black text-white"
+					class="text-4xl md:text-5xl lg:text-6xl font-black text-white flex items-center gap-4"
 					style="font-family: 'Playfair Display', serif; text-shadow: 0 0 30px rgba(243, 42, 97, 0.5);"
 				>
 					<EditableText key={section.titleKey} tag="span" />
+					{#if checkEditAuth()}
+						<button
+							onclick={() => openAddImage(section.id)}
+							class="text-2xl w-10 h-10 flex items-center justify-center rounded-full bg-green-500 hover:bg-green-600 text-white shadow-lg transition-transform hover:scale-110"
+							title="Dodaj zdjęcie"
+						>
+							+
+						</button>
+					{/if}
 				</h2>
 				<div
 					class="h-1 w-24 mt-4 rounded-full"
@@ -369,8 +486,8 @@
 									class="flex-shrink-0 group relative rounded-2xl overflow-hidden shadow-xl hover:shadow-2xl transition-all duration-500 hover:scale-105 border-2 carousel-image-container"
 									style="height: 400px; border-color: {colors.accent}40; box-shadow: 0 10px 30px rgba(243, 42, 97, 0.3);"
 								>
-									<EditableImage
-										imageKey={`portfolio.${section.id}.image${imgIndex + 1}`}
+									<!-- svelte-ignore a11y_missing_attribute -->
+									<img
 										src={image}
 										alt="{t(
 											section.titleKey,
@@ -378,12 +495,40 @@
 										class="h-full w-auto object-contain"
 										draggable="false"
 									/>
+
+									{#if checkEditAuth()}
+										<div
+											class="absolute inset-0 bg-black/50 opacity-0 group-hover:opacity-100 transition-opacity flex items-center justify-center gap-2 pointer-events-auto"
+										>
+											<button
+												onclick={() =>
+													openEditImage(
+														section.id,
+														imgIndex,
+													)}
+												class="bg-white text-purple-600 px-4 py-2 rounded-lg font-bold hover:bg-gray-100"
+											>
+												Zmień
+											</button>
+											<button
+												onclick={() =>
+													handleDeleteImage(
+														section.id,
+														imgIndex,
+													)}
+												class="bg-red-600 text-white px-4 py-2 rounded-lg font-bold hover:bg-red-700"
+											>
+												Usuń
+											</button>
+										</div>
+									{/if}
+
 									<div
-										class="absolute inset-0 opacity-0 group-hover:opacity-100 transition-opacity duration-300"
+										class="absolute inset-0 opacity-0 group-hover:opacity-100 transition-opacity duration-300 pointer-events-none"
 										style="background: linear-gradient(180deg, transparent 0%, {colors.primary}E6 100%);"
 									></div>
 									<div
-										class="absolute bottom-0 left-0 right-0 p-6 text-white transform translate-y-full group-hover:translate-y-0 transition-transform duration-300"
+										class="absolute bottom-0 left-0 right-0 p-6 text-white transform translate-y-full group-hover:translate-y-0 transition-transform duration-300 pointer-events-none"
 									>
 										<p
 											class="text-lg font-bold"
@@ -404,8 +549,8 @@
 									style="height: 400px; border-color: {colors.accent}40; box-shadow: 0 10px 30px rgba(243, 42, 97, 0.3);"
 									aria-hidden="true"
 								>
-									<EditableImage
-										imageKey={`portfolio.${section.id}.image${imgIndex + 1}`}
+									<!-- svelte-ignore a11y_missing_attribute -->
+									<img
 										src={image}
 										alt="{t(
 											section.titleKey,
@@ -413,12 +558,40 @@
 										class="h-full w-auto object-contain"
 										draggable="false"
 									/>
+
+									{#if checkEditAuth()}
+										<div
+											class="absolute inset-0 bg-black/50 opacity-0 group-hover:opacity-100 transition-opacity flex items-center justify-center gap-2 pointer-events-auto"
+										>
+											<button
+												onclick={() =>
+													openEditImage(
+														section.id,
+														imgIndex,
+													)}
+												class="bg-white text-purple-600 px-4 py-2 rounded-lg font-bold hover:bg-gray-100"
+											>
+												Zmień
+											</button>
+											<button
+												onclick={() =>
+													handleDeleteImage(
+														section.id,
+														imgIndex,
+													)}
+												class="bg-red-600 text-white px-4 py-2 rounded-lg font-bold hover:bg-red-700"
+											>
+												Usuń
+											</button>
+										</div>
+									{/if}
+
 									<div
-										class="absolute inset-0 opacity-0 group-hover:opacity-100 transition-opacity duration-300"
+										class="absolute inset-0 opacity-0 group-hover:opacity-100 transition-opacity duration-300 pointer-events-none"
 										style="background: linear-gradient(180deg, transparent 0%, {colors.primary}E6 100%);"
 									></div>
 									<div
-										class="absolute bottom-0 left-0 right-0 p-6 text-white transform translate-y-full group-hover:translate-y-0 transition-transform duration-300"
+										class="absolute bottom-0 left-0 right-0 p-6 text-white transform translate-y-full group-hover:translate-y-0 transition-transform duration-300 pointer-events-none"
 									>
 										<p
 											class="text-lg font-bold"
@@ -538,6 +711,8 @@
 		></path>
 	</svg>
 </button>
+
+<ImagePicker bind:isOpen={pickerOpen} onSelect={handleImageSelected} />
 
 <style>
 	.horizontal-scroll-container {
