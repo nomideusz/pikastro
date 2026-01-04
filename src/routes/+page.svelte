@@ -852,6 +852,9 @@
 	</div>
 </section>
 
+<!-- Full-width border separator -->
+<div class="w-full h-2" style="background-color: {colorPalette.success};"></div>
+
 <!-- Video Section - Transform Your Space -->
 <section class="relative w-full h-screen overflow-hidden">
 	<!-- Full Width Video Background -->
@@ -910,7 +913,7 @@
 <div class="w-full h-2" style="background-color: {colorPalette.success};"></div>
 
 <!-- Before/After Showcase Section - Maximalism -->
-<section id="beforeafter" class="section bg-white relative overflow-hidden">
+<section id="beforeafter" class="w-full bg-white relative overflow-hidden">
 	<div
 		class="absolute top-0 right-0 w-48 h-48 md:w-96 md:h-96 rounded-full filter blur-3xl opacity-25"
 		style="background-color: {colorPalette.tertiary};"
@@ -919,113 +922,114 @@
 		class="absolute bottom-0 left-0 w-40 h-40 md:w-80 md:h-80 rounded-full filter blur-3xl opacity-25"
 		style="background-color: {colorPalette.accent};"
 	></div>
-	<div class="text-center mb-8 md:mb-12 observe">
-		<h2
-			class="text-4xl md:text-5xl lg:text-6xl font-black mb-6 leading-tight"
-			style="font-family: 'Playfair Display', serif;"
-		>
-			<EditableText key="home.beforeAfter.heading" tag="span" /><br
-			/><span style="color: {colorPalette.primary}"
-				><EditableText
-					key="home.beforeAfter.headingAccent"
-					tag="span"
-				/></span
+	<div class="section">
+		<div class="text-center mb-8 md:mb-12 observe">
+			<h2
+				class="text-4xl md:text-5xl lg:text-6xl font-black mb-6 leading-tight"
+				style="font-family: 'Playfair Display', serif;"
 			>
-		</h2>
+				<EditableText key="home.beforeAfter.heading" tag="span" /><br
+				/><span style="color: {colorPalette.primary}"
+					><EditableText
+						key="home.beforeAfter.headingAccent"
+						tag="span"
+					/></span
+				>
+			</h2>
 
-		<!-- Description moved here -->
-		<div class="text-[#27275b]/80 mb-8 space-y-6 max-w-4xl mx-auto">
-			<div class="leading-relaxed text-lg md:text-xl">
-				<EditableText
-					key="home.beforeAfter.description"
-					multiline={true}
-				/>
+			<!-- Description moved here -->
+			<div class="text-[#27275b]/80 mb-8 space-y-6 max-w-4xl mx-auto">
+				<div class="leading-relaxed text-lg md:text-xl">
+					<EditableText
+						key="home.beforeAfter.description"
+						multiline={true}
+					/>
+				</div>
 			</div>
 		</div>
-	</div>
 
-	<div class="relative z-10">
-		<!-- Main Before/After Slider -->
-		<div class="max-w-5xl mx-auto mb-8 observe">
-			<div
-				bind:this={sliderContainer}
-				class="relative aspect-[16/9] bg-[#27275b] rounded-2xl overflow-hidden shadow-2xl cursor-ew-resize select-none touch-none"
-				onmousedown={handleMouseDown}
-				onmousemove={handleMouseMove}
-				onmouseup={handleMouseUp}
-				onmouseleave={handleMouseUp}
-				ontouchstart={handleTouchStart}
-				ontouchmove={handleTouchMove}
-				ontouchend={handleTouchEnd}
-				onkeydown={handleKeyDown}
-				role="slider"
-				aria-label="Slider porównujący zdjęcia przed i po transformacji"
-				aria-valuemin={0}
-				aria-valuemax={100}
-				aria-valuenow={sliderPosition}
-				tabindex="0"
-			>
-				<!-- Before Image -->
-				<div class="absolute inset-0 pointer-events-none">
-					<img
-						src={beforeAfterProjects[activeBeforeAfter].before}
-						alt="Przed transformacją"
-						class="w-full h-full object-cover"
-						draggable="false"
-					/>
-				</div>
-
-				<!-- After Image with slider -->
+		<div class="relative z-10">
+			<!-- Main Before/After Slider -->
+			<div class="max-w-5xl mx-auto mb-8 observe">
 				<div
-					class="absolute inset-0 pointer-events-none"
-					style="clip-path: inset(0 {100 - sliderPosition}% 0 0)"
+					bind:this={sliderContainer}
+					class="relative aspect-[16/9] bg-[#27275b] rounded-2xl overflow-hidden shadow-2xl cursor-ew-resize select-none touch-none"
+					onmousedown={handleMouseDown}
+					onmousemove={handleMouseMove}
+					onmouseup={handleMouseUp}
+					onmouseleave={handleMouseUp}
+					ontouchstart={handleTouchStart}
+					ontouchmove={handleTouchMove}
+					ontouchend={handleTouchEnd}
+					onkeydown={handleKeyDown}
+					role="slider"
+					aria-label="Slider porównujący zdjęcia przed i po transformacji"
+					aria-valuemin={0}
+					aria-valuemax={100}
+					aria-valuenow={sliderPosition}
+					tabindex="0"
 				>
-					<img
-						src={beforeAfterProjects[activeBeforeAfter].after}
-						alt="Po transformacji AI"
-						class="w-full h-full object-cover"
-						draggable="false"
-					/>
-				</div>
+					<!-- Before Image -->
+					<div class="absolute inset-0 pointer-events-none">
+						<img
+							src={beforeAfterProjects[activeBeforeAfter].before}
+							alt="Przed transformacją"
+							class="w-full h-full object-cover"
+							draggable="false"
+						/>
+					</div>
 
-				<!-- Slider Handle -->
-				<div
-					class="absolute inset-y-0 z-10 pointer-events-none transition-shadow duration-200"
-					style="left: {sliderPosition}%; {isDragging
-						? 'filter: drop-shadow(0 0 8px rgba(251, 113, 133, 0.5));'
-						: ''}"
-				>
+					<!-- After Image with slider -->
 					<div
-						class="absolute inset-y-0 w-1 bg-white shadow-lg"
-					></div>
+						class="absolute inset-0 pointer-events-none"
+						style="clip-path: inset(0 {100 - sliderPosition}% 0 0)"
+					>
+						<img
+							src={beforeAfterProjects[activeBeforeAfter].after}
+							alt="Po transformacji AI"
+							class="w-full h-full object-cover"
+							draggable="false"
+						/>
+					</div>
+
+					<!-- Slider Handle -->
 					<div
-						class="absolute top-1/2 -translate-y-1/2 -translate-x-1/2 w-14 h-14 md:w-12 md:h-12 bg-white rounded-full shadow-2xl flex items-center justify-center transition-transform duration-200 {isDragging
-							? 'scale-110'
+						class="absolute inset-y-0 z-10 pointer-events-none transition-shadow duration-200"
+						style="left: {sliderPosition}%; {isDragging
+							? 'filter: drop-shadow(0 0 8px rgba(251, 113, 133, 0.5));'
 							: ''}"
 					>
-						<svg
-							class="w-7 h-7 md:w-6 md:h-6"
-							fill="none"
-							stroke="currentColor"
-							viewBox="0 0 24 24"
-							style="color: {colorPalette.primary}"
+						<div
+							class="absolute inset-y-0 w-1 bg-white shadow-lg"
+						></div>
+						<div
+							class="absolute top-1/2 -translate-y-1/2 -translate-x-1/2 w-14 h-14 md:w-12 md:h-12 bg-white rounded-full shadow-2xl flex items-center justify-center transition-transform duration-200 {isDragging
+								? 'scale-110'
+								: ''}"
 						>
-							<path
-								stroke-linecap="round"
-								stroke-linejoin="round"
-								stroke-width="2"
-								d="M9 8l-4 4 4 4m6 0l4-4-4-4"
-							></path>
-						</svg>
+							<svg
+								class="w-7 h-7 md:w-6 md:h-6"
+								fill="none"
+								stroke="currentColor"
+								viewBox="0 0 24 24"
+								style="color: {colorPalette.primary}"
+							>
+								<path
+									stroke-linecap="round"
+									stroke-linejoin="round"
+									stroke-width="2"
+									d="M9 8l-4 4 4 4m6 0l4-4-4-4"
+								></path>
+							</svg>
+						</div>
 					</div>
+
+					<!-- Labels -->
 				</div>
-
-				<!-- Labels -->
 			</div>
-		</div>
 
-		<!-- Project Thumbnails - Hidden as requested -->
-		<!-- <div class="grid md:grid-cols-3 gap-6 observe">
+			<!-- Project Thumbnails - Hidden as requested -->
+			<!-- <div class="grid md:grid-cols-3 gap-6 observe">
 			{#each beforeAfterProjects as project, i}
 				<button
 					onclick={() => activeBeforeAfter = i}
@@ -1046,120 +1050,31 @@
 			{/each}
 		</div> -->
 
-		<!-- View Full Portfolio Button -->
-		<div class="text-center mt-16 observe relative z-10">
-			<a
-				href="/portfolio"
-				class="inline-flex items-center gap-3 px-10 py-4 text-lg font-bold rounded-xl border-2 transition-all duration-300 transform hover:scale-110"
-				style="background: linear-gradient(135deg, {colorPalette.secondary} 0%, {colorPalette.primary} 100%); border-color: {colorPalette.accent}; color: white;"
-			>
-				<EditableText
-					key="home.portfolio.viewFullPortfolio"
-					tag="span"
-				/>
-				<svg
-					class="w-5 h-5"
-					fill="none"
-					stroke="currentColor"
-					viewBox="0 0 24 24"
+			<!-- View Full Portfolio Button -->
+			<div class="text-center mt-16 observe relative z-10">
+				<a
+					href="/portfolio"
+					class="inline-flex items-center gap-3 px-10 py-4 text-lg font-bold rounded-xl border-2 transition-all duration-300 transform hover:scale-110"
+					style="background: linear-gradient(135deg, {colorPalette.secondary} 0%, {colorPalette.primary} 100%); border-color: {colorPalette.accent}; color: white;"
 				>
-					<path
-						stroke-linecap="round"
-						stroke-linejoin="round"
-						stroke-width="2"
-						d="M13 7l5 5m0 0l-5 5m5-5H6"
-					></path>
-				</svg>
-			</a>
-		</div>
-	</div>
-</section>
-
-<!-- About Section - Maximalism -->
-<section id="omnie" class="section bg-white relative overflow-hidden">
-	<div
-		class="absolute top-0 right-0 w-48 h-48 md:w-96 md:h-96 rounded-full filter blur-3xl opacity-20"
-		style="background-color: {colorPalette.secondary};"
-	></div>
-	<div
-		class="absolute bottom-0 left-0 w-48 h-48 md:w-96 md:h-96 rounded-full filter blur-3xl opacity-20"
-		style="background-color: {colorPalette.tertiary};"
-	></div>
-	<div
-		class="absolute top-1/2 left-1/4 w-32 h-32 md:w-64 md:h-64 rounded-full filter blur-3xl opacity-15"
-		style="background-color: {colorPalette.success};"
-	></div>
-	<div
-		class="grid md:grid-cols-2 gap-16 lg:gap-24 items-center relative z-10"
-	>
-		<div class="observe">
-			<h2
-				class="text-4xl md:text-5xl lg:text-6xl font-black mb-8 leading-tight"
-				style="font-family: 'Playfair Display', serif;"
-			>
-				<span style="color: {colorPalette.primary}"
-					><EditableText
-						key="home.aboutHome.heading"
+					<EditableText
+						key="home.portfolio.viewFullPortfolio"
 						tag="span"
-					/></span
-				>
-				<span class="italic"
-					><EditableText
-						key="home.aboutHome.headingAccent"
-						tag="span"
-					/></span
-				>
-			</h2>
-			<div class="space-y-6 text-[#27275b]/80 leading-relaxed text-lg">
-				<p>
-					<EditableText key="home.aboutHome.paragraph1" tag="span" />
-				</p>
-				<p>
-					<strong style="color: {colorPalette.primary}"
-						><EditableText
-							key="home.aboutHome.paragraph2Title"
-							tag="span"
-						/></strong
+					/>
+					<svg
+						class="w-5 h-5"
+						fill="none"
+						stroke="currentColor"
+						viewBox="0 0 24 24"
 					>
-					<EditableText key="home.aboutHome.paragraph2" tag="span" />
-				</p>
-				<p>
-					<EditableText key="home.aboutHome.paragraph3" tag="span" />
-				</p>
-			</div>
-		</div>
-
-		<div class="space-y-8 observe">
-			<div
-				class="aspect-[4/5] bg-blue-100 relative overflow-hidden group rounded-2xl"
-			>
-				<img
-					src={img_w_07}
-					alt="Projektowanie wnętrz dla klientów"
-					class="w-full h-full object-cover"
-				/>
-				<div
-					class="absolute inset-0 bg-[#27275b]/30 group-hover:bg-[#27275b]/20 transition-all duration-300"
-				></div>
-				<div class="absolute inset-0 flex items-center justify-center">
-					<div class="text-center p-8">
-						<p
-							class="text-2xl font-bold text-white mb-3"
-							style="font-family: 'Playfair Display', serif;"
-						>
-							<EditableText
-								key="home.aboutHome.imageCaption"
-								tag="span"
-							/>
-						</p>
-						<p class="text-base text-white/90">
-							<EditableText
-								key="home.aboutHome.imageSubCaption"
-								tag="span"
-							/>
-						</p>
-					</div>
-				</div>
+						<path
+							stroke-linecap="round"
+							stroke-linejoin="round"
+							stroke-width="2"
+							d="M13 7l5 5m0 0l-5 5m5-5H6"
+						></path>
+					</svg>
+				</a>
 			</div>
 		</div>
 	</div>
@@ -1168,7 +1083,7 @@
 <!-- Full-width border separator -->
 <div class="w-full h-2" style="background-color: {colorPalette.accent};"></div>
 
-<!-- CTA Banner -->
+<!-- CTA Banner - Gotowy na kolorową metamorfozę? -->
 <section
 	class="relative py-12 md:py-16 overflow-hidden"
 	style="background-color: {colorPalette.primary};"
@@ -1202,388 +1117,115 @@
 </section>
 
 <!-- Full-width border separator -->
-<div class="w-full h-2" style="background-color: {colorPalette.accent};"></div>
+<div class="w-full h-2" style="background-color: {colorPalette.success};"></div>
 
-<!-- Services Section - Maximalism -->
-<section id="oferta" class="section bg-white relative overflow-hidden">
+<!-- About Section - Maximalism -->
+<section id="omnie" class="w-full bg-white relative overflow-hidden">
 	<div
-		class="absolute top-10 left-5 w-32 h-32 md:top-20 md:left-20 md:w-64 md:h-64 rounded-full filter blur-3xl opacity-25 animate-pulse-slow"
+		class="absolute top-0 right-0 w-48 h-48 md:w-96 md:h-96 rounded-full filter blur-3xl opacity-20"
 		style="background-color: {colorPalette.secondary};"
 	></div>
 	<div
-		class="absolute bottom-10 right-5 w-36 h-36 md:bottom-20 md:right-20 md:w-72 md:h-72 rounded-full filter blur-3xl opacity-20 animate-pulse-slow"
-		style="background-color: {colorPalette.success}; animation-delay: 1s;"
+		class="absolute bottom-0 left-0 w-48 h-48 md:w-96 md:h-96 rounded-full filter blur-3xl opacity-20"
+		style="background-color: {colorPalette.tertiary};"
 	></div>
-	<div class="text-center mb-20 observe relative z-10">
-		<p
-			class="font-black tracking-[0.15em] md:tracking-[0.3em] uppercase text-sm mb-4"
-			style="color: {colorPalette.primary}"
-		>
-			<EditableText key="home.services.label" tag="span" />
-		</p>
-		<h2
-			class="text-4xl md:text-5xl lg:text-6xl font-black mb-6 leading-tight"
-			style="font-family: 'Playfair Display', serif;"
-		>
-			<span style="color: {colorPalette.primary}"
-				><EditableText key="home.services.heading" tag="span" /></span
-			><br /><EditableText key="home.services.headingAccent" tag="span" />
-		</h2>
-		<p
-			class="text-lg md:text-xl text-[#27275b]/80 max-w-2xl mx-auto leading-relaxed"
-		>
-			<EditableText key="home.services.description" tag="span" />
-		</p>
-	</div>
-
-	<div class="grid md:grid-cols-2 gap-10 md:gap-8 lg:gap-12 relative z-10">
-		<!-- Interior Design Service -->
+	<div
+		class="absolute top-1/2 left-1/4 w-32 h-32 md:w-64 md:h-64 rounded-full filter blur-3xl opacity-15"
+		style="background-color: {colorPalette.success};"
+	></div>
+	<div class="section">
 		<div
-			role="article"
-			class="bg-white p-10 lg:p-12 hover-lift observe group border-2 border-blue-100 rounded-2xl hover:shadow-2xl transition-all duration-500"
-			style="animation-delay: 0ms; border-color: rgb(243, 244, 246);"
-			onmouseenter={(e) => {
-				e.currentTarget.style.borderColor = colorPalette.accent;
-				e.currentTarget.style.boxShadow = `0 25px 50px -12px rgba(var(--color-accent-rgb, 251, 113, 133), 0.2)`;
-			}}
-			onmouseleave={(e) => {
-				e.currentTarget.style.borderColor = "rgb(243, 244, 246)";
-				e.currentTarget.style.boxShadow =
-					"0 20px 25px -5px rgba(0, 0, 0, 0.1)";
-			}}
+			class="grid md:grid-cols-2 gap-16 lg:gap-24 items-center relative z-10"
 		>
-			<div class="mb-8">
-				<div
-					class="text-6xl font-light transition-all duration-500 transform group-hover:scale-110 group-hover:rotate-12"
-					style="font-family: 'Playfair Display', serif; color: {colorPalette.primary}"
+			<div class="observe">
+				<h2
+					class="text-4xl md:text-5xl lg:text-6xl font-black mb-8 leading-tight"
+					style="font-family: 'Playfair Display', serif;"
 				>
-					■
+					<span style="color: {colorPalette.primary}"
+						><EditableText
+							key="home.aboutHome.heading"
+							tag="span"
+						/></span
+					>
+					<span class="italic"
+						><EditableText
+							key="home.aboutHome.headingAccent"
+							tag="span"
+						/></span
+					>
+				</h2>
+				<div
+					class="space-y-6 text-[#27275b]/80 leading-relaxed text-lg"
+				>
+					<p>
+						<EditableText
+							key="home.aboutHome.paragraph1"
+							tag="span"
+						/>
+					</p>
+					<p>
+						<strong style="color: {colorPalette.primary}"
+							><EditableText
+								key="home.aboutHome.paragraph2Title"
+								tag="span"
+							/></strong
+						>
+						<EditableText
+							key="home.aboutHome.paragraph2"
+							tag="span"
+						/>
+					</p>
+					<p>
+						<EditableText
+							key="home.aboutHome.paragraph3"
+							tag="span"
+						/>
+					</p>
 				</div>
 			</div>
-			<h3
-				class="text-3xl lg:text-4xl font-black mb-4 text-[#27275b] transition-colors"
-				style="font-family: 'Playfair Display', serif;"
-				onmouseenter={(e) =>
-					(e.currentTarget.style.color = colorPalette.primary)}
-				onmouseleave={(e) => (e.currentTarget.style.color = "#27275b")}
-			>
-				<EditableText key="services.interiorDesign.title" tag="span" />
-			</h3>
-			<p class="text-[#27275b]/80 mb-8 leading-relaxed">
-				<EditableText key="services.interiorDesign.description" />
-			</p>
-			<ul class="space-y-3">
-				<li class="flex items-start text-[#27275b]/90">
-					<span
-						class="w-1.5 h-1.5 bg-[#10B981] mt-2.5 mr-3 flex-shrink-0"
-					></span>
-					<span class="text-sm"
-						><EditableText
-							key="services.interiorDesign.feature1"
-							tag="span"
-						/></span
-					>
-				</li>
-				<li class="flex items-start text-[#27275b]/90">
-					<span
-						class="w-1.5 h-1.5 bg-[#10B981] mt-2.5 mr-3 flex-shrink-0"
-					></span>
-					<span class="text-sm"
-						><EditableText
-							key="services.interiorDesign.feature2"
-							tag="span"
-						/></span
-					>
-				</li>
-				<li class="flex items-start text-[#27275b]/90">
-					<span
-						class="w-1.5 h-1.5 bg-[#10B981] mt-2.5 mr-3 flex-shrink-0"
-					></span>
-					<span class="text-sm"
-						><EditableText
-							key="services.interiorDesign.feature3"
-							tag="span"
-						/></span
-					>
-				</li>
-				<li class="flex items-start text-[#27275b]/90">
-					<span
-						class="w-1.5 h-1.5 bg-[#10B981] mt-2.5 mr-3 flex-shrink-0"
-					></span>
-					<span class="text-sm"
-						><EditableText
-							key="services.interiorDesign.feature4"
-							tag="span"
-						/></span
-					>
-				</li>
-				<li class="flex items-start text-[#27275b]/90">
-					<span
-						class="w-1.5 h-1.5 bg-[#10B981] mt-2.5 mr-3 flex-shrink-0"
-					></span>
-					<span class="text-sm"
-						><EditableText
-							key="services.interiorDesign.feature5"
-							tag="span"
-						/></span
-					>
-				</li>
-			</ul>
-		</div>
 
-		<!-- Graphic Design Service -->
-		<div
-			role="article"
-			class="bg-white p-10 lg:p-12 hover-lift observe group border-2 border-blue-100 rounded-2xl hover:shadow-2xl transition-all duration-500"
-			style="animation-delay: 100ms; border-color: rgb(243, 244, 246);"
-			onmouseenter={(e) => {
-				e.currentTarget.style.borderColor = colorPalette.accent;
-				e.currentTarget.style.boxShadow = `0 25px 50px -12px rgba(var(--color-accent-rgb, 251, 113, 133), 0.2)`;
-			}}
-			onmouseleave={(e) => {
-				e.currentTarget.style.borderColor = "rgb(243, 244, 246)";
-				e.currentTarget.style.boxShadow =
-					"0 20px 25px -5px rgba(0, 0, 0, 0.1)";
-			}}
-		>
-			<div class="mb-8">
+			<div class="space-y-8 observe">
 				<div
-					class="text-6xl font-light transition-all duration-500 transform group-hover:scale-110 group-hover:rotate-12"
-					style="font-family: 'Playfair Display', serif; color: {colorPalette.primary}"
+					class="aspect-[4/5] bg-blue-100 relative overflow-hidden group rounded-2xl"
 				>
-					○
+					<img
+						src={img_w_07}
+						alt="Projektowanie wnętrz dla klientów"
+						class="w-full h-full object-cover"
+					/>
+					<div
+						class="absolute inset-0 bg-[#27275b]/30 group-hover:bg-[#27275b]/20 transition-all duration-300"
+					></div>
+					<div
+						class="absolute inset-0 flex items-center justify-center"
+					>
+						<div class="text-center p-8">
+							<p
+								class="text-2xl font-bold text-white mb-3"
+								style="font-family: 'Playfair Display', serif;"
+							>
+								<EditableText
+									key="home.aboutHome.imageCaption"
+									tag="span"
+								/>
+							</p>
+							<p class="text-base text-white/90">
+								<EditableText
+									key="home.aboutHome.imageSubCaption"
+									tag="span"
+								/>
+							</p>
+						</div>
+					</div>
 				</div>
 			</div>
-			<h3
-				class="text-3xl lg:text-4xl font-black mb-4 text-[#27275b] transition-colors"
-				style="font-family: 'Playfair Display', serif;"
-				onmouseenter={(e) =>
-					(e.currentTarget.style.color = colorPalette.primary)}
-				onmouseleave={(e) => (e.currentTarget.style.color = "#27275b")}
-			>
-				<EditableText key="services.graphicDesign.title" tag="span" />
-			</h3>
-			<p class="text-[#27275b]/80 mb-8 leading-relaxed">
-				<EditableText key="services.graphicDesign.description" />
-			</p>
-			<ul class="space-y-3">
-				<li class="flex items-start text-[#27275b]/90">
-					<span
-						class="w-1.5 h-1.5 bg-[#10B981] mt-2.5 mr-3 flex-shrink-0"
-					></span>
-					<span class="text-sm"
-						><EditableText
-							key="services.graphicDesign.feature1"
-							tag="span"
-						/></span
-					>
-				</li>
-				<li class="flex items-start text-[#27275b]/90">
-					<span
-						class="w-1.5 h-1.5 bg-[#10B981] mt-2.5 mr-3 flex-shrink-0"
-					></span>
-					<span class="text-sm"
-						><EditableText
-							key="services.graphicDesign.feature2"
-							tag="span"
-						/></span
-					>
-				</li>
-				<li class="flex items-start text-[#27275b]/90">
-					<span
-						class="w-1.5 h-1.5 bg-[#10B981] mt-2.5 mr-3 flex-shrink-0"
-					></span>
-					<span class="text-sm"
-						><EditableText
-							key="services.graphicDesign.feature3"
-							tag="span"
-						/></span
-					>
-				</li>
-				<li class="flex items-start text-[#27275b]/90">
-					<span
-						class="w-1.5 h-1.5 bg-[#10B981] mt-2.5 mr-3 flex-shrink-0"
-					></span>
-					<span class="text-sm"
-						><EditableText
-							key="services.graphicDesign.feature4"
-							tag="span"
-						/></span
-					>
-				</li>
-			</ul>
-		</div>
-
-		<!-- AI Technology Service -->
-		<div
-			role="article"
-			class="bg-white p-10 lg:p-12 hover-lift observe group border-2 border-blue-100 rounded-2xl hover:shadow-2xl transition-all duration-500"
-			style="animation-delay: 200ms; border-color: rgb(243, 244, 246);"
-			onmouseenter={(e) => {
-				e.currentTarget.style.borderColor = colorPalette.accent;
-				e.currentTarget.style.boxShadow = `0 25px 50px -12px rgba(var(--color-accent-rgb, 251, 113, 133), 0.2)`;
-			}}
-			onmouseleave={(e) => {
-				e.currentTarget.style.borderColor = "rgb(243, 244, 246)";
-				e.currentTarget.style.boxShadow =
-					"0 20px 25px -5px rgba(0, 0, 0, 0.1)";
-			}}
-		>
-			<div class="mb-8">
-				<div
-					class="text-6xl font-light transition-all duration-500 transform group-hover:scale-110 group-hover:rotate-12"
-					style="font-family: 'Playfair Display', serif; color: {colorPalette.primary}"
-				>
-					△
-				</div>
-			</div>
-			<h3
-				class="text-3xl lg:text-4xl font-black mb-4 text-[#27275b] transition-colors"
-				style="font-family: 'Playfair Display', serif;"
-				onmouseenter={(e) =>
-					(e.currentTarget.style.color = colorPalette.primary)}
-				onmouseleave={(e) => (e.currentTarget.style.color = "#27275b")}
-			>
-				<EditableText key="services.aiTechnology.title" tag="span" />
-			</h3>
-			<p class="text-[#27275b]/80 mb-8 leading-relaxed">
-				<EditableText key="services.aiTechnology.description" />
-			</p>
-			<ul class="space-y-3">
-				<li class="flex items-start text-[#27275b]/90">
-					<span
-						class="w-1.5 h-1.5 bg-[#10B981] mt-2.5 mr-3 flex-shrink-0"
-					></span>
-					<span class="text-sm"
-						><EditableText
-							key="services.aiTechnology.feature1"
-							tag="span"
-						/></span
-					>
-				</li>
-				<li class="flex items-start text-[#27275b]/90">
-					<span
-						class="w-1.5 h-1.5 bg-[#10B981] mt-2.5 mr-3 flex-shrink-0"
-					></span>
-					<span class="text-sm"
-						><EditableText
-							key="services.aiTechnology.feature2"
-							tag="span"
-						/></span
-					>
-				</li>
-				<li class="flex items-start text-[#27275b]/90">
-					<span
-						class="w-1.5 h-1.5 bg-[#10B981] mt-2.5 mr-3 flex-shrink-0"
-					></span>
-					<span class="text-sm"
-						><EditableText
-							key="services.aiTechnology.feature3"
-							tag="span"
-						/></span
-					>
-				</li>
-				<li class="flex items-start text-[#27275b]/90">
-					<span
-						class="w-1.5 h-1.5 bg-[#10B981] mt-2.5 mr-3 flex-shrink-0"
-					></span>
-					<span class="text-sm"
-						><EditableText
-							key="services.aiTechnology.feature4"
-							tag="span"
-						/></span
-					>
-				</li>
-			</ul>
-		</div>
-
-		<!-- Developers/Real Estate Service -->
-		<div
-			role="article"
-			class="bg-white p-10 lg:p-12 hover-lift observe group border-2 border-blue-100 rounded-2xl hover:shadow-2xl transition-all duration-500"
-			style="animation-delay: 300ms; border-color: rgb(243, 244, 246);"
-			onmouseenter={(e) => {
-				e.currentTarget.style.borderColor = colorPalette.accent;
-				e.currentTarget.style.boxShadow = `0 25px 50px -12px rgba(var(--color-accent-rgb, 251, 113, 133), 0.2)`;
-			}}
-			onmouseleave={(e) => {
-				e.currentTarget.style.borderColor = "rgb(243, 244, 246)";
-				e.currentTarget.style.boxShadow =
-					"0 20px 25px -5px rgba(0, 0, 0, 0.1)";
-			}}
-		>
-			<div class="mb-8">
-				<div
-					class="text-6xl font-light transition-all duration-500 transform group-hover:scale-110 group-hover:rotate-12"
-					style="font-family: 'Playfair Display', serif; color: {colorPalette.primary}"
-				>
-					◆
-				</div>
-			</div>
-			<h3
-				class="text-3xl lg:text-4xl font-black mb-4 text-[#27275b] transition-colors"
-				style="font-family: 'Playfair Display', serif;"
-				onmouseenter={(e) =>
-					(e.currentTarget.style.color = colorPalette.primary)}
-				onmouseleave={(e) => (e.currentTarget.style.color = "#27275b")}
-			>
-				<EditableText
-					key="services.developersRealEstate.title"
-					tag="span"
-				/>
-			</h3>
-			<p class="text-[#27275b]/80 mb-8 leading-relaxed">
-				<EditableText key="services.developersRealEstate.description" />
-			</p>
-			<ul class="space-y-3">
-				<li class="flex items-start text-[#27275b]/90">
-					<span
-						class="w-1.5 h-1.5 bg-[#10B981] mt-2.5 mr-3 flex-shrink-0"
-					></span>
-					<span class="text-sm"
-						><EditableText
-							key="services.developersRealEstate.feature1"
-							tag="span"
-						/></span
-					>
-				</li>
-				<li class="flex items-start text-[#27275b]/90">
-					<span
-						class="w-1.5 h-1.5 bg-[#10B981] mt-2.5 mr-3 flex-shrink-0"
-					></span>
-					<span class="text-sm"
-						><EditableText
-							key="services.developersRealEstate.feature2"
-							tag="span"
-						/></span
-					>
-				</li>
-				<li class="flex items-start text-[#27275b]/90">
-					<span
-						class="w-1.5 h-1.5 bg-[#10B981] mt-2.5 mr-3 flex-shrink-0"
-					></span>
-					<span class="text-sm"
-						><EditableText
-							key="services.developersRealEstate.feature3"
-							tag="span"
-						/></span
-					>
-				</li>
-				<li class="flex items-start text-[#27275b]/90">
-					<span
-						class="w-1.5 h-1.5 bg-[#10B981] mt-2.5 mr-3 flex-shrink-0"
-					></span>
-					<span class="text-sm"
-						><EditableText
-							key="services.developersRealEstate.feature4"
-							tag="span"
-						/></span
-					>
-				</li>
-			</ul>
 		</div>
 	</div>
 </section>
+
+<!-- Full-width border separator -->
+<div class="w-full h-2" style="background-color: {colorPalette.accent};"></div>
 
 <!-- Process Section - Maximalism -->
 <section
@@ -2004,7 +1646,7 @@
 <div class="w-full h-2" style="background-color: {colorPalette.primary};"></div>
 
 <!-- Manifesto / Why Section - Maximalism -->
-<section class="section bg-white relative overflow-hidden">
+<section class="w-full bg-white relative overflow-hidden">
 	<div
 		class="absolute top-0 right-0 w-48 h-48 md:w-96 md:h-96 rounded-full filter blur-3xl opacity-20"
 		style="background-color: {colorPalette.secondary};"
@@ -2013,196 +1655,213 @@
 		class="absolute bottom-0 left-0 w-40 h-40 md:w-80 md:h-80 rounded-full filter blur-3xl opacity-20"
 		style="background-color: {colorPalette.accent};"
 	></div>
-	<div class="max-w-4xl mx-auto relative z-10">
-		<div class="text-center mb-16 observe">
-			<p
-				class="font-black tracking-[0.15em] md:tracking-[0.3em] uppercase text-sm mb-4"
-				style="color: {colorPalette.primary}"
-			>
-				<EditableText key="home.philosophy.label" tag="span" />
-			</p>
-			<h2
-				class="text-4xl md:text-5xl lg:text-6xl font-black mb-6 leading-tight"
-				style="font-family: 'Playfair Display', serif;"
-			>
-				<span style="color: {colorPalette.primary}"
+	<div class="section">
+		<div class="max-w-4xl mx-auto relative z-10">
+			<div class="text-center mb-16 observe">
+				<p
+					class="font-black tracking-[0.15em] md:tracking-[0.3em] uppercase text-sm mb-4"
+					style="color: {colorPalette.primary}"
+				>
+					<EditableText key="home.philosophy.label" tag="span" />
+				</p>
+				<h2
+					class="text-4xl md:text-5xl lg:text-6xl font-black mb-6 leading-tight"
+					style="font-family: 'Playfair Display', serif;"
+				>
+					<span style="color: {colorPalette.primary}"
+						><EditableText
+							key="home.philosophy.heading"
+							tag="span"
+						/></span
 					><EditableText
-						key="home.philosophy.heading"
-						tag="span"
-					/></span
-				><EditableText key="home.philosophy.headingEnd" tag="span" />
-			</h2>
-		</div>
-
-		<div class="grid md:grid-cols-2 gap-8 mb-16 observe">
-			<div
-				class="bg-white p-8 rounded-2xl border-4 transition-all duration-300 hover:shadow-xl"
-				style="border-color: {colorPalette.primary};"
-			>
-				<h3
-					class="text-2xl font-black mb-3"
-					style="font-family: 'Playfair Display', serif; color: {colorPalette.primary}"
-				>
-					<EditableText
-						key="home.philosophy.fastAndRefined.title"
+						key="home.philosophy.headingEnd"
 						tag="span"
 					/>
-				</h3>
-				<p class="text-[#27275b]/80 leading-relaxed">
-					<EditableText
-						key="home.philosophy.fastAndRefined.description"
-						tag="span"
-					/>
-				</p>
+				</h2>
 			</div>
 
-			<div
-				class="bg-white p-8 rounded-2xl border-4 transition-all duration-300 hover:shadow-xl"
-				style="border-color: {colorPalette.primary};"
-			>
-				<h3
-					class="text-2xl font-black mb-3"
-					style="font-family: 'Playfair Display', serif; color: {colorPalette.primary}"
-				>
-					<EditableText
-						key="home.philosophy.colorfulAndProfessional.title"
-						tag="span"
-					/>
-				</h3>
-				<p class="text-[#27275b]/80 leading-relaxed">
-					<EditableText
-						key="home.philosophy.colorfulAndProfessional.description"
-						tag="span"
-					/>
-				</p>
-			</div>
-
-			<div
-				class="bg-white p-8 rounded-2xl border-4 transition-all duration-300 hover:shadow-xl"
-				style="border-color: {colorPalette.primary};"
-			>
-				<h3
-					class="text-2xl font-black mb-3"
-					style="font-family: 'Playfair Display', serif; color: {colorPalette.primary};"
-				>
-					<EditableText
-						key="home.philosophy.boldAndFunctional.title"
-						tag="span"
-					/>
-				</h3>
-				<p class="text-[#27275b]/80 leading-relaxed">
-					<EditableText
-						key="home.philosophy.boldAndFunctional.description"
-						tag="span"
-					/>
-				</p>
-			</div>
-
-			<div
-				class="bg-white p-8 rounded-2xl border-4 transition-all duration-300 hover:shadow-xl"
-				style="border-color: {colorPalette.primary};"
-			>
-				<h3
-					class="text-2xl font-black mb-3"
-					style="font-family: 'Playfair Display', serif; color: {colorPalette.primary}"
-				>
-					<EditableText
-						key="home.philosophy.accessibleAndQuality.title"
-						tag="span"
-					/>
-				</h3>
-				<p class="text-[#27275b]/80 leading-relaxed">
-					<EditableText
-						key="home.philosophy.accessibleAndQuality.description"
-						tag="span"
-					/>
-				</p>
-			</div>
-		</div>
-
-		<!-- FAQ Quick Hits -->
-		<div
-			class="p-10 lg:p-12 rounded-2xl text-white observe"
-			style="background-color: {colorPalette.primary}"
-		>
-			<h3
-				class="text-3xl font-black mb-8 text-center"
-				style="font-family: 'Playfair Display', serif;"
-			>
-				<EditableText key="home.faq.heading" tag="span" />
-			</h3>
-
-			<div class="space-y-6">
+			<div class="grid md:grid-cols-2 gap-8 mb-16 observe">
 				<div
-					class="border-l-4 pl-6"
-					style="border-color: {colorPalette.secondary}"
+					class="bg-white p-8 rounded-2xl border-4 transition-all duration-300 hover:shadow-xl"
+					style="border-color: {colorPalette.primary};"
 				>
-					<p
-						class="font-black text-xl mb-2"
-						style="color: {colorPalette.secondary};"
+					<h3
+						class="text-2xl font-black mb-3"
+						style="font-family: 'Playfair Display', serif; color: {colorPalette.primary}"
 					>
-						<EditableText key="home.faq.question1.q" tag="span" />
-					</p>
-					<p class="text-gray-200 leading-relaxed">
 						<EditableText
-							key="home.faq.question1.a"
-							multiline={true}
+							key="home.philosophy.fastAndRefined.title"
+							tag="span"
+						/>
+					</h3>
+					<p class="text-[#27275b]/80 leading-relaxed">
+						<EditableText
+							key="home.philosophy.fastAndRefined.description"
+							tag="span"
 						/>
 					</p>
 				</div>
 
 				<div
-					class="border-l-4 pl-6"
-					style="border-color: {colorPalette.secondary}"
+					class="bg-white p-8 rounded-2xl border-4 transition-all duration-300 hover:shadow-xl"
+					style="border-color: {colorPalette.primary};"
 				>
-					<p
-						class="font-black text-xl mb-2"
-						style="color: {colorPalette.secondary};"
+					<h3
+						class="text-2xl font-black mb-3"
+						style="font-family: 'Playfair Display', serif; color: {colorPalette.primary}"
 					>
-						<EditableText key="home.faq.question2.q" tag="span" />
-					</p>
-					<p class="text-gray-200 leading-relaxed">
 						<EditableText
-							key="home.faq.question2.a"
-							multiline={true}
+							key="home.philosophy.colorfulAndProfessional.title"
+							tag="span"
+						/>
+					</h3>
+					<p class="text-[#27275b]/80 leading-relaxed">
+						<EditableText
+							key="home.philosophy.colorfulAndProfessional.description"
+							tag="span"
 						/>
 					</p>
 				</div>
 
 				<div
-					class="border-l-4 pl-6"
-					style="border-color: {colorPalette.secondary}"
+					class="bg-white p-8 rounded-2xl border-4 transition-all duration-300 hover:shadow-xl"
+					style="border-color: {colorPalette.primary};"
 				>
-					<p
-						class="font-black text-xl mb-2"
-						style="color: {colorPalette.secondary};"
+					<h3
+						class="text-2xl font-black mb-3"
+						style="font-family: 'Playfair Display', serif; color: {colorPalette.primary};"
 					>
-						<EditableText key="home.faq.question3.q" tag="span" />
-					</p>
-					<p class="text-gray-200 leading-relaxed">
 						<EditableText
-							key="home.faq.question3.a"
-							multiline={true}
+							key="home.philosophy.boldAndFunctional.title"
+							tag="span"
+						/>
+					</h3>
+					<p class="text-[#27275b]/80 leading-relaxed">
+						<EditableText
+							key="home.philosophy.boldAndFunctional.description"
+							tag="span"
 						/>
 					</p>
 				</div>
 
 				<div
-					class="border-l-4 pl-6"
-					style="border-color: {colorPalette.secondary}"
+					class="bg-white p-8 rounded-2xl border-4 transition-all duration-300 hover:shadow-xl"
+					style="border-color: {colorPalette.primary};"
 				>
-					<p
-						class="font-black text-xl mb-2"
-						style="color: {colorPalette.secondary};"
+					<h3
+						class="text-2xl font-black mb-3"
+						style="font-family: 'Playfair Display', serif; color: {colorPalette.primary}"
 					>
-						<EditableText key="home.faq.question4.q" tag="span" />
-					</p>
-					<p class="text-gray-200 leading-relaxed">
 						<EditableText
-							key="home.faq.question4.a"
-							multiline={true}
+							key="home.philosophy.accessibleAndQuality.title"
+							tag="span"
+						/>
+					</h3>
+					<p class="text-[#27275b]/80 leading-relaxed">
+						<EditableText
+							key="home.philosophy.accessibleAndQuality.description"
+							tag="span"
 						/>
 					</p>
+				</div>
+			</div>
+
+			<!-- FAQ Quick Hits -->
+			<div
+				class="p-10 lg:p-12 rounded-2xl text-white observe"
+				style="background-color: {colorPalette.primary}"
+			>
+				<h3
+					class="text-3xl font-black mb-8 text-center"
+					style="font-family: 'Playfair Display', serif;"
+				>
+					<EditableText key="home.faq.heading" tag="span" />
+				</h3>
+
+				<div class="space-y-6">
+					<div
+						class="border-l-4 pl-6"
+						style="border-color: {colorPalette.secondary}"
+					>
+						<p
+							class="font-black text-xl mb-2"
+							style="color: {colorPalette.secondary};"
+						>
+							<EditableText
+								key="home.faq.question1.q"
+								tag="span"
+							/>
+						</p>
+						<p class="text-gray-200 leading-relaxed">
+							<EditableText
+								key="home.faq.question1.a"
+								multiline={true}
+							/>
+						</p>
+					</div>
+
+					<div
+						class="border-l-4 pl-6"
+						style="border-color: {colorPalette.secondary}"
+					>
+						<p
+							class="font-black text-xl mb-2"
+							style="color: {colorPalette.secondary};"
+						>
+							<EditableText
+								key="home.faq.question2.q"
+								tag="span"
+							/>
+						</p>
+						<p class="text-gray-200 leading-relaxed">
+							<EditableText
+								key="home.faq.question2.a"
+								multiline={true}
+							/>
+						</p>
+					</div>
+
+					<div
+						class="border-l-4 pl-6"
+						style="border-color: {colorPalette.secondary}"
+					>
+						<p
+							class="font-black text-xl mb-2"
+							style="color: {colorPalette.secondary};"
+						>
+							<EditableText
+								key="home.faq.question3.q"
+								tag="span"
+							/>
+						</p>
+						<p class="text-gray-200 leading-relaxed">
+							<EditableText
+								key="home.faq.question3.a"
+								multiline={true}
+							/>
+						</p>
+					</div>
+
+					<div
+						class="border-l-4 pl-6"
+						style="border-color: {colorPalette.secondary}"
+					>
+						<p
+							class="font-black text-xl mb-2"
+							style="color: {colorPalette.secondary};"
+						>
+							<EditableText
+								key="home.faq.question4.q"
+								tag="span"
+							/>
+						</p>
+						<p class="text-gray-200 leading-relaxed">
+							<EditableText
+								key="home.faq.question4.a"
+								multiline={true}
+							/>
+						</p>
+					</div>
 				</div>
 			</div>
 		</div>
@@ -2213,7 +1872,7 @@
 <div class="w-full h-2" style="background-color: {colorPalette.accent};"></div>
 
 <!-- Portfolio Section - Maximalism -->
-<section id="portfolio" class="section bg-white relative overflow-hidden">
+<section id="portfolio" class="w-full bg-white relative overflow-hidden">
 	<div
 		class="absolute top-0 left-1/2 w-48 h-48 md:w-96 md:h-96 rounded-full filter blur-3xl opacity-25"
 		style="background-color: {colorPalette.tertiary};"
@@ -2222,112 +1881,126 @@
 		class="absolute bottom-0 right-1/4 w-40 h-40 md:w-80 md:h-80 rounded-full filter blur-3xl opacity-20"
 		style="background-color: {colorPalette.secondary};"
 	></div>
-	<div class="text-center mb-20 observe relative z-10">
-		<p
-			class="font-black tracking-[0.15em] md:tracking-[0.3em] uppercase text-sm mb-4"
-			style="color: {colorPalette.primary}"
-		>
-			<EditableText key="home.portfolio.label" tag="span" />
-		</p>
-		<h2
-			class="text-4xl md:text-5xl lg:text-6xl font-black mb-6 leading-tight"
-			style="font-family: 'Playfair Display', serif;"
-		>
-			<span style="color: {colorPalette.primary}"
-				><EditableText key="home.portfolio.heading" tag="span" /></span
-			><br /><EditableText key="home.portfolio.headingEnd" tag="span" />
-		</h2>
-		<p
-			class="text-lg md:text-xl text-[#27275b]/80 max-w-2xl mx-auto mb-12 leading-relaxed"
-		>
-			<EditableText key="home.portfolio.description" tag="span" />
-		</p>
-	</div>
-
-	<div
-		class="grid md:grid-cols-2 lg:grid-cols-3 gap-8 lg:gap-12 relative z-10"
-	>
-		{#each projects.filter((p) => activeFilter === "wszystkie" || p.category === activeFilter) as project, i}
-			<div
-				class="group observe hover-lift pb-3"
-				style="animation-delay: {i * 100}ms"
+	<div class="section">
+		<div class="text-center mb-20 observe relative z-10">
+			<p
+				class="font-black tracking-[0.15em] md:tracking-[0.3em] uppercase text-sm mb-4"
+				style="color: {colorPalette.primary}"
 			>
-				<a
-					href={project.articleUrl}
-					target="_blank"
-					rel="noopener noreferrer"
-					class="aspect-[4/5] bg-blue-100 relative overflow-hidden mb-8 rounded-2xl border-2 border-blue-100 transition-all duration-300 block {editModeStore.isEditMode
-						? 'pointer-events-none'
-						: ''}"
-					onmouseenter={(e) =>
-						(e.currentTarget.style.borderColor =
-							colorPalette.accent)}
-					onmouseleave={(e) =>
-						(e.currentTarget.style.borderColor =
-							"rgb(243, 244, 246)")}
+				<EditableText key="home.portfolio.label" tag="span" />
+			</p>
+			<h2
+				class="text-4xl md:text-5xl lg:text-6xl font-black mb-6 leading-tight"
+				style="font-family: 'Playfair Display', serif;"
+			>
+				<span style="color: {colorPalette.primary}"
+					><EditableText
+						key="home.portfolio.heading"
+						tag="span"
+					/></span
+				><br /><EditableText
+					key="home.portfolio.headingEnd"
+					tag="span"
+				/>
+			</h2>
+			<p
+				class="text-lg md:text-xl text-[#27275b]/80 max-w-2xl mx-auto mb-12 leading-relaxed"
+			>
+				<EditableText key="home.portfolio.description" tag="span" />
+			</p>
+		</div>
+
+		<div
+			class="grid md:grid-cols-2 lg:grid-cols-3 gap-8 lg:gap-12 relative z-10"
+		>
+			{#each projects.filter((p) => activeFilter === "wszystkie" || p.category === activeFilter) as project, i}
+				<div
+					class="group observe hover-lift pb-3"
+					style="animation-delay: {i * 100}ms"
 				>
-					<EditableImage
-						imageKey={project.titleKey.replace("title", "image")}
-						src={project.image}
-						alt={project.title}
-						class="w-full h-full object-cover"
-					/>
-					<div
-						class="absolute inset-0 transition-all duration-500"
-						style="background-color: {colorPalette.primary}; opacity: 0;"
-					></div>
-					<div
-						class="absolute inset-0 flex items-center justify-center opacity-0 group-hover:opacity-100 transition-opacity duration-500"
-						style="background-color: rgba(39, 39, 91, 0.7);"
+					<a
+						href={project.articleUrl}
+						target="_blank"
+						rel="noopener noreferrer"
+						class="aspect-[4/5] bg-blue-100 relative overflow-hidden mb-8 rounded-2xl border-2 border-blue-100 transition-all duration-300 block {editModeStore.isEditMode
+							? 'pointer-events-none'
+							: ''}"
+						onmouseenter={(e) =>
+							(e.currentTarget.style.borderColor =
+								colorPalette.accent)}
+						onmouseleave={(e) =>
+							(e.currentTarget.style.borderColor =
+								"rgb(243, 244, 246)")}
 					>
-						<div class="text-white text-center">
-							<svg
-								class="w-12 h-12 mx-auto mb-4"
-								fill="none"
-								stroke="currentColor"
-								viewBox="0 0 24 24"
-							>
-								<path
-									stroke-linecap="round"
-									stroke-linejoin="round"
-									stroke-width="1.5"
-									d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14"
-								></path>
-							</svg>
-							<span
-								class="text-sm uppercase tracking-wider font-bold"
-								>Zobacz artykuł</span
-							>
+						<EditableImage
+							imageKey={project.titleKey.replace(
+								"title",
+								"image",
+							)}
+							src={project.image}
+							alt={project.title}
+							class="w-full h-full object-cover"
+						/>
+						<div
+							class="absolute inset-0 transition-all duration-500"
+							style="background-color: {colorPalette.primary}; opacity: 0;"
+						></div>
+						<div
+							class="absolute inset-0 flex items-center justify-center opacity-0 group-hover:opacity-100 transition-opacity duration-500"
+							style="background-color: rgba(39, 39, 91, 0.7);"
+						>
+							<div class="text-white text-center">
+								<svg
+									class="w-12 h-12 mx-auto mb-4"
+									fill="none"
+									stroke="currentColor"
+									viewBox="0 0 24 24"
+								>
+									<path
+										stroke-linecap="round"
+										stroke-linejoin="round"
+										stroke-width="1.5"
+										d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14"
+									></path>
+								</svg>
+								<span
+									class="text-sm uppercase tracking-wider font-bold"
+									>Zobacz artykuł</span
+								>
+							</div>
+						</div>
+					</a>
+					<div class="space-y-3 px-2 pt-2">
+						<h3
+							class="text-2xl font-black text-[#27275b] transition-colors"
+							style="font-family: 'Playfair Display', serif;"
+							onmouseenter={(e) =>
+								(e.currentTarget.style.color =
+									colorPalette.primary)}
+							onmouseleave={(e) =>
+								(e.currentTarget.style.color = "#27275b")}
+						>
+							<EditableText key={project.titleKey} tag="span" />
+						</h3>
+						<p class="text-[#27275b]/80 leading-relaxed">
+							<EditableText
+								key={project.descriptionKey}
+								tag="span"
+							/>
+						</p>
+						<div class="flex flex-wrap gap-2 pt-2">
+							{#each project.technologies.slice(0, 3) as tech}
+								<span
+									class="text-xs px-3 py-1 border border-[#27275b]/20 text-[#27275b]/80 uppercase tracking-wider"
+								>
+									{tech}
+								</span>
+							{/each}
 						</div>
 					</div>
-				</a>
-				<div class="space-y-3 px-2 pt-2">
-					<h3
-						class="text-2xl font-black text-[#27275b] transition-colors"
-						style="font-family: 'Playfair Display', serif;"
-						onmouseenter={(e) =>
-							(e.currentTarget.style.color =
-								colorPalette.primary)}
-						onmouseleave={(e) =>
-							(e.currentTarget.style.color = "#27275b")}
-					>
-						<EditableText key={project.titleKey} tag="span" />
-					</h3>
-					<p class="text-[#27275b]/80 leading-relaxed">
-						<EditableText key={project.descriptionKey} tag="span" />
-					</p>
-					<div class="flex flex-wrap gap-2 pt-2">
-						{#each project.technologies.slice(0, 3) as tech}
-							<span
-								class="text-xs px-3 py-1 border border-[#27275b]/20 text-[#27275b]/80 uppercase tracking-wider"
-							>
-								{tech}
-							</span>
-						{/each}
-					</div>
 				</div>
-			</div>
-		{/each}
+			{/each}
+		</div>
 	</div>
 </section>
 
@@ -2378,7 +2051,7 @@
 ></div>
 
 <!-- Contact Section - Maximalism -->
-<section id="kontakt" class="section bg-white relative overflow-hidden">
+<section id="kontakt" class="w-full bg-white relative overflow-hidden">
 	<div
 		class="absolute top-0 right-0 w-48 h-48 md:w-96 md:h-96 rounded-full filter blur-3xl opacity-25"
 		style="background-color: {colorPalette.secondary};"
@@ -2387,419 +2060,241 @@
 		class="absolute bottom-0 left-0 w-40 h-40 md:w-80 md:h-80 rounded-full filter blur-3xl opacity-25"
 		style="background-color: {colorPalette.success};"
 	></div>
-	<div class="grid lg:grid-cols-2 gap-16 lg:gap-24 relative z-10">
-		<div class="observe">
-			<p
-				class="font-black tracking-[0.15em] md:tracking-[0.3em] uppercase text-sm mb-4"
-				style="color: {colorPalette.primary}"
-			>
-				<EditableText key="home.contact.label" tag="span" />
-			</p>
-			<h2
-				class="text-4xl md:text-5xl lg:text-6xl font-black mb-8 leading-tight"
-				style="font-family: 'Playfair Display', serif;"
-			>
-				<span style="color: {colorPalette.secondary};"
-					><EditableText
-						key="home.contact.heading"
-						tag="span"
-					/></span
+	<div class="section">
+		<div class="grid lg:grid-cols-2 gap-16 lg:gap-24 relative z-10">
+			<div class="observe">
+				<p
+					class="font-black tracking-[0.15em] md:tracking-[0.3em] uppercase text-sm mb-4"
+					style="color: {colorPalette.primary}"
 				>
-				<span class="italic" style="color: {colorPalette.primary};"
-					><EditableText
-						key="home.contact.headingAccent"
-						tag="span"
-					/></span
+					<EditableText key="home.contact.label" tag="span" />
+				</p>
+				<h2
+					class="text-4xl md:text-5xl lg:text-6xl font-black mb-8 leading-tight"
+					style="font-family: 'Playfair Display', serif;"
 				>
-			</h2>
-			<p
-				class="text-lg md:text-xl text-[#27275b]/80 mb-12 leading-relaxed"
-			>
-				<EditableText key="home.contact.description" tag="span" />
-			</p>
-
-			<div class="space-y-8">
-				<div class="flex items-start space-x-4">
-					<div
-						class="w-12 h-12 border border-[#27275b]/20 flex items-center justify-center flex-shrink-0"
+					<span style="color: {colorPalette.secondary};"
+						><EditableText
+							key="home.contact.heading"
+							tag="span"
+						/></span
 					>
-						<svg
-							class="w-5 h-5 text-[#27275b]/80"
-							fill="none"
-							stroke="currentColor"
-							viewBox="0 0 24 24"
+					<span class="italic" style="color: {colorPalette.primary};"
+						><EditableText
+							key="home.contact.headingAccent"
+							tag="span"
+						/></span
+					>
+				</h2>
+				<p
+					class="text-lg md:text-xl text-[#27275b]/80 mb-12 leading-relaxed"
+				>
+					<EditableText key="home.contact.description" tag="span" />
+				</p>
+
+				<div class="space-y-8">
+					<div class="flex items-start space-x-4">
+						<div
+							class="w-12 h-12 border border-[#27275b]/20 flex items-center justify-center flex-shrink-0"
 						>
-							<path
-								stroke-linecap="round"
-								stroke-linejoin="round"
-								stroke-width="2"
-								d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z"
-							></path>
-						</svg>
+							<svg
+								class="w-5 h-5 text-[#27275b]/80"
+								fill="none"
+								stroke="currentColor"
+								viewBox="0 0 24 24"
+							>
+								<path
+									stroke-linecap="round"
+									stroke-linejoin="round"
+									stroke-width="2"
+									d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z"
+								></path>
+							</svg>
+						</div>
+						<div>
+							<p
+								class="text-sm uppercase tracking-wider text-[#27275b]/70 mb-1"
+							>
+								<EditableText
+									key="home.contact.emailLabel"
+									tag="span"
+								/>
+							</p>
+							<a
+								href="mailto:kontakt@pikastro.eu"
+								class="text-lg text-[#27275b] hover:text-[#FB7185] transition-colors"
+							>
+								<EditableText
+									key="home.contact.email"
+									tag="span"
+								/>
+							</a>
+						</div>
 					</div>
-					<div>
-						<p
-							class="text-sm uppercase tracking-wider text-[#27275b]/70 mb-1"
+
+					<div class="flex items-start space-x-4">
+						<div
+							class="w-12 h-12 border border-[#27275b]/20 flex items-center justify-center flex-shrink-0"
 						>
-							<EditableText
-								key="home.contact.emailLabel"
-								tag="span"
-							/>
-						</p>
-						<a
-							href="mailto:kontakt@pikastro.eu"
-							class="text-lg text-[#27275b] hover:text-[#FB7185] transition-colors"
+							<svg
+								class="w-5 h-5 text-[#27275b]/80"
+								fill="none"
+								stroke="currentColor"
+								viewBox="0 0 24 24"
+							>
+								<path
+									stroke-linecap="round"
+									stroke-linejoin="round"
+									stroke-width="2"
+									d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z"
+								></path>
+								<path
+									stroke-linecap="round"
+									stroke-linejoin="round"
+									stroke-width="2"
+									d="M15 11a3 3 0 11-6 0 3 3 0 016 0z"
+								></path>
+							</svg>
+						</div>
+						<div>
+							<p
+								class="text-sm uppercase tracking-wider text-[#27275b]/70 mb-1"
+							>
+								<EditableText
+									key="home.contact.locationLabel"
+									tag="span"
+								/>
+							</p>
+							<p class="text-lg text-[#27275b]">
+								<EditableText
+									key="home.contact.location"
+									tag="span"
+								/>
+							</p>
+							<p class="text-sm text-[#27275b]/70">
+								<EditableText
+									key="home.contact.locationDesc"
+									tag="span"
+								/>
+							</p>
+						</div>
+					</div>
+
+					<div class="flex items-start space-x-4">
+						<div
+							class="w-12 h-12 border border-[#27275b]/20 flex items-center justify-center flex-shrink-0"
 						>
-							<EditableText key="home.contact.email" tag="span" />
-						</a>
+							<svg
+								class="w-5 h-5 text-[#27275b]/80"
+								fill="none"
+								stroke="currentColor"
+								viewBox="0 0 24 24"
+							>
+								<path
+									stroke-linecap="round"
+									stroke-linejoin="round"
+									stroke-width="2"
+									d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z"
+								></path>
+							</svg>
+						</div>
+						<div>
+							<p
+								class="text-sm uppercase tracking-wider text-[#27275b]/70 mb-1"
+							>
+								<EditableText
+									key="home.contact.availabilityLabel"
+									tag="span"
+								/>
+							</p>
+							<p class="text-lg text-[#27275b]">
+								<EditableText
+									key="home.contact.availability"
+									tag="span"
+								/>
+							</p>
+						</div>
 					</div>
 				</div>
 
-				<div class="flex items-start space-x-4">
-					<div
-						class="w-12 h-12 border border-[#27275b]/20 flex items-center justify-center flex-shrink-0"
+				<div class="flex space-x-4 mt-12">
+					<a
+						href="https://linkedin.com"
+						class="w-14 h-14 border-2 border-blue-200 rounded-lg flex items-center justify-center hover:text-white hover:border-transparent transition-all duration-300 hover:scale-110 hover:shadow-lg"
+						onmouseenter={(e) =>
+							(e.currentTarget.style.backgroundColor =
+								colorPalette.primary)}
+						onmouseleave={(e) =>
+							(e.currentTarget.style.backgroundColor =
+								"transparent")}
 					>
-						<svg
-							class="w-5 h-5 text-[#27275b]/80"
-							fill="none"
-							stroke="currentColor"
-							viewBox="0 0 24 24"
-						>
-							<path
-								stroke-linecap="round"
-								stroke-linejoin="round"
-								stroke-width="2"
-								d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z"
-							></path>
-							<path
-								stroke-linecap="round"
-								stroke-linejoin="round"
-								stroke-width="2"
-								d="M15 11a3 3 0 11-6 0 3 3 0 016 0z"
-							></path>
-						</svg>
-					</div>
-					<div>
-						<p
-							class="text-sm uppercase tracking-wider text-[#27275b]/70 mb-1"
-						>
-							<EditableText
-								key="home.contact.locationLabel"
-								tag="span"
-							/>
-						</p>
-						<p class="text-lg text-[#27275b]">
-							<EditableText
-								key="home.contact.location"
-								tag="span"
-							/>
-						</p>
-						<p class="text-sm text-[#27275b]/70">
-							<EditableText
-								key="home.contact.locationDesc"
-								tag="span"
-							/>
-						</p>
-					</div>
-				</div>
-
-				<div class="flex items-start space-x-4">
-					<div
-						class="w-12 h-12 border border-[#27275b]/20 flex items-center justify-center flex-shrink-0"
+						<span class="text-sm font-bold">in</span>
+					</a>
+					<a
+						href="https://behance.net"
+						class="w-14 h-14 border-2 border-blue-200 rounded-lg flex items-center justify-center hover:text-white hover:border-transparent transition-all duration-300 hover:scale-110 hover:shadow-lg"
+						onmouseenter={(e) =>
+							(e.currentTarget.style.backgroundColor =
+								colorPalette.accent)}
+						onmouseleave={(e) =>
+							(e.currentTarget.style.backgroundColor =
+								"transparent")}
 					>
-						<svg
-							class="w-5 h-5 text-[#27275b]/80"
-							fill="none"
-							stroke="currentColor"
-							viewBox="0 0 24 24"
-						>
-							<path
-								stroke-linecap="round"
-								stroke-linejoin="round"
-								stroke-width="2"
-								d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z"
-							></path>
-						</svg>
-					</div>
-					<div>
-						<p
-							class="text-sm uppercase tracking-wider text-[#27275b]/70 mb-1"
-						>
-							<EditableText
-								key="home.contact.availabilityLabel"
-								tag="span"
-							/>
-						</p>
-						<p class="text-lg text-[#27275b]">
-							<EditableText
-								key="home.contact.availability"
-								tag="span"
-							/>
-						</p>
-					</div>
+						<span class="text-sm font-bold">be</span>
+					</a>
+					<a
+						href="https://instagram.com"
+						class="w-14 h-14 border-2 border-blue-200 rounded-lg flex items-center justify-center hover:text-white hover:border-transparent transition-all duration-300 hover:scale-110 hover:shadow-lg"
+						onmouseenter={(e) =>
+							(e.currentTarget.style.backgroundColor =
+								colorPalette.secondary)}
+						onmouseleave={(e) =>
+							(e.currentTarget.style.backgroundColor =
+								"transparent")}
+					>
+						<span class="text-sm font-bold">ig</span>
+					</a>
 				</div>
 			</div>
 
-			<div class="flex space-x-4 mt-12">
-				<a
-					href="https://linkedin.com"
-					class="w-14 h-14 border-2 border-blue-200 rounded-lg flex items-center justify-center hover:text-white hover:border-transparent transition-all duration-300 hover:scale-110 hover:shadow-lg"
-					onmouseenter={(e) =>
-						(e.currentTarget.style.backgroundColor =
-							colorPalette.primary)}
-					onmouseleave={(e) =>
-						(e.currentTarget.style.backgroundColor = "transparent")}
-				>
-					<span class="text-sm font-bold">in</span>
-				</a>
-				<a
-					href="https://behance.net"
-					class="w-14 h-14 border-2 border-blue-200 rounded-lg flex items-center justify-center hover:text-white hover:border-transparent transition-all duration-300 hover:scale-110 hover:shadow-lg"
-					onmouseenter={(e) =>
-						(e.currentTarget.style.backgroundColor =
-							colorPalette.accent)}
-					onmouseleave={(e) =>
-						(e.currentTarget.style.backgroundColor = "transparent")}
-				>
-					<span class="text-sm font-bold">be</span>
-				</a>
-				<a
-					href="https://instagram.com"
-					class="w-14 h-14 border-2 border-blue-200 rounded-lg flex items-center justify-center hover:text-white hover:border-transparent transition-all duration-300 hover:scale-110 hover:shadow-lg"
-					onmouseenter={(e) =>
-						(e.currentTarget.style.backgroundColor =
-							colorPalette.secondary)}
-					onmouseleave={(e) =>
-						(e.currentTarget.style.backgroundColor = "transparent")}
-				>
-					<span class="text-sm font-bold">ig</span>
-				</a>
-			</div>
-		</div>
-
-		<div
-			class="bg-white p-10 lg:p-12 observe rounded-2xl border-4 shadow-xl"
-			style="border-color: {colorPalette.accent};"
-		>
-			<form class="space-y-6" onsubmit={handleSubmit}>
-				<div>
-					<label
-						for="name"
-						class="block text-sm uppercase tracking-wider font-bold text-[#27275b]/90 mb-2"
-						><EditableText
-							key="home.form.nameLabel"
-							tag="span"
-						/></label
-					>
-					<input
-						type="text"
-						id="name"
-						value={formData.name}
-						disabled={formStatus === "submitting"}
-						class="w-full px-4 py-3 border-2 rounded-lg focus:outline-none transition-all bg-white disabled:opacity-50 {touchedFields.name &&
-						!validationErrors.name.isValid
-							? 'border-red-400 focus:border-red-500'
-							: touchedFields.name &&
-								  validationErrors.name.isValid
-								? 'border-green-400 focus:border-green-500'
-								: 'border-blue-200 focus:border-[#27275b]'}"
-						placeholder={translate("home.form.namePlaceholder")}
-						oninput={(e) =>
-							handleFieldInput(
-								"name",
-								(e.target as HTMLInputElement).value,
-							)}
-						onblur={() => handleFieldBlur("name")}
-					/>
-					{#if touchedFields.name && validationErrors.name.error}
-						<p class="mt-1 text-sm text-red-600 flex items-center">
-							<svg
-								class="w-4 h-4 mr-1 flex-shrink-0"
-								fill="none"
-								stroke="currentColor"
-								viewBox="0 0 24 24"
-							>
-								<path
-									stroke-linecap="round"
-									stroke-linejoin="round"
-									stroke-width="2"
-									d="M12 9v2m0 4h.01m-6.938 4h13.856c1.54 0 2.502-1.667 1.732-2.5L13.732 4c-.77-.833-1.964-.833-2.732 0L3.732 16.5c-.77.833.192 2.5 1.732 2.5z"
-								></path>
-							</svg>
-							{validationErrors.name.error}
-						</p>
-					{/if}
-					{#if touchedFields.name && validationErrors.name.isValid && formData.name.trim()}
-						<p
-							class="mt-1 text-sm text-green-600 flex items-center"
-						>
-							<svg
-								class="w-4 h-4 mr-1 flex-shrink-0"
-								fill="none"
-								stroke="currentColor"
-								viewBox="0 0 24 24"
-							>
-								<path
-									stroke-linecap="round"
-									stroke-linejoin="round"
-									stroke-width="2"
-									d="M5 13l4 4L19 7"
-								></path>
-							</svg>
-							<EditableText
-								key="home.form.validation.looksGood"
-								tag="span"
-							/>
-						</p>
-					{/if}
-				</div>
-
-				<div>
-					<label
-						for="email"
-						class="block text-sm uppercase tracking-wider font-bold text-[#27275b]/90 mb-2"
-						><EditableText
-							key="home.form.emailLabel"
-							tag="span"
-						/></label
-					>
-					<input
-						type="text"
-						id="email"
-						value={formData.email}
-						disabled={formStatus === "submitting"}
-						class="w-full px-4 py-3 border-2 rounded-lg focus:outline-none transition-all bg-white disabled:opacity-50 {touchedFields.email &&
-						!validationErrors.email.isValid
-							? 'border-red-400 focus:border-red-500'
-							: touchedFields.email &&
-								  validationErrors.email.isValid
-								? 'border-green-400 focus:border-green-500'
-								: 'border-blue-200 focus:border-[#27275b]'}"
-						placeholder={translate("home.form.emailPlaceholder")}
-						oninput={(e) =>
-							handleFieldInput(
-								"email",
-								(e.target as HTMLInputElement).value,
-							)}
-						onblur={() => handleFieldBlur("email")}
-					/>
-					{#if touchedFields.email && validationErrors.email.error}
-						<p class="mt-1 text-sm text-red-600 flex items-center">
-							<svg
-								class="w-4 h-4 mr-1 flex-shrink-0"
-								fill="none"
-								stroke="currentColor"
-								viewBox="0 0 24 24"
-							>
-								<path
-									stroke-linecap="round"
-									stroke-linejoin="round"
-									stroke-width="2"
-									d="M12 9v2m0 4h.01m-6.938 4h13.856c1.54 0 2.502-1.667 1.732-2.5L13.732 4c-.77-.833-1.964-.833-2.732 0L3.732 16.5c-.77.833.192 2.5 1.732 2.5z"
-								></path>
-							</svg>
-							{validationErrors.email.error}
-						</p>
-					{/if}
-					{#if touchedFields.email && validationErrors.email.isValid && formData.email.trim()}
-						<p
-							class="mt-1 text-sm text-green-600 flex items-center"
-						>
-							<svg
-								class="w-4 h-4 mr-1 flex-shrink-0"
-								fill="none"
-								stroke="currentColor"
-								viewBox="0 0 24 24"
-							>
-								<path
-									stroke-linecap="round"
-									stroke-linejoin="round"
-									stroke-width="2"
-									d="M5 13l4 4L19 7"
-								></path>
-							</svg>
-							<EditableText
-								key="home.form.validation.looksGood"
-								tag="span"
-							/>
-						</p>
-					{/if}
-				</div>
-
-				<div>
-					<label
-						for="project"
-						class="block text-sm uppercase tracking-wider font-bold text-[#27275b]/90 mb-2"
-						><EditableText
-							key="home.form.projectLabel"
-							tag="span"
-						/></label
-					>
-					<select
-						id="project"
-						bind:value={formData.project}
-						disabled={formStatus === "submitting"}
-						class="w-full px-4 py-3 border-2 border-blue-200 rounded-lg focus:border-[#27275b] focus:outline-none transition-all bg-white disabled:opacity-50"
-					>
-						<option
+			<div
+				class="bg-white p-10 lg:p-12 observe rounded-2xl border-4 shadow-xl"
+				style="border-color: {colorPalette.accent};"
+			>
+				<form class="space-y-6" onsubmit={handleSubmit}>
+					<div>
+						<label
+							for="name"
+							class="block text-sm uppercase tracking-wider font-bold text-[#27275b]/90 mb-2"
 							><EditableText
-								key="home.form.projectOptions.interiorDesign"
+								key="home.form.nameLabel"
 								tag="span"
-							/></option
+							/></label
 						>
-						<option
-							><EditableText
-								key="home.form.projectOptions.visualIdentity"
-								tag="span"
-							/></option
-						>
-						<option
-							><EditableText
-								key="home.form.projectOptions.consultations"
-								tag="span"
-							/></option
-						>
-						<option
-							><EditableText
-								key="home.form.projectOptions.other"
-								tag="span"
-							/></option
-						>
-					</select>
-				</div>
-
-				<div>
-					<label
-						for="message"
-						class="block text-sm uppercase tracking-wider font-bold text-[#27275b]/90 mb-2"
-						><EditableText
-							key="home.form.messageLabel"
-							tag="span"
-						/></label
-					>
-					<textarea
-						id="message"
-						value={formData.message}
-						disabled={formStatus === "submitting"}
-						rows="5"
-						class="w-full px-4 py-3 border-2 rounded-lg focus:outline-none transition-all bg-white resize-none disabled:opacity-50 {touchedFields.message &&
-						!validationErrors.message.isValid
-							? 'border-red-400 focus:border-red-500'
-							: touchedFields.message &&
-								  validationErrors.message.isValid
-								? 'border-green-400 focus:border-green-500'
-								: 'border-blue-200 focus:border-[#27275b]'}"
-						placeholder={translate("home.form.messagePlaceholder")}
-						oninput={(e) =>
-							handleFieldInput(
-								"message",
-								(e.target as HTMLTextAreaElement).value,
-							)}
-						onblur={() => handleFieldBlur("message")}
-					></textarea>
-					<div class="flex justify-between items-center mt-1">
-						{#if touchedFields.message && validationErrors.message.error}
-							<p class="text-sm text-red-600 flex items-center">
+						<input
+							type="text"
+							id="name"
+							value={formData.name}
+							disabled={formStatus === "submitting"}
+							class="w-full px-4 py-3 border-2 rounded-lg focus:outline-none transition-all bg-white disabled:opacity-50 {touchedFields.name &&
+							!validationErrors.name.isValid
+								? 'border-red-400 focus:border-red-500'
+								: touchedFields.name &&
+									  validationErrors.name.isValid
+									? 'border-green-400 focus:border-green-500'
+									: 'border-blue-200 focus:border-[#27275b]'}"
+							placeholder={translate("home.form.namePlaceholder")}
+							oninput={(e) =>
+								handleFieldInput(
+									"name",
+									(e.target as HTMLInputElement).value,
+								)}
+							onblur={() => handleFieldBlur("name")}
+						/>
+						{#if touchedFields.name && validationErrors.name.error}
+							<p
+								class="mt-1 text-sm text-red-600 flex items-center"
+							>
 								<svg
 									class="w-4 h-4 mr-1 flex-shrink-0"
 									fill="none"
@@ -2813,10 +2308,13 @@
 										d="M12 9v2m0 4h.01m-6.938 4h13.856c1.54 0 2.502-1.667 1.732-2.5L13.732 4c-.77-.833-1.964-.833-2.732 0L3.732 16.5c-.77.833.192 2.5 1.732 2.5z"
 									></path>
 								</svg>
-								{validationErrors.message.error}
+								{validationErrors.name.error}
 							</p>
-						{:else if touchedFields.message && validationErrors.message.isValid && formData.message.trim()}
-							<p class="text-sm text-green-600 flex items-center">
+						{/if}
+						{#if touchedFields.name && validationErrors.name.isValid && formData.name.trim()}
+							<p
+								class="mt-1 text-sm text-green-600 flex items-center"
+							>
 								<svg
 									class="w-4 h-4 mr-1 flex-shrink-0"
 									fill="none"
@@ -2835,40 +2333,235 @@
 									tag="span"
 								/>
 							</p>
-						{:else}
-							<span></span>
 						{/if}
-						<p class="text-xs text-[#27275b]/70">
-							{formData.message.length}/5000
-						</p>
 					</div>
-				</div>
 
-				{#if formMessage}
-					<div
-						class="p-4 rounded-lg {formStatus === 'success'
-							? 'bg-green-50 border-2 border-green-200 text-green-800'
-							: 'bg-red-50 border-2 border-red-200 text-red-800'}"
+					<div>
+						<label
+							for="email"
+							class="block text-sm uppercase tracking-wider font-bold text-[#27275b]/90 mb-2"
+							><EditableText
+								key="home.form.emailLabel"
+								tag="span"
+							/></label
+						>
+						<input
+							type="text"
+							id="email"
+							value={formData.email}
+							disabled={formStatus === "submitting"}
+							class="w-full px-4 py-3 border-2 rounded-lg focus:outline-none transition-all bg-white disabled:opacity-50 {touchedFields.email &&
+							!validationErrors.email.isValid
+								? 'border-red-400 focus:border-red-500'
+								: touchedFields.email &&
+									  validationErrors.email.isValid
+									? 'border-green-400 focus:border-green-500'
+									: 'border-blue-200 focus:border-[#27275b]'}"
+							placeholder={translate(
+								"home.form.emailPlaceholder",
+							)}
+							oninput={(e) =>
+								handleFieldInput(
+									"email",
+									(e.target as HTMLInputElement).value,
+								)}
+							onblur={() => handleFieldBlur("email")}
+						/>
+						{#if touchedFields.email && validationErrors.email.error}
+							<p
+								class="mt-1 text-sm text-red-600 flex items-center"
+							>
+								<svg
+									class="w-4 h-4 mr-1 flex-shrink-0"
+									fill="none"
+									stroke="currentColor"
+									viewBox="0 0 24 24"
+								>
+									<path
+										stroke-linecap="round"
+										stroke-linejoin="round"
+										stroke-width="2"
+										d="M12 9v2m0 4h.01m-6.938 4h13.856c1.54 0 2.502-1.667 1.732-2.5L13.732 4c-.77-.833-1.964-.833-2.732 0L3.732 16.5c-.77.833.192 2.5 1.732 2.5z"
+									></path>
+								</svg>
+								{validationErrors.email.error}
+							</p>
+						{/if}
+						{#if touchedFields.email && validationErrors.email.isValid && formData.email.trim()}
+							<p
+								class="mt-1 text-sm text-green-600 flex items-center"
+							>
+								<svg
+									class="w-4 h-4 mr-1 flex-shrink-0"
+									fill="none"
+									stroke="currentColor"
+									viewBox="0 0 24 24"
+								>
+									<path
+										stroke-linecap="round"
+										stroke-linejoin="round"
+										stroke-width="2"
+										d="M5 13l4 4L19 7"
+									></path>
+								</svg>
+								<EditableText
+									key="home.form.validation.looksGood"
+									tag="span"
+								/>
+							</p>
+						{/if}
+					</div>
+
+					<div>
+						<label
+							for="project"
+							class="block text-sm uppercase tracking-wider font-bold text-[#27275b]/90 mb-2"
+							><EditableText
+								key="home.form.projectLabel"
+								tag="span"
+							/></label
+						>
+						<select
+							id="project"
+							bind:value={formData.project}
+							disabled={formStatus === "submitting"}
+							class="w-full px-4 py-3 border-2 border-blue-200 rounded-lg focus:border-[#27275b] focus:outline-none transition-all bg-white disabled:opacity-50"
+						>
+							<option
+								><EditableText
+									key="home.form.projectOptions.interiorDesign"
+									tag="span"
+								/></option
+							>
+							<option
+								><EditableText
+									key="home.form.projectOptions.visualIdentity"
+									tag="span"
+								/></option
+							>
+							<option
+								><EditableText
+									key="home.form.projectOptions.consultations"
+									tag="span"
+								/></option
+							>
+							<option
+								><EditableText
+									key="home.form.projectOptions.other"
+									tag="span"
+								/></option
+							>
+						</select>
+					</div>
+
+					<div>
+						<label
+							for="message"
+							class="block text-sm uppercase tracking-wider font-bold text-[#27275b]/90 mb-2"
+							><EditableText
+								key="home.form.messageLabel"
+								tag="span"
+							/></label
+						>
+						<textarea
+							id="message"
+							value={formData.message}
+							disabled={formStatus === "submitting"}
+							rows="5"
+							class="w-full px-4 py-3 border-2 rounded-lg focus:outline-none transition-all bg-white resize-none disabled:opacity-50 {touchedFields.message &&
+							!validationErrors.message.isValid
+								? 'border-red-400 focus:border-red-500'
+								: touchedFields.message &&
+									  validationErrors.message.isValid
+									? 'border-green-400 focus:border-green-500'
+									: 'border-blue-200 focus:border-[#27275b]'}"
+							placeholder={translate(
+								"home.form.messagePlaceholder",
+							)}
+							oninput={(e) =>
+								handleFieldInput(
+									"message",
+									(e.target as HTMLTextAreaElement).value,
+								)}
+							onblur={() => handleFieldBlur("message")}
+						></textarea>
+						<div class="flex justify-between items-center mt-1">
+							{#if touchedFields.message && validationErrors.message.error}
+								<p
+									class="text-sm text-red-600 flex items-center"
+								>
+									<svg
+										class="w-4 h-4 mr-1 flex-shrink-0"
+										fill="none"
+										stroke="currentColor"
+										viewBox="0 0 24 24"
+									>
+										<path
+											stroke-linecap="round"
+											stroke-linejoin="round"
+											stroke-width="2"
+											d="M12 9v2m0 4h.01m-6.938 4h13.856c1.54 0 2.502-1.667 1.732-2.5L13.732 4c-.77-.833-1.964-.833-2.732 0L3.732 16.5c-.77.833.192 2.5 1.732 2.5z"
+										></path>
+									</svg>
+									{validationErrors.message.error}
+								</p>
+							{:else if touchedFields.message && validationErrors.message.isValid && formData.message.trim()}
+								<p
+									class="text-sm text-green-600 flex items-center"
+								>
+									<svg
+										class="w-4 h-4 mr-1 flex-shrink-0"
+										fill="none"
+										stroke="currentColor"
+										viewBox="0 0 24 24"
+									>
+										<path
+											stroke-linecap="round"
+											stroke-linejoin="round"
+											stroke-width="2"
+											d="M5 13l4 4L19 7"
+										></path>
+									</svg>
+									<EditableText
+										key="home.form.validation.looksGood"
+										tag="span"
+									/>
+								</p>
+							{:else}
+								<span></span>
+							{/if}
+							<p class="text-xs text-[#27275b]/70">
+								{formData.message.length}/5000
+							</p>
+						</div>
+					</div>
+
+					{#if formMessage}
+						<div
+							class="p-4 rounded-lg {formStatus === 'success'
+								? 'bg-green-50 border-2 border-green-200 text-green-800'
+								: 'bg-red-50 border-2 border-red-200 text-red-800'}"
+						>
+							<p class="font-bold">{formMessage}</p>
+						</div>
+					{/if}
+
+					<button
+						type="submit"
+						disabled={formStatus === "submitting" ||
+							!validationErrors.isFormValid}
+						class="w-full px-8 py-4 text-lg font-bold rounded-xl border-2 text-white transition-all duration-300 disabled:opacity-50 disabled:cursor-not-allowed {!validationErrors.isFormValid &&
+						(touchedFields.name ||
+							touchedFields.email ||
+							touchedFields.message)
+							? 'opacity-60 cursor-not-allowed'
+							: 'hover:scale-105'}"
+						style="background: linear-gradient(135deg, {colorPalette.secondary} 0%, {colorPalette.primary} 100%); border-color: {colorPalette.accent};"
 					>
-						<p class="font-bold">{formMessage}</p>
-					</div>
-				{/if}
-
-				<button
-					type="submit"
-					disabled={formStatus === "submitting" ||
-						!validationErrors.isFormValid}
-					class="w-full px-8 py-4 text-lg font-bold rounded-xl border-2 text-white transition-all duration-300 disabled:opacity-50 disabled:cursor-not-allowed {!validationErrors.isFormValid &&
-					(touchedFields.name ||
-						touchedFields.email ||
-						touchedFields.message)
-						? 'opacity-60 cursor-not-allowed'
-						: 'hover:scale-105'}"
-					style="background: linear-gradient(135deg, {colorPalette.secondary} 0%, {colorPalette.primary} 100%); border-color: {colorPalette.accent};"
-				>
-					{submitButtonText}
-				</button>
-			</form>
+						{submitButtonText}
+					</button>
+				</form>
+			</div>
 		</div>
 	</div>
 </section>

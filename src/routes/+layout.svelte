@@ -117,7 +117,7 @@
 					></span>
 				</a>
 				<a
-					href={getNavLink("#oferta")}
+					href="/oferta"
 					class="text-[#27275b] transition-colors font-bold text-sm tracking-wide uppercase relative group hover:text-[var(--color-primary)]"
 				>
 					{translate("nav.offer")}
@@ -205,7 +205,7 @@
 							{translate("nav.about")}
 						</a>
 						<a
-							href={getNavLink("#oferta")}
+							href="/oferta"
 							onclick={() => (isMenuOpen = false)}
 							class="block px-4 py-3 text-[#27275b] transition-all duration-300 font-bold text-sm tracking-wide uppercase rounded-lg hover:bg-gray-50 hover:text-[var(--color-primary)] transform hover:translate-x-1"
 						>
