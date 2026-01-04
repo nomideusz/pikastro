@@ -81,13 +81,39 @@
         isLoaded = true;
     }
 
-    // Safety timeout to ensure image doesn't stay hidden forever if onload misses
+    // Custom FileKit Image Loader Logic
+    // We replicate the logic from `filekit-svelte/Image.svelte` to gain full control over the <img> tag
+    // and avoid the internal `opacity: 0` style that was hiding our images.
+    let fileKitUrl = $state<string | null>(null);
+
     $effect(() => {
-        const timer = setTimeout(() => {
-            isLoaded = true;
-        }, 2000);
-        return () => clearTimeout(timer);
+        if (isFileKit && token && imgSrc) {
+            loadFileKitImage();
+        }
     });
+
+    async function loadFileKitImage() {
+        if (!imgSrc || !token) return;
+        try {
+            // Use FileKit API directly to get the signed URL
+            const params = new URLSearchParams({ reference: imgSrc, token });
+            const res = await fetch(
+                `https://filekit.dev/api/create-image-url?${params}`,
+            );
+
+            if (res.ok) {
+                const data = await res.json();
+                if (data.status === 202) {
+                    // If pending (202), retry in 250ms
+                    setTimeout(loadFileKitImage, 250);
+                } else if (data.imageUrl) {
+                    fileKitUrl = data.imageUrl;
+                }
+            }
+        } catch (e) {
+            console.error("Failed to load FileKit image", e);
+        }
+    }
 </script>
 
 <div
@@ -108,14 +134,15 @@
             class="h-full w-auto relative z-0 flex items-center justify-center transition-all duration-500"
             class:min-w-[300px]={!isLoaded}
         >
-            <Image
-                reference={imgSrc}
-                {token}
-                alt={altText}
-                class="h-full w-auto object-contain block"
-                draggable="false"
-                onload={handleLoad}
-            />
+            {#if fileKitUrl}
+                <img
+                    src={fileKitUrl}
+                    alt={altText}
+                    class="h-full w-auto object-contain block"
+                    draggable="false"
+                    onload={handleLoad}
+                />
+            {/if}
         </div>
     {:else if !isFileKit}
         <!-- svelte-ignore a11y_missing_attribute -->
@@ -252,14 +279,6 @@
             </div>
         {/if}
     </div>
-</div>
-
-<!-- DEBUG OVERLAY: TEMPORARY Remove after fixing visibility -->
-<div
-    class="absolute top-0 left-0 bg-black/80 text-white text-[10px] p-1 z-50 pointer-events-none max-w-full overflow-hidden"
->
-    FK: {isFileKit} | Token: {!!token} | Loaded: {isLoaded} <br />
-    Src: {imgSrc}
 </div>
 
 <style>
