@@ -442,6 +442,8 @@
 				image: img_w_07,
 				category: "wnętrza",
 				year: "2024",
+				articleUrl:
+					"https://lustrowramie.pl/wystroj-wnetrz/styl-dopamine-decor/?srsltid=AfmBOor3EWvIGXwJqWGvSbosYoU_0w1ga-qzwJm3YQjSijdSFt6uLnrj",
 			},
 			{
 				titleKey: "portfolio.studioIdentity.title",
@@ -456,6 +458,8 @@
 				image: colorsImg,
 				category: "grafika",
 				year: "2024",
+				articleUrl:
+					"https://www.ikea.com/pl/pl/new/przyszlosc-jest-teraz-kolejny-raz-poznaj-kolekcje-nytillverkad-puba2ba1b30/",
 			},
 			{
 				titleKey: "portfolio.coworkingSpace.title",
@@ -470,6 +474,8 @@
 				image: img_w_08,
 				category: "wnętrza",
 				year: "2023",
+				articleUrl:
+					"https://thearq.pl/design/space-age-czyli-design-w-erze-wyscigu-kosmicznego/",
 			},
 			{
 				titleKey: "portfolio.modernHouse.title",
@@ -480,6 +486,8 @@
 				image: img_w_09,
 				category: "wnętrza",
 				year: "2023",
+				articleUrl:
+					"https://fabrykaform.pl/magazyn/maksymalizm-trend-2025?srsltid=AfmBOoqVcRsXV9QoPhNwb_YbSBekpWXd8M7oixw4AAghTd7Ar2ynv-pX",
 			},
 			{
 				titleKey: "portfolio.cafeConcept.title",
@@ -494,6 +502,8 @@
 				image: img_w_10,
 				category: "grafika",
 				year: "2024",
+				articleUrl:
+					"https://gieradesign.pl/mid-century-modern-styl-ktory-nie-przemija",
 			},
 			{
 				titleKey: "portfolio.industrialLoft.title",
@@ -504,6 +514,8 @@
 				image: img_w_11,
 				category: "wnętrza",
 				year: "2023",
+				articleUrl:
+					"https://lectus24.pl/blog/colorful-minimalism?_gl=1*pwnu37*_up*MQ..*_gs*MQ..&gclid=Cj0KCQiAoZDJBhC0ARIsAERP-F_-pP9ix262air21M8RsRVKIEWMNS_C37vHHEUgK3eRwzgpdfuNpcwaAkKxEALw_wcB",
 			},
 		];
 	});
@@ -2238,9 +2250,11 @@
 				class="group observe hover-lift pb-3"
 				style="animation-delay: {i * 100}ms"
 			>
-				<div
-					role="figure"
-					class="aspect-[4/5] bg-blue-100 relative overflow-hidden mb-8 rounded-2xl border-2 border-blue-100 transition-all duration-300"
+				<a
+					href={project.articleUrl}
+					target="_blank"
+					rel="noopener noreferrer"
+					class="aspect-[4/5] bg-blue-100 relative overflow-hidden mb-8 rounded-2xl border-2 border-blue-100 transition-all duration-300 block"
 					onmouseenter={(e) =>
 						(e.currentTarget.style.borderColor =
 							colorPalette.accent)}
@@ -2254,16 +2268,12 @@
 						class="w-full h-full object-cover"
 					/>
 					<div
-						role="presentation"
 						class="absolute inset-0 transition-all duration-500"
-						style="background-color: {colorPalette.primary}; opacity: 0.1;"
-						onmouseenter={(e) =>
-							(e.currentTarget.style.opacity = "0.2")}
-						onmouseleave={(e) =>
-							(e.currentTarget.style.opacity = "0.1")}
+						style="background-color: {colorPalette.primary}; opacity: 0;"
 					></div>
 					<div
 						class="absolute inset-0 flex items-center justify-center opacity-0 group-hover:opacity-100 transition-opacity duration-500"
+						style="background-color: rgba(39, 39, 91, 0.7);"
 					>
 						<div class="text-white text-center">
 							<svg
@@ -2276,24 +2286,16 @@
 									stroke-linecap="round"
 									stroke-linejoin="round"
 									stroke-width="1.5"
-									d="M15 12a3 3 0 11-6 0 3 3 0 016 0z"
-								></path>
-								<path
-									stroke-linecap="round"
-									stroke-linejoin="round"
-									stroke-width="1.5"
-									d="M2.458 12C3.732 7.943 7.523 5 12 5c4.478 0 8.268 2.943 9.542 7-1.274 4.057-5.064 7-9.542 7-4.477 0-8.268-2.943-9.542-7z"
+									d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14"
 								></path>
 							</svg>
-							<span class="text-sm uppercase tracking-wider"
-								><EditableText
-									key="home.portfolio.viewProject"
-									tag="span"
-								/></span
+							<span
+								class="text-sm uppercase tracking-wider font-bold"
+								>Zobacz artykuł</span
 							>
 						</div>
 					</div>
-				</div>
+				</a>
 				<div class="space-y-3 px-2 pt-2">
 					<h3
 						class="text-2xl font-black text-[#27275b] transition-colors"
