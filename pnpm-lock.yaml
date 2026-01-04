@@ -14,6 +14,9 @@ importers:
       dotenv:
         specifier: ^17.2.3
         version: 17.2.3
+      filekit-svelte:
+        specifier: ^0.0.18
+        version: 0.0.18(svelte@5.43.14)
       jsonwebtoken:
         specifier: ^9.0.2
         version: 9.0.2
@@ -801,6 +804,11 @@ packages:
     peerDependenciesMeta:
       picomatch:
         optional: true
+
+  filekit-svelte@0.0.18:
+    resolution: {integrity: sha512-dVUAW2P1DE6VtRYVzmpUGA64v8dKoIO5fK+wJS+DtHS1YlpSi+I5/dQuGRyimycdM1tZobc77ATt0GFa42nNtQ==}
+    peerDependencies:
+      svelte: ^5.39.5
 
   fill-range@7.1.1:
     resolution: {integrity: sha512-YsGpe3WHLK8ZYi4tWDg2Jy3ebRz2rXowDxnld4bkQB00cc/1Zw9AWnC0i9ztDJitivtQvaI9KaLyKrc+hBW0yg==}
@@ -1874,6 +1882,10 @@ snapshots:
   fdir@6.5.0(picomatch@4.0.3):
     optionalDependencies:
       picomatch: 4.0.3
+
+  filekit-svelte@0.0.18(svelte@5.43.14):
+    dependencies:
+      svelte: 5.43.14
 
   fill-range@7.1.1:
     dependencies:

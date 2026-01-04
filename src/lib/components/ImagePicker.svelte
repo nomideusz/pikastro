@@ -1,6 +1,12 @@
+<script lang="ts">
+    import { portal } from "$lib/actions/portal";
+    import { onMount } from "svelte";
+    import { Uploader, Image } from "filekit-svelte";
+    import { filekitToken } from "$lib/stores/filekit.svelte";
+
     interface Props {
         isOpen: boolean;
-        onSelect: (url: string) => void;
+        onSelect: (reference: string) => void;
         onClose?: () => void;
     }
 
@@ -8,29 +14,21 @@
 
     let isUploading = $state(false);
     let uploadError = $state("");
-    let availableImages = $state<Array<{ filename: string; url: string }>>([]);
-    let fileInput: HTMLInputElement | null = $state(null);
-    let dragOver = $state(false);
+    // Previously we had a list of uploaded images. FileKit doesn't easily expose a "list all" API for public consumption
+    // without a backend proxy. For now, we will focus on *uploading new* images or *selecting* based on what we might have stored locally
+    // (though we wiped the local registry).
+    // If the user wants to re-use an image, they might need a different UI (e.g., "Recently Uploaded" tracked in our DB).
+    // For this iteration, let's keep it simple: Upload New.
+    // We can add "Library" tab later if we track all uploads in our DB (which `api/images` POST used to do).
+    // FileKit returns a reference. We should probably track this reference in our DB if we want a gallery.
+    // However, the current requirements are just "upload image".
 
-    // Load available images when modal opens
+    // Check for token on mount/open
     $effect(() => {
-        if (isOpen) {
-            loadImages();
-            uploadError = "";
+        if (isOpen && !$filekitToken) {
+            filekitToken.init();
         }
     });
-
-    async function loadImages() {
-        try {
-            const response = await fetch("/api/images");
-            if (response.ok) {
-                const data = await response.json();
-                availableImages = data.images || [];
-            }
-        } catch (error) {
-            console.error("Error loading images:", error);
-        }
-    }
 
     function close() {
         isOpen = false;
@@ -38,107 +36,14 @@
         onClose?.();
     }
 
-    async function handleFileUpload(file: File) {
-        if (!file) return;
-
-        // Validate file type
-        const validTypes = [
-            "image/jpeg",
-            "image/png",
-            "image/gif",
-            "image/webp",
-            "image/svg+xml",
-        ];
-        if (!validTypes.includes(file.type)) {
-            uploadError = "Invalid file type. Use JPG, PNG, GIF, WebP, or SVG.";
-            return;
-        }
-
-        // Validate file size (max 10MB)
-        if (file.size > 10 * 1024 * 1024) {
-            uploadError = "File too large. Maximum 10MB.";
-            return;
-        }
-
-        isUploading = true;
-        uploadError = "";
-
-        try {
-            const formData = new FormData();
-            formData.append("file", file);
-            // No key provided here, purely uploading a file
-
-            const response = await fetch("/api/images", {
-                method: "POST",
-                credentials: "include",
-                body: formData,
-            });
-
-            const data = await response.json();
-
-            if (data.success) {
-                await loadImages();
-                onSelect(data.url);
-                close();
-            } else {
-                uploadError = data.error || "Upload failed";
-            }
-        } catch (error) {
-            console.error("Error uploading image:", error);
-            uploadError = "Network error. Please try again.";
-        } finally {
-            isUploading = false;
-        }
+    function handleUploadSuccess(data: { reference: string }) {
+        onSelect(data.reference);
+        close();
     }
 
-    function handleFileSelect(e: Event) {
-        const input = e.target as HTMLInputElement;
-        if (input.files && input.files[0]) {
-            handleFileUpload(input.files[0]);
-        }
-    }
-
-    function handleDrop(e: DragEvent) {
-        e.preventDefault();
-        dragOver = false;
-        if (e.dataTransfer?.files && e.dataTransfer.files[0]) {
-            handleFileUpload(e.dataTransfer.files[0]);
-        }
-    }
-
-    function handleDragOver(e: DragEvent) {
-        e.preventDefault();
-        dragOver = true;
-    }
-
-    function handleDragLeave() {
-        dragOver = false;
-    }
-
-    // Delete a file from the server
-    async function deleteFile(filename: string, e: Event) {
-        e.stopPropagation(); // Prevent selection
-        if (!confirm("Are you sure you want to delete this file permenantly?"))
-            return;
-
-        isUploading = true;
-        try {
-            const response = await fetch(`/api/images?filename=${filename}`, {
-                method: "DELETE",
-                credentials: "include",
-            });
-
-            if (response.ok) {
-                await loadImages();
-            } else {
-                uploadError = "Failed to delete file";
-            }
-        } catch (err) {
-            console.error(err);
-            uploadError = "Error deleting file";
-        } finally {
-            isUploading = false;
-        }
+    function handleUploadError(data: { error: string }) {
+        console.error("Upload error:", data.error);
+        uploadError = data.error;
     }
 </script>
 
@@ -158,9 +63,7 @@
             <div
                 class="flex items-center justify-between px-6 py-4 border-b border-gray-200"
             >
-                <h2 class="text-xl font-bold text-gray-900">
-                    Wybierz lub wgraj obraz
-                </h2>
+                <h2 class="text-xl font-bold text-gray-900">Wgraj obraz</h2>
                 <button
                     type="button"
                     onclick={close}
@@ -184,109 +87,39 @@
 
             <!-- Content -->
             <div class="p-6 overflow-y-auto max-h-[calc(90vh-120px)]">
-                <!-- Upload Area -->
-                <div
-                    class="border-2 border-dashed rounded-xl p-8 text-center transition-colors mb-6 {dragOver
-                        ? 'border-purple-500 bg-purple-50'
-                        : 'border-gray-300 hover:border-purple-400'}"
-                    ondrop={handleDrop}
-                    ondragover={handleDragOver}
-                    ondragleave={handleDragLeave}
-                    role="region"
-                    aria-label="Upload Drop Zone"
-                >
-                    <input
-                        bind:this={fileInput}
-                        type="file"
-                        accept="image/*"
-                        class="hidden"
-                        onchange={handleFileSelect}
-                    />
-
-                    <svg
-                        class="w-12 h-12 mx-auto text-gray-400 mb-4"
-                        fill="none"
-                        stroke="currentColor"
-                        viewBox="0 0 24 24"
-                    >
-                        <path
-                            stroke-linecap="round"
-                            stroke-linejoin="round"
-                            stroke-width="2"
-                            d="M7 16a4 4 0 01-.88-7.903A5 5 0 1115.9 6L16 6a5 5 0 011 9.9M15 13l-3-3m0 0l-3 3m3-3v12"
-                        ></path>
-                    </svg>
-
-                    <p class="text-gray-600 mb-2">
-                        Przeciągnij obraz tutaj lub
-                    </p>
-                    <button
-                        type="button"
-                        onclick={() => fileInput?.click()}
-                        disabled={isUploading}
-                        class="px-6 py-2 bg-purple-600 text-white rounded-lg hover:bg-purple-700 transition disabled:opacity-50"
-                    >
-                        {isUploading ? "Wgrywanie..." : "Wybierz plik"}
-                    </button>
-                    <p class="text-sm text-gray-400 mt-2">
-                        JPG, PNG, GIF, WebP, SVG (max 10MB)
-                    </p>
-                </div>
-
-                {#if uploadError}
+                {#if $filekitToken}
                     <div
-                        class="text-red-600 text-sm mb-4 p-3 bg-red-50 rounded-lg"
+                        class="flex flex-col items-center justify-center p-8 border-2 border-dashed border-gray-300 rounded-xl bg-gray-50"
                     >
-                        {uploadError}
+                        <Uploader
+                            token={$filekitToken}
+                            accept="image/*"
+                            maxFileSize={10 * 1024 * 1024}
+                            onUpload={handleUploadSuccess}
+                            onError={handleUploadError}
+                            class="px-6 py-3 bg-purple-600 text-white font-semibold rounded-lg hover:bg-purple-700 transition cursor-pointer shadow-md"
+                            btnTxt="Wybierz lub przeciągnij plik"
+                        />
+                        <p class="text-sm text-gray-500 mt-4">
+                            Max 10MB. JPG, PNG, WebP, GIF.
+                        </p>
+                    </div>
+                {:else}
+                    <div class="flex items-center justify-center p-8">
+                        <div
+                            class="animate-spin rounded-full h-8 w-8 border-b-2 border-purple-600"
+                        ></div>
+                        <span class="ml-3 text-gray-600"
+                            >Ładowanie bezpiecznego połączenia...</span
+                        >
                     </div>
                 {/if}
 
-                <!-- Existing Images -->
-                {#if availableImages.length > 0}
-                    <div>
-                        <h3 class="text-sm font-semibold text-gray-700 mb-3">
-                            Lub wybierz z istniejących:
-                        </h3>
-                        <div class="grid grid-cols-3 gap-3">
-                            {#each availableImages as image}
-                                <div class="relative group">
-                                    <button
-                                        type="button"
-                                        onclick={() => onSelect(image.url)}
-                                        class="aspect-square rounded-lg overflow-hidden border-2 border-gray-200 hover:border-purple-500 transition-colors focus:outline-none focus:ring-2 focus:ring-purple-500 w-full"
-                                        disabled={isUploading}
-                                    >
-                                        <img
-                                            src={image.url}
-                                            alt={image.filename}
-                                            class="w-full h-full object-cover"
-                                        />
-                                    </button>
-
-                                    <!-- Delete File Button -->
-                                    <button
-                                        type="button"
-                                        class="absolute top-1 right-1 bg-red-600 text-white p-1 rounded-full opacity-0 group-hover:opacity-100 transition-opacity hover:bg-red-700"
-                                        onclick={(e) =>
-                                            deleteFile(image.filename, e)}
-                                        title="Delete file"
-                                    >
-                                        <svg
-                                            class="w-3 h-3"
-                                            fill="none"
-                                            stroke="currentColor"
-                                            viewBox="0 0 24 24"
-                                            ><path
-                                                stroke-linecap="round"
-                                                stroke-linejoin="round"
-                                                stroke-width="2"
-                                                d="M6 18L18 6M6 6l12 12"
-                                            ></path></svg
-                                        >
-                                    </button>
-                                </div>
-                            {/each}
-                        </div>
+                {#if uploadError}
+                    <div
+                        class="mt-4 text-red-600 text-sm p-3 bg-red-50 rounded-lg text-center"
+                    >
+                        {uploadError}
                     </div>
                 {/if}
             </div>

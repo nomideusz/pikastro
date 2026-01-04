@@ -34,6 +34,8 @@
 	import ImagePicker from "$lib/components/ImagePicker.svelte";
 	import { editModeStore } from "$lib/stores/editMode.svelte";
 	import { t } from "$lib/i18n";
+	import { Image } from "filekit-svelte";
+	import { filekitToken } from "$lib/stores/filekit.svelte";
 
 	// Portfolio sections with images
 	let portfolioSections = $state([
@@ -361,6 +363,11 @@
 		loadPortfolioContent();
 		startAutoScroll();
 
+		// Init FileKit token
+		if (!$filekitToken) {
+			filekitToken.init();
+		}
+
 		return () => {
 			observer.disconnect();
 			cancelAnimationFrame(animationFrameId);
@@ -487,14 +494,26 @@
 									style="height: 400px; border-color: {colors.accent}40; box-shadow: 0 10px 30px rgba(243, 42, 97, 0.3);"
 								>
 									<!-- svelte-ignore a11y_missing_attribute -->
-									<img
-										src={image}
-										alt="{t(
-											section.titleKey,
-										)} - obraz {imgIndex + 1}"
-										class="h-full w-auto object-contain"
-										draggable="false"
-									/>
+									{#if image && !image.startsWith("/") && !image.startsWith("http") && $filekitToken}
+										<Image
+											reference={image}
+											token={$filekitToken}
+											alt="{t(
+												section.titleKey,
+											)} - obraz {imgIndex + 1}"
+											class="h-full w-auto object-contain"
+											draggable="false"
+										/>
+									{:else}
+										<img
+											src={image}
+											alt="{t(
+												section.titleKey,
+											)} - obraz {imgIndex + 1}"
+											class="h-full w-auto object-contain"
+											draggable="false"
+										/>
+									{/if}
 
 									{#if checkEditAuth()}
 										<div
@@ -550,14 +569,26 @@
 									aria-hidden="true"
 								>
 									<!-- svelte-ignore a11y_missing_attribute -->
-									<img
-										src={image}
-										alt="{t(
-											section.titleKey,
-										)} - obraz {imgIndex + 1}"
-										class="h-full w-auto object-contain"
-										draggable="false"
-									/>
+									{#if image && !image.startsWith("/") && !image.startsWith("http") && $filekitToken}
+										<Image
+											reference={image}
+											token={$filekitToken}
+											alt="{t(
+												section.titleKey,
+											)} - obraz {imgIndex + 1}"
+											class="h-full w-auto object-contain"
+											draggable="false"
+										/>
+									{:else}
+										<img
+											src={image}
+											alt="{t(
+												section.titleKey,
+											)} - obraz {imgIndex + 1}"
+											class="h-full w-auto object-contain"
+											draggable="false"
+										/>
+									{/if}
 
 									{#if checkEditAuth()}
 										<div

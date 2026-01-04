@@ -1,6 +1,8 @@
 <script lang="ts">
     import { editModeStore } from "$lib/stores/editMode.svelte";
     import ImagePicker from "./ImagePicker.svelte";
+    import { Image } from "filekit-svelte";
+    import { filekitToken } from "$lib/stores/filekit.svelte";
 
     interface Props {
         /** Image key for registry (e.g., "home.hero.background") */
@@ -35,9 +37,20 @@
     // Get current image source (registry URL or default)
     let currentSrc = $derived(registeredUrl || defaultSrc);
 
+    // Check if source is a FileKit reference (simple heuristic: no slash/http)
+    let isFileKitReference = $derived(
+        currentSrc &&
+            !currentSrc.startsWith("/") &&
+            !currentSrc.startsWith("http"),
+    );
+
     // Load registry on mount
     $effect(() => {
         loadRegistry();
+        // Init token if needed
+        if (!$filekitToken) {
+            filekitToken.init();
+        }
     });
 
     async function loadRegistry() {
@@ -61,22 +74,26 @@
         isModalOpen = true;
     }
 
-    async function updateImage(url: string) {
+    async function updateImage(reference: string) {
         isUpdating = true;
         try {
             const response = await fetch("/api/images", {
                 method: "PUT",
                 credentials: "include",
                 headers: { "Content-Type": "application/json" },
-                body: JSON.stringify({ key: imageKey, url }),
+                body: JSON.stringify({ key: imageKey, reference }),
             });
 
             const data = await response.json();
 
             if (data.success) {
-                registeredUrl = url;
-                // Reload page to reflect changes across all instances
-                window.location.reload();
+                registeredUrl = reference;
+                // Ideally we don't reload if we can just update state,
+                // but for global consistency across components sharing same key, reload is safest for now.
+                // However, since we are using FileKit references, simply updating registeredUrl makes the
+                // <Image /> component render the new image immediately if token is valid.
+                // Let's try avoid reload for better UX.
+                // window.location.reload();
             } else {
                 console.error(data.error || "Failed to update image");
             }
@@ -105,7 +122,6 @@
 
             if (data.success) {
                 registeredUrl = null;
-                window.location.reload();
             } else {
                 console.error(data.error || "Failed to remove image");
             }
@@ -128,8 +144,18 @@
 <div
     class="editable-image-wrapper relative {isEditable ? 'cursor-pointer' : ''}"
 >
-    <!-- svelte-ignore a11y_missing_attribute -->
-    <img src={currentSrc} {alt} class={className} {...restProps} />
+    {#if isFileKitReference && $filekitToken}
+        <Image
+            reference={currentSrc}
+            token={$filekitToken}
+            {alt}
+            class={className}
+            {...restProps}
+        />
+    {:else}
+        <!-- svelte-ignore a11y_missing_attribute -->
+        <img src={currentSrc} {alt} class={className} {...restProps} />
+    {/if}
 
     {#if isEditable}
         <!-- Edit overlay -->
@@ -199,11 +225,6 @@
         display: contents;
     }
 
-    .editable-image-wrapper > img {
-        position: relative;
-    }
-
-    .editable-image-wrapper > div[role="button"] {
-        pointer-events: auto;
-    }
+    /* We can't target nested elements easily with display: contents as container */
+    /* Adjust selectors as needed or rely on global/scoped styles */
 </style>
