@@ -551,29 +551,31 @@
 								/>
 							{/each}
 							<!-- Duplicate set for seamless loop -->
-							{#each section.images as image, imgIndex}
-								<PortfolioCard
-									item={image}
-									index={imgIndex}
-									token={$filekitToken}
-									isEditable={!!checkEditAuth()}
-									altText="{t(
-										section.titleKey,
-									)} - img {imgIndex + 1} (dup)"
-									imageClass="h-full w-auto object-contain"
-									style="height: 400px; border-color: {colors.accent}40; box-shadow: 0 10px 30px rgba(243, 42, 97, 0.3);"
-									onEditImage={(idx) =>
-										openEditImage(section.id, idx)}
-									onDeleteImage={(idx) =>
-										handleDeleteImage(section.id, idx)}
-									onUpdateDescription={(idx, desc) =>
-										handleDescriptionUpdate(
-											section.id,
-											idx,
-											desc,
-										)}
-								/>
-							{/each}
+							{#if section.images.length > 3}
+								{#each section.images as image, imgIndex}
+									<PortfolioCard
+										item={image}
+										index={imgIndex}
+										token={$filekitToken}
+										isEditable={!!checkEditAuth()}
+										altText="{t(
+											section.titleKey,
+										)} - img {imgIndex + 1} (dup)"
+										imageClass="h-full w-auto object-contain"
+										style="height: 400px; border-color: {colors.accent}40; box-shadow: 0 10px 30px rgba(243, 42, 97, 0.3);"
+										onEditImage={(idx) =>
+											openEditImage(section.id, idx)}
+										onDeleteImage={(idx) =>
+											handleDeleteImage(section.id, idx)}
+										onUpdateDescription={(idx, desc) =>
+											handleDescriptionUpdate(
+												section.id,
+												idx,
+												desc,
+											)}
+									/>
+								{/each}
+							{/if}
 						</div>
 					</div>
 
